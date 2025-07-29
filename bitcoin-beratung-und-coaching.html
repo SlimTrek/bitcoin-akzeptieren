@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Persönliche Bitcoin-Beratung und Coaching: Maßgeschneiderte Sessions zu Investitionen, Sicherheit und mehr für eine dezentrale Zukunft.">
+    <title>Bitcoin-Beratung und Coaching – Bitcoin Akzeptieren</title>
+    <style>
+        :root {
+            --primary: #f7931a; /* Bitcoin Orange */
+            --accent: #da9100;
+            --bg-dark: #0d0d0d;
+            --text-light: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --transition: 0.6s ease-out;
+            --glow: rgba(247,147,26,0.3);
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.8;
+            position: relative;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary);
+            z-index: 100;
+            width: 0;
+            transition: width 0.1s ease;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(247,147,26,0.1) 0%, transparent 50%), radial-gradient(circle, rgba(247,147,26,0.05) 0%, transparent 70%);
+            animation: particles 40s linear infinite;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.8;
+        }
+        @keyframes particles {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25%) rotate(5deg); }
+            100% { transform: translateY(-50%) rotate(0deg); }
+        }
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            position: relative;
+            overflow: hidden;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+            animation: fadeInHeader 1.5s ease forwards;
+        }
+        @keyframes fadeInHeader {
+            to { opacity: 1; }
+        }
+        nav {
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            z-index: 10;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        header h1 {
+            font-size: 4rem;
+            margin: 0;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 1s ease 0.5s forwards;
+        }
+        header p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 1s ease 0.8s forwards;
+        }
+        @keyframes slideUp {
+            to { transform: translateY(0); opacity: 1; }
+        }
+        section {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.6s ease;
+            transform: translateX(-50%);
+        }
+        section.visible h2::after {
+            width: 200px;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        .service-card {
+            background: linear-gradient(135deg, rgba(247,147,26,0.1), rgba(0,0,0,0.5));
+            padding: 25px;
+            border-radius: 20px;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+        .service-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .service-card:hover {
+            box-shadow: 0 10px 20px var(--glow);
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        .service-card ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        .service-card ul li {
+            margin-bottom: 10px;
+        }
+        .pricing {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
+        .contact {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .contact a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        .support {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: var(--transition);
+        }
+        .support.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .support p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .support a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .support a:hover {
+            text-decoration: underline;
+        }
+        .support img {
+            max-width: 200px;
+            height: auto;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(247,147,26,0.2);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        footer.visible {
+            opacity: 1;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.8rem; }
+            nav ul { flex-direction: column; text-align: center; gap: 10px; }
+            section { padding: 60px 10px; }
+            .services { grid-template-columns: 1fr; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Start</a></li>
+            <li><a href="/nostr.html">Nostr</a></li>
+            <li><a href="/empfehlungen.html">Empfehlungen</a></li>
+            <li><a href="/about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Bitcoin-Beratung und Coaching</h1>
+        <p>Persönliche Sessions für deine dezentrale Reise.</p>
+    </header>
+
+    <section class="intro">
+        <h2>Deine individuelle Bitcoin-Beratung</h2>
+        <p>Ich kombiniere umfassendes Fachwissen mit realer Praxis und bin seit Jahren in Bitcoin und früheren Kryptowährungen engagiert. Jede Beratungssession wird präzise auf deine persönlichen Ziele und Anforderungen abgestimmt.</p>
+        <p>Schau dir unsere Themenbereiche an oder wähle das flexible "Freestyle"-Modul, das sich vollständig an deinen Wünschen orientiert. Gib am Ende deiner Anfrage deine spezifischen Bedürfnisse an – wir passen uns an.</p>
+        <p>Alle Sessions finden online statt, für maximale Flexibilität. Preise: 1 Stunde = 95 CHF | 2 Stunden = 150 CHF. Zahlung gerne auch über Lightning für echte Bitcoin-Fans.</p>
+    </section>
+
+    <section class="services">
+        <h2>Unsere Beratungsthemen</h2>
+        <div class="service-card">
+            <h3>Investieren in Bitcoin & Co.</h3>
+            <p><strong>Dein Anliegen:</strong> Du suchst eine sichere Einstiegsmöglichkeit in Bitcoin und andere Kryptowährungen und brauchst eine fundierte Anleitung zu Plattformen und Strategien.</p>
+            <p><strong>Was du mitnimmst:</strong> Grundwissen zum Erwerb, Plattformauswahl und passende Ansätze, die zu deinen Zielen passen.</p>
+            <p><strong>Für wen geeignet?</strong> Anfänger und erfahrene Investoren, die ihre Taktik optimieren möchten.</p>
+            <ul>
+                <li>Verstehe den Kaufprozess und wähle die passende Plattform</li>
+                <li>Entwickle maßgeschneiderte Investitionsstrategien und Sparpläne</li>
+                <li>Plane und setze deine Investitionsziele um</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <h3>Sicherheit & Verwahrung mit Cold-Wallets</h3>
+            <p><strong>Dein Anliegen:</strong> Du möchtest deine Bitcoin- und Krypto-Assets optimal schützen und suchst nach bewährten Verwahrmethoden und Tools.</p>
+            <p><strong>Was du mitnimmst:</strong> Praktische Lösungen für sichere Aufbewahrung und ein solides Sicherheitskonzept.</p>
+            <p><strong>Für wen geeignet?</strong> Alle, die in Bitcoin & Krypto investieren und ihre Werte langfristig absichern wollen.</p>
+            <ul>
+                <li>Implementiere effektive Sicherheitsmaßnahmen</li>
+                <li>Erweitere dein Wissen zu Verwahroptionen wie Cold-Wallets</li>
+                <li>Nutze erprobte Techniken, um deine Investments zu schützen</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <h3>Erkennung & Umgang mit Betrug und Scams</h3>
+            <p><strong>Dein Anliegen:</strong> Du willst lernen, wie man Scams im Krypto-Space erkennt und was im Fall der Fälle zu tun ist.</p>
+            <p><strong>Was du mitnimmst:</strong> Fähigkeiten, um unseriöse Angebote zu identifizieren und richtig zu handeln.</p>
+            <p><strong>Für wen geeignet?</strong> Investoren, die sich vor Risiken schützen und sicher navigieren möchten.</p>
+            <ul>
+                <li>Erkenne gängige Betrugsmuster und Strategien</li>
+                <li>Entwickle Handlungspläne für Betrugsfälle</li>
+                <li>Unterscheide zwischen vertrauenswürdigen und riskanten Optionen</li>
+            </ul>
+        </div>
+        <div class="service-card">
+            <h3>Freestyle: Deine Bedürfnisse</h3>
+            <p><strong>Dein Anliegen:</strong> Du hast einzigartige Fragen oder Themen, die nicht in den Standardmodulen passen.</p>
+            <p><strong>Was du mitnimmst:</strong> Vollständig angepasste Beratung, die genau auf deine Anforderungen eingeht.</p>
+            <p><strong>Für wen geeignet?</strong> Alle mit speziellen Wünschen, die individuelle Unterstützung brauchen.</p>
+            <p>Beschreibe deine Themen in deiner Anfrage – wir klären vorab, falls nötig.</p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>So kommst du zu mir</h2>
+        <p>Schreib mir einfach eine E-Mail mit deinen Wünschen, und wir vereinbaren einen Online-Termin. Keine komplizierten Formulare – direkt und dezentral.</p>
+        <p><a href="mailto:patrik.bal.work@gmail.com">patrik.bal.work@gmail.com</a></p>
+        <p>Zahlung: Überweisung oder Lightning (für Bitcoin-Zahlungen). Ich sende dir nach Absprache eine Rechnung zu.</p>
+    </section>
+
+    <section class="faq">
+        <h2>Häufige Fragen</h2>
+        <ul>
+            <li><strong>Wie läuft eine Session ab?</strong> Wir treffen uns online via Zoom oder einem dezentralen Tool – du entscheidest.</li>
+            <li><strong>Kann ich Bitcoin für die Zahlung nutzen?</strong> Ja, gerne über Lightning für schnelle und günstige Transaktionen.</li>
+            <li><strong>Gibt es eine Garantie?</strong> Jede Session ist individuell – bei Unzufriedenheit besprechen wir eine Lösung.</li>
+        </ul>
+    </section>
+
+    <section class="support">
+        <h2>Supporte meine Arbeit</h2>
+        <p>Falls dir meine Arbeit gefällt und du mich unterstützen möchtest, kannst du mir einen Lightning-Zap schicken. Jeder Beitrag hilft, dieses Projekt weiterzuentwickeln!</p>
+        <p>Lightning-Adresse: <a href="lightning:humanraft81@walletofsatoshi.com">humanraft81@walletofsatoshi.com</a></p>
+        <img src="Images/Lightning_QR.jpg" alt="Lightning QR Code for humanraft81@walletofsatoshi.com">
+    </section>
+
+    <footer>
+        <p>© 2025 Bitcoin Akzeptieren. Dezentralisiert und unabhängig. Powered by Nostr & Bitcoin.</p>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section, .service-card, footer, .support');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => observer.observe(section));
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (scrollTop / scrollHeight) * 100;
+            document.body.style.setProperty('--scroll', scrolled + '%');
+            document.body.after.style.width = `${scrolled}%`;
+        });
+    </script>
+</body>
+</html>
