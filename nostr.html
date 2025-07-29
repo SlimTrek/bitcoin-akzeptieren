@@ -155,6 +155,15 @@
             gap: 30px;
             margin-top: 60px;
         }
+        .gallery-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
         .gallery-info {
             text-align: center;
             margin-bottom: 40px;
@@ -215,6 +224,25 @@
             background: var(--accent);
             box-shadow: 0 5px 15px var(--glow);
         }
+        /* Dropdown Styles for Sports News */
+        details {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        summary {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        details[open] .sports-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
         .support {
             text-align: center;
             margin-top: 80px;
@@ -261,6 +289,7 @@
             nav ul { flex-direction: column; text-align: center; gap: 10px; }
             section { padding: 60px 10px; }
             .gallery { grid-template-columns: 1fr; }
+            details[open] .sports-gallery { grid-template-columns: 1fr; }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -282,73 +311,80 @@
 
     <section class="gallery">
         <h2>Entdecke die Dimensionen</h2>
+        <p class="gallery-intro">Nostr ist ein dezentrales Social-Media-Protokoll, das wie Bitcoin auf offener Technologie basiert. Es funktioniert ohne zentrale Server – deine Daten gehören dir, und niemand kann dich zensieren. Stattdessen verbindest du dich über Relays (verteilte Knoten), die Nachrichten weiterleiten. Das macht Nostr resistent gegen Kontrolle durch Unternehmen oder Regierungen. Warum sinnvoll? In einer Welt voller Zensur und Datenskandale bietet Nostr echte Freiheit: Du kannst anonym posten, Zaps (kleine Bitcoin-Zahlungen) empfangen und Communities aufbauen, ohne Algorithmen, die dich manipulieren. Ideal für Bitcoin-Enthusiasten, da es nahtlos mit Lightning integriert ist – probiere es aus und erlebe echte Dezentralisierung!</p>
         <p class="gallery-info">Um auf diese Nostr-Kanäle zuzugreifen, brauchst du einen Nostr-Client. Empfohlen: <a href="https://damus.io/" target="_blank">Damus</a> auf iOS, <a href="https://play.google.com/store/apps/details?id=com.vitorpamplona.amethyst" target="_blank">Amethyst</a> auf Android. Für PC/Browser: <a href="https://primal.net/" target="_blank">Primal</a> oder <a href="https://iris.to/" target="_blank">Iris</a>. Installiere einen Client und klicke auf die Links, um den Kanal zu öffnen.</p>
         <div class="gallery-card">
             <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2z"/></svg>
-            <h3>Facts & Insights</h3>
-            <p>Datengetriebene Analysen zu Bitcoin's Impact – von Energieverbrauch bis zu Wirtschaftsmodellen.</p>
+            <h3>BitRebell</h3>
+            <p>Der Bitcoin Rebell – ehrlich, kontrovers und direkt. BitRebell teilt ungeschminkte Meinungen zu Bitcoin-Themen, die in der Community ankommen, von Kritik an Zentralbanken bis zu rebellischen Tipps für die Dezentralisierung.</p>
             <a href="nostr:npub15pfu03955f0kkjgdlvcjksumk2mdk5pxaqtgf05j0mc7m5c8ku5spuu44e">Erkunde</a>
         </div>
         <div class="gallery-card">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-            <h3>Motivation & Growth</h3>
-            <p>Strategien für persönliches Wachstum in einer dezentralen Economy – von Wallet-Setup bis zu langfristigen Investments.</p>
+            <h3>Mr. Motivation</h3>
+            <p>Dein Motivations-Booster für die Community: Mr. Motivation fokussiert sich auf Persönlichkeitsentwicklung, teilt inspirierende Tipps und Strategien, um in der dezentralen Welt zu wachsen und motiviert zu bleiben.</p>
             <a href="nostr:npub1sjgumk65zxyk64g9f8n5g9ntgfkkfg4g0e3g47fp7p98ujmwpdasxdqjud">Erkunde</a>
         </div>
         <div class="gallery-card">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-            <h3>Love & Connection</h3>
-            <p>Baue echte Verbindungen in dezentralen Communities – von Meetups bis zu globalen Netzwerken.</p>
+            <h3>Dr. Summer</h3>
+            <p>Dein Berater für emotionale Themen: Dr. Summer ist die Anlaufstelle bei Liebeskummer, Beziehungsfragen oder Alltagsstress – mit einfühlsamen Ratschlägen in der dezentralen Community.</p>
             <a href="nostr:npub1r806x4fsepx69tsprzqha3v97jjsck40m6xuvglq06ezsfpqanwsxaq5as">Erkunde</a>
         </div>
-        <div class="gallery-card">
-            <svg viewBox="0 0 24 24"><path d="M21 13H3v-2h18v2zm0-5H3V6h18v2zm0 7H3v2h18v-2z"/></svg>
-            <h3>MMA News auf Nostr</h3>
-            <p>Aktuelle Updates zu Mixed Martial Arts, UFC, Kämpfern und Kampfsport-Trends.</p>
-            <a href="nostr:npub1lfvp4l62zvwc4axtve2hhf69ercmxvctawcag8fwsxg77wppl7hq8ksht3">Erkunde</a>
-        </div>
-        <div class="gallery-card">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-            <h3>Soccer News auf Nostr</h3>
-            <p>Aktuelle News zu Fußball, Ligen, Matches und Spielern.</p>
-            <a href="nostr:npub1rclsrnqcylhmdk89ktwz4sfh77a5ymcn3tceakzg5hkvyaw3texs7yq3yt">Erkunde</a>
-        </div>
-        <div class="gallery-card">
-            <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
-            <h3>Racing News auf Nostr</h3>
-            <p>Aktuelle Updates zu F1, Motorsport, Rennen und Fahrern.</p>
-            <a href="nostr:npub1y2hm6lkr7px672rj2ty95x8etjycq6kaynzu5gzvauqx92jmwewsrzjxj0">Erkunde</a>
-        </div>
-        <div class="gallery-card">
-            <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2z"/></svg>
-            <h3>Pickleball News auf Nostr</h3>
-            <p>Aktuelle News zu Pickleball, Turnieren und Racketsport-Trends.</p>
-            <a href="nostr:npub1h5xdlu6pyg4cw6d88f7x8mrssvv5dmey0pdfdxmwv086tmtzg4lsun23sm">Erkunde</a>
-        </div>
-        <div class="gallery-card">
-            <svg viewBox="0 0 24 24"><path d="M21 13H3v-2h18v2zm0-5H3V6h18v2zm0 7H3v2h18v-2z"/></svg>
-            <h3>eSports News auf Nostr</h3>
-            <p>Aktuelle Updates zu eSports, Gaming-Turnieren und Teams.</p>
-            <a href="nostr:npub1c7nsvq95n9e8h9ujn8d5ds0ad6u3gw9tqydujpr597ela2f8677qqpmgra">Erkunde</a>
-        </div>
-        <div class="gallery-card">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-            <h3>Women's Sports News auf Nostr</h3>
-            <p>Aktuelle News zu Frauen-Sport, Ligen und Athletinnen.</p>
-            <a href="nostr:npub1uwzhz4funf9e03hwl3uxg2utsxa5rea3y9y740ta594rrve0ryqqqfzsdg">Erkunde</a>
-        </div>
-        <div class="gallery-card">
-            <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2z"/></svg>
-            <h3>Fitness News auf Nostr</h3>
-            <p>Aktuelle Updates zu Fitness, Workouts und Wellness-Trends.</p>
-            <a href="nostr:npub1a3l582klswspjd5ds2fpwgqp9l9fjtj72tqr5tk565ahx96cekzsjyc2jd">Erkunde</a>
-        </div>
-        <div class="gallery-card">
-            <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
-            <h3>Extreme Sports News auf Nostr</h3>
-            <p>Aktuelle News zu Extreme Sports, Events und Adrenalin-Sports.</p>
-            <a href="nostr:npub1v2lxclnltt5e5gz0968vcwkkssq3dahr2sgfpm03sm2vclk266uq4vgjkn">Erkunde</a>
-        </div>
+        <!-- Dropdown for Sports News -->
+        <details>
+            <summary>Sports News</summary>
+            <div class="sports-gallery">
+                <div class="gallery-card">
+                    <svg viewBox="0 0 24 24"><path d="M21 13H3v-2h18v2zm0-5H3V6h18v2zm0 7H3v2h18v-2z"/></svg>
+                    <h3>MMA News auf Nostr</h3>
+                    <p>Aktuelle Updates zu Mixed Martial Arts, UFC, Kämpfern und Kampfsport-Trends.</p>
+                    <a href="nostr:npub1lfvp4l62zvwc4axtve2hhf69ercmxvctawcag8fwsxg77wppl7hq8ksht3">Erkunde</a>
+                </div>
+                <div class="gallery-card">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                    <h3>Soccer News auf Nostr</h3>
+                    <p>Aktuelle News zu Fußball, Ligen, Matches und Spielern.</p>
+                    <a href="nostr:npub1rclsrnqcylhmdk89ktwz4sfh77a5ymcn3tceakzg5hkvyaw3texs7yq3yt">Erkunde</a>
+                </div>
+                <div class="gallery-card">
+                    <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                    <h3>Racing News auf Nostr</h3>
+                    <p>Aktuelle Updates zu F1, Motorsport, Rennen und Fahrern.</p>
+                    <a href="nostr:npub1y2hm6lkr7px672rj2ty95x8etjycq6kaynzu5gzvauqx92jmwewsrzjxj0">Erkunde</a>
+                </div>
+                <div class="gallery-card">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2z"/></svg>
+                    <h3>Pickleball News auf Nostr</h3>
+                    <p>Aktuelle News zu Pickleball, Turnieren und Racketsport-Trends.</p>
+                    <a href="nostr:npub1h5xdlu6pyg4cw6d88f7x8mrssvv5dmey0pdfdxmwv086tmtzg4lsun23sm">Erkunde</a>
+                </div>
+                <div class="gallery-card">
+                    <svg viewBox="0 0 24 24"><path d="M21 13H3v-2h18v2zm0-5H3V6h18v2zm0 7H3v2h18v-2z"/></svg>
+                    <h3>eSports News auf Nostr</h3>
+                    <p>Aktuelle Updates zu eSports, Gaming-Turnieren und Teams.</p>
+                    <a href="nostr:npub1c7nsvq95n9e8h9ujn8d5ds0ad6u3gw9tqydujpr597ela2f8677qqpmgra">Erkunde</a>
+                </div>
+                <div class="gallery-card">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                    <h3>Women's Sports News auf Nostr</h3>
+                    <p>Aktuelle News zu Frauen-Sport, Ligen und Athletinnen.</p>
+                    <a href="nostr:npub1uwzhz4funf9e03hwl3uxg2utsxa5rea3y9y740ta594rrve0ryqqqfzsdg">Erkunde</a>
+                </div>
+                <div class="gallery-card">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2z"/></svg>
+                    <h3>Fitness News auf Nostr</h3>
+                    <p>Aktuelle Updates zu Fitness, Workouts und Wellness-Trends.</p>
+                    <a href="nostr:npub1a3l582klswspjd5ds2fpwgqp9l9fjtj72tqr5tk565ahx96cekzsjyc2jd">Erkunde</a>
+                </div>
+                <div class="gallery-card">
+                    <svg viewBox="0 0 24 24"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+                    <h3>Extreme Sports News auf Nostr</h3>
+                    <p>Aktuelle News zu Extreme Sports, Events und Adrenalin-Sports.</p>
+                    <a href="nostr:npub1v2lxclnltt5e5gz0968vcwkkssq3dahr2sgfpm03sm2vclk266uq4vgjkn">Erkunde</a>
+                </div>
+            </div>
+        </details>
     </section>
 
     <section class="support">
