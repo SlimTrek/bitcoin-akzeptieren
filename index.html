@@ -65,8 +65,7 @@
             overflow: hidden;
             opacity: 0;
             animation: fadeInHeader 1.5s ease forwards;
-            background: url('Images/Backround.jpg') no-repeat center center / cover; /* Hintergrundbild */
-            transform-style: preserve-3d; /* Für Parallax */
+            background: url('Images/Backround.jpg') no-repeat center center / cover; /* Angepasster Pfad */
         }
         .header-overlay {
             position: absolute;
@@ -76,41 +75,6 @@
             height: 100%;
             background: linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.7)), radial-gradient(circle at 50% 50%, rgba(247, 147, 26, 0.2) 0%, transparent 70%);
             z-index: 1;
-        }
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: inherit; /* Erbt das Bild */
-            transform: translateZ(-1px) scale(1.5); /* Parallax-Effekt */
-            z-index: 0;
-        }
-        .particle-container {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            overflow: hidden;
-        }
-        .particle {
-            position: absolute;
-            font-size: 1.2rem;
-            color: var(--primary);
-            opacity: 0.6;
-            animation: float 15s infinite linear;
-        }
-        .particle:nth-child(1) { top: 20%; left: 10%; animation-duration: 12s; }
-        .particle:nth-child(2) { top: 40%; left: 30%; animation-duration: 18s; }
-        .particle:nth-child(3) { top: 60%; left: 50%; animation-duration: 15s; }
-        .particle:nth-child(4) { top: 80%; left: 70%; animation-duration: 20s; }
-        .particle:nth-child(5) { top: 30%; left: 90%; animation-duration: 14s; }
-        @keyframes float {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
-            50% { transform: translateY(-30px) rotate(180deg); opacity: 0.8; }
-            100% { transform: translateY(0) rotate(360deg); opacity: 0.6; }
         }
         header h1 {
             font-size: 4rem;
@@ -285,13 +249,6 @@
 
     <header style="background-image: url('Images/Backround.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="header-overlay"></div>
-        <div class="particle-container">
-            <span class="particle">₿</span>
-            <span class="particle">₿</span>
-            <span class="particle">₿</span>
-            <span class="particle">₿</span>
-            <span class="particle">₿</span>
-        </div>
         <h1>Bitcoin Akzeptieren</h1>
         <p>Freiheit als strategische Wahl in einer dezentralen Realität.</p>
     </header>
