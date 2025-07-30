@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Über Patrik: Meine Reise mit Bitcoin seit 2016 – von den ersten Sats bis zur Expertise in Coaching und Beratung.">
+    <title>Über mich – Bitcoin Akzeptieren</title>
+    <style>
+        :root {
+            --primary: #f7931a; /* Bitcoin Orange */
+            --accent: #da9100;
+            --bg-dark: #0d0d0d;
+            --text-light: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --transition: 0.6s ease-out;
+            --glow: rgba(247,147,26,0.3);
+            --card-bg1: linear-gradient(145deg, rgba(247,147,26,0.2), rgba(0,0,0,0.7)); /* Abschnitt Kurz */
+            --card-bg2: linear-gradient(145deg, rgba(247,147,26,0.15), rgba(13,13,13,0.8)); /* Abschnitt Lang */
+            --icon-color: #f7931a;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.8;
+            position: relative;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--primary);
+            z-index: 100;
+            width: 0;
+            transition: width 0.1s ease;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(247,147,26,0.1) 0%, transparent 50%), radial-gradient(circle, rgba(247,147,26,0.05) 0%, transparent 70%);
+            animation: particles 40s linear infinite;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.8;
+        }
+        @keyframes particles {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25%) rotate(5deg); }
+            100% { transform: translateY(-50%) rotate(0deg); }
+        }
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            position: relative;
+            overflow: hidden;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            opacity: 0;
+            animation: fadeInHeader 1.5s ease forwards;
+        }
+        @keyframes fadeInHeader {
+            to { opacity: 1; }
+        }
+        nav {
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            z-index: 10;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--accent);
+        }
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.4);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 1s ease 0.5s forwards;
+        }
+        header p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            transform: translateY(50px);
+            opacity: 0;
+            animation: slideUp 1s ease 0.8s forwards;
+        }
+        @keyframes slideUp {
+            to { transform: translateY(0); opacity: 1; }
+        }
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transition: width 0.6s ease;
+            transform: translateX(-50%);
+        }
+        section.visible h2::after {
+            width: 200px;
+        }
+        section h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        section h3 i {
+            font-size: 1.6rem;
+            color: var(--icon-color);
+        }
+        .about-short, .about-long {
+            padding: 25px;
+            border-radius: 15px;
+            text-align: left;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            position: relative;
+        }
+        .about-short.visible, .about-long.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .about-short:hover, .about-long:hover {
+            box-shadow: 0 10px 20px var(--glow);
+            transform: translateY(-5px) scale(1.02);
+        }
+        .about-short {
+            background: var(--card-bg1);
+            border-left: 6px solid var(--primary);
+            margin-bottom: 60px;
+        }
+        .about-long {
+            background: var(--card-bg2);
+            border-right: 6px solid var(--accent);
+        }
+        .about-long p {
+            margin-bottom: 20px;
+        }
+        .contact {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .contact a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        .contact a:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+        }
+        .support {
+            text-align: center;
+            margin-top: 80px;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: var(--transition);
+        }
+        .support.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .support p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        .support a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .support a:hover {
+            text-decoration: underline;
+        }
+        .support img {
+            max-width: 200px;
+            height: auto;
+            margin-top: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(247,147,26,0.2);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        footer.visible {
+            opacity: 1;
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1.2rem; }
+            nav ul { flex-direction: column; text-align: center; gap: 10px; }
+            section { padding: 60px 15px; }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Start</a></li>
+            <li><a href="/nostr.html">Nostr</a></li>
+            <li><a href="/empfehlungen.html">Empfehlungen</a></li>
+            <li><a href="/bitcoin-beratung-und-coaching.html">Coaching</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Über mich</h1>
+        <p>Meine Reise mit Bitcoin – von den ersten Schritten bis zur Leidenschaft für dezentrale Finanzen.</p>
+    </header>
+
+    <section class="intro">
+        <h2>Über mich</h2>
+        <div class="about-short visible">
+            <h3><i class="fas fa-user"></i> Wer ich bin</h3>
+            <p>Mein Name ist Patrik, und seit 2016 bin ich tief in die Welt von Bitcoin eingetaucht. Alles begann mit einem 20-Franken-Nötli und einem Paper-Wallet an einem Automaten in Zürich – damals hatte ich keine Ahnung, was ich da gekauft hatte, und meine ersten Sats waren schnell weg.</p>
+            <p>2021 fand ich durch Zufall zurück zu Bitcoin, diesmal mit einer ernsthaften Auseinandersetzung: Geldgeschichte, Technologie, Ethik und Selbstverantwortung. Über 2.000 Stunden Wissen aus Büchern, Podcasts, Meetups und Diskussionen später teile ich meine Erfahrung auf bitcoin-akzeptieren.ch – praxisnah, ehrlich und auf die Schweiz zugeschnitten.</p>
+            <p>Ich unterstütze Einzelpersonen, Selbständige und Unternehmen, die Bitcoin verstehen, sicher nutzen oder akzeptieren wollen. Meine Stärke? Ich weiß, wie es ist, am Anfang zu stehen, und erkläre dir Bitcoin auf Augenhöhe – ohne komplizierten Jargon.</p>
+            <p><a href="mailto:patrik.bal.work@gmail.com">Kontaktiere mich für dein Coaching</a></p>
+        </div>
+    </section>
+
+    <section class="about-long-section">
+        <h2>Meine Bitcoin-Geschichte im Detail</h2>
+        <div class="about-long visible">
+            <h3><i class="fas fa-bitcoin"></i> Wie alles begann</h3>
+            <p>Alles begann 2016. Als 17-jähriger Elektriker-Lehrling stieß ich durch Schulkollegen zufällig auf Bitcoin. In einem Café im Zürcher Niederdörfli stand ein Bitcoin-Automat. Ich hatte zuvor nur vage von Bitcoin gehört, mich aber nie damit beschäftigt. Mit einem Kollegen kaufte ich für ein 20-Franken-Nötli meine ersten Bitcoin als Paper-Wallet – damals kostete ein Bitcoin etwa 400 Franken. Ich erinnere mich, wie ich in der Schule laut ausrief: „Ihr glaubt nicht, was ein Bitcoin kostet – über 400 Franken! Wer kauft denn so was Teures?“</p>
+            <p>Ich hatte keine Ahnung, was ich mit meinen Bitcoin machen sollte. Eine Woche später hatte ich sie irgendwie an verschiedene Adressen verschickt, ohne zu wissen, was ich tat – im Grunde hatte ich sie „gespendet“. Danach verlor ich Bitcoin aus den Augen, bis...</p>
+            <h3><i class="fas fa-lightbulb"></i> Das Rabbit Hole: 2021</h3>
+            <p>2021 entdeckte ich Bitcoin erneut, diesmal durch ein YouTube-Video, während ich mich mit Finanzthemen wie Aktien beschäftigte. Ab da war ich gefesselt. Ich tauchte ins sogenannte Rabbit Hole ein und verschlang täglich Inhalte zu Bitcoin – von Technik über Ökonomie bis Philosophie. Schätzungsweise habe ich seitdem über 2.100 Stunden Wissen angesammelt, durch Bücher, Podcasts, Meetups und Diskussionen.</p>
+            <p>Bitcoin fasziniert mich, weil es so viele Bereiche des Lebens berührt: Geldgeschichte, Kryptographie, Ethik, Selbstverantwortung und sogar Physik. Geld und Technologie sind überall – jedes Objekt hat ein unsichtbares Preisschild, sei es durch Material, Herstellung oder Dienstleistung. Und fast jeder hat heute ein Smartphone, oft sogar ohne Bankkonto.</p>
+            <h3><i class="fas fa-globe"></i> Warum Bitcoin die Welt verändert</h3>
+            <p>Bitcoin ist mehr als eine Währung – es ist ein Werkzeug für Freiheit. In Ländern mit korrupten Finanzsystemen oder Regierungen schützt Bitcoin Menschen vor Enteignung und Zensur. Es gibt die Kontrolle über das Geld zurück an das Individuum. Wie es heißt: „Geld regiert die Welt.“ Ich glaube, wer das Geld kontrolliert, kontrolliert die Welt – und Bitcoin gibt diese Macht den Menschen zurück.</p>
+            <p>In der Schweiz sind wir mit dem starken Franken privilegiert, doch Bitcoin ist auch hier relevant: als Investition, zunehmend als Zahlungsmittel (wie in Zug oder Lugano) und als Ausdruck von Unabhängigkeit. Ich könnte stundenlang über Bitcoin sprechen, weil es unser Leben verbessern kann – durch Sicherheit, Freiheit und Selbstbestimmung.</p>
+            <p><a href="/bitcoin-beratung-und-coaching.html">Erfahre mehr über mein Coaching</a></p>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>Kontaktiere mich</h2>
+        <p>Du hast Fragen zu meiner Geschichte oder möchtest ein Coaching buchen? Schreib mir direkt!</p>
+        <p><a href="mailto:patrik.bal.work@gmail.com">Jetzt Kontakt aufnehmen</a></p>
+    </section>
+
+    <section class="support">
+        <h2>Unterstütze mein Projekt</h2>
+        <p>Gefällt dir meine Arbeit? Schicke mir einen Lightning-Zap, um dieses Projekt weiter wachsen zu lassen!</p>
+        <p>Lightning-Adresse: <a href="lightning:humanraft81@walletofsatoshi.com">humanraft81@walletofsatoshi.com</a></p>
+        <img src="Images/Lightning_QR.jpg" alt="Lightning QR Code for humanraft81@walletofsatoshi.com">
+    </section>
+
+    <footer>
+        <p>© 2025 Bitcoin Akzeptieren. Dezentralisiert und unabhängig. Powered by Nostr & Bitcoin.</p>
+    </footer>
+
+    <script>
+        const sections = document.querySelectorAll('section, .about-short, .about-long, footer, .support');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => observer.observe(section));
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (scrollTop / scrollHeight) * 100;
+            document.body.style.setProperty('--scroll', scrolled + '%');
+            document.body.after.style.width = `${scrolled}%`;
+        });
+    </script>
+</body>
+</html>
