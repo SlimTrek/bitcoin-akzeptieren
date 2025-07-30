@@ -65,7 +65,8 @@
             overflow: hidden;
             opacity: 0;
             animation: fadeInHeader 1.5s ease forwards;
-            background: url('Images/Backround.jpg') no-repeat center center / cover; /* Angepasster Pfad */
+            background: url('Images/Backround.jpg') no-repeat center center; /* Entferne 'cover' für natürliche Skalierung */
+            background-size: auto 100%; /* Skaliert das Bild proportional zur Höhe */
         }
         .header-overlay {
             position: absolute;
@@ -75,6 +76,10 @@
             height: 100%;
             background: linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.7)), radial-gradient(circle at 50% 50%, rgba(247, 147, 26, 0.2) 0%, transparent 70%);
             z-index: 1;
+            transition: opacity var(--transition);
+        }
+        header:hover .header-overlay {
+            opacity: 0.4; /* Fade-Out beim Hover */
         }
         header h1 {
             font-size: 4rem;
@@ -87,6 +92,11 @@
             transform: translateY(50px);
             opacity: 0;
             animation: slideUp 1s ease 0.5s forwards, glowPulse 2s infinite alternate;
+            transition: transform var(--transition);
+        }
+        header h1:hover {
+            transform: translateY(50px) scale(1.1); /* Leichte Vergrößerung beim Hover */
+            text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 25px rgba(247, 147, 26, 1);
         }
         header p {
             font-size: 1.4rem;
