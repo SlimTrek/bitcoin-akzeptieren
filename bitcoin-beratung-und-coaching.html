@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Individuelles Bitcoin-Coaching in der Schweiz: Praktische Beratung zu Investitionen, Sicherheit und Krypto-Scams für deine dezentrale Zukunft.">
-    <title>Bitcoin-Coaching Schweiz – Bitcoin Akzeptieren</title>
+    <meta name="description" content="Persönliche Bitcoin-Beratung und Coaching: Maßgeschneiderte Sessions zu Investitionen, Sicherheit und mehr für eine dezentrale Zukunft.">
+    <title>Bitcoin-Beratung und Coaching – Bitcoin Akzeptieren</title>
     <style>
         :root {
             --primary: #f7931a; /* Bitcoin Orange */
@@ -14,11 +14,6 @@
             --text-muted: #a0a0a0;
             --transition: 0.6s ease-out;
             --glow: rgba(247,147,26,0.3);
-            --card-bg1: linear-gradient(145deg, rgba(247,147,26,0.2), rgba(0,0,0,0.7)); /* Modul 1 */
-            --card-bg2: linear-gradient(145deg, rgba(247,147,26,0.15), rgba(13,13,13,0.8)); /* Modul 2 */
-            --card-bg3: linear-gradient(145deg, rgba(247,147,26,0.25), rgba(0,0,0,0.6)); /* Modul 3 */
-            --card-bg4: linear-gradient(145deg, rgba(247,147,26,0.1), rgba(20,20,20,0.9)); /* Modul 4 */
-            --icon-color: #f7931a;
         }
         body {
             margin: 0;
@@ -70,7 +65,7 @@
             overflow: hidden;
             opacity: 0;
             animation: fadeInHeader 1.5s ease forwards;
-            background: none; /* Entferne den alten Gradient */
+            background: url('Images/Backround.jpg') no-repeat center center / cover;
         }
         .header-overlay {
             position: absolute;
@@ -80,9 +75,13 @@
             height: 100%;
             background: linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.7)), radial-gradient(circle at 50% 50%, rgba(247, 147, 26, 0.2) 0%, transparent 70%);
             z-index: 1;
+            transition: opacity var(--transition);
+        }
+        header:hover .header-overlay {
+            opacity: 0.4;
         }
         header h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             margin: 0;
             text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 15px rgba(247, 147, 26, 0.8);
             color: var(--text-light);
@@ -92,6 +91,11 @@
             transform: translateY(50px);
             opacity: 0;
             animation: slideUp 1s ease 0.5s forwards, glowPulse 2s infinite alternate;
+            transition: transform var(--transition);
+        }
+        header h1:hover {
+            transform: translateY(50px) scale(1.1);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 25px rgba(247, 147, 26, 1);
         }
         header p {
             font-size: 1.4rem;
@@ -138,7 +142,7 @@
             color: var(--accent);
         }
         section {
-            padding: 80px 20px;
+            padding: 100px 20px;
             max-width: 1200px;
             margin: 0 auto;
             opacity: 0;
@@ -183,8 +187,6 @@
             opacity: 0;
             transform: translateY(20px);
             transition: var(--transition);
-            position: relative;
-            min-height: 350px;
         }
         .service-card.visible {
             opacity: 1;
@@ -192,36 +194,20 @@
         }
         .service-card:hover {
             box-shadow: 0 10px 20px var(--glow);
-            transform: translateY(-5px) scale(1.02);
+            transform: translateY(-5px);
         }
         .service-card h3 {
             font-size: 1.8rem;
             color: var(--primary);
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .service-card h3 i {
-            font-size: 1.6rem;
-            color: var(--icon-color);
         }
         .service-card ul {
-            list-style: none;
-            padding-left: 0;
+            list-style: disc;
+            padding-left: 20px;
             margin-top: 15px;
         }
         .service-card ul li {
             margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
-        }
-        .service-card ul li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
         }
         .service-card a {
             display: inline-block;
@@ -233,33 +219,6 @@
         }
         .service-card a:hover {
             color: var(--text-light);
-        }
-        /* Grafische Variationen pro Card */
-        .service-card:nth-child(1) {
-            background: var(--card-bg1);
-            border-left: 6px solid var(--primary);
-        }
-        .service-card:nth-child(2) {
-            background: var(--card-bg2);
-            border-top: 6px solid var(--accent);
-            border-radius: 10px 10px 15px 15px;
-        }
-        .service-card:nth-child(3) {
-            background: var(--card-bg3);
-            border-right: 6px solid var(--primary);
-            border-radius: 15px 10px 15px 10px;
-        }
-        .service-card:nth-child(4) {
-            background: var(--card-bg4);
-            border-bottom: 6px solid var(--accent);
-            border-radius: 15px 15px 10px 10px;
-        }
-        .pricing {
-            text-align: center;
-            margin-top: 60px;
-            padding: 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
         }
         .contact {
             text-align: center;
@@ -277,6 +236,13 @@
         .contact a:hover {
             background: var(--primary);
             color: var(--bg-dark);
+        }
+        .faq ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .faq ul li {
+            margin-bottom: 15px;
         }
         .support {
             text-align: center;
@@ -320,16 +286,13 @@
             opacity: 1;
         }
         @media (max-width: 768px) {
-            header h1 { font-size: 2.5rem; }
-            header p { font-size: 1.2rem; }
+            header h1 { font-size: 2.8rem; }
             nav ul { flex-direction: column; text-align: center; gap: 10px; }
-            section { padding: 60px 15px; }
+            section { padding: 60px 10px; }
             .services { grid-template-columns: 1fr; }
-            .service-card { min-height: auto; }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <nav>
@@ -342,92 +305,86 @@
         </ul>
     </nav>
 
-    <header style="background-image: url('/Images/background.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <header style="background-image: url('Images/Backround.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="header-overlay"></div>
-        <h1>Bitcoin-Coaching Schweiz</h1>
-        <p>Dein Weg zur finanziellen Freiheit mit massgeschneiderten Bitcoin-Sessions.</p>
+        <h1>Bitcoin-Beratung und Coaching</h1>
+        <p>Persönliche Sessions für deine dezentrale Reise.</p>
     </header>
 
     <section class="intro">
-        <h2>Dein persönliches Bitcoin-Coaching</h2>
-        <p>Seit 2021 tauche ich tief in die Welt von Bitcoin und einigen Kryptowährungen ein. <p><a href="/about.html">Mehr Infos über mich findest du hier</a></p> 
-        Mein Ziel? Dir praktisches Wissen zu vermitteln, damit du sicher und selbstbewusst in die dezentrale Zukunft startest. Ob Einsteiger oder Fortgeschrittener – ich passe jede Session an deine Ziele an.</p>
-        <p>Entdecke meine drei Coaching-Module oder wähle eine Freestyle-Session für deine spezifischen Fragen. Alles online, flexibel und direkt. </p>
-          <p>Preise: 95 CHF pro Stunde, 150 CHF für zwei Stunden – Bitcoin-Zahlung über Lightning bevorzugt!</p>
+        <h2>Dein individuelle Bitcoin-Beratung</h2>
+        <p>Ich kombiniere umfassendes Fachwissen mit realer Praxis und bin seit Jahren in Bitcoin und früheren Kryptowährungen engagiert. Jede Beratungssession wird präzise auf deine persönlichen Ziele und Anforderungen abgestimmt.</p>
+        <p>Schau dir unsere Themenbereiche an oder wähle das flexible "Freestyle"-Modul, das sich vollständig an deinen Wünschen orientiert. Gib am Ende deiner Anfrage deine spezifischen Bedürfnisse an – wir passen uns an.</p>
+        <p>Alle Sessions finden online statt, für maximale Flexibilität. Preise: 1 Stunde = 95 CHF | 2 Stunden = 150 CHF. Zahlung gerne auch über Lightning für echte Bitcoin-Fans.</p>
     </section>
 
     <section class="services">
-        <h2>Deine Coaching-Module</h2>
+        <h2>Unsere Beratungsthemen</h2>
         <div class="service-card">
-            <h3><i class="fas fa-coins"></i>Bitcoin-Investitionen meistern</h3>
-            <p><strong>Dein Startpunkt:</strong> Du willst in Bitcoin investieren, weißt aber nicht, wo du anfangen sollst oder wie du Risiken minimierst.</p>
-            <p><strong>Dein Gewinn:</strong> Ein klarer Plan für deinen Einstieg, passende Plattformen und Strategien, die zu dir passen.</p>
-            <p><strong>Ideal für:</strong> Anfänger, die ihren ersten Bitcoin kaufen möchten, oder Investoren, die ihr Portfolio optimieren wollen.</p>
+            <h3>Investieren in Bitcoin & Co.</h3>
+            <p><strong>Dein Anliegen:</strong> Du suchst eine sichere Einstiegsmöglichkeit in Bitcoin und andere Kryptowährungen und brauchst eine fundierte Anleitung zu Plattformen und Strategien.</p>
+            <p><strong>Was du mitnimmst:</strong> Grundwissen zum Erwerb, Plattformauswahl und passende Ansätze, die zu deinen Zielen passen.</p>
+            <p><strong>Für wen geeignet?</strong> Anfänger und erfahrene Investoren, die ihre Taktik optimieren möchten.</p>
             <ul>
-                <li>Sichere Kaufprozesse auf vertrauenswürdigen Börsen verstehen.</li>
-                <li>Deinen Sparplan mit DCA oder anderen Strategien aufbauen.</li>
-                <li>Häufige Anlegerfehler vermeiden – vom Timing bis zur Steuer.</li>
+                <li>Verstehe den Kaufprozess und wähle die passende Plattform</li>
+                <li>Entwickle maßgeschneiderte Investitionsstrategien und Sparpläne</li>
+                <li>Plane und setze deine Investitionsziele um</li>
             </ul>
             <a href="mailto:patrik.bal.work@gmail.com">Jetzt Session buchen</a>
         </div>
         <div class="service-card">
-            <h3><i class="fas fa-lock"></i>Sicherer Schutz deiner Bitcoin</h3>
-            <p><strong>Dein Startpunkt:</strong> Du hast Bitcoin oder andere Kryptowährungen, möchtest sie aber vor Diebstahl oder Verlust schützen.</p>
-            <p><strong>Dein Gewinn:</strong> Praktische Tools und ein maßgeschneiderter Plan, um deine Bitcoin sicher zu verwahren.</p>
-            <p><strong>Ideal für:</strong> Krypto-Besitzer, die ihre Assets langfristig absichern wollen – vom Einsteiger bis zum HODLer.</p>
+            <h3>Sicherheit & Verwahrung mit Cold-Wallets</h3>
+            <p><strong>Dein Anliegen:</strong> Du möchtest deine Bitcoin- und Krypto-Assets optimal schützen und suchst nach bewährten Verwahrmethoden und Tools.</p>
+            <p><strong>Was du mitnimmst:</strong> Praktische Lösungen für sichere Aufbewahrung und ein solides Sicherheitskonzept.</p>
+            <p><strong>Für wen geeignet?</strong> Alle, die in Bitcoin & Krypto investieren und ihre Werte langfristig absichern wollen.</p>
             <ul>
-                <li>Einfache Einrichtung von Cold-Wallets und Hardware-Lösungen.</li>
-                <li>Multi-Sig- und Backup-Techniken für maximale Sicherheit.</li>
-                <li>Ein Sicherheitskonzept, das zu deinem Lebensstil passt.</li>
+                <li>Implementiere effektive Sicherheitsmaßnahmen</li>
+                <li>Erweitere dein Wissen zu Verwahroptionen wie Cold-Wallets</li>
+                <li>Nutze erprobte Techniken, um deine Investments zu schützen</li>
             </ul>
             <a href="mailto:patrik.bal.work@gmail.com">Jetzt Session buchen</a>
         </div>
         <div class="service-card">
-            <h3><i class="fas fa-exclamation-circle"></i>Scams erkennen und vermeiden</h3>
-            <p><strong>Dein Startpunkt:</strong> Du willst im Krypto-Dschungel sicher navigieren und Betrügereien aus dem Weg gehen.</p>
-            <p><strong>Dein Gewinn:</strong> Werkzeuge, um Scams zu erkennen, und konkrete Schritte, um dich zu schützen oder zu reagieren.</p>
-            <p><strong>Ideal für:</strong> Investoren, die sich vor Phishing, Fake-Projekten und anderen Risiken schützen wollen.</p>
+            <h3>Erkennung & Umgang mit Betrug und Scams</h3>
+            <p><strong>Dein Anliegen:</strong> Du willst lernen, wie man Scams im Krypto-Space erkennt und was im Fall der Fälle zu tun ist.</p>
+            <p><strong>Was du mitnimmst:</strong> Fähigkeiten, um unseriöse Angebote zu identifizieren und richtig zu handeln.</p>
+            <p><strong>Für wen geeignet?</strong> Investoren, die sich vor Risiken schützen und sicher navigieren möchten.</p>
             <ul>
-                <li>Rote Flaggen wie Fake-Wallets oder unrealistische Angebote erkennen.</li>
-                <li>Notfallplan erstellen: Von Behördenkontakt bis Schadensbegrenzung.</li>
-                <li>Echte Projekte von Betrug unterscheiden – mit Praxisbeispielen.</li>
+                <li>Erkenne gängige Betrugsmuster und Strategien</li>
+                <li>Entwickle Handlungspläne für Betrugsfälle</li>
+                <li>Unterscheide zwischen vertrauenswürdigen und riskanten Optionen</li>
             </ul>
             <a href="mailto:patrik.bal.work@gmail.com">Jetzt Session buchen</a>
         </div>
         <div class="service-card">
-            <h3><i class="fas fa-rocket"></i>Freestyle: Deine Krypto-Fragen</h3>
-            <p><strong>Dein Startpunkt:</strong> Du hast spezifische Fragen, die über Standardthemen hinausgehen – von DeFi bis Steuern.</p>
-            <p><strong>Dein Gewinn:</strong> Eine komplett individuelle Session, die genau deine Themen klärt und Lösungen bietet.</p>
-            <p><strong>Ideal für:</strong> Alle, die tief in Nischenthemen eintauchen oder komplexe Probleme lösen wollen.</p>
-            <ul>
-                <li>Vorab deine Fragen teilen – ich bereite maßgeschneiderte Inhalte vor.</li>
-                <li>Themen wie Lightning-Network, Mining oder Steueroptimierung abdecken.</li>
-                <li>Maximale Flexibilität für deine persönliche Krypto-Reise.</li>
-            </ul>
+            <h3>Freestyle: Deine Bedürfnisse</h3>
+            <p><strong>Dein Anliegen:</strong> Du hast einzigartige Fragen oder Themen, die nicht in den Standardmodulen passen.</p>
+            <p><strong>Was du mitnimmst:</strong> Vollständig angepasste Beratung, die genau auf deine Anforderungen eingeht.</p>
+            <p><strong>Für wen geeignet?</strong> Alle mit speziellen Wünschen, die individuelle Unterstützung brauchen.</p>
+            <p>Beschreibe deine Themen in deiner Anfrage – wir klären vorab, falls nötig.</p>
             <a href="mailto:patrik.bal.work@gmail.com">Jetzt Session buchen</a>
         </div>
     </section>
 
     <section class="contact">
-        <h2>Starte jetzt deine Reise</h2>
-        <p>Kontaktiere mich direkt per E-Mail, und wir legen deinen Online-Termin fest. Einfach und unkompliziert.</p>
+        <h2>So kommst du zu mir</h2>
+        <p>Schreib mir einfach eine E-Mail mit deinen Wünschen, und wir vereinbaren einen Online-Termin. Keine komplizierten Formulare – direkt und dezentral.</p>
         <p><a href="mailto:patrik.bal.work@gmail.com">Jetzt Kontakt aufnehmen</a></p>
-        <p>Zahlung per Banküberweisung oder Bitcoin. Rechnung sowie Quittung folgt nach Absprache.</p>
+        <p>Zahlung: Überweisung oder Lightning (für Bitcoin-Zahlungen). Ich sende dir nach Absprache eine Rechnung zu.</p>
     </section>
 
     <section class="faq">
         <h2>Häufige Fragen</h2>
         <ul>
-            <li><strong>Wie läuft eine Session ab?</strong> Wir treffen uns online via Zoom oder einem Tool deiner Wahl.</li>
-            <li><strong>Kann ich mit Bitcoin zahlen?</strong> Ja, da Bitcoin wie eine Banküberweisung eine Transparente Transaktions ID besitzt als Quittung, unterstütze ich das.</li>
-            <li><strong>Was, wenn ich nicht zufrieden bin?</strong> Wir finden eine Lösung – deine Zufriedenheit ist mein Ziel.</li>
-            <li><strong>Brauche ich Vorkenntnisse?</strong> Nein, ich passe die Session an dein Wissenslevel an.</li>
+            <li><strong>Wie läuft eine Session ab?</strong> Wir treffen uns online via Zoom oder einem dezentralen Tool – du entscheidest.</li>
+            <li><strong>Kann ich Bitcoin für die Zahlung nutzen?</strong> Ja, gerne über Lightning für schnelle und günstige Transaktionen.</li>
+            <li><strong>Gibt es eine Garantie?</strong> Jede Session ist individuell – bei Unzufriedenheit besprechen wir eine Lösung.</li>
         </ul>
     </section>
 
     <section class="support">
-        <h2>Unterstütze mein Projekt mit einer kleinen Spende</h2>
-        <p>Gefällt dir meine Arbeit? Schicke mir einen Lightning-Zap, um dieses Projekt weiter wachsen zu lassen!</p>
+        <h2>Supporte meine Arbeit</h2>
+        <p>Falls dir meine Arbeit gefällt und du mich unterstützen möchtest, kannst du mir einen Lightning-Zap schicken. Jeder Beitrag hilft, dieses Projekt weiterzuentwickeln!</p>
         <p>Lightning-Adresse: <a href="lightning:humanraft81@walletofsatoshi.com">humanraft81@walletofsatoshi.com</a></p>
         <img src="Images/Lightning_QR.jpg" alt="Lightning QR Code for humanraft81@walletofsatoshi.com">
     </section>
