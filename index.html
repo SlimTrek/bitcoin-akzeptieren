@@ -65,7 +65,7 @@
             overflow: hidden;
             opacity: 0;
             animation: fadeInHeader 1.5s ease forwards;
-            background: none; /* Entferne den alten Gradient */
+            background: url('/images/background.jpg') no-repeat center center / cover; /* Fallback für ältere Browser */
         }
         .header-overlay {
             position: absolute;
@@ -247,7 +247,7 @@
         </ul>
     </nav>
 
-    <header style="background-image: url('Images/background.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <header style="background-image: url('/images/background.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
         <div class="header-overlay"></div>
         <h1>Bitcoin Akzeptieren</h1>
         <p>Freiheit als strategische Wahl in einer dezentralen Realität.</p>
