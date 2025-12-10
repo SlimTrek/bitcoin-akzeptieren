@@ -3,413 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Persönliche Bitcoin-Beratung und Coaching: Maßgeschneiderte Sessions zu Investitionen, Sicherheit und mehr für eine dezentrale Zukunft.">
-    <title>Bitcoin-Beratung und Coaching – Bitcoin Akzeptieren</title>
+    <meta name="description" content="Individuelles Bitcoin Mentoring: Technische Unterstützung bei Kauf, Hardware-Wallets und Sicherheit. Hilfe zur Selbsthilfe.">
+    <title>Mentoring & Coaching – Bitcoin Akzeptieren</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #f7931a; /* Bitcoin Orange */
-            --accent: #da9100;
-            --bg-dark: #0d0d0d;
-            --text-light: #f5f5f5;
-            --text-muted: #a0a0a0;
-            --transition: 0.6s ease-out;
-            --glow: rgba(247,147,26,0.3);
+            --primary: #f7931a;
+            --primary-hover: #e0820b;
+            --bg-dark: #0a0a0a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.07);
+            --text-main: #ffffff;
+            --text-muted: #a3a3a3;
+            --border-light: rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        * { box-sizing: border-box; }
+        
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.8;
-            position: relative;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
-        body::after {
-            content: '';
+
+        /* --- Background Animation (Identisch zur Startseite) --- */
+        .bg-gradient {
             position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: var(--primary);
-            z-index: 100;
-            width: 0;
-            transition: width 0.1s ease;
-        }
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(247,147,26,0.1) 0%, transparent 50%), radial-gradient(circle, rgba(247,147,26,0.05) 0%, transparent 70%);
-            animation: particles 40s linear infinite;
-            pointer-events: none;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            opacity: 0.8;
+            background: 
+                radial-gradient(circle at 85% 10%, rgba(247, 147, 26, 0.05), transparent 25%),
+                radial-gradient(circle at 15% 60%, rgba(50, 50, 50, 0.1), transparent 30%);
+            pointer-events: none;
         }
-        @keyframes particles {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-25%) rotate(5deg); }
-            100% { transform: translateY(-50%) rotate(0deg); }
-        }
-        header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeInHeader 1.5s ease forwards;
-            background: url('Images/Backround.jpg') no-repeat center center / cover;
-        }
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.7)), radial-gradient(circle at 50% 50%, rgba(247, 147, 26, 0.2) 0%, transparent 70%);
-            z-index: 1;
-            transition: opacity var(--transition);
-        }
-        header:hover .header-overlay {
-            opacity: 0.4;
-        }
-        header h1 {
-            font-size: 4rem;
-            margin: 0;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 15px rgba(247, 147, 26, 0.8);
-            color: var(--text-light);
-            position: relative;
-            z-index: 2;
-            animation: glowPulse 2s infinite alternate;
-            transform: translateY(50px);
-            opacity: 0;
-            animation: slideUp 1s ease 0.5s forwards, glowPulse 2s infinite alternate;
-            transition: transform var(--transition);
-        }
-        header h1:hover {
-            transform: translateY(50px) scale(1.1);
-            text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 25px rgba(247, 147, 26, 1);
-        }
-        header p {
-            font-size: 1.4rem;
-            max-width: 700px;
-            transform: translateY(50px);
-            opacity: 0;
-            animation: slideUp 1s ease 0.8s forwards;
-            position: relative;
-            z-index: 2;
-        }
-        @keyframes fadeInHeader {
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes glowPulse {
-            from { text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 10px rgba(247, 147, 26, 0.6); }
-            to { text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 20px rgba(247, 147, 26, 1); }
-        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; padding: 0; margin: 0; }
+
+        /* --- Navigation --- */
         nav {
             position: fixed;
-            top: 20px;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 0;
-            z-index: 10;
-        }
-        nav ul {
-            list-style: none;
+            top: 0; left: 0; width: 100%;
+            padding: 15px 5%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
         }
-        nav ul li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-        section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: var(--transition);
-        }
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        section h2 {
-            font-size: 2.5rem;
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }
+
+        /* --- Header --- */
+        header {
+            padding: 180px 20px 100px;
             text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            width: 0;
-            height: 3px;
-            background: var(--primary);
-            transition: width 0.6s ease;
-            transform: translateX(-50%);
+
+        header h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        section.visible h2::after {
-            width: 200px;
+
+        header p { font-size: 1.2rem; color: var(--text-muted); }
+
+        /* --- Sections --- */
+        section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        
+        h2 {
+            font-size: 2rem; margin-bottom: 40px; text-align: center;
+            color: var(--text-main);
         }
-        .services {
+        h2 span { color: var(--primary); }
+
+        /* --- Pricing / Info Cards --- */
+        .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+            gap: 20px;
+            margin-bottom: 60px;
         }
-        .service-card {
-            padding: 25px;
-            border-radius: 15px;
-            text-align: left;
-            opacity: 0;
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            border-color: var(--primary);
+            background: var(--bg-card-hover);
+            transform: translateY(-5px);
+        }
+
+        .price-tag {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 10px 0;
+            display: block;
+        }
+
+        .price-sub { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* --- Services Grid --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item {
+            background: linear-gradient(145deg, rgba(255,255,255,0.02) 0%, rgba(0,0,0,0) 100%);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 30px;
+            opacity: 0; /* Animation Start */
             transform: translateY(20px);
             transition: var(--transition);
         }
-        .service-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .service-card:hover {
-            box-shadow: 0 10px 20px var(--glow);
-            transform: translateY(-5px);
-        }
-        .service-card h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        .service-card ul {
-            list-style: disc;
-            padding-left: 20px;
-            margin-top: 15px;
-        }
-        .service-card ul li {
-            margin-bottom: 10px;
-        }
-        .service-card a {
+
+        .service-item.visible { opacity: 1; transform: translateY(0); }
+
+        .service-item h3 { color: var(--primary); margin-top: 0; font-size: 1.4rem; }
+        
+        .service-item ul { margin: 20px 0; padding-left: 20px; }
+        .service-item ul li { margin-bottom: 10px; color: var(--text-muted); list-style: disc; }
+        .service-item ul li::marker { color: var(--primary); }
+
+        .cta-button {
             display: inline-block;
-            margin-top: 15px;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        .service-card a:hover {
-            color: var(--text-light);
-        }
-        .contact {
-            text-align: center;
-            margin-top: 40px;
-        }
-        .contact a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            border: 2px solid var(--primary);
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-        .contact a:hover {
-            background: var(--primary);
-            color: var(--bg-dark);
-        }
-        .faq ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .faq ul li {
-            margin-bottom: 15px;
-        }
-        .support {
-            text-align: center;
-            margin-top: 80px;
-            padding: 40px 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: var(--transition);
-        }
-        .support.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .support p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        .support a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-        .support a:hover {
-            text-decoration: underline;
-        }
-        .support img {
-            max-width: 200px;
-            height: auto;
             margin-top: 20px;
+            padding: 10px 20px;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
+
+        .cta-button:hover { background: var(--primary); color: #000; }
+
+        /* --- FAQ / Details --- */
+        .details-section {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 60px;
+            border: 1px solid var(--border-light);
+        }
+
+        .faq-item { margin-bottom: 20px; }
+        .faq-item strong { color: var(--text-main); display: block; margin-bottom: 5px; }
+        .faq-item p { margin: 0; color: var(--text-muted); }
+
+        /* --- Footer (Same as index) --- */
         footer {
-            text-align: center;
-            padding: 50px 20px;
-            font-size: 0.95rem;
-            border-top: 1px solid rgba(247,147,26,0.2);
-            opacity: 0;
-            transition: var(--transition);
+            text-align: center; padding: 40px; border-top: 1px solid var(--border-light);
+            font-size: 0.9rem; color: var(--text-muted); margin-top: 60px;
         }
-        footer.visible {
-            opacity: 1;
+
+        /* --- Disclaimer --- */
+        .disclaimer {
+            font-size: 0.75rem; color: #666; text-align: center; margin-top: 40px; max-width: 800px; margin-left: auto; margin-right: auto;
         }
+
+        /* --- Responsive --- */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.8rem; }
-            nav ul { flex-direction: column; text-align: center; gap: 10px; }
-            section { padding: 60px 10px; }
-            .services { grid-template-columns: 1fr; }
+            .nav-links {
+                position: absolute; top: 70px; left: 0; width: 100%;
+                background: var(--bg-dark); flex-direction: column;
+                align-items: center; padding: 20px 0; gap: 20px;
+                clip-path: circle(0% at 100% 0); transition: clip-path 0.5s ease-in-out;
+                border-bottom: 1px solid var(--border-light);
+            }
+            .nav-links.active { clip-path: circle(150% at 100% 0); }
+            .menu-toggle { display: block; }
+            header { padding-top: 120px; }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div class="bg-gradient"></div>
+
+    <!-- Navigation (Identisch zur Startseite, aber Active State angepasst) -->
     <nav>
-        <ul>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f7931a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            Bitcoin Akzeptieren
+        </div>
+        <div class="menu-toggle" id="mobile-menu">☰</div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="/">Start</a></li>
-            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung und Coaching</a></li>
+            <li><a href="/bitcoin-beratung-und-coaching.html" class="active">Beratung</a></li>
             <li><a href="/nostr.html">Nostr</a></li>
             <li><a href="/empfehlungen.html">Empfehlungen</a></li>
             <li><a href="/about.html">About</a></li>
         </ul>
     </nav>
 
-    <header style="background-image: url('Images/Backround.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
-        <div class="header-overlay"></div>
-        <h1>Bitcoin-Beratung und Coaching</h1>
-        <p>Persönliche Sessions für deine dezentrale Reise.</p>
+    <header>
+        <h1>Dein Weg zur <br>Digitalen Souveränität</h1>
+        <p>Bitcoin ist mehr als ein Investment. Es ist ein Werkzeug für Unabhängigkeit. <br>Ich helfe dir, dieses Werkzeug sicher und kompetent zu nutzen.</p>
     </header>
 
-    <section class="intro">
-        <h2>Dein individuelle Bitcoin-Beratung</h2>
-        <p>Ich kombiniere umfassendes Fachwissen mit realer Praxis und bin seit Jahren in Bitcoin und früheren Kryptowährungen engagiert. Jede Beratungssession wird präzise auf deine persönlichen Ziele und Anforderungen abgestimmt.</p>
-        <p>Schau dir unsere Themenbereiche an oder wähle das flexible "Freestyle"-Modul, das sich vollständig an deinen Wünschen orientiert. Gib am Ende deiner Anfrage deine spezifischen Bedürfnisse an – wir passen uns an.</p>
-        <p>Alle Sessions finden online statt, für maximale Flexibilität. Preise: 1 Stunde = 95 CHF | 2 Stunden = 150 CHF. Zahlung gerne auch über Lightning für echte Bitcoin-Fans.</p>
-    </section>
-
-    <section class="services">
-        <h2>Unsere Beratungsthemen</h2>
-        <div class="service-card">
-            <h3>Investieren in Bitcoin & Co.</h3>
-            <p><strong>Dein Anliegen:</strong> Du suchst eine sichere Einstiegsmöglichkeit in Bitcoin und andere Kryptowährungen und brauchst eine fundierte Anleitung zu Plattformen und Strategien.</p>
-            <p><strong>Was du mitnimmst:</strong> Grundwissen zum Erwerb, Plattformauswahl und passende Ansätze, die zu deinen Zielen passen.</p>
-            <p><strong>Für wen geeignet?</strong> Anfänger und erfahrene Investoren, die ihre Taktik optimieren möchten.</p>
-            <ul>
-                <li>Verstehe den Kaufprozess und wähle die passende Plattform</li>
-                <li>Entwickle maßgeschneiderte Investitionsstrategien und Sparpläne</li>
-                <li>Plane und setze deine Investitionsziele um</li>
-            </ul>
-            <a href="mailto:patrik.bal.work@gmail.com">Jetzt Session buchen</a>
+    <section>
+        <div class="pricing-grid">
+            <div class="info-card">
+                <h3>Fokus Session</h3>
+                <span class="price-tag">95 CHF</span>
+                <span class="price-sub">pro Stunde (60 Min)</span>
+                <p style="margin-top: 15px; color: var(--text-muted);">Ideal für spezifische Fragen oder die Einrichtung einer Wallet.</p>
+            </div>
+            <div class="info-card">
+                <h3>Deep Dive</h3>
+                <span class="price-tag">150 CHF</span>
+                <span class="price-sub">für 2 Stunden (120 Min)</span>
+                <p style="margin-top: 15px; color: var(--text-muted);">Ausführliche Strategie, Sicherheitskonzepte und umfassendes Onboarding.</p>
+            </div>
         </div>
-        <div class="service-card">
-            <h3>Sicherheit & Verwahrung mit Cold-Wallets</h3>
-            <p><strong>Dein Anliegen:</strong> Du möchtest deine Bitcoin- und Krypto-Assets optimal schützen und suchst nach bewährten Verwahrmethoden und Tools.</p>
-            <p><strong>Was du mitnimmst:</strong> Praktische Lösungen für sichere Aufbewahrung und ein solides Sicherheitskonzept.</p>
-            <p><strong>Für wen geeignet?</strong> Alle, die in Bitcoin & Krypto investieren und ihre Werte langfristig absichern wollen.</p>
-            <ul>
-                <li>Implementiere effektive Sicherheitsmaßnahmen</li>
-                <li>Erweitere dein Wissen zu Verwahroptionen wie Cold-Wallets</li>
-                <li>Nutze erprobte Techniken, um deine Investments zu schützen</li>
-            </ul>
-            <a href="mailto:patrik.bal.work@gmail.com">Jetzt Session buchen</a>
-        </div>
-        <div class="service-card">
-            <h3>Erkennung & Umgang mit Betrug und Scams</h3>
-            <p><strong>Dein Anliegen:</strong> Du willst lernen, wie man Scams im Krypto-Space erkennt und was im Fall der Fälle zu tun ist.</p>
-            <p><strong>Was du mitnimmst:</strong> Fähigkeiten, um unseriöse Angebote zu identifizieren und richtig zu handeln.</p>
-            <p><strong>Für wen geeignet?</strong> Investoren, die sich vor Risiken schützen und sicher navigieren möchten.</p>
-            <ul>
-                <li>Erkenne gängige Betrugsmuster und Strategien</li>
-                <li>Entwickle Handlungspläne für Betrugsfälle</li>
-                <li>Unterscheide zwischen vertrauenswürdigen und riskanten Optionen</li>
-            </ul>
-            <a href="mailto:patrik.bal.work@gmail.com">Jetzt Session buchen</a>
-        </div>
-        <div class="service-card">
-            <h3>Freestyle: Deine Bedürfnisse</h3>
-            <p><strong>Dein Anliegen:</strong> Du hast einzigartige Fragen oder Themen, die nicht in den Standardmodulen passen.</p>
-            <p><strong>Was du mitnimmst:</strong> Vollständig angepasste Beratung, die genau auf deine Anforderungen eingeht.</p>
-            <p><strong>Für wen geeignet?</strong> Alle mit speziellen Wünschen, die individuelle Unterstützung brauchen.</p>
-            <p>Beschreibe deine Themen in deiner Anfrage – wir klären vorab, falls nötig.</p>
-            <a href="mailto:patrik.bal.work@gmail.com">Jetzt Session buchen</a>
-        </div>
-    </section>
 
-    <section class="contact">
-        <h2>So kommst du zu mir</h2>
-        <p>Schreib mir einfach eine E-Mail mit deinen Wünschen, und wir vereinbaren einen Online-Termin. Keine komplizierten Formulare – direkt und dezentral.</p>
-        <p><a href="mailto:patrik.bal.work@gmail.com">Jetzt Kontakt aufnehmen</a></p>
-        <p>Zahlung: Überweisung oder Lightning (für Bitcoin-Zahlungen). Ich sende dir nach Absprache eine Rechnung zu.</p>
-    </section>
+        <h2><span>Mentoring</span> Schwerpunkte</h2>
+        
+        <div class="services-grid">
+            <!-- Modul 1 -->
+            <div class="service-item">
+                <h3>🏁 Der sichere Start</h3>
+                <p>Der erste Schritt ist oft der schwerste. Wir überspringen den Lärm der Medien und konzentrieren uns auf die Fakten.</p>
+                <ul>
+                    <li>Wie und wo kaufe ich Bitcoin ohne versteckte Gebühren?</li>
+                    <li>KYC vs. Non-KYC: Was passt zu deiner Privatsphäre?</li>
+                    <li>Einrichtung der ersten Accounts und Sparpläne.</li>
+                </ul>
+                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Bitcoin%20Start" class="cta-button">Termin anfragen</a>
+            </div>
 
-    <section class="faq">
-        <h2>Häufige Fragen</h2>
-        <ul>
-            <li><strong>Wie läuft eine Session ab?</strong> Wir treffen uns online via Zoom oder einem dezentralen Tool – du entscheidest.</li>
-            <li><strong>Kann ich Bitcoin für die Zahlung nutzen?</strong> Ja, gerne über Lightning für schnelle und günstige Transaktionen.</li>
-            <li><strong>Gibt es eine Garantie?</strong> Jede Session ist individuell – bei Unzufriedenheit besprechen wir eine Lösung.</li>
-        </ul>
-    </section>
+            <!-- Modul 2 -->
+            <div class="service-item">
+                <h3>🔐 Self-Custody (Verwahrung)</h3>
+                <p>"Not your keys, not your coins". Das Herzstück von Bitcoin. Lerne, wie du deine eigene Bank wirst.</p>
+                <ul>
+                    <li>Einrichtung von Hardware Wallets (BitBox02, Ledger, etc.)</li>
+                    <li>Sichere Generierung und Aufbewahrung des Backups (Seed).</li>
+                    <li>Wiederherstellungsszenarien üben (Disaster Recovery).</li>
+                </ul>
+                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Self%20Custody" class="cta-button">Termin anfragen</a>
+            </div>
 
-    <section class="support">
-        <h2>Supporte meine Arbeit</h2>
-        <p>Falls dir meine Arbeit gefällt und du mich unterstützen möchtest, kannst du mir einen Lightning-Zap schicken. Jeder Beitrag hilft, dieses Projekt weiterzuentwickeln!</p>
-        <p>Lightning-Adresse: <a href="lightning:humanraft81@walletofsatoshi.com">humanraft81@walletofsatoshi.com</a></p>
-        <img src="Images/Lightning_QR.jpg" alt="Lightning QR Code for humanraft81@walletofsatoshi.com">
+            <!-- Modul 3 -->
+            <div class="service-item">
+                <h3>🛡️ Gefahrenabwehr</h3>
+                <p>Der Krypto-Space ist voll von Fallstricken. Ich zeige dir, wie du Betrug erkennst und deine Bestände schützt.</p>
+                <ul>
+                    <li>Erkennen von Phishing und Scams.</li>
+                    <li>Warum "Yield" und "Staking" oft Risiken bergen.</li>
+                    <li>Trennung von "Krypto-Casino" und Bitcoin-Sparen.</li>
+                </ul>
+                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Sicherheit" class="cta-button">Termin anfragen</a>
+            </div>
+
+            <!-- Modul 4 -->
+            <div class="service-item">
+                <h3>💬 Individuelles Mentoring</h3>
+                <p>Du bist schon investiert, hast aber spezifische technische Fragen oder willst Nodes betreiben?</p>
+                <ul>
+                    <li>Lightning Network verstehen und nutzen.</li>
+                    <li>Technische Fragen zu Transaktionen (UTXO Management).</li>
+                    <li>Nostr Einrichtung und Keys-Management.</li>
+                </ul>
+                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Mentoring" class="cta-button">Termin anfragen</a>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <h3 style="color:var(--primary); margin-top:0;">Häufige Fragen</h3>
+            <div class="faq-item">
+                <strong>Wie läuft das ab?</strong>
+                <p>Wir treffen uns digital (Zoom, Jitsi oder ähnlich). Du brauchst keine Vorkenntnisse, nur Neugier.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Kann ich mit Bitcoin zahlen?</strong>
+                <p>Absolut bevorzugt. Zahlungen via Lightning sind willkommen. Alternativ klassisch per Banküberweisung.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Ist das eine Finanzberatung?</strong>
+                <p>Nein. Ich biete technische Hilfe zur Selbsthilfe. Ich gebe keine Kaufempfehlungen für spezifische Zeitpunkte oder Mengen. Du triffst deine eigenen finanziellen Entscheidungen; ich zeige dir lediglich, wie du die Technologie sicher bedienst.</p>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <p>Hinweis: Die angebotenen Dienstleistungen stellen keine Anlageberatung oder Finanzvermittlung dar. Es handelt sich um technische Schulungen und Coachings zum Umgang mit Software und Hardware im Bitcoin-Ökosystem.</p>
+        </div>
+
     </section>
 
     <footer>
-        <p>© 2025 Bitcoin Akzeptieren. Dezentralisiert und unabhängig. Powered by Nostr & Bitcoin.</p>
+        <p>© 2025 Bitcoin Akzeptieren.ch<br>Dezentral & Unabhängig.</p>
     </footer>
 
     <script>
-        const sections = document.querySelectorAll('section, .service-card, footer, .support');
-        const observer = new IntersectionObserver(entries => {
+        // Intersection Observer
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, { threshold: 0.1 });
-        sections.forEach(section => observer.observe(section));
+        }, observerOptions);
 
-        window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (scrollTop / scrollHeight) * 100;
-            document.body.style.setProperty('--scroll', scrolled + '%');
-            document.body.after.style.width = `${scrolled}%`;
+        document.querySelectorAll('.service-item').forEach(el => observer.observe(el));
+
+        // Mobile Menu
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
     </script>
 </body>
