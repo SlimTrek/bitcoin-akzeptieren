@@ -3,420 +3,424 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Erkunde die Nostr-Kanäle von Bitcoin Akzeptieren: Dezentrales Social mit Fokus auf verschiedene Themen wie Facts, Motivation, Sport und mehr.">
+    <meta name="description" content="Kuratierte Nostr-Kanäle: Bitcoin, Motivation, Psychologie und Sport News. Dezentral und unzensierbar.">
     <title>Nostr Kanäle – Bitcoin Akzeptieren</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #f7931a; /* Bitcoin Orange */
-            --accent: #da9100;
-            --bg-dark: #0d0d0d;
-            --text-light: #f5f5f5;
-            --text-muted: #a0a0a0;
-            --transition: 0.6s ease-out;
-            --glow: rgba(247,147,26,0.3);
+            --primary: #a020f0; /* Nostr Purple als Akzent */
+            --bitcoin: #f7931a;
+            --bg-dark: #0a0a0a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(160, 32, 240, 0.1); /* Lila Hover für Nostr */
+            --text-main: #ffffff;
+            --text-muted: #a3a3a3;
+            --border-light: rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        * { box-sizing: border-box; }
+        
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.8;
-            position: relative;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
-        body::after {
-            content: '';
+
+        /* --- Background Animation --- */
+        .bg-gradient {
             position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: var(--primary);
-            z-index: 100;
-            width: 0;
-            transition: width 0.1s ease;
-        }
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(247,147,26,0.1) 0%, transparent 50%), radial-gradient(circle, rgba(247,147,26,0.05) 0%, transparent 70%);
-            animation: particles 40s linear infinite;
-            pointer-events: none;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            opacity: 0.8;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(160, 32, 240, 0.08), transparent 40%), /* Lila oben links */
+                radial-gradient(circle at 80% 80%, rgba(247, 147, 26, 0.05), transparent 40%); /* Orange unten rechts */
+            pointer-events: none;
         }
-        @keyframes particles {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-25%) rotate(5deg); }
-            100% { transform: translateY(-50%) rotate(0deg); }
-        }
-        header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeInHeader 1.5s ease forwards;
-            background: url('Images/Backround.jpg') no-repeat center center / cover;
-        }
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.7)), radial-gradient(circle at 50% 50%, rgba(247, 147, 26, 0.2) 0%, transparent 70%);
-            z-index: 1;
-            transition: opacity var(--transition);
-        }
-        header:hover .header-overlay {
-            opacity: 0.4;
-        }
-        header h1 {
-            font-size: 4rem;
-            margin: 0;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 15px rgba(247, 147, 26, 0.8);
-            color: var(--text-light);
-            position: relative;
-            z-index: 2;
-            animation: glowPulse 2s infinite alternate;
-            transform: translateY(50px);
-            opacity: 0;
-            animation: slideUp 1s ease 0.5s forwards, glowPulse 2s infinite alternate;
-            transition: transform var(--transition);
-        }
-        header h1:hover {
-            transform: translateY(50px) scale(1.1);
-            text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 25px rgba(247, 147, 26, 1);
-        }
-        header p {
-            font-size: 1.4rem;
-            max-width: 700px;
-            transform: translateY(50px);
-            opacity: 0;
-            animation: slideUp 1s ease 0.8s forwards;
-            position: relative;
-            z-index: 2;
-        }
-        @keyframes fadeInHeader {
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes glowPulse {
-            from { text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 10px rgba(247, 147, 26, 0.6); }
-            to { text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 20px rgba(247, 147, 26, 1); }
-        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; padding: 0; margin: 0; }
+
+        /* --- Navigation --- */
         nav {
             position: fixed;
-            top: 20px;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 0;
-            z-index: 10;
-        }
-        nav ul {
-            list-style: none;
+            top: 0; left: 0; width: 100%;
+            padding: 15px 5%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
         }
-        nav ul li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--bitcoin); /* Logo bleibt Bitcoin Orange */
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-        section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: var(--transition);
-        }
-        section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        section h2 {
-            font-size: 2.5rem;
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a.active { color: var(--primary); }
+        
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }
+
+        /* --- Header --- */
+        header {
+            padding: 160px 20px 80px;
             text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
         }
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            width: 0;
-            height: 3px;
-            background: var(--primary);
-            transition: width 0.6s ease;
-            transform: translateX(-50%);
+
+        header h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #d8b4fe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        section.visible h2::after {
-            width: 200px;
+
+        header p { font-size: 1.2rem; color: var(--text-muted); }
+
+        /* --- Info Box --- */
+        .info-box {
+            background: rgba(160, 32, 240, 0.05);
+            border: 1px solid rgba(160, 32, 240, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 0 auto 60px;
+            max-width: 800px;
+            font-size: 0.95rem;
+            color: #d8b4fe;
+            text-align: center;
         }
-        .gallery {
+        .info-box a { text-decoration: underline; }
+
+        /* --- Profiles Grid --- */
+        section { padding: 0 5% 80px; max-width: 1200px; margin: 0 auto; }
+        
+        h2 { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+
+        .profiles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 60px;
         }
-        .gallery-intro {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            padding: 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-        }
-        .gallery-info {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            padding: 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-        }
-        .gallery-info a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-        .gallery-info a:hover {
-            text-decoration: underline;
-        }
-        .gallery-card {
-            background: linear-gradient(135deg, rgba(247,147,26,0.1), rgba(0,0,0,0.5));
-            padding: 25px;
+
+        .profile-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 30px;
             border-radius: 20px;
             text-align: center;
-            opacity: 0;
-            transform: rotate(-5deg) translateY(20px);
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .gallery-card.visible {
-            opacity: 1;
-            transform: rotate(0) translateY(0);
+
+        .profile-card:hover {
+            border-color: var(--primary);
+            background: var(--bg-card-hover);
+            transform: translateY(-5px);
         }
-        .gallery-card:hover {
-            box-shadow: 0 10px 20px var(--glow);
-            transform: rotate(0) translateY(-5px);
+
+        /* Avatar Placeholder */
+        .avatar {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #333, #111);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; margin-bottom: 20px;
+            border: 2px solid var(--primary);
+            box-shadow: 0 0 15px rgba(160, 32, 240, 0.3);
         }
-        .gallery-card a {
-            display: inline-block;
-            margin-top: 15px;
+
+        .profile-card h3 { margin: 0 0 10px; font-size: 1.4rem; color: #fff; }
+        .profile-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px; flex-grow: 1; }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn {
             padding: 10px 20px;
-            background: var(--primary);
-            color: var(--bg-dark);
-            text-decoration: none;
             border-radius: 8px;
-            font-weight: bold;
-            transition: var(--transition);
-        }
-        .gallery-card a:hover {
-            background: var(--accent);
-            box-shadow: 0 5px 15px var(--glow);
-        }
-        details {
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
             cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            flex: 1;
         }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            border: 1px solid var(--primary);
+        }
+        .btn-primary:hover { background: #8a1bc4; }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border-light);
+        }
+        .btn-secondary:hover { border-color: #fff; color: #fff; }
+
+        /* --- Accordion for Sports --- */
+        .sports-section { margin-top: 60px; }
+
+        details {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        details[open] { border-color: var(--primary); }
+
         summary {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        details[open] .sports-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .support {
-            text-align: center;
-            margin-top: 80px;
-            padding: 40px 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: var(--transition);
-        }
-        .support.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .support p {
+            padding: 20px 30px;
+            cursor: pointer;
             font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none; /* Hide default arrow */
         }
-        .support a {
+        
+        summary::-webkit-details-marker { display: none; }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
             color: var(--primary);
-            text-decoration: none;
+            transition: transform 0.3s;
         }
-        .support a:hover {
-            text-decoration: underline;
+
+        details[open] summary::after { transform: rotate(45deg); }
+        details[open] summary { border-bottom: 1px solid var(--border-light); }
+
+        .sports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
         }
-        .support img {
-            max-width: 200px;
-            height: auto;
-            margin-top: 20px;
-        }
-        footer {
+
+        .mini-card {
+            background: rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 12px;
             text-align: center;
-            padding: 50px 20px;
-            font-size: 0.95rem;
-            border-top: 1px solid rgba(247,147,26,0.2);
-            opacity: 0;
+            border: 1px solid transparent;
             transition: var(--transition);
         }
-        footer.visible {
-            opacity: 1;
+
+        .mini-card:hover {
+            border-color: var(--primary);
+            background: rgba(160, 32, 240, 0.1);
         }
+
+        .mini-card h4 { margin: 0 0 5px; color: #fff; }
+        .mini-card p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px; }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center; padding: 40px; border-top: 1px solid var(--border-light);
+            font-size: 0.9rem; color: var(--text-muted); margin-top: 60px;
+        }
+
+        /* --- Responsive --- */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.8rem; }
-            nav ul { flex-direction: column; text-align: center; gap: 10px; }
-            section { padding: 60px 10px; }
-            .gallery { grid-template-columns: 1fr; }
-            details[open] .sports-gallery { grid-template-columns: 1fr; }
+            .nav-links {
+                position: absolute; top: 70px; left: 0; width: 100%;
+                background: var(--bg-dark); flex-direction: column;
+                padding: 20px 0; gap: 20px;
+                clip-path: circle(0% at 100% 0); transition: clip-path 0.5s ease-in-out;
+                border-bottom: 1px solid var(--border-light);
+            }
+            .nav-links.active { clip-path: circle(150% at 100% 0); }
+            .menu-toggle { display: block; }
+            header { padding-top: 120px; }
+            .btn-group { flex-direction: column; }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div class="bg-gradient"></div>
+
     <nav>
-        <ul>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            Bitcoin Akzeptieren
+        </div>
+        <div class="menu-toggle" id="mobile-menu">☰</div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="/">Start</a></li>
-            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung und Coaching</a></li>
-            <li><a href="/nostr.html">Nostr</a></li>
+            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
+            <li><a href="/nostr.html" class="active">Nostr</a></li>
             <li><a href="/empfehlungen.html">Empfehlungen</a></li>
             <li><a href="/about.html">About</a></li>
         </ul>
     </nav>
 
-    <header style="background-image: url('Images/Backround.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
-        <div class="header-overlay"></div>
-        <h1>Nostr Kanäle</h1>
-        <p>Dezentrales Social mit Fokus auf verschiedene Themen.</p>
+    <header>
+        <h1>Dezentrale <br>Social Bots</h1>
+        <p>Informationen und Inspiration ohne Algorithmen.<br>Direkt in deinen Feed.</p>
     </header>
 
-    <section class="gallery">
-        <h2>Entdecke die Dimensionen</h2>
-        <p class="gallery-intro">Nostr ist ein dezentrales Social-Media-Protokoll, das wie Bitcoin auf offener Technologie basiert. Es funktioniert ohne zentrale Server – deine Daten gehören dir, und niemand kann dich zensieren. Stattdessen verbindest du dich über Relays (verteilte Knoten), die Nachrichten weiterleiten. Das macht Nostr resistent gegen Kontrolle durch Unternehmen oder Regierungen. Warum sinnvoll? In einer Welt voller Zensur und Datenskandale bietet Nostr echte Freiheit: Du kannst anonym posten, Zaps (kleine Bitcoin-Zahlungen) empfangen und Communities aufbauen, ohne Algorithmen, die dich manipulieren. Ideal für Bitcoin-Enthusiasten, da es nahtlos mit Lightning integriert ist – probiere es aus und erlebe echte Dezentralisierung!</p>
-        <p class="gallery-info">Um auf diese Nostr-Kanäle zuzugreifen, brauchst du einen Nostr-Client. Empfohlen: <a href="https://damus.io/" target="_blank">Damus</a> auf iOS, <a href="https://play.google.com/store/apps/details?id=com.vitorpamplona.amethyst" target="_blank">Amethyst</a> auf Android. Für PC/Browser: <a href="https://primal.net/" target="_blank">Primal</a> oder <a href="https://iris.to/" target="_blank">Iris</a>. Installiere einen Client und klicke auf die Links, um den Kanal zu öffnen.</p>
-        <div class="gallery-card">
-            <h3>BitRebell</h3>
-            <p>Der Bitcoin Rebell – ehrlich, kontrovers und direkt. BitRebell teilt ungeschminkte Meinungen zu Bitcoin-Themen, die in der Community ankommen, von Kritik an Zentralbanken bis zu rebellischen Tipps für die Dezentralisierung.</p>
-            <a href="nostr:npub15pfu03955f0kkjgdlvcjksumk2mdk5pxaqtgf05j0mc7m5c8ku5spuu44e">Erkunde</a>
-        </div>
-        <div class="gallery-card">
-            <h3>Mr. Motivation</h3>
-            <p>Dein Motivations-Booster für die Community: Mr. Motivation fokussiert sich auf Persönlichkeitsentwicklung, teilt inspirierende Tipps und Strategien, um in der dezentralen Welt zu wachsen und motiviert zu bleiben.</p>
-            <a href="nostr:npub1sjgumk65zxyk64g9f8n5g9ntgfkkfg4g0e3g47fp7p98ujmwpdasxdqjud">Erkunde</a>
-        </div>
-        <div class="gallery-card">
-            <h3>Dr. Summer</h3>
-            <p>Dein Berater für emotionale Themen: Dr. Summer ist die Anlaufstelle bei Liebeskummer, Beziehungsfragen oder Alltagsstress – mit einfühlsamen Ratschlägen in der dezentralen Community.</p>
-            <a href="nostr:npub1r806x4fsepx69tsprzqha3v97jjsck40m6xuvglq06ezsfpqanwsxaq5as">Erkunde</a>
-        </div>
-        <details>
-            <summary>Sports News</summary>
-            <div class="sports-gallery">
-                <div class="gallery-card">
-                    <h3>MMA News auf Nostr</h3>
-                    <p>Aktuelle Updates zu Mixed Martial Arts, UFC, Kämpfern und Kampfsport-Trends.</p>
-                    <a href="nostr:npub1lfvp4l62zvwc4axtve2hhf69ercmxvctawcag8fwsxg77wppl7hq8ksht3">Erkunde</a>
-                </div>
-                <div class="gallery-card">
-                    <h3>Soccer News auf Nostr</h3>
-                    <p>Aktuelle News zu Fußball, Ligen, Matches und Spielern.</p>
-                    <a href="nostr:npub1rclsrnqcylhmdk89ktwz4sfh77a5ymcn3tceakzg5hkvyaw3texs7yq3yt">Erkunde</a>
-                </div>
-                <div class="gallery-card">
-                    <h3>Racing News auf Nostr</h3>
-                    <p>Aktuelle Updates zu F1, Motorsport, Rennen und Fahrern.</p>
-                    <a href="nostr:npub1y2hm6lkr7px672rj2ty95x8etjycq6kaynzu5gzvauqx92jmwewsrzjxj0">Erkunde</a>
-                </div>
-                <div class="gallery-card">
-                    <h3>Pickleball News auf Nostr</h3>
-                    <p>Aktuelle News zu Pickleball, Turnieren und Racketsport-Trends.</p>
-                    <a href="nostr:npub1h5xdlu6pyg4cw6d88f7x8mrssvv5dmey0pdfdxmwv086tmtzg4lsun23sm">Erkunde</a>
-                </div>
-                <div class="gallery-card">
-                    <h3>eSports News auf Nostr</h3>
-                    <p>Aktuelle Updates zu eSports, Gaming-Turnieren und Teams.</p>
-                    <a href="nostr:npub1c7nsvq95n9e8h9ujn8d5ds0ad6u3gw9tqydujpr597ela2f8677qqpmgra">Erkunde</a>
-                </div>
-                <div class="gallery-card">
-                    <h3>Women's Sports News auf Nostr</h3>
-                    <p>Aktuelle News zu Frauen-Sport, Ligen und Athletinnen.</p>
-                    <a href="nostr:npub1uwzhz4funf9e03hwl3uxg2utsxa5rea3y9y740ta594rrve0ryqqqfzsdg">Erkunde</a>
-                </div>
-                <div class="gallery-card">
-                    <h3>Fitness News auf Nostr</h3>
-                    <p>Aktuelle Updates zu Fitness, Workouts und Wellness-Trends.</p>
-                    <a href="nostr:npub1a3l582klswspjd5ds2fpwgqp9l9fjtj72tqr5tk565ahx96cekzsjyc2jd">Erkunde</a>
-                </div>
-                <div class="gallery-card">
-                    <h3>Extreme Sports News auf Nostr</h3>
-                    <p>Aktuelle News zu Extreme Sports, Events und Adrenalin-Sports.</p>
-                    <a href="nostr:npub1v2lxclnltt5e5gz0968vcwkkssq3dahr2sgfpm03sm2vclk266uq4vgjkn">Erkunde</a>
+    <div class="info-box">
+        <p><strong>Was ist Nostr?</strong> Nostr ist kein "Krypto-Ding", sondern ein offenes Protokoll für Kommunikation. Deine Daten gehören dir. Diese Kanäle sind automatisierte Bots, die News und Mehrwert in das Netzwerk speisen.</p>
+        <p style="margin-top:10px; font-size: 0.85rem;">Keinen Client installiert? Nutze den "Web Vorschau" Button.</p>
+    </div>
+
+    <section>
+        <h2>Hauptkanäle</h2>
+        <div class="profiles-grid">
+            
+            <!-- Card 1 -->
+            <div class="profile-card">
+                <div class="avatar">⚡️</div>
+                <h3>BitRebell</h3>
+                <p>Ehrlich, kontrovers und direkt. Ungeschminkte Meinungen zu Bitcoin, Zentralbanken und Freiheit.</p>
+                <div class="btn-group">
+                    <a href="nostr:npub15pfu03955f0kkjgdlvcjksumk2mdk5pxaqtgf05j0mc7m5c8ku5spuu44e" class="btn btn-primary">In App öffnen</a>
+                    <a href="https://primal.net/p/npub15pfu03955f0kkjgdlvcjksumk2mdk5pxaqtgf05j0mc7m5c8ku5spuu44e" target="_blank" class="btn btn-secondary">Web Vorschau</a>
                 </div>
             </div>
-        </details>
+
+            <!-- Card 2 -->
+            <div class="profile-card">
+                <div class="avatar">🧠</div>
+                <h3>Mr. Motivation</h3>
+                <p>Dein täglicher Stoizismus-Booster. Strategien für Persönlichkeitsentwicklung und Fokus.</p>
+                <div class="btn-group">
+                    <a href="nostr:npub1sjgumk65zxyk64g9f8n5g9ntgfkkfg4g0e3g47fp7p98ujmwpdasxdqjud" class="btn btn-primary">In App öffnen</a>
+                    <a href="https://primal.net/p/npub1sjgumk65zxyk64g9f8n5g9ntgfkkfg4g0e3g47fp7p98ujmwpdasxdqjud" target="_blank" class="btn btn-secondary">Web Vorschau</a>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="profile-card">
+                <div class="avatar">❤️</div>
+                <h3>Dr. Summer</h3>
+                <p>KI-gestützter Ratgeber für emotionale Themen, Beziehungen und Stressbewältigung.</p>
+                <div class="btn-group">
+                    <a href="nostr:npub1r806x4fsepx69tsprzqha3v97jjsck40m6xuvglq06ezsfpqanwsxaq5as" class="btn btn-primary">In App öffnen</a>
+                    <a href="https://primal.net/p/npub1r806x4fsepx69tsprzqha3v97jjsck40m6xuvglq06ezsfpqanwsxaq5as" target="_blank" class="btn btn-secondary">Web Vorschau</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="sports-section">
+            <details>
+                <summary>Sports News Network (Klick zum Ausklappen)</summary>
+                <div class="sports-grid">
+                    
+                    <div class="mini-card">
+                        <h4>🥊 MMA News</h4>
+                        <p>UFC & Kampfsport Updates</p>
+                        <a href="nostr:npub1lfvp4l62zvwc4axtve2hhf69ercmxvctawcag8fwsxg77wppl7hq8ksht3" class="btn btn-secondary" style="display:block">Folgen</a>
+                    </div>
+
+                    <div class="mini-card">
+                        <h4>⚽️ Soccer News</h4>
+                        <p>Fußball Ligen & Transfers</p>
+                        <a href="nostr:npub1rclsrnqcylhmdk89ktwz4sfh77a5ymcn3tceakzg5hkvyaw3texs7yq3yt" class="btn btn-secondary" style="display:block">Folgen</a>
+                    </div>
+
+                    <div class="mini-card">
+                        <h4>🏎️ Racing News</h4>
+                        <p>F1 & Motorsport</p>
+                        <a href="nostr:npub1y2hm6lkr7px672rj2ty95x8etjycq6kaynzu5gzvauqx92jmwewsrzjxj0" class="btn btn-secondary" style="display:block">Folgen</a>
+                    </div>
+
+                    <div class="mini-card">
+                        <h4>🏓 Pickleball</h4>
+                        <p>Trends & Turniere</p>
+                        <a href="nostr:npub1h5xdlu6pyg4cw6d88f7x8mrssvv5dmey0pdfdxmwv086tmtzg4lsun23sm" class="btn btn-secondary" style="display:block">Folgen</a>
+                    </div>
+
+                    <div class="mini-card">
+                        <h4>🎮 eSports</h4>
+                        <p>Gaming & Turniere</p>
+                        <a href="nostr:npub1c7nsvq95n9e8h9ujn8d5ds0ad6u3gw9tqydujpr597ela2f8677qqpmgra" class="btn btn-secondary" style="display:block">Folgen</a>
+                    </div>
+
+                    <div class="mini-card">
+                        <h4>🏋️‍♀️ Fitness</h4>
+                        <p>Workouts & Health</p>
+                        <a href="nostr:npub1a3l582klswspjd5ds2fpwgqp9l9fjtj72tqr5tk565ahx96cekzsjyc2jd" class="btn btn-secondary" style="display:block">Folgen</a>
+                    </div>
+
+                </div>
+            </details>
+        </div>
+
     </section>
 
-    <section class="support">
-        <h2>Supporte meine Arbeit</h2>
-        <p>Falls dir meine Arbeit gefällt und du mich unterstützen möchtest, kannst du mir einen Lightning-Zap schicken. Jeder Beitrag hilft, dieses Projekt weiterzuentwickeln!</p>
-        <p>Lightning-Adresse: <a href="lightning:humanraft81@walletofsatoshi.com">humanraft81@walletofsatoshi.com</a></p>
-        <img src="Images/Lightning_QR.jpg" alt="Lightning QR Code for humanraft81@walletofsatoshi.com">
+    <!-- Support Section (Wiederverwendet) -->
+    <section style="margin-top: 60px; text-align: center; opacity: 0.8;">
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Gefällt dir das Projekt? Sende einen Zap an: <br>
+            <span style="color: var(--bitcoin); font-family: monospace;">humanraft81@walletofsatoshi.com</span>
+        </p>
     </section>
 
     <footer>
-        <p>© 2025 Bitcoin Akzeptieren. Dezentralisiert und unabhängig. Powered by Nostr & Bitcoin.</p>
+        <p>© 2025 Bitcoin Akzeptieren.ch<br>Powered by Nostr & Bitcoin.</p>
     </footer>
 
     <script>
-        const sections = document.querySelectorAll('section, .gallery-card, footer, .support');
-        const observer = new IntersectionObserver(entries => {
+        // Animations
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
         }, { threshold: 0.1 });
-        sections.forEach(section => observer.observe(section));
 
-        window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (scrollTop / scrollHeight) * 100;
-            document.body.style.setProperty('--scroll', scrolled + '%');
-            document.body.after.style.width = `${scrolled}%`;
+        // Initial state for animations applied via JS to avoid flicker without JS
+        document.querySelectorAll('.profile-card, .mini-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Mobile Menu
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
     </script>
 </body>
