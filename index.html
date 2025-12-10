@@ -3,321 +3,572 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bitcoin Akzeptieren: Detaillierte Einblicke in Dezentralisierung, Freiheit und Innovation. Entdecke pragmatische Tools und Ideen für eine offene Zukunft.">
+    <meta name="description" content="Bitcoin Akzeptieren: Strategien für finanzielle Souveränität, Dezentralisierung und die Nutzung von Nostr.">
     <title>Bitcoin Akzeptieren – Freiheit als Strategie</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Wir nutzen einfache SVG Icons im Code, daher keine externe Icon-Lib nötig -->
+
     <style>
         :root {
             --primary: #f7931a; /* Bitcoin Orange */
-            --accent: #da9100;
-            --bg-dark: #0d0d0d;
-            --text-light: #f5f5f5;
-            --text-muted: #a0a0a0;
-            --transition: 0.6s ease-out;
-            --glow: rgba(247,147,26,0.3);
+            --primary-hover: #e0820b;
+            --bg-dark: #0a0a0a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.07);
+            --text-main: #ffffff;
+            --text-muted: #a3a3a3;
+            --border-light: rgba(255, 255, 255, 0.1);
+            --glass: rgba(10, 10, 10, 0.8);
+            --glow: 0 0 20px rgba(247, 147, 26, 0.4);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        /* --- Base Setup --- */
+        * { box-sizing: border-box; }
+        
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.8;
-            position: relative;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
-        body::after {
-            content: '';
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        /* --- Background Animation --- */
+        .bg-gradient {
             position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: var(--primary);
-            z-index: 100;
-            width: 0;
-            transition: width 0.1s ease;
-        }
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(247,147,26,0.1) 0%, transparent 50%), radial-gradient(circle, rgba(247,147,26,0.05) 0%, transparent 70%);
-            animation: particles 40s linear infinite;
-            pointer-events: none;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            opacity: 0.8;
+            background: 
+                radial-gradient(circle at 15% 50%, rgba(247, 147, 26, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(130, 70, 200, 0.05), transparent 25%); /* Lila Hauch für Nostr */
+            pointer-events: none;
         }
-        @keyframes particles {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-25%) rotate(5deg); }
-            100% { transform: translateY(-50%) rotate(0deg); }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; padding: 0; margin: 0; }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 15px 5%;
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
         }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(247, 147, 26, 0.3);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+
+        /* --- Header / Hero --- */
         header {
-            height: 100vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            padding: 0 20px;
             position: relative;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeInHeader 1.5s ease forwards;
-            background: url('Images/Backround.jpg') no-repeat center center; /* Entferne 'cover' für natürliche Skalierung */
-            background-size: auto 100%; /* Skaliert das Bild proportional zur Höhe */
+            background: linear-gradient(to bottom, rgba(10,10,10,0) 0%, var(--bg-dark) 100%), 
+                        url('Images/Backround.jpg') center/cover no-repeat;
+            /* Fallback falls Bild fehlt: */
+            background-color: var(--bg-dark); 
         }
-        .header-overlay {
+
+        /* Overlay um Bild abzudunkeln falls es zu hell ist */
+        header::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.7)), radial-gradient(circle at 50% 50%, rgba(247, 147, 26, 0.2) 0%, transparent 70%);
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10,10,10, 0.6);
             z-index: 1;
-            transition: opacity var(--transition);
         }
-        header:hover .header-overlay {
-            opacity: 0.4; /* Fade-Out beim Hover */
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeIn Up 1s ease-out;
         }
+
         header h1 {
-            font-size: 4rem;
-            margin: 0;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 15px rgba(247, 147, 26, 0.8);
-            color: var(--text-light);
-            position: relative;
-            z-index: 2;
-            animation: glowPulse 2s infinite alternate;
-            transform: translateY(50px);
-            opacity: 0;
-            animation: slideUp 1s ease 0.5s forwards, glowPulse 2s infinite alternate;
-            transition: transform var(--transition);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        header h1:hover {
-            transform: translateY(50px) scale(1.1); /* Leichte Vergrößerung beim Hover */
-            text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 25px rgba(247, 147, 26, 1);
+
+        header span.highlight {
+            background: linear-gradient(135deg, var(--primary) 0%, #ffbb5c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
+
         header p {
-            font-size: 1.4rem;
-            max-width: 700px;
-            transform: translateY(50px);
-            opacity: 0;
-            animation: slideUp 1s ease 0.8s forwards;
-            position: relative;
-            z-index: 2;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
         }
-        @keyframes fadeInHeader {
-            to { opacity: 1; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: #000;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(247, 147, 26, 0.3);
         }
-        @keyframes slideUp {
-            to { transform: translateY(0); opacity: 1; }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(247, 147, 26, 0.5);
+            background: var(--primary-hover);
         }
-        @keyframes glowPulse {
-            from { text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 10px rgba(247, 147, 26, 0.6); }
-            to { text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 20px rgba(247, 147, 26, 1); }
-        }
-        nav {
-            position: fixed;
-            top: 20px;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 0;
-            z-index: 10;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        nav ul li a:hover {
-            color: var(--accent);
-        }
+
+        /* --- Sections General --- */
         section {
-            padding: 100px 20px;
+            padding: 100px 5%;
             max-width: 1200px;
             margin: 0 auto;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: var(--transition);
         }
-        section.visible {
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- Cards Grid (Intro) --- */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            padding: 30px;
+            border-radius: 16px;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .card.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        section h2 {
-            font-size: 2.5rem;
+
+        .card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(247, 147, 26, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .card h3 { color: var(--primary); margin-top: 0; }
+
+        /* --- Timeline --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px; /* Mobile alignment */
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+            padding-left: 60px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: var(--transition);
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 11px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--bg-dark);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(247, 147, 26, 0.5);
+            z-index: 2;
+        }
+
+        .timeline-year {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        /* --- Support Section --- */
+        .support-container {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 40px;
             text-align: center;
-            margin-bottom: 40px;
+            max-width: 600px;
+            margin: 0 auto;
             position: relative;
             overflow: hidden;
         }
-        section h2::after {
+
+        /* Glow effect hinter dem QR */
+        .support-container::before {
             content: '';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            width: 0;
-            height: 3px;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px; height: 200px;
             background: var(--primary);
-            transition: width 0.6s ease;
-            transform: translateX(-50%);
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: 0;
         }
-        section.visible h2::after {
+
+        .qr-wrapper {
+            position: relative;
+            z-index: 1;
+            margin: 30px auto;
+            padding: 10px;
+            background: #fff;
+            border-radius: 10px;
             width: 200px;
+            height: 200px;
+            display: flex; /* Center image */
+            justify-content: center;
+            align-items: center;
         }
-        .timeline {
+        
+        .qr-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .ln-address {
+            background: rgba(0,0,0,0.5);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            font-family: monospace;
             display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-        .timeline-item {
-            background: rgba(255,255,255,0.05);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            opacity: 0;
-            transform: scale(0.95);
-            transition: var(--transition);
-        }
-        .timeline-item.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .timeline-item:hover {
-            box-shadow: 0 15px 30px var(--glow);
-            transform: scale(1.02);
-        }
-        .support {
-            text-align: center;
-            margin-top: 80px;
-            padding: 40px 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: var(--transition);
-        }
-        .support.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .support p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        .support a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-        .support a:hover {
-            text-decoration: underline;
-        }
-        .support img {
-            max-width: 200px;
-            height: auto;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
+
+        .ln-text {
+            word-break: break-all;
+            color: var(--primary);
+        }
+
+        .copy-btn {
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            border-color: var(--text-main);
+            color: var(--text-main);
+        }
+
+        /* --- Footer --- */
         footer {
             text-align: center;
-            padding: 50px 20px;
-            font-size: 0.95rem;
-            border-top: 1px solid rgba(247,147,26,0.2);
-            opacity: 0;
-            transition: var(--transition);
+            padding: 40px;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.9rem;
+            color: var(--text-muted);
         }
-        footer.visible {
-            opacity: 1;
+
+        /* --- Responsive --- */
+        @media (min-width: 768px) {
+            .timeline::before { left: 50%; margin-left: -1px; }
+            .timeline-item { width: 50%; margin-left: auto; padding-left: 40px; }
+            .timeline-item:nth-child(even) { margin-left: 0; margin-right: auto; padding-left: 0; padding-right: 40px; text-align: right; }
+            .timeline-item:nth-child(even) .timeline-dot { left: auto; right: -10px; }
+            .timeline-item:nth-child(odd) .timeline-dot { left: -10px; }
+            
+            /* Logic to flip transform direction for animation */
+            .timeline-item:nth-child(even) { transform: translateX(20px); }
         }
+
         @media (max-width: 768px) {
-            header h1 { font-size: 2.8rem; }
-            section { padding: 60px 10px; }
-            nav ul { flex-direction: column; text-align: center; gap: 10px; }
+            .nav-links {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-dark);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 20px;
+                clip-path: circle(0% at 100% 0);
+                transition: clip-path 0.5s ease-in-out;
+                border-bottom: 1px solid var(--border-light);
+            }
+            .nav-links.active {
+                clip-path: circle(150% at 100% 0);
+            }
+            .menu-toggle { display: block; }
+            
+            h1 { font-size: 2.5rem; }
+        }
+
+        /* Utility for animation */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div class="bg-gradient"></div>
+
     <nav>
-        <ul>
-            <li><a href="/">Start</a></li>
-            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung und Coaching</a></li>
+        <div class="logo">
+            <!-- Einfaches SVG Logo -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.5 8C9.5 8 13.5 8 14.5 8C16.5 8 17.5 9 17.5 11C17.5 12.5 16.5 13.5 15.5 13.5C17 13.5 18.5 14.5 18.5 16.5C18.5 19 16 20 13.5 20H8.5V4H13C15.5 4 17 5.5 17 7C17 7.5 16.5 8 16.5 8" stroke="#f7931a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 2V4" stroke="#f7931a" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 20V22" stroke="#f7931a" stroke-width="2" stroke-linecap="round"/>
+                <path d="M9.5 14H15.5" stroke="#f7931a" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2"/>
+            </svg>
+            Bitcoin Akzeptieren
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            ☰
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/" class="active">Start</a></li>
+            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
             <li><a href="/nostr.html">Nostr</a></li>
             <li><a href="/empfehlungen.html">Empfehlungen</a></li>
             <li><a href="/about.html">About</a></li>
         </ul>
     </nav>
 
-    <header style="background-image: url('Images/Backround.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
-        <div class="header-overlay"></div>
-        <h1>Bitcoin Akzeptieren</h1>
-        <p>Freiheit als strategische Wahl in einer dezentralen Realität.</p>
+    <header>
+        <div class="hero-content">
+            <h1>Freiheit als <br><span class="highlight">Strategische Wahl</span></h1>
+            <p>Dezentralisierung ist keine Option mehr, sondern Notwendigkeit.<br>Entdecke die Werkzeuge für eine souveräne Zukunft.</p>
+            <a href="#intro" class="btn">Mehr erfahren</a>
+        </div>
     </header>
 
-    <section class="intro">
+    <section id="intro">
         <h2>Die Essenz der Akzeptanz</h2>
-        <p>Bitcoin ist kein Trend, sondern ein Paradigmenwechsel. Es geht um Kontrolle zurückzugewinnen – finanziell, digital, persönlich. Hier explore ich die Kernprinzipien: Von der Unabhängigkeit von Zentralbanken bis zur Macht dezentraler Netzwerke. Pragmatisch und fundiert, ohne Illusionen.</p>
-        <p>Warum akzeptieren? Weil es die Zukunft ist, in der du wählst, nicht gewählt wirst.</p>
+        <div class="grid-container">
+            <div class="card">
+                <h3>Souveränität</h3>
+                <p>Bitcoin gibt dir die Kontrolle zurück. Keine Bank, keine Zensur, nur reiner Code und Mathematik. Wähle Geld, das dir gehört.</p>
+            </div>
+            <div class="card">
+                <h3>Innovation</h3>
+                <p>Von Lightning-Zahlungen in Millisekunden bis zu sozialen Protokollen wie Nostr. Die Technologie entwickelt sich exponentiell.</p>
+            </div>
+            <div class="card">
+                <h3>Freiheit</h3>
+                <p>In einer Welt der Überwachung ist Privatsphäre ein Akt des Widerstands. Lerne, wie du deine digitalen Fußabdrücke minimierst.</p>
+            </div>
+        </div>
     </section>
 
-    <section class="timeline">
-        <h2>Meilensteine der Dezentralisierung</h2>
-        <div class="timeline-item">
-            <h3>2009: Die Geburt</h3>
-            <p>Satoshi Nakamotos Whitepaper – der Startpunkt einer Revolution. "Ein Peer-to-Peer Electronic Cash System" legt den Grundstein für geldliche Souveränität.</p>
-        </div>
-        <div class="timeline-item">
-            <h3>2017: Lightning Network</h3>
-            <p>Skalierbarkeit wird Realität: Schnelle, günstige Transaktionen auf Layer 2, die Bitcoin für den Alltag tauglich machen.</p>
-        </div>
-        <div class="timeline-item">
-            <h3>2021: El Salvador</h3>
-            <p>Ein Land akzeptiert Bitcoin als gesetzliches Zahlungsmittel – ein Meilenstein für globale Adoption.</p>
-        </div>
-        <div class="timeline-item">
-            <h3>Heute: Nostr & Dezentrales Social</h3>
-            <p>Protokolle wie <a href="/nostr.html">Nostr</a> erweitern Bitcoin's Ethos auf Kommunikation: Zensurresistent, offen und community-driven.</p>
+    <section class="timeline-section">
+        <h2>Meilensteine</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-year">2009</span>
+                <h3>Genesis</h3>
+                <p>Satoshi Nakamotos Whitepaper. Der Block 0 wird geschürft. Ein "Peer-to-Peer Electronic Cash System" entsteht aus dem Nichts.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-year">2017</span>
+                <h3>Layer 2: Lightning</h3>
+                <p>Der SegWit Softfork ebnet den Weg für das Lightning Network. Bitcoin skaliert nun für den täglichen Kaffee.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-year">2021</span>
+                <h3>Nation State Adoption</h3>
+                <p>El Salvador macht Bitcoin zum gesetzlichen Zahlungsmittel. Spieltheorie auf geopolitischer Ebene beginnt.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-year">Heute</span>
+                <h3>Die Soziale Schicht</h3>
+                <p><a href="/nostr.html" style="color:var(--primary); text-decoration:underline;">Nostr</a> und Bitcoin verschmelzen. Geld und Sprache werden unzensierbar. Value 4 Value wird zum Standard.</p>
+            </div>
         </div>
     </section>
 
     <section class="support">
-        <h2>Supporte meine Arbeit</h2>
-        <p>Falls dir meine Arbeit gefällt und du mich unterstützen möchtest, kannst du mir einen Lightning-Zap schicken. Jeder Beitrag hilft, dieses Projekt weiterzuentwickeln!</p>
-        <p>Lightning-Adresse: <a href="lightning:humanraft81@walletofsatoshi.com">humanraft81@walletofsatoshi.com</a></p>
-        <img src="Images/Lightning_QR.jpg" alt="Lightning QR Code for humanraft81@walletofsatoshi.com">
+        <h2>Support The Mission</h2>
+        <div class="support-container">
+            <p>Gefällt dir dieser Content? Sende ein paar Satoshis über das Lightning Netzwerk. Jeder Zap hilft!</p>
+            
+            <div class="qr-wrapper">
+                <!-- Hinweis: Pfad zum Bild muss stimmen. Ich habe einen Platzhalter gesetzt, falls das Bild nicht lädt -->
+                <img src="Images/Lightning_QR.jpg" alt="Lightning QR Code" onerror="this.style.display='none'; this.parentElement.innerText='[QR Code Bild hier]'">
+            </div>
+
+            <div class="ln-address">
+                <span class="ln-text" id="ln-address">humanraft81@walletofsatoshi.com</span>
+                <button class="copy-btn" onclick="copyAddress()">Kopieren</button>
+            </div>
+        </div>
     </section>
 
     <footer>
-        <p>© 2025 Bitcoin Akzeptieren. Dezentralisiert und unabhängig. Powered by Nostr & Bitcoin.</p>
+        <p>© 2025 Bitcoin Akzeptieren.ch<br>Open Source, Dezentral & Unabhängig.</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">Powered by Nostr & Bitcoin.</p>
     </footer>
 
     <script>
-        const sections = document.querySelectorAll('section, .timeline-item, footer, .support');
-        const observer = new IntersectionObserver(entries => {
+        // Intersection Observer für Scroll-Animationen
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
-        }, { threshold: 0.1 });
-        sections.forEach(section => observer.observe(section));
+        }, observerOptions);
 
-        window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (scrollTop / scrollHeight) * 100;
-            document.body.style.setProperty('--scroll', scrolled + '%');
-            document.body.after.style.width = `${scrolled}%`;
+        document.querySelectorAll('.card, .timeline-item').forEach(el => {
+            observer.observe(el);
         });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Lightning Address Copy Funktion
+        function copyAddress() {
+            const addressText = document.getElementById('ln-address').innerText;
+            navigator.clipboard.writeText(addressText).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.innerText;
+                btn.innerText = "Kopiert!";
+                btn.style.color = "#f7931a";
+                btn.style.borderColor = "#f7931a";
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.color = "";
+                    btn.style.borderColor = "";
+                }, 2000);
+            }).catch(err => {
+                console.error('Fehler beim Kopieren: ', err);
+            });
+        }
     </script>
 </body>
 </html>
