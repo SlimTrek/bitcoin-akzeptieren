@@ -3,331 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Erfahre mehr über Patrik und seine Bitcoin-Reise – von den ersten Schritten bis zur Leidenschaft für dezentrale Finanzen.">
+    <meta name="description" content="Erfahre mehr über Patrik: Vom Elektriker zum Informatiker und Bitcoiner. Meine Reise zur finanziellen Souveränität.">
     <title>Über mich – Bitcoin Akzeptieren</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #f7931a; /* Bitcoin Orange */
-            --accent: #da9100;
-            --bg-dark: #0d0d0d;
-            --text-light: #f5f5f5;
-            --text-muted: #a0a0a0;
-            --transition: 0.6s ease-out;
-            --glow: rgba(247,147,26,0.3);
+            --primary: #f7931a;
+            --primary-hover: #e0820b;
+            --bg-dark: #0a0a0a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.07);
+            --text-main: #ffffff;
+            --text-muted: #a3a3a3;
+            --border-light: rgba(255, 255, 255, 0.1);
+            --glass: rgba(10, 10, 10, 0.7);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        * { box-sizing: border-box; }
+        
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-light);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             line-height: 1.8;
-            position: relative;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
-        body::after {
-            content: '';
+
+        /* --- Background Animation --- */
+        .bg-gradient {
             position: fixed;
-            top: 0;
-            left: 0;
-            height: 4px;
-            background: var(--primary);
-            z-index: 100;
-            width: 0;
-            transition: width 0.1s ease;
-        }
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(247,147,26,0.1) 0%, transparent 50%), radial-gradient(circle, rgba(247,147,26,0.05) 0%, transparent 70%);
-            animation: particles 40s linear infinite;
-            pointer-events: none;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            opacity: 0.8;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(247, 147, 26, 0.06), transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(50, 50, 50, 0.1), transparent 40%);
+            pointer-events: none;
         }
-        @keyframes particles {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-25%) rotate(5deg); }
-            100% { transform: translateY(-50%) rotate(0deg); }
-        }
-        header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            animation: fadeInHeader 1.5s ease forwards;
-            background: url('Images/Backround.jpg') no-repeat center center / cover;
-        }
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(13, 13, 13, 0.7), rgba(13, 13, 13, 0.7)), radial-gradient(circle at 50% 50%, rgba(247, 147, 26, 0.2) 0%, transparent 70%);
-            z-index: 1;
-            transition: opacity var(--transition);
-        }
-        header:hover .header-overlay {
-            opacity: 0.4;
-        }
-        header h1 {
-            font-size: 4rem;
-            margin: 0;
-            text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 15px rgba(247, 147, 26, 0.8);
-            color: var(--text-light);
-            position: relative;
-            z-index: 2;
-            animation: glowPulse 2s infinite alternate;
-            transform: translateY(50px);
-            opacity: 0;
-            animation: slideUp 1s ease 0.5s forwards, glowPulse 2s infinite alternate;
-            transition: transform var(--transition);
-        }
-        header h1:hover {
-            transform: translateY(50px) scale(1.1);
-            text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 25px rgba(247, 147, 26, 1);
-        }
-        header p {
-            font-size: 1.4rem;
-            max-width: 700px;
-            transform: translateY(50px);
-            opacity: 0;
-            animation: slideUp 1s ease 0.8s forwards;
-            position: relative;
-            z-index: 2;
-        }
-        @keyframes fadeInHeader {
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            to { transform: translateY(0); opacity: 1; }
-        }
-        @keyframes glowPulse {
-            from { text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 10px rgba(247, 147, 26, 0.6); }
-            to { text-shadow: 0 4px 8px rgba(0,0,0,0.4), 0 0 20px rgba(247, 147, 26, 1); }
-        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; padding: 0; margin: 0; }
+
+        /* --- Navigation --- */
         nav {
             position: fixed;
-            top: 20px;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 0;
-            z-index: 10;
-        }
-        nav ul {
-            list-style: none;
+            top: 0; left: 0; width: 100%;
+            padding: 15px 5%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 0;
-            padding: 0;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
         }
-        nav ul li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-        section {
-            padding: 100px 20px;
-            max-width: 1200px;
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a.active { color: var(--primary); }
+        
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }
+
+        /* --- Header --- */
+        header {
+            padding: 180px 20px 80px;
+            text-align: center;
+            max-width: 800px;
             margin: 0 auto;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: var(--transition);
         }
-        section.visible {
+
+        header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p { font-size: 1.2rem; color: var(--text-muted); }
+
+        /* --- Content Layout --- */
+        .content-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .story-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-block.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        section h2 {
-            font-size: 2.5rem;
+
+        .story-block:hover {
+            border-color: rgba(247, 147, 26, 0.3);
+            background: var(--bg-card-hover);
+        }
+
+        .story-block h3 {
+            font-size: 1.8rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .story-block p {
+            color: #e0e0e0;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+
+        .story-block p:last-child { margin-bottom: 0; }
+
+        .highlight-year {
+            background: rgba(247, 147, 26, 0.15);
+            color: var(--primary);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.85em;
+            border: 1px solid rgba(247, 147, 26, 0.2);
+        }
+
+        /* --- Quote Style --- */
+        .quote-box {
+            border-left: 3px solid var(--primary);
+            padding: 20px 25px;
+            margin: 30px 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+            font-style: italic;
+            color: var(--text-muted);
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* --- Link Style --- */
+        .story-block a {
+            color: var(--primary);
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom-color 0.2s;
+        }
+        .story-block a:hover { border-bottom-color: var(--primary); }
+
+        /* --- Support Section --- */
+        .support-section {
             text-align: center;
-            margin-bottom: 40px;
+            padding: 80px 20px;
+        }
+        
+        .support-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
             position: relative;
             overflow: hidden;
         }
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            width: 0;
-            height: 3px;
-            background: var(--primary);
-            transition: width 0.6s ease;
-            transform: translateX(-50%);
+
+        .support-card::before {
+            content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 200px; height: 200px; background: var(--primary); filter: blur(80px); opacity: 0.15; z-index: 0;
         }
-        section.visible h2::after {
-            width: 200px;
-        }
-        .about-section {
-            text-align: left;
-            padding: 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            margin-bottom: 40px;
-        }
-        .about-section h3 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        .contact {
-            text-align: center;
-            margin-top: 40px;
-        }
-        .contact a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            border: 2px solid var(--primary);
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-        .contact a:hover {
-            background: var(--primary);
-            color: var(--bg-dark);
-        }
-        .support {
-            text-align: center;
-            margin-top: 80px;
-            padding: 40px 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            opacity: 0;
-            transform: scale(0.9);
-            transition: var(--transition);
-        }
-        .support.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .support p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        .support a {
-            color: var(--primary);
-            text-decoration: none;
-        }
-        .support a:hover {
-            text-decoration: underline;
-        }
-        .support img {
-            max-width: 200px;
+
+        .qr-image {
+            max-width: 180px;
             height: auto;
-            margin-top: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
         }
+
+        .ln-address {
+            background: rgba(0,0,0,0.5);
+            padding: 10px 15px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+            font-family: monospace;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            position: relative; z-index: 1;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .copy-btn {
+            background: transparent; border: 1px solid var(--text-muted); color: var(--text-muted);
+            cursor: pointer; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; transition: all 0.2s;
+            margin-left: 10px;
+        }
+        .copy-btn:hover { border-color: #fff; color: #fff; }
+
+        /* --- Footer --- */
         footer {
-            text-align: center;
-            padding: 50px 20px;
-            font-size: 0.95rem;
-            border-top: 1px solid rgba(247,147,26,0.2);
-            opacity: 0;
-            transition: var(--transition);
+            text-align: center; padding: 40px; border-top: 1px solid var(--border-light);
+            font-size: 0.9rem; color: var(--text-muted); margin-top: 60px;
         }
-        footer.visible {
-            opacity: 1;
-        }
+
+        /* --- Responsive --- */
         @media (max-width: 768px) {
-            header h1 { font-size: 2.8rem; }
-            nav ul { flex-direction: column; text-align: center; gap: 10px; }
-            section { padding: 60px 10px; }
+            .nav-links {
+                position: absolute; top: 70px; left: 0; width: 100%;
+                background: var(--bg-dark); flex-direction: column;
+                padding: 20px 0; gap: 20px;
+                clip-path: circle(0% at 100% 0); transition: clip-path 0.5s ease-in-out;
+                border-bottom: 1px solid var(--border-light);
+            }
+            .nav-links.active { clip-path: circle(150% at 100% 0); }
+            .menu-toggle { display: block; }
+            header { padding-top: 120px; }
+            .story-block { padding: 25px; }
+            .story-block h3 { font-size: 1.5rem; }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div class="bg-gradient"></div>
+
     <nav>
-        <ul>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Bitcoin Akzeptieren
+        </div>
+        <div class="menu-toggle" id="mobile-menu">☰</div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="/">Start</a></li>
-            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung und Coaching</a></li>
+            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
             <li><a href="/nostr.html">Nostr</a></li>
             <li><a href="/empfehlungen.html">Empfehlungen</a></li>
-            <li><a href="/about.html">About</a></li>
+            <li><a href="/about.html" class="active">About</a></li>
         </ul>
     </nav>
 
-    <header style="background-image: url('Images/Backround.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
-        <div class="header-overlay"></div>
+    <header>
         <h1>Über mich</h1>
-        <p>Meine Reise mit Bitcoin – von den ersten Schritten bis zur Leidenschaft für dezentrale Finanzen.</p>
+        <p>Bitcoiner, Informatiker und Verfechter der Selbstverantwortung.</p>
     </header>
 
-    <section class="intro">
-        <h2>Über mich</h2>
-        <div class="about-section">
+    <div class="content-container">
+        
+        <!-- Block 1: Wer ich bin -->
+        <div class="story-block">
             <h3>Wer ich bin</h3>
-            <p>Mein Name ist Patrik, und seit 2016 bin ich tief in die Welt von Bitcoin eingetaucht. Alles begann mit einem 20-Franken-Nötli und einem Paper-Wallet an einem Automaten in Zürich – damals hatte ich keine Ahnung, was ich da gekauft hatte, und meine ersten Sats waren schnell weg.</p>
-            <p>2021 fand ich durch Zufall zurück zu Bitcoin, diesmal mit einer ernsthaften Auseinandersetzung: Geldgeschichte, Technologie, Ethik und Selbstverantwortung. Über 2.000 Stunden Wissen aus Büchern, Podcasts, Meetups und Diskussionen später teile ich meine Erfahrung auf bitcoin-akzeptieren.ch – praxisnah, ehrlich und auf die Schweiz zugeschnitten.</p>
-            <p>Ich unterstütze Einzelpersonen, Selbständige und Unternehmen, die Bitcoin verstehen, sicher nutzen oder akzeptieren wollen. Meine Stärke? Ich weiß, wie es ist, am Anfang zu stehen, und erkläre dir Bitcoin auf Augenhöhe – ohne komplizierten Jargon.</p>
-            <p><a href="mailto:patrik.bal.work@gmail.com">Kontaktiere mich für dein Coaching</a></p>
+            <p>Mein Name ist Patrik. Seit 2016 beschäftige ich mich intensiv mit Bitcoin. Was als zufällige Begegnung begann, ist heute eine tiefe Überzeugung.</p>
+            <p>Ursprünglich habe ich eine Lehre als Elektriker absolviert, arbeite heute jedoch nach einer Zweitausbildung als Informatiker. Dieser technische Hintergrund hilft mir, Bitcoin nicht nur ökonomisch, sondern auch technisch in der Tiefe zu verstehen.</p>
+            <p>Ich unterstütze Einzelpersonen, Selbständige und Unternehmen, die Bitcoin verstehen, sicher nutzen oder akzeptieren wollen. Meine Stärke? Ich weiss, wie es ist, am Anfang zu stehen, und erkläre dir Bitcoin auf Augenhöhe – ohne komplizierten Jargon.</p>
+            <p><a href="mailto:patrik.bal.work@gmail.com">Kontaktiere mich für dein Coaching →</a></p>
         </div>
-        <div class="about-section">
+
+        <!-- Block 2: Geschichte -->
+        <div class="story-block">
             <h3>Meine Bitcoin-Geschichte im Detail</h3>
-            <p><strong>Wie alles begann</strong></p>
-            <p>Alles begann 2016. Als 17-jähriger Elektriker-Lehrling stieß ich durch Schulkollegen zufällig auf Bitcoin. In einem Café im Zürcher Niederdörfli stand ein Bitcoin-Automat. Ich hatte zuvor nur vage von Bitcoin gehört, mich aber nie damit beschäftigt. Mit einem Kollegen kaufte ich für ein 20-Franken-Nötli meine ersten Bitcoin als Paper-Wallet – damals kostete ein Bitcoin etwa 400 Franken. Ich erinnere mich, wie ich in der Schule laut ausrief: „Ihr glaubt nicht, was ein Bitcoin kostet – über 400 Franken! Wer kauft denn so was Teures?“</p>
-            <p>Ich hatte keine Ahnung, was ich mit meinen Bitcoin machen sollte. Eine Woche später hatte ich sie irgendwie an verschiedene Adressen verschickt, ohne zu wissen, was ich tat – im Grunde hatte ich sie „gespendet“. Danach verlor ich Bitcoin aus den Augen, bis...</p>
-            <p><strong>Das Rabbit Hole: 2021</strong></p>
-            <p>2021 entdeckte ich Bitcoin erneut, diesmal durch ein YouTube-Video, während ich mich mit Finanzthemen wie Aktien beschäftigte. Ab da war ich gefesselt. Ich tauchte ins sogenannte Rabbit Hole ein und verschlang täglich Inhalte zu Bitcoin – von Technik über Ökonomie bis Philosophie. Schätzungsweise habe ich seitdem über 2.100 Stunden Wissen angesammelt, durch Bücher, Podcasts, Meetups und Diskussionen.</p>
-            <p>Bitcoin fasziniert mich, weil es so viele Bereiche des Lebens berührt: Geldgeschichte, Kryptographie, Ethik, Selbstverantwortung und sogar Physik. Geld und Technologie sind überall – jedes Objekt hat ein unsichtbares Preisschild, sei es durch Material, Herstellung oder Dienstleistung. Und fast jeder hat heute ein Smartphone, oft sogar ohne Bankkonto.</p>
-            <p><strong>Warum Bitcoin die Welt verändert</strong></p>
-            <p>Bitcoin ist mehr als eine Währung – es ist ein Werkzeug für Freiheit. In Ländern mit korrupten Finanzsystemen oder Regierungen schützt Bitcoin Menschen vor Enteignung und Zensur. Es gibt die Kontrolle über das Geld zurück an das Individuum. Wie es heißt: „Geld regiert die Welt.“ Ich glaube, wer das Geld kontrolliert, kontrolliert die Welt – und Bitcoin gibt diese Macht den Menschen zurück.</p>
-            <p>In der Schweiz sind wir mit dem starken Franken privilegiert, doch Bitcoin ist auch hier relevant: als Investition, zunehmend als Zahlungsmittel (wie in Zug oder Lugano) und als Ausdruck von Unabhängigkeit. Ich könnte stundenlang über Bitcoin sprechen, weil es unser Leben verbessern kann – durch Sicherheit, Freiheit und Selbstbestimmung.</p>
-            <p><a href="mailto:patrik.bal.work@gmail.com">Erfahre mehr über mein Coaching</a></p>
+            
+            <p><span class="highlight-year">2016</span> <strong>Wie alles begann</strong></p>
+            <p>Alles fing 2016 an. Als damals 17-jähriger Elektriker-Lehrling stiess ich durch Schulkollegen zufällig auf Bitcoin. In einem Café im Zürcher Niederdörfli stand ein Bitcoin-Automat. Ich hatte zuvor nur vage davon gehört, mich aber nie wirklich damit beschäftigt. Mit einem Kollegen kaufte ich für eine 20er-Note meine ersten Satoshis als Paper-Wallet – damals kostete ein ganzer Bitcoin etwa 400 Franken.</p>
+            
+            <div class="quote-box">
+                „Ihr glaubt nicht, was ein Bitcoin kostet – über 400 Franken! Wer kauft denn so was Teures?“
+            </div>
+
+            <p>Das rief ich damals ungläubig in der Schule aus. Ich hatte keine Ahnung, was ich mit meinen Bitcoin machen sollte. Eine Woche später hatte ich sie irgendwie an verschiedene Adressen verschickt, ohne zu wissen, was ich tat – im Grunde hatte ich sie unwissend „gespendet“. Danach verlor ich Bitcoin aus den Augen.</p>
+            
+            <br>
+            <p><span class="highlight-year">2021</span> <strong>Das Rabbit Hole</strong></p>
+            <p>2021 entdeckte ich Bitcoin erneut, diesmal durch ein YouTube-Video zur Finanzbildung. Ab da war ich gefesselt. Ich tauchte ins sogenannte Rabbit Hole (Kaninchenbau) ein und verschlang täglich Inhalte – von Technik über Ökonomie bis Philosophie.</p>
+            <p>Schätzungsweise habe ich seitdem über 2'000 Stunden Wissen angesammelt: durch Bücher, Podcasts, Meetups und Diskussionen. Bitcoin fasziniert mich, weil es so viele Bereiche des Lebens berührt: Geldgeschichte, Kryptographie, Ethik und Physik.</p>
         </div>
-    </section>
 
-    <section class="contact">
-        <h2>Kontaktiere mich</h2>
-        <p>Du hast Fragen zu meiner Geschichte oder möchtest ein Coaching buchen? Schreib mir direkt!</p>
-        <p><a href="mailto:patrik.bal.work@gmail.com">Jetzt Kontakt aufnehmen</a></p>
-    </section>
+        <!-- Block 3: Vision -->
+        <div class="story-block">
+            <h3>Warum Bitcoin die Welt verändert</h3>
+            <p>Bitcoin ist mehr als eine Währung – es ist ein Werkzeug für Freiheit. In Ländern mit korrupten Finanzsystemen schützt Bitcoin Menschen vor Enteignung und Zensur. Es gibt die Kontrolle über das Geld zurück an das Individuum.</p>
+            <p>In der Schweiz sind wir mit dem starken Franken privilegiert, doch Bitcoin ist auch hier relevant: als Absicherung, als Investition und zunehmend als Zahlungsmittel (wie in Zug oder Lugano). Ich könnte stundenlang über Bitcoin sprechen, weil es unser Leben verbessern kann – durch Sicherheit, Freiheit und Selbstbestimmung.</p>
+            <p><a href="mailto:patrik.bal.work@gmail.com">Erfahre mehr über mein Coaching →</a></p>
+        </div>
 
-    <section class="support">
-        <h2>Unterstütze mein Projekt</h2>
-        <p>Gefällt dir meine Arbeit? Schicke mir einen Lightning-Zap, um dieses Projekt weiter wachsen zu lassen!</p>
-        <p>Lightning-Adresse: <a href="lightning:humanraft81@walletofsatoshi.com">humanraft81@walletofsatoshi.com</a></p>
-        <img src="Images/Lightning_QR.jpg" alt="Lightning QR Code for humanraft81@walletofsatoshi.com">
-    </section>
+    </div>
+
+    <!-- Support Section -->
+    <div class="support-section">
+        <div class="support-card">
+            <h2 style="margin-top:0;">Unterstütze mein Projekt</h2>
+            <p>Gefällt dir meine Arbeit? Schicke mir einen Lightning-Zap, um dieses Projekt weiter wachsen zu lassen!</p>
+            
+            <img src="Images/Lightning_QR.jpg" alt="Lightning QR Code" class="qr-image" onerror="this.style.display='none';">
+            
+            <div class="ln-address">
+                <span id="ln-address">humanraft81@walletofsatoshi.com</span>
+                <button class="copy-btn" onclick="copyAddress()">Kopieren</button>
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>© 2025 Bitcoin Akzeptieren. Dezentralisiert und unabhängig. Powered by Nostr & Bitcoin.</p>
     </footer>
 
     <script>
-        const sections = document.querySelectorAll('section, .about-section, footer, .support');
-        const observer = new IntersectionObserver(entries => {
+        // Animations Observer
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                 }
             });
         }, { threshold: 0.1 });
-        sections.forEach(section => observer.observe(section));
 
-        window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (scrollTop / scrollHeight) * 100;
-            document.body.style.setProperty('--scroll', scrolled + '%');
-            document.body.after.style.width = `${scrolled}%`;
+        document.querySelectorAll('.story-block').forEach(el => observer.observe(el));
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
         });
+
+        // Copy Function
+        function copyAddress() {
+            const addressText = document.getElementById('ln-address').innerText;
+            navigator.clipboard.writeText(addressText).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                const originalText = btn.innerText;
+                btn.innerText = "Kopiert!";
+                btn.style.color = "#f7931a";
+                btn.style.borderColor = "#f7931a";
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.color = "";
+                    btn.style.borderColor = "";
+                }, 2000);
+            }).catch(err => {
+                console.error('Fehler beim Kopieren: ', err);
+            });
+        }
     </script>
 </body>
 </html>
