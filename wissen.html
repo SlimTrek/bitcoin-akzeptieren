@@ -154,21 +154,16 @@
         }
 
         .card-image {
-            height: 200px;
+            height: 180px;
             background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
             position: relative;
             overflow: hidden;
         }
         
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .article-card:hover .card-image img { transform: scale(1.05); }
-
         .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
 
         .card-meta {
@@ -258,72 +253,73 @@
     </header>
 
     <div class="category-nav">
-        <span class="cat-btn active">Alle</span>
-        <span class="cat-btn">Grundlagen</span>
-        <span class="cat-btn">Praxis & Tools</span>
-        <span class="cat-btn">Sicherheit</span>
+        <span class="cat-btn active" onclick="filterArticles('all')">Alle</span>
+        <span class="cat-btn" onclick="filterArticles('Praxis')">Praxis</span>
+        <span class="cat-btn" onclick="filterArticles('Sicherheit')">Sicherheit</span>
+        <span class="cat-btn" onclick="filterArticles('Technik')">Technik</span>
+        <span class="cat-btn" onclick="filterArticles('Grundlagen')">Grundlagen</span>
     </div>
 
     <div class="blog-container">
 
-        <!-- Artikel 1: Bitcoin Kaufen (Basis) -->
-        <a href="/artikel-bitcoin-kaufen-schweiz.html" class="article-card">
-            <div class="card-image">
-                <div style="width:100%; height:100%; background: linear-gradient(45deg, #1a1a1a, #333); display:flex; align-items:center; justify-content:center;">
-                    <span style="font-size:3rem;">🇨🇭</span>
-                </div>
-            </div>
-            <div class="card-content">
-                <span class="card-meta">Praxis</span>
-                <h3>Bitcoin einfach kaufen in der Schweiz</h3>
-                <p>Warum Apps wie Relai der beste Weg für Einsteiger sind, was "No-KYC" bedeutet und wie du Gebühren sparst.</p>
-                <span class="read-more">Artikel lesen →</span>
-            </div>
+        <!-- KATEGORIE: PRAXIS & TOOLS -->
+        <a href="/artikel-bitcoin-kaufen-schweiz.html" class="article-card" data-category="Praxis">
+            <div class="card-image" style="background: linear-gradient(45deg, #1a1a1a, #333);">🇨🇭</div>
+            <div class="card-content"><span class="card-meta">Praxis</span><h3>Bitcoin Kaufen (Schweiz)</h3><p>Anleitung: Einfach, sicher und ohne komplizierte Verifizierung mit Relai.</p><span class="read-more">Lesen →</span></div>
         </a>
 
-        <!-- Artikel 2: Hardware Wallet -->
-        <a href="/artikel-hardware-wallet-bitbox.html" class="article-card">
-            <div class="card-image">
-                <div style="width:100%; height:100%; background: linear-gradient(45deg, #1a1a1a, #333); display:flex; align-items:center; justify-content:center;">
-                    <span style="font-size:3rem;">🔐</span>
-                </div>
-            </div>
-            <div class="card-content">
-                <span class="card-meta">Sicherheit</span>
-                <h3>Hardware Wallets & BitBox02</h3>
-                <p>Warum du deine Coins nicht auf der Börse lassen solltest und wie die BitBox02 dein Vermögen sichert.</p>
-                <span class="read-more">Artikel lesen →</span>
-            </div>
+        <!-- KATEGORIE: SICHERHEIT -->
+        <a href="/artikel-das-richtige-backup.html" class="article-card" data-category="Sicherheit">
+            <div class="card-image" style="background: linear-gradient(45deg, #222, #333);">📝</div>
+            <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Das richtige Backup</h3><p>Papier oder Stahl? Wie du deine Seed Phrase vor Feuer, Wasser und Verlust schützt.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-hardware-wallet-bitbox.html" class="article-card" data-category="Sicherheit">
+            <div class="card-image" style="background: linear-gradient(45deg, #111, #222);">🔐</div>
+            <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Hardware Wallets (BitBox02)</h3><p>Warum "Not your keys, not your coins" so wichtig ist und wie du dein Vermögen sicherst.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-bitcoin-vererben.html" class="article-card" data-category="Sicherheit">
+            <div class="card-image" style="background: linear-gradient(45deg, #1a1a1a, #333);">⚰️</div>
+            <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Bitcoin vererben</h3><p>Ein Notfallplan für deine Angehörigen, damit deine Coins nicht verloren gehen.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-spam-praevention.html" class="article-card" data-category="Sicherheit">
+            <div class="card-image" style="background: linear-gradient(45deg, #331111, #552222);">⚠️</div>
+            <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Scam-Prävention</h3><p>Erkenne Betrugsmaschen, Doubling-Scams und falsche Versprechen sofort.</p><span class="read-more">Lesen →</span></div>
         </a>
 
-        <!-- Artikel 3: Lightning -->
-        <a href="/artikel-lightning-netzwerk.html" class="article-card">
-            <div class="card-image">
-                <div style="width:100%; height:100%; background: linear-gradient(45deg, #1a1a1a, #333); display:flex; align-items:center; justify-content:center;">
-                    <span style="font-size:3rem;">⚡️</span>
-                </div>
-            </div>
-            <div class="card-content">
-                <span class="card-meta">Technologie</span>
-                <h3>Was ist das Lightning Netzwerk?</h3>
-                <p>Wie Bitcoin schneller und günstiger wird als Visa – einfach erklärt für Anfänger ohne technisches Vorwissen.</p>
-                <span class="read-more">Artikel lesen →</span>
-            </div>
+        <!-- KATEGORIE: TECHNIK -->
+        <a href="/artikel-full-node.html" class="article-card" data-category="Technik">
+            <div class="card-image" style="background: linear-gradient(45deg, #111, #333);">🖥️</div>
+            <div class="card-content"><span class="card-meta">Technik</span><h3>Was ist ein Full Node?</h3><p>Warum du deinen eigenen Knoten betreiben solltest: Privatsphäre und Unabhängigkeit.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-utxo-management.html" class="article-card" data-category="Technik">
+            <div class="card-image" style="background: linear-gradient(45deg, #222, #333);">💰</div>
+            <div class="card-content"><span class="card-meta">Technik</span><h3>UTXO Management</h3><p>So sparst du Transaktionsgebühren und verhinderst "feststeckende" Coins.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-bitcoin-mining.html" class="article-card" data-category="Technik">
+            <div class="card-image" style="background: linear-gradient(45deg, #332200, #553300);">⛏️</div>
+            <div class="card-content"><span class="card-meta">Technik</span><h3>Bitcoin Mining erklärt</h3><p>Wie neue Coins entstehen und warum Proof of Work so viel Energie braucht.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-lightning-netzwerk.html" class="article-card" data-category="Technik">
+            <div class="card-image" style="background: linear-gradient(45deg, #222, #444);">⚡️</div>
+            <div class="card-content"><span class="card-meta">Technik</span><h3>Das Lightning Netzwerk</h3><p>Wie Bitcoin schneller und günstiger wird als Visa – einfach erklärt.</p><span class="read-more">Lesen →</span></div>
         </a>
 
-        <!-- Artikel 4: Steuern -->
-        <a href="/artikel-bitcoin-steuern-schweiz.html" class="article-card">
-            <div class="card-image">
-                <div style="width:100%; height:100%; background: linear-gradient(45deg, #1a1a1a, #333); display:flex; align-items:center; justify-content:center;">
-                    <span style="font-size:3rem;">💸</span>
-                </div>
-            </div>
-            <div class="card-content">
-                <span class="card-meta">Grundlagen</span>
-                <h3>Bitcoin & Steuern in der Schweiz</h3>
-                <p>Muss ich Steuern zahlen? Was ist steuerfreier Kapitalgewinn? Ein Leitfaden zur Deklaration im Wertschriftenverzeichnis.</p>
-                <span class="read-more">Artikel lesen →</span>
-            </div>
+        <!-- KATEGORIE: GRUNDLAGEN -->
+        <a href="/artikel-bitcoin-vs-krypto.html" class="article-card" data-category="Grundlagen">
+            <div class="card-image" style="background: linear-gradient(45deg, #222, #444);">🆚</div>
+            <div class="card-content"><span class="card-meta">Grundlagen</span><h3>Bitcoin vs. Krypto</h3><p>Warum Bitcoin einzigartig ist und nicht mit "Altcoins" verglichen werden kann.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-inflation-geld.html" class="article-card" data-category="Grundlagen">
+            <div class="card-image" style="background: linear-gradient(45deg, #111, #333);">📈</div>
+            <div class="card-content"><span class="card-meta">Grundlagen</span><h3>Inflation & Geldgeschichte</h3><p>Warum alles teurer wird und wie Bitcoin dich vor der Geldentwertung schützt.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-energieverbrauch.html" class="article-card" data-category="Grundlagen">
+            <div class="card-image" style="background: linear-gradient(45deg, #002200, #003300);">🌱</div>
+            <div class="card-content"><span class="card-meta">Grundlagen</span><h3>Mythos Energieverbrauch</h3><p>Ist Bitcoin schlecht für die Umwelt? Fakten statt Schlagzeilen.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-bitcoin-steuern-schweiz.html" class="article-card" data-category="Grundlagen">
+            <div class="card-image" style="background: linear-gradient(45deg, #1a1a1a, #333);">💸</div>
+            <div class="card-content"><span class="card-meta">Grundlagen</span><h3>Bitcoin & Steuern (CH)</h3><p>Steuerfreier Kapitalgewinn vs. Vermögenssteuer. Was du wissen musst.</p><span class="read-more">Lesen →</span></div>
         </a>
 
     </div>
@@ -350,6 +346,35 @@
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
+        // Filter Logic
+        function filterArticles(category) {
+            const cards = document.querySelectorAll('.article-card');
+            const btns = document.querySelectorAll('.cat-btn');
+            
+            // Update Buttons
+            btns.forEach(btn => {
+                if(btn.innerText === category || (category === 'all' && btn.innerText === 'Alle')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+                // Mapping für "Praxis" Button, der im Text "Praxis" heisst aber data-category "Praxis" filtert
+                if(category === 'Praxis' && btn.innerText === 'Praxis & Tools') btn.classList.add('active');
+            });
+
+            // Filter Cards
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.style.display = 'flex';
+                    setTimeout(() => card.style.opacity = '1', 50);
+                } else {
+                    card.style.display = 'none';
+                    card.style.opacity = '0';
+                }
+            });
+        }
     </script>
 </body>
 </html>
