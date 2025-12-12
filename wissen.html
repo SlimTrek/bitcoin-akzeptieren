@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Die Bitcoin Wissensdatenbank für die Schweiz. Anleitungen, Erklärungen und Strategien einfach erklärt.">
+    <title>Wissen & Blog – Bitcoin Akzeptieren</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #f7931a;
+            --primary-hover: #e0820b;
+            --bg-dark: #0a0a0a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.07);
+            --text-main: #ffffff;
+            --text-muted: #a3a3a3;
+            --border-light: rgba(255, 255, 255, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Background Animation --- */
+        .bg-gradient {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(circle at 80% 10%, rgba(247, 147, 26, 0.05), transparent 50%),
+                radial-gradient(circle at 20% 90%, rgba(50, 50, 50, 0.1), transparent 40%);
+            pointer-events: none;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; padding: 0; margin: 0; }
+
+        /* --- Navigation --- */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 15px 5%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links { display: flex; gap: 25px; }
+        .nav-links a { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a.active { color: var(--primary); }
+        
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }
+
+        /* --- Header --- */
+        header {
+            padding: 160px 20px 80px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p { font-size: 1.2rem; color: var(--text-muted); }
+
+        /* --- Filter / Categories --- */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 60px;
+            padding: 0 20px;
+        }
+
+        .cat-btn {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-light);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cat-btn:hover, .cat-btn.active {
+            background: var(--primary);
+            color: #000;
+            border-color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* --- Blog Grid --- */
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5% 100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .article-card.visible { opacity: 1; transform: translateY(0); }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(247, 147, 26, 0.4);
+            background: var(--bg-card-hover);
+        }
+
+        .card-image {
+            height: 200px;
+            background: #222;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .article-card:hover .card-image img { transform: scale(1.05); }
+
+        .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .article-card h3 {
+            font-size: 1.4rem;
+            margin: 0 0 15px;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .article-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            color: #fff;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .read-more:hover { color: var(--primary); }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center; padding: 40px; border-top: 1px solid var(--border-light);
+            font-size: 0.9rem; color: var(--text-muted); margin-top: 60px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute; top: 70px; left: 0; width: 100%;
+                background: var(--bg-dark); flex-direction: column;
+                padding: 20px 0; gap: 20px;
+                clip-path: circle(0% at 100% 0); transition: clip-path 0.5s ease-in-out;
+                border-bottom: 1px solid var(--border-light);
+            }
+            .nav-links.active { clip-path: circle(150% at 100% 0); }
+            .menu-toggle { display: block; }
+            header { padding-top: 120px; }
+            .blog-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-gradient"></div>
+
+    <nav>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Bitcoin Akzeptieren
+        </div>
+        <div class="menu-toggle" id="mobile-menu">☰</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/">Start</a></li>
+            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
+            <li><a href="/dca-rechner.html">Rechner</a></li>
+            <li><a href="/wissen.html" class="active">Wissen</a></li>
+            <li><a href="/nostr.html">Nostr</a></li>
+            <li><a href="/empfehlungen.html">Empfehlungen</a></li>
+            <li><a href="/about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Wissensdatenbank</h1>
+        <p>Praxisnahe Anleitungen und fundiertes Wissen für deine Bitcoin-Reise.</p>
+    </header>
+
+    <div class="category-nav">
+        <span class="cat-btn active">Alle</span>
+        <span class="cat-btn">Grundlagen</span>
+        <span class="cat-btn">Praxis & Tools</span>
+        <span class="cat-btn">Sicherheit</span>
+    </div>
+
+    <div class="blog-container">
+
+        <!-- Artikel 1 -->
+        <a href="/artikel-bitcoin-kaufen-schweiz.html" class="article-card">
+            <div class="card-image">
+                <!-- Platzhalter Bild: Ideal wäre hier ein Bild von einer Smartphone App oder Schweizer Franken -->
+                <div style="width:100%; height:100%; background: linear-gradient(45deg, #1a1a1a, #333); display:flex; align-items:center; justify-content:center;">
+                    <span style="font-size:3rem;">🇨🇭</span>
+                </div>
+            </div>
+            <div class="card-content">
+                <span class="card-meta">Praxis</span>
+                <h3>Bitcoin einfach kaufen in der Schweiz</h3>
+                <p>Warum Apps wie Relai der beste Weg für Einsteiger sind, was "No-KYC" bedeutet und wie du Gebühren sparst.</p>
+                <span class="read-more">Artikel lesen →</span>
+            </div>
+        </a>
+
+        <!-- Artikel 2 (Placeholder / Coming Soon) -->
+        <div class="article-card" style="opacity: 0.5; pointer-events: none;">
+            <div class="card-image">
+                <div style="width:100%; height:100%; background: linear-gradient(45deg, #1a1a1a, #333); display:flex; align-items:center; justify-content:center;">
+                    <span style="font-size:3rem;">🔐</span>
+                </div>
+            </div>
+            <div class="card-content">
+                <span class="card-meta">Sicherheit</span>
+                <h3>Hardware Wallets erklärt (Coming Soon)</h3>
+                <p>Warum du deine Coins nicht auf der Börse lassen solltest und wie die BitBox02 funktioniert.</p>
+                <span class="read-more">Bald verfügbar</span>
+            </div>
+        </div>
+
+        <!-- Artikel 3 (Placeholder) -->
+        <div class="article-card" style="opacity: 0.5; pointer-events: none;">
+            <div class="card-image">
+                <div style="width:100%; height:100%; background: linear-gradient(45deg, #1a1a1a, #333); display:flex; align-items:center; justify-content:center;">
+                    <span style="font-size:3rem;">⚡️</span>
+                </div>
+            </div>
+            <div class="card-content">
+                <span class="card-meta">Technologie</span>
+                <h3>Was ist das Lightning Netzwerk?</h3>
+                <p>Wie Bitcoin schneller und günstiger wird als Visa – einfach erklärt für Anfänger.</p>
+                <span class="read-more">Bald verfügbar</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2025 Bitcoin Akzeptieren. Dezentralisiert und unabhängig.<br>Powered by Nostr & Bitcoin.</p>
+    </footer>
+
+    <script>
+        // Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.article-card').forEach(el => observer.observe(el));
+
+        // Mobile Menu
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
