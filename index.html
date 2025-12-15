@@ -6,304 +6,33 @@
     <meta name="description" content="Bitcoin Akzeptieren: Strategien für finanzielle Souveränität, Dezentralisierung und die Nutzung von Nostr.">
     <title>Bitcoin Akzeptieren – Freiheit als Strategie</title>
     
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    <!-- Styles -->
-    <!-- Hinweis: Du könntest diese Styles später auch in eine style.css auslagern -->
     <style>
         :root {
-            --primary: #f7931a; /* Bitcoin Orange */
-            --primary-hover: #e0820b;
-            --bg-dark: #050505;
-            --bg-card: rgba(255, 255, 255, 0.03);
-            --bg-card-hover: rgba(255, 255, 255, 0.06);
-            --text-main: #ffffff;
-            --text-muted: #9ca3af;
+            --primary: #f7931a; --primary-hover: #e0820b;
+            --bg-dark: #050505; --bg-card: rgba(255, 255, 255, 0.03); --bg-card-hover: rgba(255, 255, 255, 0.06);
+            --text-main: #ffffff; --text-muted: #9ca3af;
             --border-light: rgba(255, 255, 255, 0.08);
-            --glass: rgba(10, 10, 10, 0.85);
-            --success: #00c853;
+            --glass: rgba(10, 10, 10, 0.85); --success: #00c853;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         * { box-sizing: border-box; }
-        
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- Background Animation --- */
-        .bg-gradient {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background: 
-                radial-gradient(circle at 10% 20%, rgba(247, 147, 26, 0.04), transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(100, 100, 255, 0.03), transparent 40%);
-            pointer-events: none;
-        }
-
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        .bg-gradient { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 10% 20%, rgba(247, 147, 26, 0.04), transparent 40%), radial-gradient(circle at 90% 80%, rgba(100, 100, 255, 0.03), transparent 40%); pointer-events: none; }
         a { text-decoration: none; color: inherit; transition: var(--transition); }
         ul { list-style: none; padding: 0; margin: 0; }
 
-        /* --- Navigation Styles (Werden für navbar.html benötigt) --- */
-        nav {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            padding: 15px 5%;
-            background: rgba(5, 5, 5, 0.8);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--primary);
-            display: flex; align-items: center; gap: 10px;
-        }
-
+        /* WICHTIG: Nav & Footer Styles müssen hier bleiben (oder in style.css), damit die geladene Komponente gut aussieht */
+        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); }
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); display: flex; align-items: center; gap: 10px; }
         .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
         .nav-links a { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary); text-shadow: 0 0 15px rgba(247, 147, 26, 0.4); }
-        
         .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }
 
-        /* --- Hero Section --- */
-        header {
-            min-height: 95vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            position: relative;
-            background: radial-gradient(circle at center, rgba(20,20,20,0) 0%, var(--bg-dark) 100%), 
-                        url('Images/Backround.jpg') center/cover no-repeat;
-        }
-
-        header::after {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(5,5,5,0.7); z-index: 1;
-        }
-
-        .hero-content {
-            position: relative; z-index: 2; max-width: 900px;
-            animation: fadeUp 1s ease-out;
-        }
-
-        /* Live Ticker Badge */
-        .live-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(247, 147, 26, 0.15);
-            border: 1px solid rgba(247, 147, 26, 0.3);
-            color: var(--primary);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            box-shadow: 0 0 20px rgba(247, 147, 26, 0.1);
-        }
-        .live-dot {
-            width: 8px; height: 8px; background: var(--success); border-radius: 50%;
-            box-shadow: 0 0 10px var(--success);
-            animation: pulse 2s infinite;
-        }
-
-        header h1 {
-            font-size: clamp(3rem, 6vw, 5rem);
-            margin: 0 0 20px 0;
-            line-height: 1.05;
-            letter-spacing: -2px;
-            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header span.highlight {
-            background: linear-gradient(135deg, var(--primary) 0%, #ffbb5c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header p {
-            font-size: 1.3rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;
-        }
-
-        /* --- Market Bar (Live Data) --- */
-        .market-bar {
-            position: relative; z-index: 2;
-            width: 90%; max-width: 1000px;
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border-light);
-            border-radius: 15px;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 50px;
-            animation: fadeUp 1s ease-out 0.3s backwards;
-        }
-
-        .market-item { text-align: center; border-right: 1px solid var(--border-light); }
-        .market-item:last-child { border-right: none; }
-        .market-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
-        .market-value { font-size: 1.2rem; font-weight: 800; color: #fff; font-family: monospace; }
-
-        /* --- Buttons --- */
-        .btn {
-            display: inline-block; padding: 14px 35px;
-            background: var(--primary); color: #000;
-            font-weight: 700; border-radius: 50px;
-            transition: var(--transition);
-            box-shadow: 0 0 20px rgba(247, 147, 26, 0.2);
-        }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(247, 147, 26, 0.4); background: #ffaa33; }
-
-        .btn-outline {
-            display: inline-block; padding: 14px 35px;
-            background: transparent; border: 1px solid var(--border-light); color: #fff;
-            font-weight: 600; border-radius: 50px;
-            transition: var(--transition);
-            margin-left: 15px;
-        }
-        .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
-
-        /* --- Sections General --- */
-        section { padding: 120px 5%; max-width: 1200px; margin: 0 auto; }
-        
-        h2 {
-            font-size: 2.2rem; margin-bottom: 60px; text-align: center;
-            background: linear-gradient(90deg, #fff, #999);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
-        /* --- Target Audience (Zielgruppe) --- */
-        .target-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
-        }
-
-        .profile-card {
-            background: var(--bg-card); border: 1px solid var(--border-light);
-            padding: 40px 30px; border-radius: 20px; transition: var(--transition);
-            position: relative; overflow: hidden;
-            display: flex; flex-direction: column; height: 100%;
-        }
-        .profile-card:hover { transform: translateY(-10px); border-color: var(--primary); background: var(--bg-card-hover); }
-        .icon-box {
-            width: 60px; height: 60px; background: rgba(247, 147, 26, 0.1);
-            border-radius: 12px; display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; margin-bottom: 25px; color: var(--primary);
-        }
-        .profile-card h3 { font-size: 1.4rem; margin: 0 0 15px; color: #fff; }
-        .profile-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
-        .profile-link { color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.9rem; margin-top: auto; }
-
-        /* --- Services --- */
-        .services-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
-        }
-        .service-box {
-            background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-            border: 1px solid var(--border-light);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: var(--transition);
-        }
-        .service-box:hover { border-color: var(--primary); transform: translateY(-5px); }
-        .service-icon { font-size: 2.5rem; margin-bottom: 20px; display: inline-block; }
-        .service-box h3 { margin: 0 0 15px; color: #fff; font-size: 1.3rem; }
-        .service-box p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
-        .service-link { color: var(--primary); font-weight: 600; font-size: 0.9rem; text-decoration: none; }
-
-        /* --- TOOLS SECTION (DCA & SATS) --- */
-        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-top: 40px; }
-        
-        .tool-card {
-            background: radial-gradient(circle at top right, rgba(247,147,26,0.05), transparent 60%), var(--bg-card);
-            border: 1px solid var(--border-light); border-radius: 25px; padding: 40px;
-            text-align: center; transition: var(--transition);
-        }
-        .tool-card:hover { border-color: var(--primary); }
-        .tool-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
-        .tool-card h3 { font-size: 1.5rem; margin-bottom: 10px; color: #fff; }
-        .tool-card p { color: var(--text-muted); margin-bottom: 30px; }
-
-        /* --- BUSINESS BANNER --- */
-        .business-banner {
-            background: linear-gradient(90deg, #111 0%, #1a1a1a 100%);
-            border: 1px solid var(--border-light); border-radius: 30px; padding: 60px 40px;
-            display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px;
-            margin: 80px 0;
-        }
-        .business-content { flex: 1; min-width: 300px; }
-        .business-content h2 { text-align: left; margin-bottom: 15px; transform: none; left: auto; color: var(--primary); }
-        .business-content p { font-size: 1.1rem; color: #ddd; margin-bottom: 30px; }
-        .business-image { font-size: 5rem; opacity: 0.5; }
-
-        /* --- About Teaser --- */
-        .about-teaser {
-            display: flex; flex-wrap: wrap; align-items: center; gap: 50px;
-            background: var(--bg-card); border-radius: 30px; padding: 50px;
-            border: 1px solid var(--border-light);
-        }
-        .about-image {
-            flex: 1; min-width: 250px; height: 300px;
-            background: url('Images/Backround.jpg') center/cover; /* Hier könnte dein Foto rein */
-            border-radius: 20px;
-            position: relative;
-        }
-        .about-content { flex: 2; min-width: 300px; }
-        .about-content h2 { text-align: left; margin-bottom: 20px; transform: none; left: auto; }
-        .about-content p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 30px; }
-
-        /* --- Content Preview --- */
-        .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
-        .content-card {
-            background: var(--bg-card); padding: 25px; border-radius: 15px;
-            border: 1px solid var(--border-light); transition: var(--transition);
-            display: flex; flex-direction: column;
-        }
-        .content-card:hover { border-color: rgba(255,255,255,0.3); background: var(--bg-card-hover); }
-        .tag { font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; letter-spacing: 1px; margin-bottom: 10px; }
-        .content-card h4 { font-size: 1.2rem; margin: 0 0 10px; color: #fff; }
-        .content-card p { font-size: 0.9rem; color: var(--text-muted); flex-grow: 1; }
-        .arrow-link { color: #fff; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; margin-top: 15px; }
-        .arrow-link:hover { color: var(--primary); }
-
-        /* --- Testimonials --- */
-        .testimonials { background: rgba(255,255,255,0.015); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
-        .quote-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .quote-item p { font-style: italic; font-size: 1.1rem; color: #ccc; margin-bottom: 20px; }
-        .quote-author { display: flex; align-items: center; gap: 15px; }
-        .author-avatar { width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary); }
-
-        /* --- FAQ --- */
-        .faq-item { border-bottom: 1px solid var(--border-light); margin-bottom: 15px; }
-        .faq-question { padding: 20px 0; cursor: pointer; font-size: 1.1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
-        .faq-answer { max-height: 0; overflow: hidden; transition: 0.3s; color: var(--text-muted); line-height: 1.6; }
-        .faq-item.active .faq-answer { padding-bottom: 20px; max-height: 200px; }
-        .plus-icon { transition: 0.3s; font-size: 1.5rem; color: var(--primary); }
-        .faq-item.active .plus-icon { transform: rotate(45deg); }
-
-        /* --- Footer Styles (für footer.html) --- */
-        footer {
-            background: #000; padding: 80px 5% 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted);
-        }
+        /* Footer Styles */
+        footer { background: #000; padding: 80px 5% 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin: 0 auto 60px; }
         .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
         .footer-col ul { list-style: none; padding: 0; }
@@ -312,7 +41,86 @@
         .footer-col a:hover { color: var(--primary); }
         .footer-bottom { text-align: center; border-top: 1px solid var(--border-light); padding-top: 30px; font-size: 0.8rem; }
 
-        /* --- Animations --- */
+        /* Restliche Page Styles */
+        header { min-height: 95vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; position: relative; background: radial-gradient(circle at center, rgba(20,20,20,0) 0%, var(--bg-dark) 100%), url('Images/Backround.jpg') center/cover no-repeat; }
+        header::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5,5,5,0.7); z-index: 1; }
+        .hero-content { position: relative; z-index: 2; max-width: 900px; animation: fadeUp 1s ease-out; }
+        .live-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(247, 147, 26, 0.15); border: 1px solid rgba(247, 147, 26, 0.3); color: var(--primary); padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 30px; box-shadow: 0 0 20px rgba(247, 147, 26, 0.1); }
+        .live-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; box-shadow: 0 0 10px var(--success); animation: pulse 2s infinite; }
+        header h1 { font-size: clamp(3rem, 6vw, 5rem); margin: 0 0 20px 0; line-height: 1.05; letter-spacing: -2px; background: linear-gradient(180deg, #fff 0%, #aaa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header span.highlight { background: linear-gradient(135deg, var(--primary) 0%, #ffbb5c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header p { font-size: 1.3rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .market-bar { position: relative; z-index: 2; width: 90%; max-width: 1000px; background: rgba(20, 20, 20, 0.6); backdrop-filter: blur(10px); border: 1px solid var(--border-light); border-radius: 15px; padding: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 50px; animation: fadeUp 1s ease-out 0.3s backwards; }
+        .market-item { text-align: center; border-right: 1px solid var(--border-light); }
+        .market-item:last-child { border-right: none; }
+        .market-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
+        .market-value { font-size: 1.2rem; font-weight: 800; color: #fff; font-family: monospace; }
+        .btn { display: inline-block; padding: 14px 35px; background: var(--primary); color: #000; font-weight: 700; border-radius: 50px; transition: var(--transition); box-shadow: 0 0 20px rgba(247, 147, 26, 0.2); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 0 30px rgba(247, 147, 26, 0.4); background: #ffaa33; }
+        .btn-outline { display: inline-block; padding: 14px 35px; background: transparent; border: 1px solid var(--border-light); color: #fff; font-weight: 600; border-radius: 50px; transition: var(--transition); margin-left: 15px; }
+        .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
+        section { padding: 120px 5%; max-width: 1200px; margin: 0 auto; }
+        h2 { font-size: 2.2rem; margin-bottom: 60px; text-align: center; background: linear-gradient(90deg, #fff, #999); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .target-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .profile-card { background: var(--bg-card); border: 1px solid var(--border-light); padding: 40px 30px; border-radius: 20px; transition: var(--transition); position: relative; overflow: hidden; display: flex; flex-direction: column; height: 100%; }
+        .profile-card:hover { transform: translateY(-10px); border-color: var(--primary); background: var(--bg-card-hover); }
+        .icon-box { width: 60px; height: 60px; background: rgba(247, 147, 26, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 25px; color: var(--primary); }
+        .profile-card h3 { font-size: 1.4rem; margin: 0 0 15px; color: #fff; }
+        .profile-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
+        .profile-link { color: var(--primary); font-weight: 600; text-decoration: none; font-size: 0.9rem; margin-top: auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .service-box { background: linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid var(--border-light); border-radius: 15px; padding: 30px; text-align: center; transition: var(--transition); }
+        .service-box:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .service-icon { font-size: 2.5rem; margin-bottom: 20px; display: inline-block; }
+        .service-box h3 { margin: 0 0 15px; color: #fff; font-size: 1.3rem; }
+        .service-box p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
+        .service-link { color: var(--primary); font-weight: 600; font-size: 0.9rem; text-decoration: none; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-top: 40px; }
+        .tool-card { background: radial-gradient(circle at top right, rgba(247,147,26,0.05), transparent 60%), var(--bg-card); border: 1px solid var(--border-light); border-radius: 25px; padding: 40px; text-align: center; transition: var(--transition); }
+        .tool-card:hover { border-color: var(--primary); }
+        .tool-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+        .tool-card h3 { font-size: 1.5rem; margin-bottom: 10px; color: #fff; }
+        .tool-card p { color: var(--text-muted); margin-bottom: 30px; }
+        .business-banner { background: linear-gradient(90deg, #111 0%, #1a1a1a 100%); border: 1px solid var(--border-light); border-radius: 30px; padding: 60px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px; margin: 80px 0; }
+        .business-content { flex: 1; min-width: 300px; }
+        .business-content h2 { text-align: left; margin-bottom: 15px; transform: none; left: auto; color: var(--primary); }
+        .business-content p { font-size: 1.1rem; color: #ddd; margin-bottom: 30px; }
+        .business-image { font-size: 5rem; opacity: 0.5; }
+        .about-teaser { display: flex; flex-wrap: wrap; align-items: center; gap: 50px; background: var(--bg-card); border-radius: 30px; padding: 50px; border: 1px solid var(--border-light); }
+        .about-image { flex: 1; min-width: 250px; height: 300px; background: url('Images/Backround.jpg') center/cover; border-radius: 20px; position: relative; }
+        .about-content { flex: 2; min-width: 300px; }
+        .about-content h2 { text-align: left; margin-bottom: 20px; transform: none; left: auto; }
+        .about-content p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 30px; }
+        .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .content-card { background: var(--bg-card); padding: 25px; border-radius: 15px; border: 1px solid var(--border-light); transition: var(--transition); display: flex; flex-direction: column; }
+        .content-card:hover { border-color: rgba(255,255,255,0.3); background: var(--bg-card-hover); }
+        .tag { font-size: 0.75rem; text-transform: uppercase; color: var(--primary); font-weight: 700; letter-spacing: 1px; margin-bottom: 10px; }
+        .content-card h4 { font-size: 1.2rem; margin: 0 0 10px; color: #fff; }
+        .content-card p { font-size: 0.9rem; color: var(--text-muted); flex-grow: 1; }
+        .arrow-link { color: #fff; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 5px; margin-top: 15px; }
+        .arrow-link:hover { color: var(--primary); }
+        .testimonials { background: rgba(255,255,255,0.015); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+        .quote-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .quote-item p { font-style: italic; font-size: 1.1rem; color: #ccc; margin-bottom: 20px; }
+        .quote-author { display: flex; align-items: center; gap: 15px; }
+        .author-avatar { width: 40px; height: 40px; background: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--primary); }
+        .faq-item { border-bottom: 1px solid var(--border-light); margin-bottom: 15px; }
+        .faq-question { padding: 20px 0; cursor: pointer; font-size: 1.1rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: 0.3s; color: var(--text-muted); line-height: 1.6; }
+        .faq-item.active .faq-answer { padding-bottom: 20px; max-height: 200px; }
+        .plus-icon { transition: 0.3s; font-size: 1.5rem; color: var(--primary); }
+        .faq-item.active .plus-icon { transform: rotate(45deg); }
+        .support-container { background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; text-align: center; max-width: 600px; margin: 0 auto; position: relative; overflow: hidden; }
+        .support-container::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 200px; height: 200px; background: var(--primary); filter: blur(80px); opacity: 0.15; z-index: 0; }
+        .qr-wrapper { position: relative; z-index: 1; margin: 30px auto; padding: 10px; background: #fff; border-radius: 10px; width: 200px; height: 200px; display: flex; justify-content: center; align-items: center; }
+        .qr-wrapper img { width: 100%; height: 100%; object-fit: contain; }
+        .ln-address { background: rgba(0,0,0,0.5); padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border-light); font-family: monospace; display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+        .ln-text { word-break: break-all; color: var(--primary); }
+        .copy-btn { background: transparent; border: 1px solid var(--text-muted); color: var(--text-muted); cursor: pointer; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; transition: all 0.2s; }
+        .copy-btn:hover { border-color: var(--text-main); color: var(--text-main); }
+        .feature-box { background: radial-gradient(circle at top right, rgba(247,147,26,0.1), transparent 60%), var(--bg-card); border: 1px solid var(--border-light); border-radius: 30px; padding: 60px; text-align: center; margin: 50px 0; }
+        .big-stat { font-size: 4rem; font-weight: 800; color: var(--primary); display: block; margin-bottom: 10px; }
+
         @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes pulse { 0% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.4); } 70% { opacity: 1; box-shadow: 0 0 0 10px rgba(0, 200, 83, 0); } 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); } }
 
@@ -336,7 +144,7 @@
 
     <div class="bg-gradient"></div>
 
-    <!-- NAVIGATION PLACEHOLDER -->
+    <!-- HIER WIRD DAS MENÜ AUTOMATISCH EINGEFÜGT -->
     <div id="navbar-placeholder"></div>
 
     <header>
@@ -395,7 +203,7 @@
         </div>
     </section>
 
-    <!-- NEU: SERVICES VORSCHAU -->
+    <!-- SERVICES VORSCHAU -->
     <section>
         <h2>Was ich biete</h2>
         <div class="services-grid">
@@ -423,7 +231,7 @@
     <!-- FEATURE: DCA RECHNER -->
     <section>
         <div class="feature-box">
-            <span class="big-stat" style="font-size: 4rem;">⏳</span>
+            <span class="big-stat">⏳</span>
             <h3 style="font-size: 1.8rem; margin: 10px 0;">Zeit schlägt Timing</h3>
             <p style="max-width: 600px; margin: 0 auto 30px; color: var(--text-muted);">
                 Versuche nicht, den Markt zu schlagen. Nutze die Zeit für dich. Unser Rechner zeigt dir basierend auf echten historischen Daten, wie sich regelmässiges Sparen (DCA) auswirkt.
@@ -432,7 +240,7 @@
         </div>
     </section>
 
-    <!-- TOOLS SECTION (DCA & SATS) -->
+    <!-- TOOLS SECTION -->
     <section>
         <h2>Deine Werkzeuge</h2>
         <div class="tools-grid">
@@ -445,7 +253,7 @@
         </div>
     </section>
 
-    <!-- SECTION: BUSINESS BANNER -->
+    <!-- BUSINESS BANNER -->
     <section>
         <div class="business-banner">
             <div class="business-content">
@@ -457,7 +265,7 @@
         </div>
     </section>
 
-    <!-- WISSEN PREVIEW (INKL GLOSSAR) -->
+    <!-- WISSEN PREVIEW -->
     <section>
         <div style="display:flex; justify-content:space-between; align-items:end; margin-bottom: 40px; flex-wrap:wrap; gap:10px;">
             <h2 style="margin:0; text-align:left; transform:none; left:auto;">Wissen kompakt</h2>
@@ -489,7 +297,7 @@
         </div>
     </section>
 
-    <!-- NEU: ABOUT TEASER -->
+    <!-- ABOUT TEASER -->
     <section>
         <div class="about-teaser">
             <div class="about-image"></div>
@@ -557,15 +365,15 @@
         </div>
     </section>
 
-    <!-- FOOTER PLACEHOLDER -->
+    <!-- HIER WIRD DER FOOTER AUTOMATISCH EINGEFÜGT -->
     <div id="footer-placeholder"></div>
 
-    <!-- MAIN SCRIPT -->
+    <!-- MAIN SCRIPT (Lädt Nav & Footer) -->
     <script src="/main.js"></script>
 
     <!-- INDEX SPECIFIC SCRIPTS -->
     <script>
-        // Animations
+        // --- Animations ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -573,12 +381,12 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.profile-card, .feature-box, .content-card').forEach(el => observer.observe(el));
 
-        // FAQ Logic
+        // --- FAQ Logic ---
         function toggleFaq(el) {
             el.parentElement.classList.toggle('active');
         }
 
-        // Copy Logic
+        // --- Copy Logic ---
         function copyAddress() {
             const txt = document.getElementById('ln-address').innerText;
             navigator.clipboard.writeText(txt);
@@ -589,7 +397,7 @@
             setTimeout(() => { btn.innerText = old; btn.style.color = ""; }, 2000);
         }
 
-        // LIVE DATA FETCHING
+        // --- LIVE DATA FETCHING ---
         async function fetchMarketData() {
             try {
                 // Preis (CHF)
