@@ -3,188 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Rechne Schweizer Franken (CHF) in Satoshis (Sats) um. Verstehe die Bitcoin-Untereinheiten und warum sie die Zukunft sind.">
+    <meta name="description" content="Rechne Schweizer Franken (CHF) in Satoshis (Sats) um. Der einfache Bitcoin Rechner.">
     <title>Sats Rechner – CHF zu Bitcoin Converter</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #f7931a; 
-            --primary-hover: #e0820b;
-            --bg-dark: #0a0a0a; 
-            --bg-card: rgba(255, 255, 255, 0.03);
-            --bg-card-hover: rgba(255, 255, 255, 0.07);
-            --text-main: #ffffff; 
-            --text-muted: #a3a3a3;
-            --border-light: rgba(255, 255, 255, 0.1);
+            --primary: #f7931a; --primary-hover: #e0820b; --bg-dark: #0a0a0a; --bg-card: rgba(255, 255, 255, 0.05);
+            --text-main: #ffffff; --border-light: rgba(255, 255, 255, 0.1); --text-muted: #a3a3a3;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); display: flex; flex-direction: column; min-height: 100vh; }
         
-        * { box-sizing: border-box; }
-
-        body { 
-            margin: 0; 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-dark); 
-            color: var(--text-main); 
-            display: flex; 
-            flex-direction: column; 
-            min-height: 100vh; 
-            line-height: 1.6;
-        }
-        
-        /* Background */
-        .bg-gradient {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-            background: radial-gradient(circle at 50% 10%, rgba(247, 147, 26, 0.05), transparent 50%),
-                        radial-gradient(circle at 10% 90%, rgba(50, 50, 50, 0.1), transparent 40%);
-            pointer-events: none;
-        }
-
-        /* Navigation */
-        nav { 
-            padding: 15px 5%; 
-            background: rgba(10, 10, 10, 0.8); 
-            backdrop-filter: blur(12px);
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 1px solid var(--border-light); 
-            position: sticky; top: 0; z-index: 100;
-        }
-        .logo { font-weight: 800; color: var(--primary); display: flex; gap: 10px; align-items: center; }
+        /* Nav & Footer Styles */
+        nav { padding: 15px 5%; background: rgba(10, 10, 10, 0.9); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 100; }
+        .logo { font-weight: 800; color: var(--primary); display: flex; gap: 10px; align-items: center; font-size: 1.2rem; }
         .nav-links { display: flex; gap: 20px; list-style: none; padding: 0; margin: 0;}
         .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; transition: var(--transition); }
         .nav-links a:hover, .nav-links a.active { color: var(--primary); }
         .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+        footer { text-align: center; padding: 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); margin-top: auto; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin: 0 auto 60px; text-align: left; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: var(--text-muted); transition: color 0.3s; text-decoration: none; }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-bottom { text-align: center; border-top: 1px solid var(--border-light); padding-top: 30px; font-size: 0.8rem; }
 
-        /* Main Layout */
-        .converter-wrapper {
-            flex-grow: 1; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
+        .bg-gradient { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 10%, rgba(247, 147, 26, 0.05), transparent 50%), radial-gradient(circle at 10% 90%, rgba(50, 50, 50, 0.1), transparent 40%); pointer-events: none; }
+        
+        .converter-wrapper { flex-grow: 1; display: flex; flex-direction: column; align-items: center; padding: 40px 20px; max-width: 800px; margin: 0 auto; width: 100%; }
         h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 10px; text-align: center; }
         .subtitle { color: var(--text-muted); text-align: center; margin-bottom: 50px; max-width: 600px; }
-
-        /* Calculator Box */
-        .converter-box {
-            background: var(--bg-card); 
-            border: 1px solid var(--border-light);
-            padding: 40px; 
-            border-radius: 25px; 
-            width: 100%; 
-            max-width: 500px;
-            text-align: center; 
-            box-shadow: 0 0 50px rgba(247, 147, 26, 0.05);
-            margin-bottom: 60px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .converter-box::before {
-            content: ''; position: absolute; top: -50px; left: -50px; width: 100px; height: 100px;
-            background: var(--primary); filter: blur(60px); opacity: 0.2; pointer-events: none;
-        }
-
+        .converter-box { background: var(--bg-card); border: 1px solid var(--border-light); padding: 40px; border-radius: 25px; width: 100%; max-width: 500px; text-align: center; box-shadow: 0 0 50px rgba(247, 147, 26, 0.05); margin-bottom: 60px; position: relative; overflow: hidden; }
+        .converter-box::before { content: ''; position: absolute; top: -50px; left: -50px; width: 100px; height: 100px; background: var(--primary); filter: blur(60px); opacity: 0.2; pointer-events: none; }
         .input-group { margin-bottom: 25px; position: relative; }
         .input-group label { display: block; text-align: left; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
-        .input-group input {
-            width: 100%; background: transparent; border: none; border-bottom: 2px solid var(--border-light);
-            color: #fff; font-size: 2.5rem; font-weight: 700; padding: 5px 40px 5px 0; outline: none; text-align: right;
-            font-family: 'Inter', sans-serif; transition: border-color 0.3s;
-        }
+        .input-group input { width: 100%; background: transparent; border: none; border-bottom: 2px solid var(--border-light); color: #fff; font-size: 2.5rem; font-weight: 700; padding: 5px 40px 5px 0; outline: none; text-align: right; font-family: 'Inter', sans-serif; transition: border-color 0.3s; }
         .input-group input:focus { border-color: var(--primary); }
         .currency-label { position: absolute; right: 0; bottom: 15px; color: var(--primary); font-weight: 800; font-size: 1.2rem; }
-
-        .divider { 
-            font-size: 1.5rem; color: var(--text-muted); margin: 0 0 20px 0; 
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-        }
+        .divider { font-size: 1.5rem; color: var(--text-muted); margin: 0 0 20px 0; display: flex; align-items: center; justify-content: center; gap: 10px; }
         .divider::before, .divider::after { content: ''; height: 1px; background: var(--border-light); flex-grow: 1; }
-
         .rate-info { margin-top: 20px; font-size: 0.85rem; color: var(--text-muted); }
         .btc-percentage { background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 5px; margin-top: 10px; display: inline-block; font-family: monospace; font-size: 0.9rem;}
-
-        /* Info Section */
-        .info-section {
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 30px;
-        }
-
-        .info-card {
-            background: rgba(255,255,255,0.02);
-            border: 1px solid var(--border-light);
-            border-radius: 20px;
-            padding: 30px;
-        }
+        .info-section { width: 100%; display: grid; grid-template-columns: 1fr; gap: 30px; }
+        .info-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border-light); border-radius: 20px; padding: 30px; }
         .info-card h3 { color: var(--primary); margin-top: 0; font-size: 1.4rem; }
         .info-card p { color: #ccc; margin-bottom: 15px; }
         .info-card ul { padding-left: 20px; color: #ccc; }
         .info-card li { margin-bottom: 10px; }
 
-        footer { text-align: center; padding: 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); margin-top: auto; }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; padding: 20px; }
-            .nav-links.active { display: flex; }
-            .menu-toggle { display: block; }
-        }
+        @media (max-width: 768px) { .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; padding: 20px; } .nav-links.active { display: flex; } .menu-toggle { display: block; } }
     </style>
 </head>
 <body>
 
     <div class="bg-gradient"></div>
 
-    <nav>
-        <div class="logo">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            Bitcoin Akzeptieren
-        </div>
-        <div class="menu-toggle" id="mobile-menu">☰</div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="/">Start</a></li>
-            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
-            <li><a href="/dca-rechner.html">Rechner</a></li>
-            <li><a href="/wissen.html">Wissen</a></li>
-            <li><a href="/sats-converter.html" class="active">Sats</a></li>
-            <li><a href="/nostr.html">Nostr</a></li>
-            <li><a href="/about.html">About</a></li>
-        </ul>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <div class="converter-wrapper">
         <h1>Sats Rechner</h1>
         <p class="subtitle">Stack Sats & Stay Humble. Rechne Franken in die Währung der Zukunft um.</p>
 
         <div class="converter-box">
-            
             <div class="input-group">
                 <label>Dein Betrag</label>
-                <!-- Standardwert 1 CHF -->
                 <input type="number" id="chfInput" value="1" oninput="convertFromCHF()" placeholder="0">
                 <span class="currency-label">CHF</span>
             </div>
-
             <div class="divider">⇅</div>
-
             <div class="input-group">
                 <label>Du erhältst</label>
                 <input type="text" id="satsInput" readonly placeholder="0">
                 <span class="currency-label">SATS</span>
             </div>
-
             <div class="btc-percentage">
                 <span id="btcAmount">0.00000000</span> BTC
             </div>
-
             <div class="rate-info">
                 Aktueller Kurs: 1 Bitcoin = <span id="btcPrice">Lade...</span> CHF
             </div>
@@ -201,66 +97,38 @@
                     <li>100 Franken sind heute (je nach Kurs) ca. 120'000 Sats.</li>
                 </ul>
             </div>
-
             <div class="info-card">
                 <h3>Ein Blick in die Zukunft</h3>
-                <p>Wenn Bitcoin weiter an Wert gewinnt und zur globalen Reservewährung wird, wird es unpraktisch, in "0.0001 BTC" zu rechnen. Stell dir vor, ein Kaffee kostet 0.000045 BTC. Mühsam, oder?</p>
-                <p>In "Sats" zu rechnen ist viel natürlicher: "Ein Kaffee kostet 4'500 Sats."</p>
-                <p><strong>Die Parität:</strong> Bitcoiner träumen vom Tag, an dem <strong>1 Sat = 1 Rappen</strong> (oder 1 Cent) wert ist. Dann wäre 1 Bitcoin genau 1 Million Franken wert. Bis dahin heisst es: Sats stapeln (Stacking Sats), solange sie noch günstig sind!</p>
+                <p>Wenn Bitcoin weiter an Wert gewinnt, wird es unpraktisch, in "0.0001 BTC" zu rechnen. In "Sats" zu rechnen ist viel natürlicher: "Ein Kaffee kostet 4'500 Sats."</p>
+                <p><strong>Die Parität:</strong> Bitcoiner träumen vom Tag, an dem <strong>1 Sat = 1 Rappen</strong> wert ist.</p>
             </div>
         </div>
-
     </div>
 
-    <footer>
-        <p>© 2025 Bitcoin Akzeptieren. Dezentralisiert und unabhängig.</p>
-    </footer>
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
 
     <script>
-        // Mobile Menu
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-        menuToggle.addEventListener('click', () => { navLinks.classList.toggle('active'); });
-
         let btcPrice = 0;
-
         async function init() {
             try {
-                // Hole Live-Preis
                 const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=chf');
                 const data = await res.json();
                 btcPrice = data.bitcoin.chf;
-                
-                // Update UI
                 document.getElementById('btcPrice').innerText = new Intl.NumberFormat('de-CH').format(btcPrice);
-                
-                // Initiale Berechnung ausführen
                 convertFromCHF();
             } catch (e) {
-                console.log(e);
-                btcPrice = 85000; // Fallback Preis
-                document.getElementById('btcPrice').innerText = "~ 85'000 (Offline)";
-                convertFromCHF();
+                console.log(e); btcPrice = 85000; document.getElementById('btcPrice').innerText = "~ 85'000 (Offline)"; convertFromCHF();
             }
         }
-
         function convertFromCHF() {
             if(btcPrice === 0) return;
-            
             const chf = parseFloat(document.getElementById('chfInput').value) || 0;
-            
-            // 1 BTC = 100,000,000 Sats
-            // Sats = (CHF / BTC_Price) * 100,000,000
             const rawBtc = chf / btcPrice;
             const sats = rawBtc * 100000000;
-            
-            // Sats formatieren: 1'000 (Schweizer Format)
             document.getElementById('satsInput').value = new Intl.NumberFormat('de-CH').format(Math.round(sats));
-            
-            // BTC Menge mit 8 Nachkommastellen anzeigen
             document.getElementById('btcAmount').innerText = rawBtc.toFixed(8);
         }
-
         init();
     </script>
 </body>
