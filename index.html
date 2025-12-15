@@ -9,6 +9,8 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
+    <!-- Styles -->
+    <!-- Hinweis: Du könntest diese Styles später auch in eine style.css auslagern -->
     <style>
         :root {
             --primary: #f7931a; /* Bitcoin Orange */
@@ -49,7 +51,7 @@
         a { text-decoration: none; color: inherit; transition: var(--transition); }
         ul { list-style: none; padding: 0; margin: 0; }
 
-        /* --- Navigation --- */
+        /* --- Navigation Styles (Werden für navbar.html benötigt) --- */
         nav {
             position: fixed;
             top: 0; left: 0; width: 100%;
@@ -71,7 +73,6 @@
             display: flex; align-items: center; gap: 10px;
         }
 
-        /* Nav Links angepasst für mehr Items */
         .nav-links { display: flex; gap: 20px; flex-wrap: wrap; }
         .nav-links a { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
         .nav-links a:hover, .nav-links a.active { color: var(--primary); text-shadow: 0 0 15px rgba(247, 147, 26, 0.4); }
@@ -229,7 +230,7 @@
         .service-box p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
         .service-link { color: var(--primary); font-weight: 600; font-size: 0.9rem; text-decoration: none; }
 
-        /* --- TOOLS SECTION (DCA & SATS) - NEU --- */
+        /* --- TOOLS SECTION (DCA & SATS) --- */
         .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-top: 40px; }
         
         .tool-card {
@@ -242,7 +243,7 @@
         .tool-card h3 { font-size: 1.5rem; margin-bottom: 10px; color: #fff; }
         .tool-card p { color: var(--text-muted); margin-bottom: 30px; }
 
-        /* --- BUSINESS BANNER - NEU --- */
+        /* --- BUSINESS BANNER --- */
         .business-banner {
             background: linear-gradient(90deg, #111 0%, #1a1a1a 100%);
             border: 1px solid var(--border-light); border-radius: 30px; padding: 60px 40px;
@@ -299,7 +300,7 @@
         .plus-icon { transition: 0.3s; font-size: 1.5rem; color: var(--primary); }
         .faq-item.active .plus-icon { transform: rotate(45deg); }
 
-        /* --- Footer --- */
+        /* --- Footer Styles (für footer.html) --- */
         footer {
             background: #000; padding: 80px 5% 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted);
         }
@@ -335,29 +336,8 @@
 
     <div class="bg-gradient"></div>
 
-    <nav>
-        <div class="logo">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M9.5 8C9.5 8 13.5 8 14.5 8C16.5 8 17.5 9 17.5 11C17.5 12.5 16.5 13.5 15.5 13.5C17 13.5 18.5 14.5 18.5 16.5C18.5 19 16 20 13.5 20H8.5V4H13C15.5 4 17 5.5 17 7C17 7.5 16.5 8 16.5 8" stroke="#f7931a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12 2V4" stroke="#f7931a" stroke-width="2" stroke-linecap="round"/>
-                <path d="M12 20V22" stroke="#f7931a" stroke-width="2" stroke-linecap="round"/>
-                <path d="M9.5 14H15.5" stroke="#f7931a" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 2"/>
-            </svg>
-            Bitcoin Akzeptieren
-        </div>
-        <div class="menu-toggle" id="mobile-menu">
-            ☰
-        </div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="/" class="active">Start</a></li>
-            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
-            <li><a href="/haendler.html">Händler</a></li>
-            <li><a href="/wissen.html">Wissen</a></li>
-            <li><a href="/dca-rechner.html">Rechner</a></li>
-            <li><a href="/nostr.html">Nostr</a></li>
-            <li><a href="/about.html">About</a></li>
-        </ul>
-    </nav>
+    <!-- NAVIGATION PLACEHOLDER -->
+    <div id="navbar-placeholder"></div>
 
     <header>
         <div class="hero-content">
@@ -449,6 +429,31 @@
                 Versuche nicht, den Markt zu schlagen. Nutze die Zeit für dich. Unser Rechner zeigt dir basierend auf echten historischen Daten, wie sich regelmässiges Sparen (DCA) auswirkt.
             </p>
             <a href="/dca-rechner.html" class="btn">Zum Sparplan Rechner</a>
+        </div>
+    </section>
+
+    <!-- TOOLS SECTION (DCA & SATS) -->
+    <section>
+        <h2>Deine Werkzeuge</h2>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <span class="tool-icon">🧮</span>
+                <h3>Sats Umrechner</h3>
+                <p>Du musst keinen ganzen Bitcoin kaufen. Bitcoin ist teilbar in 100 Millionen Satoshis. Rechne hier aus, wie viele "Sats" du für deine Franken bekommst.</p>
+                <a href="/sats-converter.html" class="btn-outline" style="margin:0;">Zum Sats Converter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION: BUSINESS BANNER -->
+    <section>
+        <div class="business-banner">
+            <div class="business-content">
+                <h2>Bitcoin für dein Geschäft</h2>
+                <p>Besitzt du ein Café, einen Laden oder einen Salon? Akzeptiere Lightning-Zahlungen. Keine teuren Terminals, weniger Gebühren als Kreditkarten und sofortige Auszahlung in CHF (wenn gewünscht).</p>
+                <a href="/haendler.html" class="btn">Angebot für Händler ansehen</a>
+            </div>
+            <div class="business-image">🏪</div>
         </div>
     </section>
 
@@ -552,50 +557,15 @@
         </div>
     </section>
 
-    <!-- ERWEITERTER FOOTER -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="/">Startseite</a></li>
-                    <li><a href="/wissen.html">Wissensdatenbank</a></li>
-                    <li><a href="/dca-rechner.html">DCA Rechner</a></li>
-                    <li><a href="/sats-converter.html">Sats Converter</a></li>
-                    <li><a href="/glossar.html">Glossar</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Dienstleistung</h4>
-                <ul>
-                    <li><a href="/bitcoin-beratung-und-coaching.html">Beratung & Coaching</a></li>
-                    <li><a href="/haendler.html">Für Händler</a></li>
-                    <li><a href="/about.html">Über mich</a></li>
-                    <li><a href="mailto:patrik.bal.work@gmail.com">Kontakt aufnehmen</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Community</h4>
-                <ul>
-                    <li><a href="/nostr.html">Nostr Kanäle</a></li>
-                    <li><a href="/empfehlungen.html">Empfehlungen</a></li>
-                    <li><a href="https://relai.app" target="_blank">Relai (Code: PATRIK)</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Bitcoin Akzeptieren.ch — Open Source, Dezentral & Unabhängig.</p>
-            <p style="margin-top: 10px; opacity: 0.5;">Daten via CoinGecko & Mempool.space</p>
-        </div>
-    </footer>
+    <!-- FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
 
+    <!-- MAIN SCRIPT -->
+    <script src="/main.js"></script>
+
+    <!-- INDEX SPECIFIC SCRIPTS -->
     <script>
-        // --- Mobile Menu ---
-        document.getElementById('mobile-menu').addEventListener('click', () => {
-            document.getElementById('nav-links').classList.toggle('active');
-        });
-
-        // --- Animations ---
+        // Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -603,12 +573,12 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.profile-card, .feature-box, .content-card').forEach(el => observer.observe(el));
 
-        // --- FAQ Logic ---
+        // FAQ Logic
         function toggleFaq(el) {
             el.parentElement.classList.toggle('active');
         }
 
-        // --- Copy Logic ---
+        // Copy Logic
         function copyAddress() {
             const txt = document.getElementById('ln-address').innerText;
             navigator.clipboard.writeText(txt);
@@ -619,7 +589,7 @@
             setTimeout(() => { btn.innerText = old; btn.style.color = ""; }, 2000);
         }
 
-        // --- LIVE DATA FETCHING ---
+        // LIVE DATA FETCHING
         async function fetchMarketData() {
             try {
                 // Preis (CHF)
@@ -645,11 +615,8 @@
             }
         }
         
-        // Start fetching
         fetchMarketData();
-        // Update alle 60 Sekunden
         setInterval(fetchMarketData, 60000);
-
     </script>
 </body>
 </html>
