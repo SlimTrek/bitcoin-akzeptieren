@@ -9,14 +9,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <style>
-        /* (Style identisch zur Startseite, hier gekürzt für Übersicht) */
         :root { --primary: #f7931a; --bg-dark: #0a0a0a; --text-main: #fff; --text-muted: #a3a3a3; --border-light: rgba(255,255,255,0.1); }
         body { margin:0; font-family:'Inter',sans-serif; background:var(--bg-dark); color:var(--text-main); line-height:1.6; }
-        nav { position:fixed; top:0; width:100%; padding:15px 5%; background:rgba(10,10,10,0.9); display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-light); z-index:100; }
-        .logo { font-weight:800; color:var(--primary); }
-        .nav-links { display:flex; gap:20px; list-style:none; } .nav-links a { text-decoration:none; color:var(--text-muted); } .nav-links a:hover { color:var(--primary); }
-        .menu-toggle { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
         
+        /* Nav & Footer Styles (Pflicht für main.js) */
+        nav { position:fixed; top:0; width:100%; padding:15px 5%; background:rgba(10,10,10,0.9); display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-light); z-index:100; }
+        .logo { font-weight:800; color:var(--primary); font-size: 1.2rem; display: flex; align-items: center; gap: 10px;}
+        .nav-links { display:flex; gap:20px; list-style:none; } .nav-links a { text-decoration:none; color:var(--text-muted); font-size: 0.9rem;} .nav-links a:hover, .nav-links a.active { color:var(--primary); }
+        .menu-toggle { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
+        footer { background: #000; padding: 80px 5% 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin: 0 auto 60px; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: var(--text-muted); transition: color 0.3s; text-decoration: none; }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-bottom { text-align: center; border-top: 1px solid var(--border-light); padding-top: 30px; font-size: 0.8rem; }
+
+        /* Page Specific Styles */
         header { padding: 150px 20px 80px; text-align: center; }
         h1 { font-size: 3rem; margin-bottom: 20px; }
         .highlight { color: var(--primary); }
@@ -25,27 +35,22 @@
         .benefit-card { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 15px; border: 1px solid var(--border-light); }
         .benefit-card h3 { color: var(--primary); margin-top: 0; }
 
-        /* Map Section Styling */
         .map-section { padding: 50px 5%; max-width: 1200px; margin: 0 auto; text-align: center; }
         .map-container { width: 100%; height: 500px; border-radius: 15px; overflow: hidden; border: 1px solid var(--border-light); margin-top: 30px; }
 
         .solution-section { background: rgba(255,255,255,0.02); padding: 80px 5%; text-align: center; margin-top: 50px; }
         .cta-btn { display: inline-block; padding: 12px 30px; background: var(--primary); color: #000; font-weight: bold; text-decoration: none; border-radius: 50px; margin-top: 20px; }
 
-        @media(max-width:768px) { .nav-links { display:none; } .menu-toggle { display:block; } }
+        @media(max-width:768px) { 
+            .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; flex-direction: column; padding: 30px 0; clip-path: circle(0% at 100% 0); transition: 0.5s; border-bottom: 1px solid var(--border-light); }
+            .nav-links.active { clip-path: circle(150% at 100% 0); }
+            .menu-toggle { display:block; } 
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">Bitcoin Akzeptieren</div>
-        <div class="menu-toggle">☰</div>
-        <ul class="nav-links">
-            <li><a href="/">Start</a></li>
-            <li><a href="/haendler.html" class="active">Händler</a></li>
-            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
-            <li><a href="/about.html">Kontakt</a></li>
-        </ul>
-    </nav>
+    
+    <div id="navbar-placeholder"></div>
 
     <header>
         <h1>Machen Sie Ihr Geschäft <br><span class="highlight">bereit für die Zukunft</span></h1>
@@ -68,10 +73,9 @@
         </div>
     </div>
 
-    <!-- Neue Map Section -->
     <div class="map-section">
         <h2>Wer macht schon mit?</h2>
-        <p style="color: var(--text-muted);">Entdecken Sie Geschäfte in Ihrer Nähe, die bereits Bitcoin akzeptieren.</p>
+        <p style="color: #a3a3a3;">Entdecken Sie Geschäfte in Ihrer Nähe, die bereits Bitcoin akzeptieren.</p>
         <div class="map-container">
             <iframe src="https://btcmap.org/map" width="100%" height="100%" style="border:none;" allowfullscreen title="BTC Map"></iframe>
         </div>
@@ -103,21 +107,7 @@
         <a href="mailto:patrik.bal.work@gmail.com" class="cta-btn">Termin vereinbaren</a>
     </div>
 
-    <script>
-        // Kleines Skript für das Mobile Menü (falls es vergessen wurde)
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            const nav = document.querySelector('.nav-links');
-            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-            if(nav.style.display === 'flex') {
-                nav.style.flexDirection = 'column';
-                nav.style.position = 'absolute';
-                nav.style.top = '70px';
-                nav.style.left = '0';
-                nav.style.width = '100%';
-                nav.style.background = '#0a0a0a';
-                nav.style.padding = '20px';
-            }
-        });
-    </script>
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
 </body>
 </html>
