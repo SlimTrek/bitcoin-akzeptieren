@@ -16,13 +16,19 @@
         ul { list-style: none; padding: 0; margin: 0; }
 
         /* Nav & Footer Styles */
-        nav { position:fixed; top:0; width:100%; padding:15px 5%; background:rgba(10,10,10,0.9); display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-light); z-index:100; }
-        .logo { font-weight:800; color:var(--primary); font-size: 1.2rem; display: flex; align-items: center; gap: 10px;}
+        nav { 
+            position:fixed; top:0; width:100%; 
+            padding:15px 3%; /* Etwas weniger Padding an den Seiten für mehr Platz */
+            background:rgba(10,10,10,0.9); display:flex; justify-content:space-between; align-items:center; 
+            border-bottom:1px solid var(--border-light); z-index:100; 
+        }
+        .logo { font-weight:800; color:var(--primary); font-size: 1.2rem; display: flex; align-items: center; gap: 10px; white-space: nowrap; }
         
-        .nav-links { display:flex; gap:20px; } 
+        .nav-links { display:flex; gap:15px; } /* Gap etwas verringert */
         
         .nav-links a { text-decoration:none; color:var(--text-muted); font-size: 0.9rem; font-weight: 500; white-space: nowrap; } 
         .nav-links a:hover, .nav-links a.active { color:var(--primary); }
+        
         .menu-toggle { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
         
         footer { background: #000; padding: 80px 5% 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
@@ -48,11 +54,11 @@
         .solution-section { background: rgba(255,255,255,0.02); padding: 80px 5%; text-align: center; margin-top: 50px; }
         .cta-btn { display: inline-block; padding: 12px 30px; background: var(--primary); color: #000; font-weight: bold; text-decoration: none; border-radius: 50px; margin-top: 20px; }
 
-        /* KORREKTUR: Breakpoint auf 1200px erhöht! */
-        /* Das verhindert, dass Links auf mittleren Bildschirmen abgeschnitten werden. */
-        @media(max-width:1200px) { 
+        /* KORREKTUR: Breakpoint auf 1250px erhöht für Sicherheit */
+        /* Sobald der Bildschirm schmaler als 1250px ist, wird das Hamburger-Menü angezeigt */
+        @media(max-width:1250px) { 
             .nav-links { 
-                display: none; /* Standardmäßig ausblenden im Mobile Modus */
+                display: none; /* Standardmäßig ausblenden */
                 position: absolute; 
                 top: 70px; 
                 left: 0; 
@@ -64,6 +70,7 @@
                 gap: 20px;
                 text-align: center;
             }
+            /* Diese Klasse wird per JS hinzugefügt, wenn man klickt */
             .nav-links.active { display: flex; }
             .menu-toggle { display:block; } 
         }
@@ -153,45 +160,11 @@
         <a href="mailto:patrik.bal.work@gmail.com" class="cta-btn">Termin vereinbaren</a>
     </div>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="/">Startseite</a></li>
-                    <li><a href="/wissen.html">Wissensdatenbank</a></li>
-                    <li><a href="/dca-rechner.html">DCA Rechner</a></li>
-                    <li><a href="/sats-converter.html">Sats Converter</a></li>
-                    <li><a href="/glossar.html">Glossar</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Dienstleistung</h4>
-                <ul>
-                    <li><a href="/bitcoin-beratung-und-coaching.html">Beratung & Coaching</a></li>
-                    <li><a href="/haendler.html">Für Händler</a></li>
-                    <li><a href="/about.html">Über mich</a></li>
-                    <li><a href="mailto:patrik.bal.work@gmail.com">Kontakt aufnehmen</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Community</h4>
-                <ul>
-                    <li><a href="/nostr.html">Nostr Kanäle</a></li>
-                    <li><a href="/empfehlungen.html">Empfehlungen</a></li>
-                    <li><a href="https://relai.app" target="_blank">Relai (Code: PATRIK)</a></li>
-                    <li><a href="https://shiftcrypto.ch" target="_blank">BitBox02</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Bitcoin Akzeptieren.ch — Open Source, Dezentral & Unabhängig.</p>
-            <p style="margin-top: 10px; opacity: 0.5;">Daten via CoinGecko & Mempool.space</p>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
 
+    <!-- WICHTIG: Manuelles Skript für das Menü, da es hier hardcoded ist -->
     <script>
-        // Mobile Menu Logic (Direkt integriert)
         const menuToggle = document.querySelector('.menu-toggle');
         const navLinks = document.querySelector('.nav-links');
 
