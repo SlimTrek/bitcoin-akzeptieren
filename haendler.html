@@ -25,6 +25,10 @@
         .benefit-card { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 15px; border: 1px solid var(--border-light); }
         .benefit-card h3 { color: var(--primary); margin-top: 0; }
 
+        /* Map Section Styling */
+        .map-section { padding: 50px 5%; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .map-container { width: 100%; height: 500px; border-radius: 15px; overflow: hidden; border: 1px solid var(--border-light); margin-top: 30px; }
+
         .solution-section { background: rgba(255,255,255,0.02); padding: 80px 5%; text-align: center; margin-top: 50px; }
         .cta-btn { display: inline-block; padding: 12px 30px; background: var(--primary); color: #000; font-weight: bold; text-decoration: none; border-radius: 50px; margin-top: 20px; }
 
@@ -64,6 +68,15 @@
         </div>
     </div>
 
+    <!-- Neue Map Section -->
+    <div class="map-section">
+        <h2>Wer macht schon mit?</h2>
+        <p style="color: var(--text-muted);">Entdecken Sie Geschäfte in Ihrer Nähe, die bereits Bitcoin akzeptieren.</p>
+        <div class="map-container">
+            <iframe src="https://btcmap.org/map" width="100%" height="100%" style="border:none;" allowfullscreen title="BTC Map"></iframe>
+        </div>
+    </div>
+
     <div class="solution-section">
         <h2>Wie funktioniert es?</h2>
         <p style="max-width: 700px; margin: 0 auto 30px; color: #ccc;">
@@ -90,5 +103,21 @@
         <a href="mailto:patrik.bal.work@gmail.com" class="cta-btn">Termin vereinbaren</a>
     </div>
 
+    <script>
+        // Kleines Skript für das Mobile Menü (falls es vergessen wurde)
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            const nav = document.querySelector('.nav-links');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            if(nav.style.display === 'flex') {
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '70px';
+                nav.style.left = '0';
+                nav.style.width = '100%';
+                nav.style.background = '#0a0a0a';
+                nav.style.padding = '20px';
+            }
+        });
+    </script>
 </body>
 </html>
