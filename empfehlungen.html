@@ -10,298 +10,65 @@
 
     <style>
         :root {
-            --primary: #f7931a;
-            --primary-hover: #e0820b;
-            --bg-dark: #0a0a0a;
-            --bg-card: rgba(255, 255, 255, 0.03);
-            --bg-card-hover: rgba(255, 255, 255, 0.07);
-            --text-main: #ffffff;
-            --text-muted: #a3a3a3;
-            --border-light: rgba(255, 255, 255, 0.1);
-            --glass: rgba(10, 10, 10, 0.7);
+            --primary: #f7931a; --primary-hover: #e0820b; --bg-dark: #0a0a0a;
+            --bg-card: rgba(255, 255, 255, 0.03); --bg-card-hover: rgba(255, 255, 255, 0.07);
+            --text-main: #ffffff; --text-muted: #a3a3a3; --border-light: rgba(255, 255, 255, 0.1);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
         * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
+        .bg-gradient { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 80% 20%, rgba(247, 147, 26, 0.05), transparent 40%), radial-gradient(circle at 20% 80%, rgba(50, 50, 50, 0.1), transparent 40%); pointer-events: none; }
         
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
-
-        /* --- Background Animation --- */
-        .bg-gradient {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background: 
-                radial-gradient(circle at 80% 20%, rgba(247, 147, 26, 0.05), transparent 40%),
-                radial-gradient(circle at 20% 80%, rgba(50, 50, 50, 0.1), transparent 40%);
-            pointer-events: none;
-        }
-
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-        ul { list-style: none; padding: 0; margin: 0; }
-
-        /* --- Navigation --- */
-        nav {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            padding: 15px 5%;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
-        .nav-links a:hover { color: var(--primary); }
-        .nav-links a.active { color: var(--primary); }
-        
+        /* Nav & Footer Styles */
+        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); }
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; text-decoration: none; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
         .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }
+        footer { text-align: center; padding: 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin: 0 auto 60px; text-align: left; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: var(--text-muted); transition: color 0.3s; text-decoration: none; }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-bottom { text-align: center; border-top: 1px solid var(--border-light); padding-top: 30px; font-size: 0.8rem; }
 
-        /* --- Header --- */
-        header {
-            padding: 180px 20px 80px;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        header h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
+        /* Page Styles */
+        header { padding: 180px 20px 80px; text-align: center; max-width: 800px; margin: 0 auto; }
+        header h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, #ccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         header p { font-size: 1.2rem; color: var(--text-muted); }
-
-        /* --- Layout Grid --- */
-        .grid-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5%;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        /* --- Recommendation Cards --- */
-        .rec-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 20px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            opacity: 0; /* For animation */
-            transform: translateY(20px);
-        }
-
+        .grid-container { max-width: 1200px; margin: 0 auto; padding: 0 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        .rec-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 20px; padding: 30px; display: flex; flex-direction: column; transition: var(--transition); position: relative; overflow: hidden; opacity: 0; transform: translateY(20px); }
         .rec-card.visible { opacity: 1; transform: translateY(0); }
-
-        .rec-card:hover {
-            border-color: rgba(247, 147, 26, 0.4);
-            transform: translateY(-5px);
-            background: var(--bg-card-hover);
-        }
-
-        .rec-card h3 {
-            font-size: 1.5rem;
-            margin-top: 0;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .rec-card .tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--primary);
-            margin-bottom: 15px;
-            border: 1px solid rgba(247, 147, 26, 0.3);
-            padding: 4px 10px;
-            border-radius: 4px;
-        }
-
+        .rec-card:hover { border-color: rgba(247, 147, 26, 0.4); transform: translateY(-5px); background: var(--bg-card-hover); }
+        .rec-card h3 { font-size: 1.5rem; margin-top: 0; color: #fff; margin-bottom: 10px; }
+        .rec-card .tag { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 15px; border: 1px solid rgba(247, 147, 26, 0.3); padding: 4px 10px; border-radius: 4px; }
         .rec-card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; flex-grow: 1; }
-
-        /* --- Special Code Box --- */
-        .code-box {
-            background: rgba(0,0,0,0.3);
-            border: 1px dashed var(--text-muted);
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .code-text {
-            font-family: monospace;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary);
-            letter-spacing: 1px;
-        }
-
-        .copy-code-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            cursor: pointer;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            transition: color 0.2s;
-        }
+        .code-box { background: rgba(0,0,0,0.3); border: 1px dashed var(--text-muted); border-radius: 8px; padding: 15px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .code-text { font-family: monospace; font-size: 1.2rem; font-weight: bold; color: var(--primary); letter-spacing: 1px; }
+        .copy-code-btn { background: transparent; border: none; color: var(--text-muted); cursor: pointer; font-size: 0.8rem; text-transform: uppercase; font-weight: 600; transition: color 0.2s; }
         .copy-code-btn:hover { color: #fff; }
-
-        /* --- Buttons --- */
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 12px;
-            text-align: center;
-            background: var(--primary);
-            color: #000;
-            font-weight: 700;
-            border-radius: 8px;
-            transition: var(--transition);
-        }
-
-        .btn:hover {
-            background: var(--primary-hover);
-            transform: scale(1.02);
-        }
-
-        .btn-outline {
-            background: transparent;
-            border: 1px solid var(--border-light);
-            color: var(--text-main);
-            margin-top: 10px;
-        }
-        .btn-outline:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        /* --- Disclaimer --- */
-        .disclaimer {
-            text-align: center;
-            font-size: 0.8rem;
-            color: #555;
-            margin-top: 80px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 0 20px;
-        }
-
-        /* --- Support Section --- */
-        .support-section {
-            text-align: center;
-            padding: 60px 20px 20px;
-        }
-        .support-card {
-            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
-            border: 1px solid var(--border-light);
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .ln-address {
-            background: rgba(0,0,0,0.5);
-            padding: 10px 15px;
-            border-radius: 8px;
-            border: 1px solid var(--border-light);
-            font-family: monospace;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .copy-btn {
-            background: transparent; border: 1px solid var(--text-muted); color: var(--text-muted);
-            cursor: pointer; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; transition: all 0.2s;
-        }
+        .btn { display: block; width: 100%; padding: 12px; text-align: center; background: var(--primary); color: #000; font-weight: 700; border-radius: 8px; transition: var(--transition); text-decoration: none; }
+        .btn:hover { background: var(--primary-hover); transform: scale(1.02); }
+        .btn-outline { background: transparent; border: 1px solid var(--border-light); color: var(--text-main); margin-top: 10px; display: block; width: 100%; padding: 12px; text-align: center; font-weight: 700; border-radius: 8px; text-decoration: none; transition: var(--transition); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+        .disclaimer { text-align: center; font-size: 0.8rem; color: #555; margin-top: 80px; max-width: 800px; margin-left: auto; margin-right: auto; padding: 0 20px; }
+        .support-section { text-align: center; padding: 60px 20px 20px; }
+        .support-card { background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px; max-width: 600px; margin: 0 auto; }
+        .ln-address { background: rgba(0,0,0,0.5); padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border-light); font-family: monospace; display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
+        .copy-btn { background: transparent; border: 1px solid var(--text-muted); color: var(--text-muted); cursor: pointer; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; transition: all 0.2s; }
         .copy-btn:hover { border-color: #fff; color: #fff; }
 
-        /* --- Footer --- */
-        footer {
-            text-align: center; padding: 40px; border-top: 1px solid var(--border-light);
-            font-size: 0.9rem; color: var(--text-muted); margin-top: 60px;
-        }
-
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
-            .nav-links {
-                position: absolute; top: 70px; left: 0; width: 100%;
-                background: var(--bg-dark); flex-direction: column;
-                padding: 20px 0; gap: 20px;
-                clip-path: circle(0% at 100% 0); transition: clip-path 0.5s ease-in-out;
-                border-bottom: 1px solid var(--border-light);
-            }
-            .nav-links.active { clip-path: circle(150% at 100% 0); }
-            .menu-toggle { display: block; }
-            header { padding-top: 120px; }
-            .grid-container { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 768px) { .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; padding: 20px; } .nav-links.active { display: flex; } .menu-toggle { display: block; } header { padding-top: 120px; } .grid-container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
     <div class="bg-gradient"></div>
 
-    <nav>
-        <div class="logo">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
-                <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
-                <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
-            </svg>
-            Bitcoin Akzeptieren
-        </div>
-        <div class="menu-toggle" id="mobile-menu">☰</div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="/" class="active">Start</a></li>
-            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
-            <li><a href="/wissen.html">Wissen</a></li>
-            <li><a href="/dca-rechner.html">Sparplan Rechner</a></li>
-            <li><a href="/nostr.html">Nostr</a></li>
-            <li><a href="/empfehlungen.html">Empfehlungen</a></li>
-            <li><a href="/about.html">About</a></li>
-        </ul>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <header>
         <h1>Werkzeuge & Wissen</h1>
@@ -309,15 +76,13 @@
     </header>
 
     <div class="grid-container">
-
         <!-- 1. Hardware Wallet -->
         <div class="rec-card">
             <span class="tag">Hardware Wallet</span>
             <h3>BitBox02 Bitcoin-only</h3>
-            <p>Die sicherste und benutzerfreundlichste Art, deine Bitcoin aufzubewahren. Swiss Made von Shift Crypto. Perfekt für Einsteiger und Profis, da sie komplett Open Source ist.</p>
+            <p>Die sicherste und benutzerfreundlichste Art, deine Bitcoin aufzubewahren. Swiss Made von Shift Crypto.</p>
             <div class="code-box">
-                <span style="font-size:0.9rem; color:var(--text-muted);">Empfehlungslink</span>
-                <!-- Hier kommt dein Affiliate Link rein -->
+                <span style="font-size:0.9rem; color:var(--text-muted);">Empfehlungslink nutzen</span>
             </div>
             <a href="https://shiftcrypto.ch/bitbox02/?ref=DEIN_REF_CODE" target="_blank" class="btn">BitBox02 kaufen</a>
         </div>
@@ -326,45 +91,40 @@
         <div class="rec-card">
             <span class="tag">Bitcoin Kaufen</span>
             <h3>Relai App</h3>
-            <p>Die einfachste App aus der Schweiz, um Bitcoin zu kaufen. Kein Account, keine Verifizierung (bis zu gewissen Limits) und direkt auf deine Wallet. Ideal für Sparpläne.</p>
-            
+            <p>Die einfachste App aus der Schweiz, um Bitcoin zu kaufen. Kein Account, keine Verifizierung (bis zu Limits).</p>
             <div class="code-box">
                 <span class="code-text" id="code-relai">PATRIK</span>
                 <button class="copy-code-btn" onclick="copyCode('code-relai', this)">Kopieren</button>
             </div>
             <p style="font-size:0.8rem; margin-top:-10px; margin-bottom:20px;">Nutze den Code für 0.5% weniger Gebühren!</p>
-
             <a href="https://relai.app/download" target="_blank" class="btn">App Laden</a>
         </div>
 
-        <!-- 3. Buch: Bitcoin Standard -->
+        <!-- 3. Buch -->
         <div class="rec-card">
             <span class="tag">Wissen</span>
             <h3>Der Bitcoin Standard</h3>
-            <p>Das fundamentale Werk von Saifedean Ammous. Wenn du nur ein Buch über Bitcoin liest, dann dieses. Es erklärt die ökonomische Geschichte des Geldes und warum Bitcoin die Lösung ist.</p>
-            <a href="https://aprycot.media/shop/der-bitcoin-standard/" target="_blank" class="btn btn-outline">Beim Verlag ansehen</a>
-            <p style="font-size:0.8rem; margin-top:15px; color:#666;">Kauf es lokal! Falls dir der Tipp hilft, freue ich mich über einen Zap.</p>
+            <p>Das fundamentale Werk von Saifedean Ammous. Wenn du nur ein Buch über Bitcoin liest, dann dieses.</p>
+            <a href="https://aprycot.media/shop/der-bitcoin-standard/" target="_blank" class="btn-outline">Beim Verlag ansehen</a>
         </div>
 
-        <!-- 4. Buch: Trojanisches Pferd -->
+        <!-- 4. Buch -->
         <div class="rec-card">
             <span class="tag">Wissen</span>
-            <h3>Das Trojanische Pferd der Freiheit</h3>
-            <p>Ein geniales Buch von Alex von Frankenberg. Es zeigt auf, wie Bitcoin still und leise Freiheit bringt, ohne dass es die Machthaber sofort merken. Sehr gut verständlich geschrieben.</p>
-            <a href="https://aprycot.media/shop/das-trojanische-pferd-der-freiheit/" target="_blank" class="btn btn-outline">Beim Verlag ansehen</a>
-            <p style="font-size:0.8rem; margin-top:15px; color:#666;">Unterstütze den lokalen Handel oder zappe mir einen Kaffee.</p>
+            <h3>Das Trojanische Pferd</h3>
+            <p>Ein geniales Buch von Alex Gladstein (Human Rights Foundation) über Freiheit durch Bitcoin.</p>
+            <a href="https://aprycot.media/shop/das-trojanische-pferd-der-freiheit/" target="_blank" class="btn-outline">Beim Verlag ansehen</a>
         </div>
-
     </div>
 
     <div class="disclaimer">
-        <p>Transparenz-Hinweis: Einige der Links auf dieser Seite sind Affiliate-Links. Das bedeutet, ich erhalte eine kleine Provision, wenn du darüber kaufst. Für dich entstehen keine Mehrkosten – im Gegenteil, bei Relai sparst du sogar Gebühren.</p>
+        <p>Transparenz-Hinweis: Einige Links sind Affiliate-Links. Ich erhalte eine kleine Provision, für dich entstehen keine Mehrkosten.</p>
     </div>
 
     <div class="support-section">
         <div class="support-card">
             <h2 style="margin-top:0;">Value 4 Value</h2>
-            <p>Haben dir meine Buch-Empfehlungen geholfen? Ich verzichte dort bewusst auf Amazon-Tracking. Unterstütze mich direkt via Lightning.</p>
+            <p>Unterstütze mich direkt via Lightning.</p>
             <div class="ln-address">
                 <span id="ln-address">humanraft81@walletofsatoshi.com</span>
                 <button class="copy-btn" onclick="copyAddress()">Kopieren</button>
@@ -372,30 +132,13 @@
         </div>
     </div>
 
-    <footer>
-        <p>© 2025 Bitcoin Akzeptieren. Dezentralisiert und unabhängig. Powered by Nostr & Bitcoin.</p>
-    </footer>
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
 
     <script>
-        // Animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.1 });
         document.querySelectorAll('.rec-card').forEach(el => observer.observe(el));
 
-        // Mobile Menu
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Copy Lightning Address
         function copyAddress() {
             const addressText = document.getElementById('ln-address').innerText;
             navigator.clipboard.writeText(addressText).then(() => {
@@ -403,26 +146,17 @@
                 const originalText = btn.innerText;
                 btn.innerText = "Kopiert!";
                 btn.style.color = "#f7931a";
-                
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.color = "";
-                }, 2000);
+                setTimeout(() => { btn.innerText = originalText; btn.style.color = ""; }, 2000);
             });
         }
 
-        // Copy Promo Codes
         function copyCode(elementId, btnElement) {
             const codeText = document.getElementById(elementId).innerText;
             navigator.clipboard.writeText(codeText).then(() => {
                 const originalText = btnElement.innerText;
                 btnElement.innerText = "Kopiert!";
                 btnElement.style.color = "#f7931a";
-                
-                setTimeout(() => {
-                    btnElement.innerText = originalText;
-                    btnElement.style.color = "";
-                }, 2000);
+                setTimeout(() => { btnElement.innerText = originalText; btnElement.style.color = ""; }, 2000);
             });
         }
     </script>
