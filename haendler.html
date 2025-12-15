@@ -19,10 +19,9 @@
         nav { position:fixed; top:0; width:100%; padding:15px 5%; background:rgba(10,10,10,0.9); display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-light); z-index:100; }
         .logo { font-weight:800; color:var(--primary); font-size: 1.2rem; display: flex; align-items: center; gap: 10px;}
         
-        /* KORREKTUR: flex-wrap hinzugefügt, damit es sich wie bei "Beratung" verhält */
-        .nav-links { display:flex; gap:20px; flex-wrap: wrap; } 
+        .nav-links { display:flex; gap:20px; } 
         
-        .nav-links a { text-decoration:none; color:var(--text-muted); font-size: 0.9rem; font-weight: 500;} 
+        .nav-links a { text-decoration:none; color:var(--text-muted); font-size: 0.9rem; font-weight: 500; white-space: nowrap; } 
         .nav-links a:hover, .nav-links a.active { color:var(--primary); }
         .menu-toggle { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
         
@@ -49,17 +48,55 @@
         .solution-section { background: rgba(255,255,255,0.02); padding: 80px 5%; text-align: center; margin-top: 50px; }
         .cta-btn { display: inline-block; padding: 12px 30px; background: var(--primary); color: #000; font-weight: bold; text-decoration: none; border-radius: 50px; margin-top: 20px; }
 
-        /* KORREKTUR: Breakpoint wieder auf 768px gesetzt (Standard) */
-        @media(max-width:768px) { 
-            .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; flex-direction: column; padding: 30px 0; clip-path: circle(0% at 100% 0); transition: 0.5s; border-bottom: 1px solid var(--border-light); }
-            .nav-links.active { clip-path: circle(150% at 100% 0); }
+        /* KORREKTUR: Breakpoint auf 1200px erhöht! */
+        /* Das verhindert, dass Links auf mittleren Bildschirmen abgeschnitten werden. */
+        @media(max-width:1200px) { 
+            .nav-links { 
+                display: none; /* Standardmäßig ausblenden im Mobile Modus */
+                position: absolute; 
+                top: 70px; 
+                left: 0; 
+                width: 100%; 
+                background: #0a0a0a; 
+                flex-direction: column; 
+                padding: 30px 0; 
+                border-bottom: 1px solid var(--border-light); 
+                gap: 20px;
+                text-align: center;
+            }
+            .nav-links.active { display: flex; }
             .menu-toggle { display:block; } 
         }
     </style>
 </head>
 <body>
     
-    <div id="navbar-placeholder"></div>
+    <nav>
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:10px;">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            Bitcoin Akzeptieren
+        </div>
+        
+        <div class="menu-toggle">☰</div>
+
+        <ul class="nav-links">
+            <li><a href="/">Start</a></li>
+            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
+            <li><a href="/haendler.html" class="active">Händler</a></li>
+            <li><a href="/wissen.html">Wissen</a></li>
+            <li><a href="/dca-rechner.html">Rechner</a></li>
+            <li><a href="/sats-converter.html">Sats</a></li>
+            <li><a href="/nostr.html">Nostr</a></li>
+            <li><a href="/empfehlungen.html">Empfehlungen</a></li>
+            <li><a href="/about.html">About</a></li>
+        </ul>
+    </nav>
 
     <header>
         <h1>Machen Sie Ihr Geschäft <br><span class="highlight">bereit für die Zukunft</span></h1>
@@ -116,7 +153,51 @@
         <a href="mailto:patrik.bal.work@gmail.com" class="cta-btn">Termin vereinbaren</a>
     </div>
 
-    <div id="footer-placeholder"></div>
-    <script src="/main.js"></script>
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="/">Startseite</a></li>
+                    <li><a href="/wissen.html">Wissensdatenbank</a></li>
+                    <li><a href="/dca-rechner.html">DCA Rechner</a></li>
+                    <li><a href="/sats-converter.html">Sats Converter</a></li>
+                    <li><a href="/glossar.html">Glossar</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Dienstleistung</h4>
+                <ul>
+                    <li><a href="/bitcoin-beratung-und-coaching.html">Beratung & Coaching</a></li>
+                    <li><a href="/haendler.html">Für Händler</a></li>
+                    <li><a href="/about.html">Über mich</a></li>
+                    <li><a href="mailto:patrik.bal.work@gmail.com">Kontakt aufnehmen</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Community</h4>
+                <ul>
+                    <li><a href="/nostr.html">Nostr Kanäle</a></li>
+                    <li><a href="/empfehlungen.html">Empfehlungen</a></li>
+                    <li><a href="https://relai.app" target="_blank">Relai (Code: PATRIK)</a></li>
+                    <li><a href="https://shiftcrypto.ch" target="_blank">BitBox02</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Bitcoin Akzeptieren.ch — Open Source, Dezentral & Unabhängig.</p>
+            <p style="margin-top: 10px; opacity: 0.5;">Daten via CoinGecko & Mempool.space</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic (Direkt integriert)
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
