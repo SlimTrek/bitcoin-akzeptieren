@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Das Schweizer Bitcoin Glossar. Die wichtigsten Begriffe einfach erklärt – mit Fokus auf die Schweiz.">
+    <title>Bitcoin ABC – Begriffe einfach erklärt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* (CSS bleibt gleich wie vorher für Konsistenz - gekürzt für Übersicht) */
+        :root { --primary: #f7931a; --bg-dark: #0a0a0a; --bg-card: rgba(255, 255, 255, 0.03); --text-main: #ffffff; --text-muted: #a3a3a3; --border-light: rgba(255, 255, 255, 0.1); }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+        nav { position: fixed; top: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.9); z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); }
+        .logo { font-weight: 800; color: var(--primary); display: flex; gap: 10px; align-items: center; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); } .nav-links a.active { color: var(--primary); }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+        
+        .container { max-width: 900px; margin: 140px auto 100px; padding: 0 20px; }
+        .search-box { width: 100%; padding: 20px; border-radius: 15px; border: 1px solid var(--border-light); background: var(--bg-card); color: #fff; font-size: 1.2rem; margin-bottom: 40px; outline: none; }
+        .search-box:focus { border-color: var(--primary); }
+
+        .term-group { margin-bottom: 40px; }
+        .term-letter { color: var(--primary); font-size: 2rem; font-weight: 800; border-bottom: 2px solid var(--border-light); display: inline-block; padding-right: 20px; margin-bottom: 20px; }
+        
+        .term-item { background: rgba(255,255,255,0.02); padding: 25px; border-radius: 12px; margin-bottom: 15px; border: 1px solid transparent; transition: 0.3s; }
+        .term-item:hover { border-color: rgba(247, 147, 26, 0.3); transform: translateX(5px); }
+        .term-title { font-size: 1.3rem; font-weight: 700; color: #fff; margin: 0 0 10px 0; }
+        .term-desc { color: var(--text-muted); margin: 0; }
+        
+        /* Interne Links im Glossar hervorheben */
+        .internal-link { color: var(--primary); text-decoration: underline; cursor: pointer; }
+
+        @media (max-width: 768px) { .nav-links { display: none; } .menu-toggle { display: block; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Bitcoin Akzeptieren</div>
+        <ul class="nav-links">
+            <li><a href="/">Start</a></li>
+            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
+            <li><a href="/dca-rechner.html">Rechner</a></li>
+            <li><a href="/wissen.html">Wissen</a></li>
+            <li><a href="/glossar.html" class="active">Glossar</a></li>
+            <li><a href="/empfehlungen.html">Empfehlungen</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 style="text-align: center;">Das Schweizer Bitcoin ABC</h1>
+        <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px;">Nicht kompliziert, sondern auf den Punkt gebracht. Mit Fokus auf Begriffe, die für dich in der Schweiz relevant sind.</p>
+        
+        <input type="text" id="searchInput" class="search-box" placeholder="Begriff suchen (z.B. KYC, Relai, BitBox)..." onkeyup="filterTerms()">
+
+        <div id="glossary-content">
+            
+            <!-- A -->
+            <div class="term-group">
+                <div class="term-letter">A</div>
+                <div class="term-item">
+                    <h3 class="term-title">Altcoin</h3>
+                    <p class="term-desc">Alles, was nicht Bitcoin ist. Oft zentralisiert und unsicherer. <a href="/artikel-bitcoin-vs-krypto.html" class="internal-link">Mehr dazu im Artikel: Bitcoin vs. Krypto</a>.</p>
+                </div>
+            </div>
+
+            <!-- B -->
+            <div class="term-group">
+                <div class="term-letter">B</div>
+                <div class="term-item">
+                    <h3 class="term-title">BitBox02</h3>
+                    <p class="term-desc">Eine Schweizer Hardware Wallet von Shift Crypto. Gilt als eine der sichersten Methoden zur Aufbewahrung. <a href="/artikel-hardware-wallet-bitbox.html" class="internal-link">Hier geht's zum Testbericht</a>.</p>
+                </div>
+                <div class="term-item">
+                    <h3 class="term-title">Blockchain</h3>
+                    <p class="term-desc">Ein digitales Kassenbuch, das auf tausenden Computern gleichzeitig gespeichert ist. Es garantiert, dass niemand Bitcoin fälschen kann.</p>
+                </div>
+            </div>
+
+            <!-- D -->
+            <div class="term-group">
+                <div class="term-letter">D</div>
+                <div class="term-item">
+                    <h3 class="term-title">DCA (Sparplan)</h3>
+                    <p class="term-desc">"Dollar Cost Averaging". Regelmässiges Kaufen kleiner Beträge, um Kursschwankungen auszugleichen. <a href="/dca-rechner.html" class="internal-link">Teste unseren DCA-Rechner</a>.</p>
+                </div>
+            </div>
+
+            <!-- F -->
+            <div class="term-group">
+                <div class="term-letter">F</div>
+                <div class="term-item">
+                    <h3 class="term-title">Full Node</h3>
+                    <p class="term-desc">Ein Computer, der das Netzwerk überwacht. Dein Weg zur absoluten Unabhängigkeit. <a href="/artikel-full-node.html" class="internal-link">Anleitung: Full Node aufsetzen</a>.</p>
+                </div>
+            </div>
+
+            <!-- H -->
+            <div class="term-group">
+                <div class="term-letter">H</div>
+                <div class="term-item">
+                    <h3 class="term-title">Halving</h3>
+                    <p class="term-desc">Alle 4 Jahre halbiert sich die Menge neuer Bitcoin. Das macht Bitcoin zum härtesten Geld der Welt. <a href="/artikel-bitcoin-mining.html" class="internal-link">Mehr zum Mining</a>.</p>
+                </div>
+                <div class="term-item">
+                    <h3 class="term-title">Hardware Wallet</h3>
+                    <p class="term-desc">Ein physisches Gerät (wie ein USB-Stick), das deine Schlüssel offline speichert. <a href="/artikel-hardware-wallet-bitbox.html" class="internal-link">Warum du eine brauchst</a>.</p>
+                </div>
+            </div>
+
+            <!-- K -->
+            <div class="term-group">
+                <div class="term-letter">K</div>
+                <div class="term-item">
+                    <h3 class="term-title">KYC (Know Your Customer)</h3>
+                    <p class="term-desc">Die Pflicht zur Ausweis-Identifikation. In der Schweiz kannst du bis zu gewissen Limiten (z.B. mit Relai) auch ohne KYC kaufen ("No-KYC"). <a href="/artikel-bitcoin-kaufen-schweiz.html" class="internal-link">Anleitung: No-KYC Kauf</a>.</p>
+                </div>
+            </div>
+
+            <!-- L -->
+            <div class="term-group">
+                <div class="term-letter">L</div>
+                <div class="term-item">
+                    <h3 class="term-title">Lightning Netzwerk</h3>
+                    <p class="term-desc">Das "Turbo-Upgrade" für Bitcoin. Ermöglicht Zahlungen in Sekundenbruchteilen für fast 0 Gebühren. Ideal für Kaffee oder Online-Zahlungen. <a href="/artikel-lightning-netzwerk.html" class="internal-link">Lightning einfach erklärt</a>.</p>
+                </div>
+            </div>
+
+            <!-- M -->
+            <div class="term-group">
+                <div class="term-letter">M</div>
+                <div class="term-item">
+                    <h3 class="term-title">Mining</h3>
+                    <p class="term-desc">Der Prozess, der das Netzwerk durch Energie sichert. <a href="/artikel-energieverbrauch.html" class="internal-link">Ist Mining schlecht für die Umwelt?</a></p>
+                </div>
+            </div>
+
+            <!-- N -->
+            <div class="term-group">
+                <div class="term-letter">N</div>
+                <div class="term-item">
+                    <h3 class="term-title">Nostr</h3>
+                    <p class="term-desc">Ein neues, zensurfreies soziales Netzwerk, das viele Bitcoiner nutzen. <a href="/nostr.html" class="internal-link">Meine Nostr-Kanäle entdecken</a>.</p>
+                </div>
+                <div class="term-item">
+                    <h3 class="term-title">Not Your Keys, Not Your Coins</h3>
+                    <p class="term-desc">Der wichtigste Merksatz: Wenn dein Geld auf einer Börse liegt, gehört es dir nicht. <a href="/artikel-hardware-wallet-bitbox.html" class="internal-link">So sicherst du deine Keys</a>.</p>
+                </div>
+            </div>
+
+            <!-- R -->
+            <div class="term-group">
+                <div class="term-letter">R</div>
+                <div class="term-item">
+                    <h3 class="term-title">Relai</h3>
+                    <p class="term-desc">Eine Schweizer App, um extrem einfach Bitcoin zu kaufen. <a href="/empfehlungen.html" class="internal-link">Code PATRIK nutzen</a>.</p>
+                </div>
+            </div>
+
+            <!-- S -->
+            <div class="term-group">
+                <div class="term-letter">S</div>
+                <div class="term-item">
+                    <h3 class="term-title">Seed Phrase</h3>
+                    <p class="term-desc">Deine 12 oder 24 Wörter. Das ultimative Backup. <a href="/artikel-backup-seed.html" class="internal-link">Anleitung: Richtiges Backup</a>.</p>
+                </div>
+                <div class="term-item">
+                    <h3 class="term-title">Steuern (Schweiz)</h3>
+                    <p class="term-desc">Kapitalgewinne sind für Private steuerfrei. Bitcoin gehören aber ins Wertschriftenverzeichnis (Vermögenssteuer). <a href="/artikel-bitcoin-steuern-schweiz.html" class="internal-link">Zum Steuer-Guide</a>.</p>
+                </div>
+            </div>
+
+            <!-- U -->
+            <div class="term-group">
+                <div class="term-letter">U</div>
+                <div class="term-item">
+                    <h3 class="term-title">UTXO</h3>
+                    <p class="term-desc">Unspent Transaction Output. Wie digitale Münzen in deinem Portemonnaie. <a href="/artikel-utxo-management.html" class="internal-link">UTXO Management erklärt</a>.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function filterTerms() {
+            let input = document.getElementById('searchInput').value.toUpperCase();
+            let items = document.getElementsByClassName('term-item');
+            
+            for (let i = 0; i < items.length; i++) {
+                let txtValue = items[i].textContent || items[i].innerText;
+                if (txtValue.toUpperCase().indexOf(input) > -1) {
+                    items[i].style.display = "";
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
