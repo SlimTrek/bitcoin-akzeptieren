@@ -5,262 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kuratierte Nostr-Kanäle: Bitcoin, Motivation, Psychologie und Sport News. Dezentral und unzensierbar.">
     <title>Nostr Kanäle – Bitcoin Akzeptieren</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
     <style>
-        :root {
-            --primary: #a020f0; /* Nostr Purple als Akzent */
-            --bitcoin: #f7931a;
-            --bg-dark: #0a0a0a;
-            --bg-card: rgba(255, 255, 255, 0.03);
-            --bg-card-hover: rgba(160, 32, 240, 0.1); /* Lila Hover für Nostr */
-            --text-main: #ffffff;
-            --text-muted: #a3a3a3;
-            --border-light: rgba(255, 255, 255, 0.1);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
+        /* Gleiche Variablen */
+        :root { --primary: #a020f0; --bitcoin: #f7931a; --bg-dark: #0a0a0a; --bg-card: rgba(255, 255, 255, 0.03); --bg-card-hover: rgba(160, 32, 240, 0.1); --text-main: #ffffff; --text-muted: #a3a3a3; --border-light: rgba(255, 255, 255, 0.1); --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+        .bg-gradient { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 20% 20%, rgba(160, 32, 240, 0.08), transparent 40%), radial-gradient(circle at 80% 80%, rgba(247, 147, 26, 0.05), transparent 40%); pointer-events: none; }
         
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- Background Animation --- */
-        .bg-gradient {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background: 
-                radial-gradient(circle at 20% 20%, rgba(160, 32, 240, 0.08), transparent 40%), /* Lila oben links */
-                radial-gradient(circle at 80% 80%, rgba(247, 147, 26, 0.05), transparent 40%); /* Orange unten rechts */
-            pointer-events: none;
-        }
-
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-        ul { list-style: none; padding: 0; margin: 0; }
-
-        /* --- Navigation --- */
-        nav {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            padding: 15px 5%;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--bitcoin); /* Logo bleibt Bitcoin Orange */
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-links { display: flex; gap: 30px; }
-        .nav-links a { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
-        .nav-links a:hover { color: var(--primary); }
-        .nav-links a.active { color: var(--primary); }
-        
+        /* Nav & Footer Styles */
+        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); }
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--bitcoin); display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; text-decoration: none; }
+        .nav-links a:hover { color: var(--primary); } .nav-links a.active { color: var(--primary); }
         .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }
+        footer { background: #000; padding: 80px 5% 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); margin-top: 60px; text-align: center; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin: 0 auto 60px; text-align: left; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: var(--text-muted); transition: color 0.3s; text-decoration: none; }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-bottom { text-align: center; border-top: 1px solid var(--border-light); padding-top: 30px; font-size: 0.8rem; }
 
-        /* --- Header --- */
-        header {
-            padding: 160px 20px 80px;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        header h1 {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 0%, #d8b4fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
+        header { padding: 160px 20px 80px; text-align: center; max-width: 800px; margin: 0 auto; }
+        header h1 { font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, #d8b4fe 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         header p { font-size: 1.2rem; color: var(--text-muted); }
-
-        /* --- Info Box --- */
-        .info-box {
-            background: rgba(160, 32, 240, 0.05);
-            border: 1px solid rgba(160, 32, 240, 0.2);
-            border-radius: 12px;
-            padding: 20px;
-            margin: 0 auto 60px;
-            max-width: 800px;
-            font-size: 0.95rem;
-            color: #d8b4fe;
-            text-align: center;
-        }
-        .info-box a { text-decoration: underline; }
-
-        /* --- Profiles Grid --- */
+        .info-box { background: rgba(160, 32, 240, 0.05); border: 1px solid rgba(160, 32, 240, 0.2); border-radius: 12px; padding: 20px; margin: 0 auto 60px; max-width: 800px; font-size: 0.95rem; color: #d8b4fe; text-align: center; }
+        .info-box a { text-decoration: underline; color: inherit; }
         section { padding: 0 5% 80px; max-width: 1200px; margin: 0 auto; }
-        
-        h2 { text-align: center; margin-bottom: 40px; font-size: 2rem; }
-
-        .profiles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .profile-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .profile-card:hover {
-            border-color: var(--primary);
-            background: var(--bg-card-hover);
-            transform: translateY(-5px);
-        }
-
-        /* Avatar Placeholder */
-        .avatar {
-            width: 80px; height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #333, #111);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2rem; margin-bottom: 20px;
-            border: 2px solid var(--primary);
-            box-shadow: 0 0 15px rgba(160, 32, 240, 0.3);
-        }
-
+        h2 { text-align: center; margin-bottom: 40px; font-size: 2rem; color: #fff; }
+        .profiles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .profile-card { background: var(--bg-card); border: 1px solid var(--border-light); padding: 30px; border-radius: 20px; text-align: center; transition: var(--transition); position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
+        .profile-card:hover { border-color: var(--primary); background: var(--bg-card-hover); transform: translateY(-5px); }
+        .avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #333, #111); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 20px; border: 2px solid var(--primary); box-shadow: 0 0 15px rgba(160, 32, 240, 0.3); }
         .profile-card h3 { margin: 0 0 10px; font-size: 1.4rem; color: #fff; }
         .profile-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 25px; flex-grow: 1; }
-
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            width: 100%;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-            flex: 1;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: #fff;
-            border: 1px solid var(--primary);
-        }
+        .btn-group { display: flex; gap: 10px; width: 100%; justify-content: center; }
+        .btn { padding: 10px 20px; border-radius: 8px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: var(--transition); text-align: center; flex: 1; text-decoration: none; }
+        .btn-primary { background: var(--primary); color: #fff; border: 1px solid var(--primary); }
         .btn-primary:hover { background: #8a1bc4; }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid var(--border-light);
-        }
+        .btn-secondary { background: transparent; color: var(--text-muted); border: 1px solid var(--border-light); }
         .btn-secondary:hover { border-color: #fff; color: #fff; }
-
-        /* --- Accordion for Sports --- */
         .sports-section { margin-top: 60px; }
-
-        details {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
+        details { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 16px; overflow: hidden; transition: var(--transition); }
         details[open] { border-color: var(--primary); }
-
-        summary {
-            padding: 20px 30px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            list-style: none; /* Hide default arrow */
-        }
-        
+        summary { padding: 20px 30px; cursor: pointer; font-size: 1.2rem; font-weight: 600; display: flex; align-items: center; justify-content: space-between; list-style: none; color: #fff; }
         summary::-webkit-details-marker { display: none; }
-
-        summary::after {
-            content: '+';
-            font-size: 1.5rem;
-            color: var(--primary);
-            transition: transform 0.3s;
-        }
-
+        summary::after { content: '+'; font-size: 1.5rem; color: var(--primary); transition: transform 0.3s; }
         details[open] summary::after { transform: rotate(45deg); }
         details[open] summary { border-bottom: 1px solid var(--border-light); }
-
-        .sports-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 30px;
-        }
-
-        .mini-card {
-            background: rgba(0,0,0,0.2);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid transparent;
-            transition: var(--transition);
-        }
-
-        .mini-card:hover {
-            border-color: var(--primary);
-            background: rgba(160, 32, 240, 0.1);
-        }
-
+        .sports-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 30px; }
+        .mini-card { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 12px; text-align: center; border: 1px solid transparent; transition: var(--transition); }
+        .mini-card:hover { border-color: var(--primary); background: rgba(160, 32, 240, 0.1); }
         .mini-card h4 { margin: 0 0 5px; color: #fff; }
         .mini-card p { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 15px; }
 
-        /* --- Footer --- */
-        footer {
-            text-align: center; padding: 40px; border-top: 1px solid var(--border-light);
-            font-size: 0.9rem; color: var(--text-muted); margin-top: 60px;
-        }
-
-        /* --- Responsive --- */
         @media (max-width: 768px) {
-            .nav-links {
-                position: absolute; top: 70px; left: 0; width: 100%;
-                background: var(--bg-dark); flex-direction: column;
-                padding: 20px 0; gap: 20px;
-                clip-path: circle(0% at 100% 0); transition: clip-path 0.5s ease-in-out;
-                border-bottom: 1px solid var(--border-light);
-            }
+            .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: var(--bg-dark); flex-direction: column; padding: 20px 0; clip-path: circle(0% at 100% 0); transition: 0.5s; border-bottom: 1px solid var(--border-light); }
             .nav-links.active { clip-path: circle(150% at 100% 0); }
             .menu-toggle { display: block; }
             header { padding-top: 120px; }
@@ -272,24 +75,7 @@
 
     <div class="bg-gradient"></div>
 
-    <nav>
-        <div class="logo">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-            </svg>
-            Bitcoin Akzeptieren
-        </div>
-        <div class="menu-toggle" id="mobile-menu">☰</div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="/" class="active">Start</a></li>
-            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
-            <li><a href="/wissen.html">Wissen</a></li>
-            <li><a href="/dca-rechner.html">Sparplan Rechner</a></li>
-            <li><a href="/nostr.html">Nostr</a></li>
-            <li><a href="/empfehlungen.html">Empfehlungen</a></li>
-            <li><a href="/about.html">About</a></li>
-        </ul>
-    </nav>
+    <div id="navbar-placeholder"></div>
 
     <header>
         <h1>Dezentrale <br>Social Bots</h1>
@@ -304,8 +90,6 @@
     <section>
         <h2>Hauptkanäle</h2>
         <div class="profiles-grid">
-            
-            <!-- Card 1 -->
             <div class="profile-card">
                 <div class="avatar">⚡️</div>
                 <h3>BitRebell</h3>
@@ -315,8 +99,6 @@
                     <a href="https://primal.net/p/npub15pfu03955f0kkjgdlvcjksumk2mdk5pxaqtgf05j0mc7m5c8ku5spuu44e" target="_blank" class="btn btn-secondary">Web Vorschau</a>
                 </div>
             </div>
-
-            <!-- Card 2 -->
             <div class="profile-card">
                 <div class="avatar">🧠</div>
                 <h3>Mr. Motivation</h3>
@@ -326,8 +108,6 @@
                     <a href="https://primal.net/p/npub1sjgumk65zxyk64g9f8n5g9ntgfkkfg4g0e3g47fp7p98ujmwpdasxdqjud" target="_blank" class="btn btn-secondary">Web Vorschau</a>
                 </div>
             </div>
-
-            <!-- Card 3 -->
             <div class="profile-card">
                 <div class="avatar">❤️</div>
                 <h3>Dr. Summer</h3>
@@ -337,57 +117,24 @@
                     <a href="https://primal.net/p/npub1r806x4fsepx69tsprzqha3v97jjsck40m6xuvglq06ezsfpqanwsxaq5as" target="_blank" class="btn btn-secondary">Web Vorschau</a>
                 </div>
             </div>
-
         </div>
 
         <div class="sports-section">
             <details>
                 <summary>Sports News Network (Klick zum Ausklappen)</summary>
                 <div class="sports-grid">
-                    
-                    <div class="mini-card">
-                        <h4>🥊 MMA News</h4>
-                        <p>UFC & Kampfsport Updates</p>
-                        <a href="nostr:npub1lfvp4l62zvwc4axtve2hhf69ercmxvctawcag8fwsxg77wppl7hq8ksht3" class="btn btn-secondary" style="display:block">Folgen</a>
-                    </div>
-
-                    <div class="mini-card">
-                        <h4>⚽️ Soccer News</h4>
-                        <p>Fußball Ligen & Transfers</p>
-                        <a href="nostr:npub1rclsrnqcylhmdk89ktwz4sfh77a5ymcn3tceakzg5hkvyaw3texs7yq3yt" class="btn btn-secondary" style="display:block">Folgen</a>
-                    </div>
-
-                    <div class="mini-card">
-                        <h4>🏎️ Racing News</h4>
-                        <p>F1 & Motorsport</p>
-                        <a href="nostr:npub1y2hm6lkr7px672rj2ty95x8etjycq6kaynzu5gzvauqx92jmwewsrzjxj0" class="btn btn-secondary" style="display:block">Folgen</a>
-                    </div>
-
-                    <div class="mini-card">
-                        <h4>🏓 Pickleball</h4>
-                        <p>Trends & Turniere</p>
-                        <a href="nostr:npub1h5xdlu6pyg4cw6d88f7x8mrssvv5dmey0pdfdxmwv086tmtzg4lsun23sm" class="btn btn-secondary" style="display:block">Folgen</a>
-                    </div>
-
-                    <div class="mini-card">
-                        <h4>🎮 eSports</h4>
-                        <p>Gaming & Turniere</p>
-                        <a href="nostr:npub1c7nsvq95n9e8h9ujn8d5ds0ad6u3gw9tqydujpr597ela2f8677qqpmgra" class="btn btn-secondary" style="display:block">Folgen</a>
-                    </div>
-
-                    <div class="mini-card">
-                        <h4>🏋️‍♀️ Fitness</h4>
-                        <p>Workouts & Health</p>
-                        <a href="nostr:npub1a3l582klswspjd5ds2fpwgqp9l9fjtj72tqr5tk565ahx96cekzsjyc2jd" class="btn btn-secondary" style="display:block">Folgen</a>
-                    </div>
-
+                    <div class="mini-card"><h4>🥊 MMA News</h4><p>UFC & Kampfsport Updates</p><a href="nostr:npub1lfvp4l62zvwc4axtve2hhf69ercmxvctawcag8fwsxg77wppl7hq8ksht3" class="btn btn-secondary" style="display:block">Folgen</a></div>
+                    <div class="mini-card"><h4>⚽️ Soccer News</h4><p>Fußball Ligen & Transfers</p><a href="nostr:npub1rclsrnqcylhmdk89ktwz4sfh77a5ymcn3tceakzg5hkvyaw3texs7yq3yt" class="btn btn-secondary" style="display:block">Folgen</a></div>
+                    <div class="mini-card"><h4>🏎️ Racing News</h4><p>F1 & Motorsport</p><a href="nostr:npub1y2hm6lkr7px672rj2ty95x8etjycq6kaynzu5gzvauqx92jmwewsrzjxj0" class="btn btn-secondary" style="display:block">Folgen</a></div>
+                    <div class="mini-card"><h4>🏓 Pickleball</h4><p>Trends & Turniere</p><a href="nostr:npub1h5xdlu6pyg4cw6d88f7x8mrssvv5dmey0pdfdxmwv086tmtzg4lsun23sm" class="btn btn-secondary" style="display:block">Folgen</a></div>
+                    <div class="mini-card"><h4>🎮 eSports</h4><p>Gaming & Turniere</p><a href="nostr:npub1c7nsvq95n9e8h9ujn8d5ds0ad6u3gw9tqydujpr597ela2f8677qqpmgra" class="btn btn-secondary" style="display:block">Folgen</a></div>
+                    <div class="mini-card"><h4>🏋️‍♀️ Fitness</h4><p>Workouts & Health</p><a href="nostr:npub1a3l582klswspjd5ds2fpwgqp9l9fjtj72tqr5tk565ahx96cekzsjyc2jd" class="btn btn-secondary" style="display:block">Folgen</a></div>
                 </div>
             </details>
         </div>
-
     </section>
 
-    <!-- Support Section (Wiederverwendet) -->
+    <!-- Support Section -->
     <section style="margin-top: 60px; text-align: center; opacity: 0.8;">
         <p style="font-size: 0.9rem; color: var(--text-muted);">
             Gefällt dir das Projekt? Sende einen Zap an: <br>
@@ -395,9 +142,8 @@
         </p>
     </section>
 
-    <footer>
-        <p>© 2025 Bitcoin Akzeptieren.ch<br>Powered by Nostr & Bitcoin.</p>
-    </footer>
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
 
     <script>
         // Animations
@@ -410,19 +156,11 @@
             });
         }, { threshold: 0.1 });
 
-        // Initial state for animations applied via JS to avoid flicker without JS
         document.querySelectorAll('.profile-card, .mini-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'all 0.6s ease-out';
             observer.observe(el);
-        });
-
-        // Mobile Menu
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
         });
     </script>
 </body>
