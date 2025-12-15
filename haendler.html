@@ -12,15 +12,20 @@
         :root { --primary: #f7931a; --bg-dark: #0a0a0a; --text-main: #fff; --text-muted: #a3a3a3; --border-light: rgba(255,255,255,0.1); }
         body { margin:0; font-family:'Inter',sans-serif; background:var(--bg-dark); color:var(--text-main); line-height:1.6; }
         
-        /* Nav & Footer Styles (Pflicht für main.js) */
+        /* WICHTIG: Reset für Listen */
+        ul { list-style: none; padding: 0; margin: 0; }
+
+        /* Nav & Footer Styles */
         nav { position:fixed; top:0; width:100%; padding:15px 5%; background:rgba(10,10,10,0.9); display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-light); z-index:100; }
         .logo { font-weight:800; color:var(--primary); font-size: 1.2rem; display: flex; align-items: center; gap: 10px;}
-        .nav-links { display:flex; gap:20px; list-style:none; } .nav-links a { text-decoration:none; color:var(--text-muted); font-size: 0.9rem;} .nav-links a:hover, .nav-links a.active { color:var(--primary); }
+        .nav-links { display:flex; gap:20px; flex-wrap: wrap; } 
+        .nav-links a { text-decoration:none; color:var(--text-muted); font-size: 0.9rem; font-weight: 500;} 
+        .nav-links a:hover, .nav-links a.active { color:var(--primary); }
         .menu-toggle { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
+        
         footer { background: #000; padding: 80px 5% 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin: 0 auto 60px; }
         .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
-        .footer-col ul { list-style: none; padding: 0; }
         .footer-col li { margin-bottom: 10px; }
         .footer-col a { color: var(--text-muted); transition: color 0.3s; text-decoration: none; }
         .footer-col a:hover { color: var(--primary); }
