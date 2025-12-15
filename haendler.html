@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin im Geschäft akzeptieren. Ohne teure Hardware, ohne technisches Vorwissen. Beratung für KMU in der Schweiz.">
+    <title>Für Händler & KMU – Bitcoin Akzeptieren</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* (Style identisch zur Startseite, hier gekürzt für Übersicht) */
+        :root { --primary: #f7931a; --bg-dark: #0a0a0a; --text-main: #fff; --text-muted: #a3a3a3; --border-light: rgba(255,255,255,0.1); }
+        body { margin:0; font-family:'Inter',sans-serif; background:var(--bg-dark); color:var(--text-main); line-height:1.6; }
+        nav { position:fixed; top:0; width:100%; padding:15px 5%; background:rgba(10,10,10,0.9); display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-light); z-index:100; }
+        .logo { font-weight:800; color:var(--primary); }
+        .nav-links { display:flex; gap:20px; list-style:none; } .nav-links a { text-decoration:none; color:var(--text-muted); } .nav-links a:hover { color:var(--primary); }
+        .menu-toggle { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
+        
+        header { padding: 150px 20px 80px; text-align: center; }
+        h1 { font-size: 3rem; margin-bottom: 20px; }
+        .highlight { color: var(--primary); }
+        
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 50px 5%; max-width: 1200px; margin: 0 auto; }
+        .benefit-card { background: rgba(255,255,255,0.03); padding: 30px; border-radius: 15px; border: 1px solid var(--border-light); }
+        .benefit-card h3 { color: var(--primary); margin-top: 0; }
+
+        .solution-section { background: rgba(255,255,255,0.02); padding: 80px 5%; text-align: center; margin-top: 50px; }
+        .cta-btn { display: inline-block; padding: 12px 30px; background: var(--primary); color: #000; font-weight: bold; text-decoration: none; border-radius: 50px; margin-top: 20px; }
+
+        @media(max-width:768px) { .nav-links { display:none; } .menu-toggle { display:block; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Bitcoin Akzeptieren</div>
+        <div class="menu-toggle">☰</div>
+        <ul class="nav-links">
+            <li><a href="/">Start</a></li>
+            <li><a href="/haendler.html" class="active">Händler</a></li>
+            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
+            <li><a href="/about.html">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Machen Sie Ihr Geschäft <br><span class="highlight">bereit für die Zukunft</span></h1>
+        <p>Akzeptieren Sie Bitcoin und Lightning. Keine monatlichen Gebühren, keine teuren Terminals. <br>Einfach App installieren und kassieren.</p>
+        <a href="mailto:patrik.bal.work@gmail.com" class="cta-btn">Unverbindliche Beratung anfordern</a>
+    </header>
+
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <h3>💸 Weniger Gebühren</h3>
+            <p>Kreditkartenfirmen nehmen 1.5% bis 3%. Bitcoin-Zahlungen via Lightning kosten fast nichts oder pauschal 1% (je nach Anbieter). Mehr Marge für Sie.</p>
+        </div>
+        <div class="benefit-card">
+            <h3>🚀 Marketing-Effekt</h3>
+            <p>Bitcoin-Nutzer sind eine loyale Community. Wenn Sie Bitcoin akzeptieren, werden Sie auf Karten wie <strong>BTC Map</strong> gelistet und ziehen neue, kaufkräftige Kunden an.</p>
+        </div>
+        <div class="benefit-card">
+            <h3>⚡ Sofortige Auszahlung</h3>
+            <p>Kein Warten auf das Geld am Monatsende. Das Geld ist sofort bei Ihnen – auf Wunsch auch direkt in Schweizer Franken umgewandelt.</p>
+        </div>
+    </div>
+
+    <div class="solution-section">
+        <h2>Wie funktioniert es?</h2>
+        <p style="max-width: 700px; margin: 0 auto 30px; color: #ccc;">
+            Sie müssen kein IT-Experte sein. Es gibt Schweizer Apps (wie <strong>Swiss Bitcoin Pay</strong> oder <strong>Lipa</strong>), die auf jedem Tablet oder Smartphone laufen.
+        </p>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px;">
+            <div style="background: #111; padding: 20px; border-radius: 10px; width: 300px; text-align: left;">
+                <strong style="color:var(--primary)">1. Betrag eingeben</strong><br>
+                Einfach 5.00 CHF eintippen, wie bei einem Taschenrechner.
+            </div>
+            <div style="background: #111; padding: 20px; border-radius: 10px; width: 300px; text-align: left;">
+                <strong style="color:var(--primary)">2. Kunde scannt QR</strong><br>
+                Der Kunde zückt sein Handy und scannt den Code.
+            </div>
+            <div style="background: #111; padding: 20px; border-radius: 10px; width: 300px; text-align: left;">
+                <strong style="color:var(--primary)">3. Geld erhalten</strong><br>
+                Sekunden später zeigt die App "Bezahlt". Fertig.
+            </div>
+        </div>
+
+        <h3 style="margin-top: 60px;">Mein Angebot für KMUs</h3>
+        <p>Ich helfe Ihnen bei der Auswahl der richtigen App, der Mitarbeiterschulung und der Einrichtung vor Ort.</p>
+        <a href="mailto:patrik.bal.work@gmail.com" class="cta-btn">Termin vereinbaren</a>
+    </div>
+
+</body>
+</html>
