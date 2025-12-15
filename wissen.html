@@ -5,253 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Die Bitcoin Wissensdatenbank für die Schweiz. Anleitungen, Erklärungen und Strategien einfach erklärt.">
     <title>Wissen & Blog – Bitcoin Akzeptieren</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
     <style>
-        :root {
-            --primary: #f7931a;
-            --primary-hover: #e0820b;
-            --bg-dark: #0a0a0a;
-            --bg-card: rgba(255, 255, 255, 0.03);
-            --bg-card-hover: rgba(255, 255, 255, 0.07);
-            --text-main: #ffffff;
-            --text-muted: #a3a3a3;
-            --border-light: rgba(255, 255, 255, 0.1);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
+        :root { --primary: #f7931a; --primary-hover: #e0820b; --bg-dark: #0a0a0a; --bg-card: rgba(255, 255, 255, 0.03); --bg-card-hover: rgba(255, 255, 255, 0.07); --text-main: #ffffff; --text-muted: #a3a3a3; --border-light: rgba(255, 255, 255, 0.1); --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
         * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
         
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* --- Background Animation --- */
-        .bg-gradient {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            background: 
-                radial-gradient(circle at 80% 10%, rgba(247, 147, 26, 0.05), transparent 50%),
-                radial-gradient(circle at 20% 90%, rgba(50, 50, 50, 0.1), transparent 40%);
-            pointer-events: none;
-        }
-
-        a { text-decoration: none; color: inherit; transition: var(--transition); }
-        ul { list-style: none; padding: 0; margin: 0; }
-
-        /* --- Navigation --- */
-        nav {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            padding: 15px 5%;
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: var(--primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-links { display: flex; gap: 25px; }
-        .nav-links a { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; }
-        .nav-links a:hover { color: var(--primary); }
-        .nav-links a.active { color: var(--primary); }
-        
+        /* Nav & Footer Styles */
+        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); }
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; text-decoration: none; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
         .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }
+        footer { background: #000; padding: 80px 5% 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin: 0 auto 60px; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: var(--text-muted); transition: color 0.3s; text-decoration: none; }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-bottom { text-align: center; border-top: 1px solid var(--border-light); padding-top: 30px; font-size: 0.8rem; }
 
-        /* --- Header --- */
-        header {
-            padding: 160px 20px 80px;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        header h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        header p { font-size: 1.2rem; color: var(--text-muted); }
-
-        /* --- Filter / Categories --- */
-        .category-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 60px;
-            padding: 0 20px;
-        }
-
-        .cat-btn {
-            background: rgba(255,255,255,0.05);
-            border: 1px solid var(--border-light);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .cat-btn:hover, .cat-btn.active {
-            background: var(--primary);
-            color: #000;
-            border-color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* --- Blog Grid --- */
-        .blog-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5% 100px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .article-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 20px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .article-card.visible { opacity: 1; transform: translateY(0); }
-
-        .article-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(247, 147, 26, 0.4);
-            background: var(--bg-card-hover);
-        }
-
-        .card-image {
-            height: 180px;
-            background: #222;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
+        .bg-gradient { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 80% 10%, rgba(247, 147, 26, 0.05), transparent 50%), radial-gradient(circle at 20% 90%, rgba(50, 50, 50, 0.1), transparent 40%); pointer-events: none; }
         
+        /* Page Styles */
+        header { padding: 160px 20px 80px; text-align: center; max-width: 800px; margin: 0 auto; }
+        header h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, #ccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header p { font-size: 1.2rem; color: var(--text-muted); }
+        .category-nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 60px; padding: 0 20px; }
+        .cat-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; color: var(--text-muted); cursor: pointer; transition: var(--transition); }
+        .cat-btn:hover, .cat-btn.active { background: var(--primary); color: #000; border-color: var(--primary); font-weight: 600; }
+        .blog-container { max-width: 1200px; margin: 0 auto; padding: 0 5% 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .article-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: var(--transition); opacity: 0; transform: translateY(20px); text-decoration: none;}
+        .article-card.visible { opacity: 1; transform: translateY(0); }
+        .article-card:hover { transform: translateY(-5px); border-color: rgba(247, 147, 26, 0.4); background: var(--bg-card-hover); }
+        .card-image { height: 180px; background: #222; display:flex; align-items:center; justify-content:center; font-size:3rem; }
         .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-
-        .card-meta {
-            font-size: 0.8rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-
-        .article-card h3 {
-            font-size: 1.4rem;
-            margin: 0 0 15px;
-            color: #fff;
-            line-height: 1.3;
-        }
-
-        .article-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .read-more {
-            color: #fff;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
+        .card-meta { font-size: 0.8rem; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; }
+        .article-card h3 { font-size: 1.4rem; margin: 0 0 15px; color: #fff; line-height: 1.3; }
+        .article-card p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; flex-grow: 1; }
+        .read-more { color: #fff; font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
         .read-more:hover { color: var(--primary); }
 
-        /* --- Footer --- */
-        footer {
-            text-align: center; padding: 40px; border-top: 1px solid var(--border-light);
-            font-size: 0.9rem; color: var(--text-muted); margin-top: 60px;
-        }
-
-        /* --- Responsive --- */
-        @media (max-width: 768px) {
-            .nav-links {
-                position: absolute; top: 70px; left: 0; width: 100%;
-                background: var(--bg-dark); flex-direction: column;
-                padding: 20px 0; gap: 20px;
-                clip-path: circle(0% at 100% 0); transition: clip-path 0.5s ease-in-out;
-                border-bottom: 1px solid var(--border-light);
-            }
-            .nav-links.active { clip-path: circle(150% at 100% 0); }
-            .menu-toggle { display: block; }
-            header { padding-top: 120px; }
-            .blog-container { grid-template-columns: 1fr; }
-        }
+        @media (max-width: 768px) { .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; flex-direction: column; padding: 20px 0; clip-path: circle(0% at 100% 0); transition: 0.5s; border-bottom: 1px solid var(--border-light); } .nav-links.active { clip-path: circle(150% at 100% 0); } .menu-toggle { display: block; } .blog-container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-
     <div class="bg-gradient"></div>
+    
+    <div id="navbar-placeholder"></div>
 
-    <nav>
-        <div class="logo">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-            </svg>
-            Bitcoin Akzeptieren
-        </div>
-        <div class="menu-toggle" id="mobile-menu">☰</div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="/">Start</a></li>
-            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
-            <li><a href="/dca-rechner.html">Rechner</a></li>
-            <li><a href="/wissen.html" class="active">Wissen</a></li>
-            <li><a href="/nostr.html">Nostr</a></li>
-            <li><a href="/empfehlungen.html">Empfehlungen</a></li>
-            <li><a href="/about.html">About</a></li>
-        </ul>
-    </nav>
-
-    <header>
-        <h1>Wissensdatenbank</h1>
-        <p>Praxisnahe Anleitungen und fundiertes Wissen für deine Bitcoin-Reise.</p>
-    </header>
-
+    <header><h1>Wissensdatenbank</h1><p>Dein Kompass durch den Kaninchenbau.</p></header>
+    
     <div class="category-nav">
         <span class="cat-btn active" onclick="filterArticles('all')">Alle</span>
         <span class="cat-btn" onclick="filterArticles('Praxis')">Praxis</span>
@@ -259,34 +65,37 @@
         <span class="cat-btn" onclick="filterArticles('Technik')">Technik</span>
         <span class="cat-btn" onclick="filterArticles('Grundlagen')">Grundlagen</span>
     </div>
-
+    
     <div class="blog-container">
-
-        <!-- KATEGORIE: PRAXIS & TOOLS -->
+        <!-- Praxis -->
         <a href="/artikel-bitcoin-kaufen-schweiz.html" class="article-card" data-category="Praxis">
             <div class="card-image" style="background: linear-gradient(45deg, #1a1a1a, #333);">🇨🇭</div>
-            <div class="card-content"><span class="card-meta">Praxis</span><h3>Bitcoin Kaufen (Schweiz)</h3><p>Anleitung: Einfach, sicher und ohne komplizierte Verifizierung mit Relai.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Praxis</span><h3>Bitcoin Kaufen in der Schweiz</h3><p>Anleitung: Einfach, sicher und ohne komplizierte Verifizierung mit Relai.</p><span class="read-more">Lesen →</span></div>
         </a>
 
-        <!-- KATEGORIE: SICHERHEIT -->
-        <a href="/artikel-das-richtige-backup.html" class="article-card" data-category="Sicherheit">
-            <div class="card-image" style="background: linear-gradient(45deg, #222, #333);">📝</div>
-            <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Das richtige Backup</h3><p>Papier oder Stahl? Wie du deine Seed Phrase vor Feuer, Wasser und Verlust schützt.</p><span class="read-more">Lesen →</span></div>
-        </a>
+        <!-- Sicherheit -->
         <a href="/artikel-hardware-wallet-bitbox.html" class="article-card" data-category="Sicherheit">
             <div class="card-image" style="background: linear-gradient(45deg, #111, #222);">🔐</div>
-            <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Hardware Wallets (BitBox02)</h3><p>Warum "Not your keys, not your coins" so wichtig ist und wie du dein Vermögen sicherst.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Hardware Wallets & BitBox02</h3><p>Warum "Not your keys, not your coins" so wichtig ist und wie du dein Vermögen sicherst.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-backup-seed.html" class="article-card" data-category="Sicherheit">
+            <div class="card-image" style="background: linear-gradient(45deg, #222, #333);">📝</div>
+            <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Das richtige Backup</h3><p>Papier oder Stahl? Wie du deine Seed Phrase vor Feuer, Wasser und Verlust schützt.</p><span class="read-more">Lesen →</span></div>
         </a>
         <a href="/artikel-bitcoin-vererben.html" class="article-card" data-category="Sicherheit">
             <div class="card-image" style="background: linear-gradient(45deg, #1a1a1a, #333);">⚰️</div>
             <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Bitcoin vererben</h3><p>Ein Notfallplan für deine Angehörigen, damit deine Coins nicht verloren gehen.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-spam-praevention.html" class="article-card" data-category="Sicherheit">
+        <a href="/artikel-scam-praevention.html" class="article-card" data-category="Sicherheit">
             <div class="card-image" style="background: linear-gradient(45deg, #331111, #552222);">⚠️</div>
             <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Scam-Prävention</h3><p>Erkenne Betrugsmaschen, Doubling-Scams und falsche Versprechen sofort.</p><span class="read-more">Lesen →</span></div>
         </a>
 
-        <!-- KATEGORIE: TECHNIK -->
+        <!-- Technik -->
+        <a href="/artikel-lightning-netzwerk.html" class="article-card" data-category="Technik">
+            <div class="card-image" style="background: linear-gradient(45deg, #222, #444);">⚡️</div>
+            <div class="card-content"><span class="card-meta">Technik</span><h3>Das Lightning Netzwerk</h3><p>Wie Bitcoin schneller und günstiger wird als Visa – einfach erklärt.</p><span class="read-more">Lesen →</span></div>
+        </a>
         <a href="/artikel-full-node.html" class="article-card" data-category="Technik">
             <div class="card-image" style="background: linear-gradient(45deg, #111, #333);">🖥️</div>
             <div class="card-content"><span class="card-meta">Technik</span><h3>Was ist ein Full Node?</h3><p>Warum du deinen eigenen Knoten betreiben solltest: Privatsphäre und Unabhängigkeit.</p><span class="read-more">Lesen →</span></div>
@@ -299,12 +108,12 @@
             <div class="card-image" style="background: linear-gradient(45deg, #332200, #553300);">⛏️</div>
             <div class="card-content"><span class="card-meta">Technik</span><h3>Bitcoin Mining erklärt</h3><p>Wie neue Coins entstehen und warum Proof of Work so viel Energie braucht.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-lightning-netzwerk.html" class="article-card" data-category="Technik">
-            <div class="card-image" style="background: linear-gradient(45deg, #222, #444);">⚡️</div>
-            <div class="card-content"><span class="card-meta">Technik</span><h3>Das Lightning Netzwerk</h3><p>Wie Bitcoin schneller und günstiger wird als Visa – einfach erklärt.</p><span class="read-more">Lesen →</span></div>
-        </a>
 
-        <!-- KATEGORIE: GRUNDLAGEN -->
+        <!-- Grundlagen -->
+        <a href="/artikel-bitcoin-steuern-schweiz.html" class="article-card" data-category="Grundlagen">
+            <div class="card-image" style="background: linear-gradient(45deg, #1a1a1a, #333);">💸</div>
+            <div class="card-content"><span class="card-meta">Grundlagen</span><h3>Bitcoin & Steuern (CH)</h3><p>Steuerfreier Kapitalgewinn vs. Vermögenssteuer. Was du wissen musst.</p><span class="read-more">Lesen →</span></div>
+        </a>
         <a href="/artikel-bitcoin-vs-krypto.html" class="article-card" data-category="Grundlagen">
             <div class="card-image" style="background: linear-gradient(45deg, #222, #444);">🆚</div>
             <div class="card-content"><span class="card-meta">Grundlagen</span><h3>Bitcoin vs. Krypto</h3><p>Warum Bitcoin einzigartig ist und nicht mit "Altcoins" verglichen werden kann.</p><span class="read-more">Lesen →</span></div>
@@ -317,58 +126,33 @@
             <div class="card-image" style="background: linear-gradient(45deg, #002200, #003300);">🌱</div>
             <div class="card-content"><span class="card-meta">Grundlagen</span><h3>Mythos Energieverbrauch</h3><p>Ist Bitcoin schlecht für die Umwelt? Fakten statt Schlagzeilen.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-bitcoin-steuern-schweiz.html" class="article-card" data-category="Grundlagen">
-            <div class="card-image" style="background: linear-gradient(45deg, #1a1a1a, #333);">💸</div>
-            <div class="card-content"><span class="card-meta">Grundlagen</span><h3>Bitcoin & Steuern (CH)</h3><p>Steuerfreier Kapitalgewinn vs. Vermögenssteuer. Was du wissen musst.</p><span class="read-more">Lesen →</span></div>
-        </a>
-
     </div>
-
-    <footer>
-        <p>© 2025 Bitcoin Akzeptieren. Dezentralisiert und unabhängig.<br>Powered by Nostr & Bitcoin.</p>
-    </footer>
-
+    
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
     <script>
         // Animations
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.article-card').forEach(el => observer.observe(el));
 
-        // Mobile Menu
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Filter Logic
+        // Simple Filter Function
         function filterArticles(category) {
             const cards = document.querySelectorAll('.article-card');
             const btns = document.querySelectorAll('.cat-btn');
             
-            // Update Buttons
+            // Update Active Button
             btns.forEach(btn => {
-                if(btn.innerText === category || (category === 'all' && btn.innerText === 'Alle')) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-                // Mapping für "Praxis" Button, der im Text "Praxis" heisst aber data-category "Praxis" filtert
-                if(category === 'Praxis' && btn.innerText === 'Praxis & Tools') btn.classList.add('active');
+                if(btn.innerText === category || (category === 'all' && btn.innerText === 'Alle')) btn.classList.add('active');
+                else btn.classList.remove('active');
             });
 
             // Filter Cards
             cards.forEach(card => {
-                const cardCat = card.getAttribute('data-category');
-                if (category === 'all' || cardCat === category) {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
                     card.style.display = 'flex';
-                    setTimeout(() => card.style.opacity = '1', 50);
+                    setTimeout(() => card.style.opacity = '1', 50); // Fade in
                 } else {
                     card.style.display = 'none';
                     card.style.opacity = '0';
