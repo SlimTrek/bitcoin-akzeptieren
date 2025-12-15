@@ -12,15 +12,15 @@
         :root { --primary: #f7931a; --bg-dark: #0a0a0a; --text-main: #fff; --text-muted: #a3a3a3; --border-light: rgba(255,255,255,0.1); }
         body { margin:0; font-family:'Inter',sans-serif; background:var(--bg-dark); color:var(--text-main); line-height:1.6; }
         
-        /* WICHTIG: Reset für Listen */
+        /* WICHTIG: Reset für Listen - Entfernt die Punkte global */
         ul { list-style: none; padding: 0; margin: 0; }
 
         /* Nav & Footer Styles */
         nav { position:fixed; top:0; width:100%; padding:15px 5%; background:rgba(10,10,10,0.9); display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--border-light); z-index:100; }
         .logo { font-weight:800; color:var(--primary); font-size: 1.2rem; display: flex; align-items: center; gap: 10px;}
         
-        /* Hier flex-wrap entfernt, damit es nicht "komisch" umbricht, sondern wir lieber früher auf Mobile wechseln */
-        .nav-links { display:flex; gap:20px; } 
+        /* KORREKTUR: flex-wrap hinzugefügt, damit es sich wie bei "Beratung" verhält */
+        .nav-links { display:flex; gap:20px; flex-wrap: wrap; } 
         
         .nav-links a { text-decoration:none; color:var(--text-muted); font-size: 0.9rem; font-weight: 500;} 
         .nav-links a:hover, .nav-links a.active { color:var(--primary); }
@@ -49,9 +49,8 @@
         .solution-section { background: rgba(255,255,255,0.02); padding: 80px 5%; text-align: center; margin-top: 50px; }
         .cta-btn { display: inline-block; padding: 12px 30px; background: var(--primary); color: #000; font-weight: bold; text-decoration: none; border-radius: 50px; margin-top: 20px; }
 
-        /* BREAKPOINT AUF 1150PX ERHÖHT (Vorher 768px) */
-        /* Damit erscheint das Hamburger-Menü auch auf Laptops, wenn der Platz knapp wird */
-        @media(max-width:1150px) { 
+        /* KORREKTUR: Breakpoint wieder auf 768px gesetzt (Standard) */
+        @media(max-width:768px) { 
             .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; flex-direction: column; padding: 30px 0; clip-path: circle(0% at 100% 0); transition: 0.5s; border-bottom: 1px solid var(--border-light); }
             .nav-links.active { clip-path: circle(150% at 100% 0); }
             .menu-toggle { display:block; } 
