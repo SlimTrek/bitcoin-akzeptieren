@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anonymisierte Fallstudie: Wie eine Privatperson ihre Bitcoin von der Exchange in die eigene Verwahrung überführt hat – mit BitBox02, Stahl-Backup und Watch-only.">
+    <title>Fallstudie: Von der Exchange zur Self-Custody – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/case-self-custody.html">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/case-self-custody.html">
+    <meta property="og:title" content="Fallstudie: Von der Exchange zur Self-Custody – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Anonymisierte Fallstudie: Wie eine Privatperson ihre Bitcoin von der Exchange in die eigene Verwahrung überführt hat – mit BitBox02, Stahl-Backup und Watch-only.">
+    <meta property="og:site_name" content="Bitcoin Akzeptieren">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fallstudie: Von der Exchange zur Self-Custody – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Anonymisierte Fallstudie: Wie eine Privatperson ihre Bitcoin von der Exchange in die eigene Verwahrung überführt hat – mit BitBox02, Stahl-Backup und Watch-only.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css">
+    <link rel="stylesheet" href="/css/article.css">
+    <style>
+        .case-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 18px; }
+        .case-outcome-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 1.5rem 0; }
+        .case-outcome-grid .card { padding: 20px; }
+        .case-outcome-grid .card strong { display: block; color: var(--text); margin-bottom: 4px; font-family: var(--font-mono); }
+        .case-outcome-grid .card span { color: var(--text-muted); font-size: 0.92rem; }
+    </style>
+</head>
+<body>
+    <div class="bg-atmosphere"></div>
+    <div id="navbar-placeholder"></div>
+
+    <article class="article-container">
+        <div class="breadcrumbs"><a href="/fallstudien.html">Fallstudien</a> &gt; Self-Custody</div>
+        <div class="case-tags">
+            <span class="pill">Privatperson ZH</span>
+            <span class="pill">Self-Custody</span>
+            <span class="pill">Hardware Wallet</span>
+        </div>
+        <h1>Von der Exchange zur eigenen Verwahrung</h1>
+        <div class="meta-info">
+            <span>Ausgangslage: Coins auf Exchange</span>
+            <span>Dauer: ca. 3 Wochen berufsbegleitend</span>
+            <span>Begleitung: 1:1 Mentoring</span>
+        </div>
+
+        <div class="content">
+            <div class="info-box">
+                <strong>Hinweis zur Fallstudie:</strong> Anonymisiert und illustrativ — zusammengesetzt aus typischen Abläufen echter Mentoring-Gespräche. Keine echten Namen, keine Anlageberatung. Genannte Produkte sind Beispiele, keine Kaufempfehlung.
+            </div>
+
+            <h2>Ausgangslage</h2>
+            <p>Eine Privatperson aus dem Kanton Zürich hatte über mehrere Jahre hinweg regelmässig Bitcoin auf einer grossen Exchange gekauft. Die Coins lagen dort unangetastet — bequem, aber mit einem ungelösten Grundproblem: Die Wallet-Keys gehörten nicht der Person selbst, sondern der Börse. Der Auslöser für die Anfrage war die Sorge, im Ernstfall (Hack, Kontosperrung, Insolvenz der Börse) keinen Zugriff mehr auf das eigene Vermögen zu haben. Technisches Vorwissen war vorhanden, aber die Themen Seed Phrase, Hardware Wallet und Backup wirkten unübersichtlich und einschüchternd.</p>
+
+            <h2>Ziel</h2>
+            <p>Gemeinsam wurde ein klares Ziel definiert: volle Kontrolle über die eigenen Bitcoin ("Not your keys, not your coins"), ein Backup, das auch einen Wasser- oder Brandschaden übersteht, und ein Weg, den eigenen Bestand jederzeit zu überprüfen, ohne die Keys dafür auf einem ständig vernetzten Gerät zu halten.</p>
+
+            <h2>Schritte</h2>
+            <ol>
+                <li><strong>Bestandsaufnahme & Zielklärung:</strong> Im ersten Gespräch wurde geklärt, wie viel Bitcoin vorhanden ist, welches Sicherheitsniveau sinnvoll ist und welches Budget für Hardware eingeplant werden soll. Kein Betrag wurde dabei je konkret genannt oder dokumentiert — das bleibt allein bei der Kundschaft.</li>
+                <li><strong>Kauf-Weg für neue Sats:</strong> Für zukünftige Käufe wurde <a href="https://relai.app" target="_blank" rel="noopener noreferrer">Relai</a> als unkomplizierter Weg ohne aufwändige Verifizierung besprochen — als Ergänzung, nicht als Ersatz für den Abzug der Bestandscoins.</li>
+                <li><strong>Hardware Wallet einrichten:</strong> Eine <a href="https://shiftcrypto.ch" target="_blank" rel="noopener noreferrer">BitBox02</a> wurde gemeinsam initialisiert: Firmware-Check direkt ab Werk, PIN-Vergabe und Generierung einer neuen Seed Phrase auf dem Gerät selbst — niemals auf einem Computer oder Smartphone.</li>
+                <li><strong>Backup erstellen:</strong> Die Seed Phrase wurde auf ein Stahl-Backup übertragen und an zwei getrennten Orten gelagert. Anschliessend wurde eine Wiederherstellung <em>geübt</em> — auf einem Testgerät, ohne dass die echten Wörter je sichtbar für Dritte wurden.</li>
+                <li><strong>Coins von der Exchange abziehen:</strong> Nach erfolgreichem Test der Wiederherstellung wurden die Bestände in mehreren kleinen Tranchen auf die neue, selbst verwahrte Wallet übertragen — inklusive Kontrolle der Empfangsadresse auf dem Hardware-Wallet-Display.</li>
+                <li><strong>Watch-only Wallet (optional):</strong> Für den Alltag wurde zusätzlich eine <a href="/artikel-watch-only-wallet.html">Watch-only Wallet</a> auf dem Smartphone eingerichtet, um den Bestand jederzeit prüfen zu können, ohne private Keys auf einem Online-Gerät zu speichern.</li>
+            </ol>
+
+            <h2>Ergebnis</h2>
+            <div class="case-outcome-grid">
+                <div class="card"><strong>100% Self-Custody</strong><span>Keine Coins mehr auf einer Exchange gelagert.</span></div>
+                <div class="card"><strong>Backup getestet</strong><span>Wiederherstellung einmal komplett geübt, bevor Gelder bewegt wurden.</span></div>
+                <div class="card"><strong>Alltagstauglich</strong><span>Bestand jederzeit einsehbar via Watch-only, ohne Risiko für die Keys.</span></div>
+            </div>
+            <p>Am Ende des Prozesses lagen keine Bitcoin mehr auf einer Exchange. Die Person konnte die Wiederherstellung ihrer Wallet selbstständig erklären und wusste genau, wo ihre Backups liegen und wie sie im Ernstfall vorgehen müsste.</p>
+
+            <h2>Was Patrik beigetragen hat</h2>
+            <p>Die Begleitung erfolgte in mehreren kurzen Video-Calls statt in einer einzigen Marathon-Session — bewusst so aufgeteilt, dass jeder Schritt in Ruhe verstanden und nicht unter Zeitdruck ausgeführt wurde. Wichtig war dabei die klare Trennung: Bei der Einrichtung der Hardware Wallet und dem Backup war Patrik zwar anwesend und hat den Ablauf erklärt und kontrolliert, die Seed Phrase selbst wurde ausschliesslich von der Kundschaft notiert und nie geteilt. Nach Abschluss gab es eine kurze Nachbetreuung per E-Mail für Rückfragen in den folgenden Tagen.</p>
+        </div>
+    </article>
+
+    <aside class="article-end">
+        <div class="article-end-box">
+            <h2>Weiterlesen</h2>
+            <div class="related-links">
+                <a href="/artikel-backup-seed.html">Das richtige Backup: Seed Phrase sichern →</a>
+                <a href="/artikel-hardware-wallet-bitbox.html">Hardware Wallet & BitBox →</a>
+                <a href="/artikel-watch-only-wallet.html">Watch-only Wallet erklärt →</a>
+                <a href="/lernpfade.html">Lernpfad Self-Custody →</a>
+            </div>
+        </div>
+        <div class="article-end-box coaching-cta">
+            <h2>Ähnliche Ausgangslage?</h2>
+            <p>Hilfe zur Selbsthilfe: sicherer Abzug von der Exchange, Hardware-Wallet-Setup und Backup — ohne Anlageberatung.</p>
+            <div class="btn-row">
+                <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Self%20Custody&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20die%20Fallstudie%20%22Von%20der%20Exchange%20zur%20Self-Custody%22%20gelesen.%0AMeine%20Ausgangslage%3A%20%0ABevorzugte%20Zeiten%3A%20%0A">Kurz per E-Mail fragen</a>
+            </div>
+            <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
+        </div>
+    </aside>
+
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
+</body>
+</html>

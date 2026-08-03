@@ -1,0 +1,135 @@
+/* Article layout */
+@import url("site.css");
+
+.article-container {
+  max-width: var(--prose);
+  margin: calc(var(--nav-h) + 48px) auto 64px;
+  padding: 0 20px;
+}
+
+.breadcrumbs {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+.breadcrumbs a { color: var(--text-muted) !important; }
+.breadcrumbs a:hover { color: var(--brand) !important; }
+
+.article-container h1 {
+  font-size: clamp(1.85rem, 4vw, 2.75rem);
+  margin: 0 0 18px;
+}
+
+.meta-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 36px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 18px;
+}
+
+.content p {
+  margin: 0 0 1.25rem;
+  font-size: 1.08rem;
+  color: #d4d4d8;
+}
+
+.content h2 {
+  color: var(--brand);
+  font-size: 1.55rem;
+  margin: 2.5rem 0 0.9rem;
+}
+
+.content h3 {
+  color: var(--text);
+  font-size: 1.2rem;
+  margin: 1.75rem 0 0.7rem;
+}
+
+.content ul,
+.content ol {
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+}
+
+.content li {
+  margin-bottom: 0.55rem;
+  color: #d4d4d8;
+}
+
+.alert-box {
+  background: rgba(239, 68, 68, 0.08);
+  border-left: 4px solid var(--danger);
+  padding: 18px 20px;
+  margin: 1.5rem 0;
+  color: #fecaca;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.info-box {
+  background: var(--brand-soft);
+  border-left: 4px solid var(--brand);
+  padding: 18px 20px;
+  margin: 1.5rem 0;
+  color: var(--text);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.article-end {
+  max-width: var(--prose);
+  margin: 0 auto 80px;
+  padding: 0 20px;
+}
+
+.article-end-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 16px;
+}
+
+.article-end-box h2 {
+  margin: 0 0 14px;
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.related-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.related-links a {
+  color: var(--brand) !important;
+  font-weight: 600;
+}
+
+.coaching-cta p { color: var(--text-muted); margin: 0 0 16px; }
+.coaching-cta .btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+.coaching-cta .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--brand);
+  color: #0a0a0a !important;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+}
+.coaching-cta .btn-link {
+  color: var(--brand) !important;
+  font-weight: 600;
+}
+.coaching-cta .meta {
+  display: block;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--text-faint);
+}

@@ -18,7 +18,9 @@
     <meta name="twitter:description" content="Kuratierte Nostr-Bots von Bitcoin Akzeptieren: Bitcoin, Motivation, Psychologie und Sport-News. Dezentral, unzensierbar und ohne Algorithmus.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css">
     <style>
         /* Gleiche Variablen */
         :root { --primary: #a020f0; --bitcoin: #f7931a; --bg-dark: #0a0a0a; --bg-card: rgba(255, 255, 255, 0.03); --bg-card-hover: rgba(160, 32, 240, 0.1); --text-main: #ffffff; --text-muted: #a3a3a3; --border-light: rgba(255, 255, 255, 0.1); --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -60,6 +62,9 @@
         .hero-stat { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 16px 26px; min-width: 130px; }
         .hero-stat .num { display: block; font-size: 1.6rem; font-weight: 800; color: #fff; }
         .hero-stat .lbl { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+        .hero-note { font-size: 0.85rem; color: var(--text-muted); margin: 22px auto 0; max-width: 520px; }
+        .hero-note a { color: var(--text-muted); text-decoration: underline; }
+        .hero-note a:hover { color: var(--primary); }
 
         /* Sections */
         section { padding: 60px 5% 40px; max-width: 1200px; margin: 0 auto; scroll-margin-top: 90px; }
@@ -147,7 +152,15 @@
             <div class="hero-stat"><span class="num">6</span><span class="lbl">Sport-Feeds</span></div>
             <div class="hero-stat"><span class="num">24/7</span><span class="lbl">Automatisiert</span></div>
         </div>
+        <p class="hero-note">Ein persönliches Community-Projekt von Patrik – für Bitcoin-Bildung &amp; Beratung geht's zu <a href="/wissen.html">wissen.html</a>.</p>
     </header>
+
+    <!-- NEBENRAUM HINWEIS -->
+    <div class="side-room">
+        <strong>Nebenraum: Community &amp; Experiment</strong>
+        <p>Bitcoin-Bildung und Beratung sind der Kern dieser Seite. Die Nostr-Bots hier sind Patriks persönlicher Community- und Hobby-Bereich – ein Nebenraum zum Ausprobieren, kein Hauptprodukt.</p>
+        <p>Auf der Suche nach echtem Bitcoin-Wissen? <a href="/wissen.html">Wissen</a> · <a href="/lernpfade.html">Lernpfade</a> · <a href="/bitcoin-beratung-und-coaching.html">Beratung &amp; Coaching</a></p>
+    </div>
 
     <!-- WAS IST NOSTR -->
     <section id="was-ist-nostr">

@@ -23,6 +23,8 @@ Booking is email-first (`mailto:` with templates) with stated 1–2 business day
 
 Learning paths: `lernpfade.html` (Beginner → Deep Dive). Wissen supports category + level filters. Glossar is the term hub; Empfehlungen lists tools/podcasts/meetups with affiliate disclosure.
 
+Design system lives in `css/tokens.css`, `css/site.css`, `css/article.css`, `css/home.css` (shared chrome, buttons, cards, `.side-room` callout). Prefer linking these over duplicating per-page nav/footer/button CSS in a `<style>` block.
+
 ### Running the site (development)
 
 Serve the repo root over HTTP — do **not** open the HTML files via `file://`. `main.js` loads shared components with absolute paths (`fetch('/navbar.html')`, `/footer.html`) and pages reference assets like `/Images/...`, so the navbar/footer only render when the site is served from the repository root.

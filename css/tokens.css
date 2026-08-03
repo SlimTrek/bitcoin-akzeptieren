@@ -1,0 +1,36 @@
+/* Design tokens — Bitcoin Akzeptieren */
+:root {
+  --brand: #f7931a;
+  --brand-hover: #ffaa33;
+  --brand-soft: rgba(247, 147, 26, 0.12);
+  --brand-border: rgba(247, 147, 26, 0.35);
+  --bg: #070707;
+  --bg-elevated: #0e0e0e;
+  --bg-card: rgba(255, 255, 255, 0.035);
+  --bg-card-hover: rgba(255, 255, 255, 0.06);
+  --text: #f4f4f5;
+  --text-muted: #a1a1aa;
+  --text-faint: #71717a;
+  --border: rgba(255, 255, 255, 0.09);
+  --success: #22c55e;
+  --danger: #ef4444;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --radius-pill: 999px;
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --shadow-soft: 0 0 0 1px var(--border);
+  --nav-h: 72px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --max: 1120px;
+  --prose: 46rem;
+
+  /* Back-compat aliases for older page-local CSS */
+  --primary: var(--brand);
+  --primary-hover: var(--brand-hover);
+  --bg-dark: var(--bg);
+  --text-main: var(--text);
+  --border-light: var(--border);
+  --transition: 0.2s var(--ease);
+}

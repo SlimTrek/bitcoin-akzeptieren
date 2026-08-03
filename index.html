@@ -19,8 +19,8 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/home.css">
     <style>
         :root {
             --primary: #f7931a; --primary-hover: #e0820b;
@@ -151,30 +151,67 @@
             .business-banner { flex-direction: column; text-align: center; }
             .business-content h2 { text-align: center; }
         }
+
+        /* PHASE3: home.css wins for hero */
+        .home-hero {
+          min-height: 92vh !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: center !important;
+          align-items: center !important;
+          text-align: center !important;
+          padding: calc(72px + 24px) 20px 48px !important;
+          background:
+            linear-gradient(180deg, rgba(7, 7, 7, 0.55) 0%, rgba(7, 7, 7, 0.82) 55%, #070707 100%),
+            url("/Images/Backround.jpg") center/cover no-repeat !important;
+        }
+        .home-hero::after { display: none !important; }
+        .home-hero h1 {
+          background: none !important;
+          -webkit-text-fill-color: #f4f4f5 !important;
+          color: #f4f4f5 !important;
+          font-family: "Syne", system-ui, sans-serif !important;
+        }
+        .home-hero h1 .highlight {
+          background: none !important;
+          -webkit-text-fill-color: #f7931a !important;
+          color: #f7931a !important;
+        }
+        .brand-mark {
+          font-family: "Syne", system-ui, sans-serif;
+          font-weight: 800;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: #f7931a;
+          margin-bottom: 22px;
+        }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .hero-actions .btn-outline { margin-left: 0; }
+        body { font-family: "Source Sans 3", system-ui, sans-serif !important; }
     </style>
 </head>
 <body>
 
-    <div class="bg-gradient"></div>
+    <div class="bg-atmosphere"></div>
 
-    <!-- HIER WIRD DAS MENÜ AUTOMATISCH EINGEFÜGT -->
     <div id="navbar-placeholder"></div>
 
-    <header>
+    <header class="home-hero">
         <div class="hero-content">
+            <p class="brand-mark">Bitcoin Akzeptieren</p>
             <div class="live-badge">
-                <div class="live-dot"></div> 
+                <div class="live-dot"></div>
                 Uptime: 99.99% seit 3. Jan 2009
             </div>
             <h1>Nimm dein Geld <br><span class="highlight">wieder selbst in die Hand.</span></h1>
-            <p>Schütze deine Kaufkraft vor Inflation und werde unabhängig von Banken. Ich zeige dir, wie du Bitcoin sicher nutzt, verwahrst und verstehst.</p>
-            <div class="btn-group">
+            <p class="lead">Schütze deine Kaufkraft vor Inflation und werde unabhängig von Banken. Ich zeige dir, wie du Bitcoin sicher nutzt, verwahrst und verstehst.</p>
+            <div class="hero-actions">
                 <a href="/wissen.html" class="btn">Wissen aneignen</a>
+                <a href="/lernpfade.html" class="btn-outline">Lernpfade</a>
                 <a href="/bitcoin-beratung-und-coaching.html" class="btn-outline">Beratung buchen</a>
             </div>
         </div>
 
-        <!-- Live Data Bar -->
         <div class="market-bar">
             <div class="market-item">
                 <span class="market-label">Preis (CHF)</span>
@@ -284,6 +321,7 @@
             <h2 style="margin:0; text-align:left; transform:none; left:auto;">Wissen kompakt</h2>
             <div>
                 <a href="/lernpfade.html" style="color:var(--primary); margin-right:20px; font-weight:bold;">Lernpfade entdecken</a>
+                <a href="/fallstudien.html" style="color:var(--primary); margin-right:20px; font-weight:bold;">Fallstudien ansehen</a>
                 <a href="/glossar.html" style="color:var(--primary); margin-right:20px; font-weight:bold;">Zum Glossar (A-Z)</a>
                 <a href="/wissen.html" style="color:var(--text-muted); font-size:0.9rem;">Alle Artikel →</a>
             </div>

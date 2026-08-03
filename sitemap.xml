@@ -27,6 +27,9 @@
   <url><loc>https://bitcoin-akzeptieren.ch/artikel-inflation-geld.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/artikel-energieverbrauch.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/lernpfade.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://bitcoin-akzeptieren.ch/fallstudien.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bitcoin-akzeptieren.ch/case-self-custody.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://bitcoin-akzeptieren.ch/case-kmu-lightning.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/artikel-multisig.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/artikel-watch-only-wallet.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/artikel-lightning-kanal.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
