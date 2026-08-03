@@ -1,36 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img" aria-labelledby="title desc">
-  <title id="title">Multisig 2-von-3</title>
-  <desc id="desc">Drei Schlüssel; zwei Unterschriften genügen, um eine Transaktion freizugeben.</desc>
-  <style>
-    .box { fill: #0e0e0e; stroke: rgba(255,255,255,0.12); stroke-width: 1.5; }
-    .box-hot { fill: rgba(247,147,26,0.12); stroke: rgba(247,147,26,0.45); stroke-width: 1.5; }
-    .lbl { fill: #f4f4f5; font-family: "DM Sans", system-ui, sans-serif; font-size: 14px; font-weight: 700; }
-    .sub { fill: #a1a1aa; font-family: "DM Sans", system-ui, sans-serif; font-size: 11.5px; }
-    .n { fill: #f7931a; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 700; }
-    .key { fill: rgba(247,147,26,0.2); stroke: #f7931a; stroke-width: 1.5; }
-    .arr { stroke: #f7931a; stroke-width: 2; fill: none; marker-end: url(#m); }
-    .ok { fill: #22c55e; }
-  </style>
-  <defs>
-    <marker id="m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#f7931a"/>
-    </marker>
-  </defs>
-  <text class="n" x="24" y="28">2-VON-3</text>
-  <rect class="key" x="24" y="48" width="110" height="88" rx="12"/>
-  <text class="lbl" x="40" y="88">Key 1</text>
-  <text class="sub" x="40" y="110">zu Hause</text>
-  <rect class="key" x="150" y="48" width="110" height="88" rx="12"/>
-  <text class="lbl" x="166" y="88">Key 2</text>
-  <text class="sub" x="166" y="110">zweiter Ort</text>
-  <rect class="box" x="276" y="48" width="110" height="88" rx="12"/>
-  <text class="lbl" x="292" y="88">Key 3</text>
-  <text class="sub" x="292" y="110">Backup</text>
-  <path class="arr" d="M400 92 H444"/>
-  <rect class="box-hot" x="456" y="40" width="160" height="104" rx="12"/>
-  <text class="n" x="472" y="66">OUTCOME</text>
-  <text class="lbl" x="472" y="94">Spend freigegeben</text>
-  <text class="sub" x="472" y="116">2 Signaturen reichen</text>
-  <text class="sub" x="472" y="132">1 allein kann nichts</text>
-  <text class="sub" x="24" y="175">Ein Key verloren? Die anderen zwei retten trotzdem den Zugang.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Multisig 2-von-3</title>
+  <desc>Drei Schluessel; zwei Unterschriften genuegen fuer eine Transaktion.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="24" y="28" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">2-VON-3</text>
+  <rect x="24" y="48" width="120" height="96" rx="12" fill="rgba(247,147,26,0.15)" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="40" y="90" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Key 1</text>
+  <text x="40" y="114" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">zu Hause</text>
+  <rect x="160" y="48" width="120" height="96" rx="12" fill="rgba(247,147,26,0.15)" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="176" y="90" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Key 2</text>
+  <text x="176" y="114" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">zweiter Ort</text>
+  <rect x="296" y="48" width="120" height="96" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="312" y="90" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Key 3</text>
+  <text x="312" y="114" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Backup</text>
+  <path d="M430 96 H464" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="464,90 478,96 464,102" fill="#f7931a"/>
+  <rect x="490" y="40" width="130" height="112" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="504" y="70" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">OUTCOME</text>
+  <text x="504" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Spend frei</text>
+  <text x="504" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">2 Signaturen</text>
+  <text x="504" y="140" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">1 allein: nichts</text>
+  <text x="24" y="176" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Ein Key verloren? Die anderen zwei retten den Zugang.</text>
 </svg>

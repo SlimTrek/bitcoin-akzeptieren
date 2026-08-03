@@ -1,33 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img" aria-labelledby="title desc">
-  <title id="title">Seed und Passphrase</title>
-  <desc id="desc">24 Wörter plus optionale Passphrase erzeugen ein anderes Wallet; beides nie am gleichen Ort lagern.</desc>
-  <style>
-    .box { fill: #0e0e0e; stroke: rgba(255,255,255,0.12); stroke-width: 1.5; }
-    .box-hot { fill: rgba(247,147,26,0.12); stroke: rgba(247,147,26,0.45); stroke-width: 1.5; }
-    .lbl { fill: #f4f4f5; font-family: "DM Sans", system-ui, sans-serif; font-size: 14px; font-weight: 700; }
-    .sub { fill: #a1a1aa; font-family: "DM Sans", system-ui, sans-serif; font-size: 11.5px; }
-    .n { fill: #f7931a; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 700; }
-    .plus { fill: #f7931a; font-family: "DM Sans", system-ui, sans-serif; font-size: 28px; font-weight: 700; }
-    .arr { stroke: #f7931a; stroke-width: 2; fill: none; marker-end: url(#m); }
-  </style>
-  <defs>
-    <marker id="m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#f7931a"/>
-    </marker>
-  </defs>
-  <rect class="box" x="20" y="44" width="170" height="100" rx="12"/>
-  <text class="n" x="36" y="70">SEED</text>
-  <text class="lbl" x="36" y="98">12 / 24 Wörter</text>
-  <text class="sub" x="36" y="118">Stahl / Papier</text>
-  <text class="plus" x="208" y="108">+</text>
-  <rect class="box-hot" x="248" y="44" width="170" height="100" rx="12"/>
-  <text class="n" x="264" y="70">PASSPHRASE</text>
-  <text class="lbl" x="264" y="98">25. Wort / Satz</text>
-  <text class="sub" x="264" y="118">separat lagern</text>
-  <path class="arr" d="M434 94 H470"/>
-  <rect class="box" x="482" y="44" width="138" height="100" rx="12"/>
-  <text class="n" x="498" y="70">WALLET</text>
-  <text class="lbl" x="498" y="98">anderes</text>
-  <text class="sub" x="498" y="118">Master Key</text>
-  <text class="sub" x="20" y="172">Ohne exakte Passphrase: anderes (oft leeres) Wallet  die Software warnt oft nicht.</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Seed und Passphrase</title>
+  <desc>24 Woerter plus optionale Passphrase erzeugen ein anderes Wallet.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="20" y="40" width="170" height="110" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="34" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">SEED</text>
+  <text x="34" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">12 / 24 Woerter</text>
+  <text x="34" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Stahl / Papier</text>
+  <text x="208" y="105" fill="#f7931a" font-family="system-ui,sans-serif" font-size="28" font-weight="700">+</text>
+  <rect x="248" y="40" width="170" height="110" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="262" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">PASSPHRASE</text>
+  <text x="262" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">25. Wort / Satz</text>
+  <text x="262" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">separat lagern</text>
+  <path d="M432 95 H468" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="468,89 482,95 468,101" fill="#f7931a"/>
+  <rect x="494" y="40" width="126" height="110" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="508" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">WALLET</text>
+  <text x="508" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">anderes</text>
+  <text x="508" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Master Key</text>
+  <text x="20" y="178" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Ohne exakte Passphrase: anderes (oft leeres) Wallet - Software warnt oft nicht.</text>
 </svg>

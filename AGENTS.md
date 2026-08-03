@@ -31,6 +31,8 @@ Design system lives in `css/tokens.css`, `css/site.css`, `css/article.css`, `css
 
 **Diagramme (Phase J):** wiederverwendbare SVGs unter `Images/diagrams/`; einbinden mit `<figure class="diagram-figure">` + `figcaption` (Styles in `site.css`). Keine generischen Stockfotos; Grafik erklärt, schmückt nicht. Quellen-Blöcke: `.source-cite`.
 
+**SVG-Encoding (kritisch):** Dateien müssen reines **UTF-8** sein. Windows-1252/Latin-1-Umlaute in `.svg` → ungültiges UTF-8 → Browser zeigt kaputtes Bild-Icon (HTTP 200 reicht nicht). In SVG-Texten Umlaute als `ae/oe/ue` schreiben oder nur sauberes UTF-8 speichern; nach Edit `python -c "open('file.svg','rb').read().decode('utf-8')"`.
+
 ### Running the site (development)
 
 Serve the repo root over HTTP — do **not** open the HTML files via `file://`. `main.js` loads shared components with absolute paths (`fetch('/navbar.html')`, `/footer.html`) and pages reference assets like `/Images/...`, so the navbar/footer only render when the site is served from the repository root.

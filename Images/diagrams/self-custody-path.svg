@@ -1,39 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img" aria-labelledby="title desc">
-  <title id="title">Self-Custody Pfad</title>
-  <desc id="desc">Von der Börse über die Hardware Wallet zum getrennten Seed-Backup.</desc>
-  <style>
-    .box { fill: #0e0e0e; stroke: rgba(255,255,255,0.12); stroke-width: 1.5; }
-    .box-hot { fill: rgba(247,147,26,0.12); stroke: rgba(247,147,26,0.45); stroke-width: 1.5; }
-    .lbl { fill: #f4f4f5; font-family: "DM Sans", system-ui, sans-serif; font-size: 15px; font-weight: 700; }
-    .sub { fill: #a1a1aa; font-family: "DM Sans", system-ui, sans-serif; font-size: 12px; }
-    .arr { stroke: #f7931a; stroke-width: 2; fill: none; marker-end: url(#m); }
-    .n { fill: #f7931a; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 700; }
-  </style>
-  <defs>
-    <marker id="m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#f7931a"/>
-    </marker>
-  </defs>
-  <!-- 1 Börse -->
-  <rect class="box" x="16" y="48" width="150" height="104" rx="12"/>
-  <text class="n" x="28" y="72">01</text>
-  <text class="lbl" x="28" y="100">Börse</text>
-  <text class="sub" x="28" y="122">Custodial · KYC</text>
-  <text class="sub" x="28" y="138">not your keys</text>
-  <!-- arrow -->
-  <path class="arr" d="M178 100 H214"/>
-  <!-- 2 HW -->
-  <rect class="box-hot" x="226" y="48" width="168" height="104" rx="12"/>
-  <text class="n" x="240" y="72">02</text>
-  <text class="lbl" x="240" y="100">Hardware Wallet</text>
-  <text class="sub" x="240" y="122">Keys bleiben on-device</text>
-  <text class="sub" x="240" y="138">Signatur am Gerät</text>
-  <!-- arrow -->
-  <path class="arr" d="M406 100 H442"/>
-  <!-- 3 Backup -->
-  <rect class="box" x="454" y="48" width="170" height="104" rx="12"/>
-  <text class="n" x="468" y="72">03</text>
-  <text class="lbl" x="468" y="100">Seed-Backup</text>
-  <text class="sub" x="468" y="122">Papier / Stahl</text>
-  <text class="sub" x="468" y="138">getrennt vom Gerät</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Self-Custody Pfad</title>
+  <desc>Von der Boerse ueber die Hardware Wallet zum getrennten Seed-Backup.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="20" y="40" width="160" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="34" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">01</text>
+  <text x="34" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Boerse</text>
+  <text x="34" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Custodial - KYC</text>
+  <text x="34" y="140" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">not your keys</text>
+  <path d="M192 100 H224" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="224,94 238,100 224,106" fill="#f7931a"/>
+  <rect x="250" y="40" width="180" height="120" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="264" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">02</text>
+  <text x="264" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Hardware Wallet</text>
+  <text x="264" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Keys bleiben on-device</text>
+  <text x="264" y="140" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Signatur am Geraet</text>
+  <path d="M442 100 H474" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="474,94 488,100 474,106" fill="#f7931a"/>
+  <rect x="500" y="40" width="120" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="514" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">03</text>
+  <text x="514" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Seed</text>
+  <text x="514" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Backup getrennt</text>
+  <text x="514" y="140" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Papier / Stahl</text>
 </svg>

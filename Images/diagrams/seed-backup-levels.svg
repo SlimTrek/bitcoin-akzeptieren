@@ -1,33 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img" aria-labelledby="title desc">
-  <title id="title">Backup-Stufen</title>
-  <desc id="desc">Drei Stufen: Papier für kleine Beträge, Stahl für Vermögen, optional Passphrase als zusätzlicher Schutz.</desc>
-  <style>
-    .box { fill: #0e0e0e; stroke: rgba(255,255,255,0.12); stroke-width: 1.5; }
-    .box-hot { fill: rgba(247,147,26,0.12); stroke: rgba(247,147,26,0.45); stroke-width: 1.5; }
-    .lbl { fill: #f4f4f5; font-family: "DM Sans", system-ui, sans-serif; font-size: 15px; font-weight: 700; }
-    .sub { fill: #a1a1aa; font-family: "DM Sans", system-ui, sans-serif; font-size: 12px; }
-    .n { fill: #f7931a; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12px; font-weight: 700; }
-    .arr { fill: #f7931a; font-size: 18px; font-family: "DM Sans", system-ui, sans-serif; }
-  </style>
-  <rect class="box" x="16" y="40" width="180" height="120" rx="12"/>
-  <text class="n" x="32" y="68">LEVEL 1</text>
-  <text class="lbl" x="32" y="98">Papier</text>
-  <text class="sub" x="32" y="120">Einstieg · kleine Beträge</text>
-  <text class="sub" x="32" y="138">Kugelschreiber · Reihenfolge</text>
-
-  <text class="arr" x="208" y="110">’</text>
-
-  <rect class="box-hot" x="230" y="40" width="180" height="120" rx="12"/>
-  <text class="n" x="246" y="68">LEVEL 2</text>
-  <text class="lbl" x="246" y="98">Stahl</text>
-  <text class="sub" x="246" y="120">Feuer · Wasser · Druck</text>
-  <text class="sub" x="246" y="138">4 Buchstaben / BIP39</text>
-
-  <text class="arr" x="422" y="110">’</text>
-
-  <rect class="box" x="444" y="40" width="180" height="120" rx="12"/>
-  <text class="n" x="460" y="68">LEVEL 3</text>
-  <text class="lbl" x="460" y="98">+ Passphrase</text>
-  <text class="sub" x="460" y="120">25. Wort separat</text>
-  <text class="sub" x="460" y="138">nie mit Seed lagern</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Backup-Stufen</title>
+  <desc>Drei Stufen: Papier, Stahl, optional Passphrase.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="18" y="36" width="180" height="128" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="32" y="62" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">LEVEL 1</text>
+  <text x="32" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="16" font-weight="700">Papier</text>
+  <text x="32" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Einstieg - kleine Betraege</text>
+  <text x="32" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Kugelschreiber - Reihenfolge</text>
+  <text x="210" y="108" fill="#f7931a" font-family="system-ui,sans-serif" font-size="22" font-weight="700">-&gt;</text>
+  <rect x="240" y="36" width="180" height="128" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="254" y="62" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">LEVEL 2</text>
+  <text x="254" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="16" font-weight="700">Stahl</text>
+  <text x="254" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Feuer - Wasser - Druck</text>
+  <text x="254" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">4 Buchstaben / BIP39</text>
+  <text x="432" y="108" fill="#f7931a" font-family="system-ui,sans-serif" font-size="22" font-weight="700">-&gt;</text>
+  <rect x="462" y="36" width="160" height="128" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="476" y="62" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">LEVEL 3</text>
+  <text x="476" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="16" font-weight="700">+ Passphrase</text>
+  <text x="476" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">25. Wort separat</text>
+  <text x="476" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">nie mit Seed lagern</text>
 </svg>
