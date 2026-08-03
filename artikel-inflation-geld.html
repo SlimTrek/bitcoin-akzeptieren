@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Warum wird alles teurer? Der Cantillon-Effekt, Fiat-Geld und wie Bitcoin deine Kaufkraft schützt.">
     <title>Inflation & Geldgeschichte: Das stille Gift – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-inflation-geld.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-inflation-geld.html">
+    <meta property="og:title" content="Inflation &amp; Geldgeschichte: Das stille Gift – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Warum wird alles teurer? Der Cantillon-Effekt, Fiat-Geld und wie Bitcoin deine Kaufkraft schützt.">
+    <meta property="og:site_name" content="Bitcoin Akzeptieren">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Inflation &amp; Geldgeschichte: Das stille Gift – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Warum wird alles teurer? Der Cantillon-Effekt, Fiat-Geld und wie Bitcoin deine Kaufkraft schützt.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root { --primary: #f7931a; --bg-dark: #0a0a0a; --text-main: #ffffff; --text-muted: #b0b0b0; --border-light: rgba(255, 255, 255, 0.1); }
@@ -28,23 +41,33 @@
         .content li { margin-bottom: 10px; color: #ddd; }
         .alert-box { background: rgba(200, 50, 50, 0.1); border-left: 4px solid #c83232; padding: 20px; margin: 30px 0; color: #ffcccc; }
         footer { text-align: center; padding: 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
-        @media (max-width: 768px) { .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; padding: 20px; } .nav-links.active { display: flex; } .menu-toggle { display: block; } }
+        /* mobile nav via PHASE0_SHARED_CHROME / main.js */
+    
+        /* PHASE0_SHARED_CHROME */
+        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light, rgba(255,255,255,0.1)); }
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary, #f7931a); display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .nav-links { display: flex; gap: 18px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+        .nav-links a { font-size: 0.9rem; color: var(--text-muted, #a3a3a3); font-weight: 500; text-decoration: none; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary, #f7931a); }
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main, #fff); }
+        footer { background: #000; padding: 80px 5% 40px; border-top: 1px solid var(--border-light, rgba(255,255,255,0.1)); font-size: 0.9rem; color: var(--text-muted, #a3a3a3); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin: 0 auto 60px; text-align: left; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col ul { list-style: none; padding: 0; margin: 0; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: var(--text-muted, #a3a3a3); text-decoration: none; }
+        .footer-col a:hover { color: var(--primary, #f7931a); }
+        .footer-bottom { text-align: center; border-top: 1px solid var(--border-light, rgba(255,255,255,0.1)); padding-top: 30px; font-size: 0.8rem; }
+        @media (max-width: 768px) {
+            .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; flex-direction: column; padding: 20px 0; clip-path: circle(0% at 100% 0); transition: 0.5s; border-bottom: 1px solid var(--border-light, rgba(255,255,255,0.1)); display: flex; }
+            .nav-links.active { clip-path: circle(150% at 100% 0); }
+            .menu-toggle { display: block; }
+        }
+
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg> Bitcoin Akzeptieren</div>
-        <div class="menu-toggle" id="mobile-menu">☰</div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="/">Start</a></li>
-            <li><a href="/bitcoin-beratung-und-coaching.html">Beratung</a></li>
-            <li><a href="/dca-rechner.html">Rechner</a></li>
-            <li><a href="/wissen.html" class="active">Wissen</a></li>
-            <li><a href="/nostr.html">Nostr</a></li>
-            <li><a href="/empfehlungen.html">Empfehlungen</a></li>
-            <li><a href="/about.html">About</a></li>
-        </ul>
-    </nav>
+    <div id="navbar-placeholder"></div>
     <article class="article-container">
         <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Inflation</div>
         <h1>Warum wird alles teurer? Das Problem mit unserem Geld</h1>
@@ -71,7 +94,8 @@
             <p>Bitcoin ist das erste Geld der Geschichte, dessen Menge mathematisch fixiert ist. Es wird nie mehr als 21 Millionen geben. Keine Krise, kein Krieg und keine Pandemie kann dazu führen, dass mehr Bitcoin gedruckt werden. Wer in Bitcoin spart, friert seine Kaufkraft ein – und da die Wirtschaft produktiver wird, steigt die Kaufkraft von Bitcoin langfristig sogar an.</p>
         </div>
     </article>
-    <footer><p>© 2025 Bitcoin Akzeptieren. Dezentralisiert und unabhängig.</p></footer>
+    <div id="footer-placeholder"></div>
     <script>document.getElementById('mobile-menu').addEventListener('click', () => document.getElementById('nav-links').classList.toggle('active'));</script>
+    <script src="/main.js"></script>
 </body>
 </html>

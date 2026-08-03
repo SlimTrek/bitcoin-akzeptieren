@@ -16,47 +16,65 @@ async function loadComponent(elementId, filePath) {
     }
 }
 
-// Hauptfunktion, die alles initialisiert
-async function initSite() {
-    // 1. Navigation laden
-    const navLoaded = await loadComponent('navbar-placeholder', '/navbar.html');
-    
-    if (navLoaded) {
-        // Wenn Navigation geladen ist: Logik aktivieren
-        
-        // A) Aktiven Link markieren
-        const currentPath = window.location.pathname;
-        const navLinks = document.querySelectorAll('.nav-links a');
-        
-        navLinks.forEach(link => {
-            // Holen des Pfades aus dem Link (z.B. /about.html)
-            const linkPath = new URL(link.href).pathname;
-            
-            // Sonderfall Startseite: "/" und "/index.html" sind das gleiche
-            if (currentPath === '/' || currentPath === '/index.html') {
-                if (linkPath === '/') link.classList.add('active');
-            } else {
-                // Normaler Vergleich
-                if (linkPath === currentPath) {
-                    link.classList.add('active');
-                }
-            }
-        });
-
-        // B) Mobile Menu Logic aktivieren
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const navList = document.getElementById('nav-links');
-        
-        if (menuBtn && navList) {
-            menuBtn.addEventListener('click', () => {
-                navList.classList.toggle('active');
-            });
-        }
+function setupMobileMenu() {
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const navList = document.getElementById('nav-links');
+    if (!menuBtn || !navList) {
+        return;
     }
 
-    // 2. Footer laden
+    const setExpanded = (open) => {
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        menuBtn.setAttribute('aria-label', open ? 'Menü schliessen' : 'Menü öffnen');
+    };
+
+    menuBtn.addEventListener('click', () => {
+        const open = !navList.classList.contains('active');
+        navList.classList.toggle('active', open);
+        setExpanded(open);
+    });
+
+    navList.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            navList.classList.remove('active');
+            setExpanded(false);
+        });
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && navList.classList.contains('active')) {
+            navList.classList.remove('active');
+            setExpanded(false);
+        }
+    });
+}
+
+function markActiveNavLink() {
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    navLinks.forEach((link) => {
+        const linkPath = new URL(link.href).pathname;
+
+        if (currentPath === '/' || currentPath === '/index.html') {
+            if (linkPath === '/') {
+                link.classList.add('active');
+            }
+        } else if (linkPath === currentPath) {
+            link.classList.add('active');
+        }
+    });
+}
+
+async function initSite() {
+    const navLoaded = await loadComponent('navbar-placeholder', '/navbar.html');
+
+    if (navLoaded) {
+        markActiveNavLink();
+        setupMobileMenu();
+    }
+
     await loadComponent('footer-placeholder', '/footer.html');
 }
 
-// Starten, sobald die Seite geladen ist
 document.addEventListener('DOMContentLoaded', initSite);
