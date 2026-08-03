@@ -1,38 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 180" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img" aria-labelledby="title desc">
   <title id="title">Lightning an der Kasse</title>
-  <desc id="desc">Kunde zahlt per Lightning-App, Händler scannt QR, optional Sats behalten oder in CHF wechseln.</desc>
-  <style>
-    .box { fill: #0e0e0e; stroke: rgba(255,255,255,0.12); stroke-width: 1.5; }
-    .box-hot { fill: rgba(247,147,26,0.12); stroke: rgba(247,147,26,0.45); stroke-width: 1.5; }
-    .lbl { fill: #f4f4f5; font-family: "DM Sans", system-ui, sans-serif; font-size: 14px; font-weight: 700; }
-    .sub { fill: #a1a1aa; font-family: "DM Sans", system-ui, sans-serif; font-size: 11.5px; }
-    .n { fill: #f7931a; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 700; }
-    .arr { stroke: #f7931a; stroke-width: 2; fill: none; marker-end: url(#m); }
-  </style>
-  <defs>
-    <marker id="m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L6,3 L0,6 Z" fill="#f7931a"/>
-    </marker>
-  </defs>
-  <rect class="box" x="16" y="36" width="140" height="108" rx="12"/>
-  <text class="n" x="28" y="58">01</text>
-  <text class="lbl" x="28" y="86">Kunde</text>
-  <text class="sub" x="28" y="108">Lightning-Wallet</text>
-  <text class="sub" x="28" y="124">Zap · QR scannen</text>
-
-  <path class="arr" d="M168 90 H204"/>
-
-  <rect class="box-hot" x="216" y="36" width="160" height="108" rx="12"/>
-  <text class="n" x="230" y="58">02</text>
-  <text class="lbl" x="230" y="86">Kasse / App</text>
-  <text class="sub" x="230" y="108">Rechnung erzeugen</text>
-  <text class="sub" x="230" y="124">Bestätigung &lt; 1 s</text>
-
-  <path class="arr" d="M388 90 H424"/>
-
-  <rect class="box" x="436" y="36" width="188" height="108" rx="12"/>
-  <text class="n" x="450" y="58">03</text>
-  <text class="lbl" x="450" y="86">Händler-Ziel</text>
-  <text class="sub" x="450" y="108">Sats halten und/oder</text>
-  <text class="sub" x="450" y="124">auto in CHF wechseln</text>
+  <desc id="desc">Kunde zahlt per Lightning-App, Haendler bestaetigt, Sats halten oder in CHF wechseln.</desc>
+  <!-- Inline fills (no CSS classes): better contrast as &lt;img&gt; -->
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="24" y="44" width="150" height="112" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="36" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">01</text>
+  <text x="36" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Kunde</text>
+  <text x="36" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Lightning-Wallet</text>
+  <text x="36" y="140" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">QR scannen / Zap</text>
+  <path d="M186 100 H218" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="218,94 232,100 218,106" fill="#f7931a"/>
+  <rect x="244" y="44" width="168" height="112" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="258" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">02</text>
+  <text x="258" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Kasse / App</text>
+  <text x="258" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Rechnung erzeugen</text>
+  <text x="258" y="140" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Bestaetigung unter 1 s</text>
+  <path d="M424 100 H456" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="456,94 470,100 456,106" fill="#f7931a"/>
+  <rect x="482" y="44" width="134" height="112" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="496" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">03</text>
+  <text x="496" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Haendler</text>
+  <text x="496" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Sats und/oder</text>
+  <text x="496" y="140" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">auto CHF</text>
 </svg>
