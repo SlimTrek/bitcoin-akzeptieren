@@ -20,40 +20,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/site.css">
     <style>
-        :root { --primary: #f7931a; --bg-dark: #0a0a0a; --bg-card: rgba(255, 255, 255, 0.03); --text-main: #ffffff; --text-muted: #a3a3a3; --border-light: rgba(255, 255, 255, 0.1); --transition: all 0.3s ease; }
-        * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.7; }
-        a { color: var(--primary); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); }
-        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo:hover { text-decoration: none; }
-        .nav-links { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
-        .nav-links a { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; text-decoration: none; }
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); text-decoration: none; }
-        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }
-        footer { background: #000; padding: 80px 5% 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin: 0 auto 60px; }
-        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
-        .footer-col ul { list-style: none; padding: 0; }
-        .footer-col li { margin-bottom: 10px; }
-        .footer-col a { color: var(--text-muted); transition: color 0.3s; text-decoration: none; }
-        .footer-col a:hover { color: var(--primary); }
-        .footer-bottom { text-align: center; border-top: 1px solid var(--border-light); padding-top: 30px; font-size: 0.8rem; }
-        header { padding: 160px 20px 60px; text-align: center; max-width: 800px; margin: 0 auto; }
-        header h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
-        header p { color: var(--text-muted); }
+        /* Page-only; nav/footer come from site.css + navbar.html/footer.html */
+        header.page-header,
+        header {
+            padding: calc(var(--nav-h) + 72px) 20px 48px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header h1 { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 12px; }
+        header p { color: var(--text-muted); margin: 0; }
         .content { max-width: 800px; margin: 0 auto; padding: 0 5% 100px; }
-        .card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 16px; padding: 32px; margin-bottom: 24px; }
-        .card h2 { margin-top: 0; color: var(--primary); font-size: 1.3rem; }
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+        .card h2 { margin-top: 0; color: var(--brand); font-size: 1.3rem; }
         .card p, .card li { color: var(--text-muted); }
         .card ul { padding-left: 1.2rem; }
-        .note { font-size: 0.85rem; color: #777; }
-        @media (max-width: 768px) {
-            .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; flex-direction: column; padding: 20px 0; transition: 0.5s; border-bottom: 1px solid var(--border-light); }
-            
-            .menu-toggle { display: block; }
-        }
+        .note { font-size: 0.85rem; color: var(--text-faint); }
+        .content a { color: var(--brand); }
     </style>
 </head>
 <body>

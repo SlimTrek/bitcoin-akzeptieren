@@ -27,7 +27,7 @@
             --text-main: #ffffff; --border-light: rgba(255, 255, 255, 0.1); --text-muted: #a3a3a3;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); display: flex; flex-direction: column; min-height: 100vh; }
+        body { margin: 0; font-family: var(--font-body), system-ui, sans-serif; background-color: var(--bg-dark); color: var(--text-main); display: flex; flex-direction: column; min-height: 100vh; }
         
         /* Nav & Footer Styles */
         nav { padding: 15px 5%; background: rgba(10, 10, 10, 0.9); display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); position: sticky; top: 0; z-index: 100; }
@@ -54,7 +54,7 @@
         .converter-box::before { content: ''; position: absolute; top: -50px; left: -50px; width: 100px; height: 100px; background: var(--primary); filter: blur(60px); opacity: 0.2; pointer-events: none; }
         .input-group { margin-bottom: 25px; position: relative; }
         .input-group label { display: block; text-align: left; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
-        .input-group input { width: 100%; background: transparent; border: none; border-bottom: 2px solid var(--border-light); color: #fff; font-size: 2.5rem; font-weight: 700; padding: 5px 40px 5px 0; outline: none; text-align: right; font-family: 'Inter', sans-serif; transition: border-color 0.3s; }
+        .input-group input { width: 100%; background: transparent; border: none; border-bottom: 2px solid var(--border-light); color: #fff; font-size: 2.5rem; font-weight: 700; padding: 5px 40px 5px 0; outline: none; text-align: right; font-family: var(--font-body), system-ui, sans-serif; transition: border-color 0.3s; }
         .input-group input:focus { border-color: var(--primary); }
         .currency-label { position: absolute; right: 0; bottom: 15px; color: var(--primary); font-weight: 800; font-size: 1.2rem; }
         .divider { font-size: 1.5rem; color: var(--text-muted); margin: 0 0 20px 0; display: flex; align-items: center; justify-content: center; gap: 10px; }

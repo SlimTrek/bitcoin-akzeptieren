@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Das Schweizer Bitcoin Glossar. Die wichtigsten Begriffe einfach erklärt – mit Fokus auf die Schweiz.">
-    <title>Bitcoin ABC – Begriffe einfach erklärt</title>
+    <title>Glossar – Bitcoin-Begriffe einfach erklärt</title>
     <link rel="canonical" href="https://bitcoin-akzeptieren.ch/glossar.html">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bitcoin-akzeptieren.ch/glossar.html">
-    <meta property="og:title" content="Bitcoin ABC – Begriffe einfach erklärt">
+    <meta property="og:title" content="Glossar – Bitcoin-Begriffe einfach erklärt">
     <meta property="og:description" content="Das Schweizer Bitcoin Glossar. Die wichtigsten Begriffe einfach erklärt – mit Fokus auf die Schweiz.">
     <meta property="og:site_name" content="Bitcoin Akzeptieren">
     <meta property="og:locale" content="de_CH">
     <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bitcoin ABC – Begriffe einfach erklärt">
+    <meta name="twitter:title" content="Glossar – Bitcoin-Begriffe einfach erklärt">
     <meta name="twitter:description" content="Das Schweizer Bitcoin Glossar. Die wichtigsten Begriffe einfach erklärt – mit Fokus auf die Schweiz.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
@@ -23,7 +23,7 @@
     <style>
         /* (CSS bleibt gleich wie vorher für Konsistenz - gekürzt für Übersicht) */
         :root { --primary: #f7931a; --bg-dark: #0a0a0a; --bg-card: rgba(255, 255, 255, 0.03); --text-main: #ffffff; --text-muted: #a3a3a3; --border-light: rgba(255, 255, 255, 0.1); }
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
+        body { margin: 0; font-family: var(--font-body), system-ui, sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; }
         nav { position: fixed; top: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.9); z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); }
         .logo { font-weight: 800; color: var(--primary); display: flex; gap: 10px; align-items: center; }
         .nav-links { display: flex; gap: 20px; list-style: none; }
@@ -57,7 +57,7 @@
         <h1 style="text-align: center;">Das Schweizer Bitcoin ABC</h1>
         <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px;">Nicht kompliziert, sondern auf den Punkt gebracht. Mit Fokus auf Begriffe, die für dich in der Schweiz relevant sind.</p>
         
-        <input type="text" id="searchInput" class="search-box" placeholder="Begriff suchen (z.B. KYC, Relai, BitBox)..." onkeyup="filterTerms()">
+        <input type="text" id="searchInput" class="search-box" placeholder="Begriff suchen (z.B. KYC, Relai, BitBox)..." onkeyup="filterTerms()" aria-label="Glossar durchsuchen">
 
         <div id="glossary-content">
             

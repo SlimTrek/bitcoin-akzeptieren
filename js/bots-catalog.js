@@ -30,7 +30,7 @@
 
     return (
       `<article class="${cardClass}">` +
-      `<img class="bot-avatar" src="${avatar}" alt="" width="72" height="72" loading="lazy" ` +
+      `<img class="bot-avatar" src="${avatar}" alt="${name}" width="72" height="72" loading="lazy" ` +
       `onerror="this.classList.add('is-fallback');this.removeAttribute('src');">` +
       (tag ? `<span class="bot-tag">${tag}</span>` : "") +
       `<h3>${name}</h3>` +
