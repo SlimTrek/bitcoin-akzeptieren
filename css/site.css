@@ -5,7 +5,11 @@
 *::before,
 *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  max-width: 100%;
+}
 
 body {
   margin: 0;
@@ -13,7 +17,8 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.65;
-  overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -46,9 +51,14 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
+  max-width: 100%;
   min-height: var(--nav-h);
-  padding: 14px 5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: max(24px, 4vw, env(safe-area-inset-left, 0px));
+  padding-right: max(24px, 4vw, env(safe-area-inset-right, 0px));
   background: rgba(7, 7, 7, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -57,7 +67,8 @@ nav {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--border);
-  gap: 16px;
+  gap: 12px;
+  box-sizing: border-box;
 }
 
 .logo {
@@ -97,12 +108,23 @@ nav {
 .menu-toggle {
   display: none;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.55rem;
   color: var(--text);
   background: none;
   border: none;
-  padding: 0;
   font: inherit;
+  line-height: 1;
+  flex-shrink: 0;
+  /* 44×44 touch target, flush to the right edge */
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 8px;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 1001;
 }
 
 /* ——— Footer ——— */
@@ -271,20 +293,71 @@ footer {
 .side-room p { margin: 6px 0 0; color: var(--text-muted); font-size: 0.95rem; }
 
 @media (max-width: 900px) {
-  .nav-links {
-    position: absolute;
-    top: var(--nav-h);
-    left: 0;
-    width: 100%;
-    background: var(--bg-elevated);
-    flex-direction: column;
-    padding: 20px 5%;
-    gap: 14px;
-    clip-path: circle(0% at 100% 0);
-    transition: clip-path 0.45s var(--ease);
-    border-bottom: 1px solid var(--border);
-    display: flex;
+  nav {
+    padding-left: max(12px, env(safe-area-inset-left, 0px)) !important;
+    padding-right: max(8px, env(safe-area-inset-right, 0px)) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    box-sizing: border-box !important;
   }
-  .nav-links.active { clip-path: circle(150% at 100% 0); }
-  .menu-toggle { display: block; }
+
+  /* Beat page-local duplicates (clip-path / display:none) */
+  .menu-toggle {
+    display: inline-flex !important;
+  }
+
+  .nav-links {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    background: var(--bg-elevated) !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: 8px max(12px, env(safe-area-inset-right, 0px)) calc(12px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)) !important;
+    border-bottom: 1px solid var(--border) !important;
+    display: flex !important;
+    box-sizing: border-box !important;
+    z-index: 999;
+    /* No clip-path: it left untappable dead zones on the right / bottom */
+    clip-path: none !important;
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: max-height 0.35s var(--ease), opacity 0.2s var(--ease), visibility 0.2s;
+  }
+
+  .nav-links.active {
+    clip-path: none !important;
+    max-height: min(75vh, 560px) !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .nav-links li {
+    list-style: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links li:last-child { border-bottom: none; }
+
+  .nav-links a {
+    display: block !important;
+    padding: 14px 8px !important;
+    min-height: 44px;
+    box-sizing: border-box;
+  }
 }
