@@ -33,6 +33,11 @@
         <div class="content">
             <p>Im Artikel zum Lightning-Netzwerk hast du gelernt, warum es Bitcoin blitzschnell und günstig macht. Aber wie genau funktioniert das technisch? Das Herzstück ist der <strong>Zahlungskanal</strong>. Wer versteht, wie ein Kanal geöffnet, genutzt und geschlossen wird, versteht auch, warum Lightning weder Magie noch ein neues Bitcoin ist – sondern eine clevere zweite Schicht oben drauf.</p>
 
+            <figure class="diagram-figure">
+                <img src="/Images/diagrams/lightning-channel.svg" width="640" height="200" alt="Lightning-Kanal: Outbound senden, Inbound empfangen, oeffnen und schliessen on-chain" loading="lazy" decoding="async">
+                <figcaption><strong>Grafik:</strong> Feste Kapazitaet teilt sich in Outbound (senden) und Inbound (empfangen) — dazwischen viele Payments off-chain.</figcaption>
+            </figure>
+
             <h2>Was ist ein Zahlungskanal?</h2>
             <p>Ein Kanal ist eine Vereinbarung zwischen zwei Teilnehmern, gemeinsam einen bestimmten Betrag "on-chain" zu hinterlegen und danach untereinander beliebig oft und in Echtzeit hin- und herzuschieben – ohne dass jede einzelne Zahlung auf der Bitcoin-Blockchain landet. Erst wenn der Kanal geschlossen wird, wird der finale Kontostand wieder auf der Blockchain festgeschrieben.</p>
 

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Watch-only vs Private Key</title>
+  <desc>xPub beobachteten, Seed und private Keys bleiben offline.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="18" y="36" width="250" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="32" y="62" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">HARDWARE / SAFE</text>
+  <text x="32" y="92" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Seed + private Keys</text>
+  <text x="32" y="116" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">koennen ausgeben</text>
+  <text x="32" y="136" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">bleiben offline</text>
+  <path d="M282 96 H318" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="318,90 332,96 318,102" fill="#f7931a"/>
+  <text x="288" y="84" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">nur xPub</text>
+  <rect x="344" y="36" width="278" height="120" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="358" y="62" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">WATCH-ONLY APP</text>
+  <text x="358" y="92" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Saldo + Verlauf sehen</text>
+  <text x="358" y="116" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">kann NICHT senden</text>
+  <text x="358" y="136" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">unterwegs sicher anschauen</text>
+  <text x="18" y="180" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">xPub teilen = Kontostand sichtbar - nie oeffentlich posten.</text>
+</svg>

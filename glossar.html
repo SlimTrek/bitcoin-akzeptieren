@@ -436,6 +436,7 @@
         function filterTerms() {
             let input = document.getElementById('searchInput').value.toUpperCase();
             let items = document.getElementsByClassName('term-item');
+            let groups = document.getElementsByClassName('term-group');
             
             for (let i = 0; i < items.length; i++) {
                 let txtValue = items[i].textContent || items[i].innerText;
@@ -445,7 +446,28 @@
                     items[i].style.display = "none";
                 }
             }
+            for (let g = 0; g < groups.length; g++) {
+                let visible = groups[g].querySelector('.term-item:not([style*="display: none"])');
+                // if any child term-item has display empty, show group
+                let any = false;
+                let kids = groups[g].getElementsByClassName('term-item');
+                for (let k = 0; k < kids.length; k++) {
+                    if (kids[k].style.display !== 'none') { any = true; break; }
+                }
+                groups[g].style.display = any || !input ? "" : "none";
+            }
         }
+        (function applyQuery() {
+            try {
+                var q = new URLSearchParams(window.location.search).get('q');
+                if (!q) return;
+                var el = document.getElementById('searchInput');
+                if (!el) return;
+                el.value = q;
+                filterTerms();
+                el.focus();
+            } catch (e) {}
+        })();
     </script>
 <div id="footer-placeholder"></div>
     <script src="/main.js"></script>

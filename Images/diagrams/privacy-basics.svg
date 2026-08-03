@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Privacy Basics</title>
+  <desc>Oeffentliche Blockchain + KYC Verknuepfung; neue Adressen und Full Node helfen.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="18" y="28" width="190" height="100" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="32" y="54" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">BLOCKCHAIN</text>
+  <text x="32" y="82" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">oeffentlich</text>
+  <text x="32" y="104" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Betrag + Adressen</text>
+  <rect x="226" y="28" width="190" height="100" rx="12" fill="rgba(239,68,68,0.1)" stroke="rgba(239,68,68,0.45)" stroke-width="1.5"/>
+  <text x="240" y="54" fill="#f87171" font-family="system-ui,sans-serif" font-size="12" font-weight="700">KYC / BOERSE</text>
+  <text x="240" y="82" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Name + Adresse</text>
+  <text x="240" y="104" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Verknuepfung bleibt</text>
+  <rect x="434" y="28" width="188" height="100" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="448" y="54" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">SCHUTZ</text>
+  <text x="448" y="82" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">neue Adresse</text>
+  <text x="448" y="104" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Node, Coin Control</text>
+  <text x="18" y="160" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Pseudonym, nicht anonym - Adress-Wiederverwendung und KYC sind die haeufigsten Lecks.</text>
+</svg>

@@ -123,6 +123,25 @@ async function initSite() {
     }
 
     await loadComponent('footer-placeholder', '/footer.html');
+
+    // Site search (navbar + /suche.html)
+    const bootSearch = () => {
+        if (window.BA_SEARCH && typeof window.BA_SEARCH.init === 'function') {
+            window.BA_SEARCH.init();
+            return Promise.resolve();
+        }
+        return new Promise((resolve) => {
+            const s = document.createElement('script');
+            s.src = '/js/search.js';
+            s.onload = () => {
+                if (window.BA_SEARCH) window.BA_SEARCH.init();
+                resolve();
+            };
+            s.onerror = resolve;
+            document.head.appendChild(s);
+        });
+    };
+    await bootSearch();
 }
 
 document.addEventListener('DOMContentLoaded', initSite);

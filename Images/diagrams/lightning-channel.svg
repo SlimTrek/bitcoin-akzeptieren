@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Lightning Kanal Liquiditaet</title>
+  <desc>Kanal mit Kapazitaet: Outbound senden, Inbound empfangen.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="24" y="32" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Ein Kanal - feste Gesamtkapazitaet</text>
+  <rect x="40" y="56" width="560" height="52" rx="10" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <rect x="44" y="60" width="300" height="44" rx="8" fill="rgba(247,147,26,0.35)"/>
+  <rect x="344" y="60" width="252" height="44" rx="8" fill="rgba(255,255,255,0.08)"/>
+  <text x="56" y="88" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Outbound (du sendest)</text>
+  <text x="360" y="88" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="13" font-weight="700">Inbound (du empfangst)</text>
+  <text x="40" y="140" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">01 Oeffnen</text>
+  <text x="40" y="160" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">on-chain Gebuehr</text>
+  <text x="230" y="140" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">02 Nutzen</text>
+  <text x="230" y="160" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">tausende Payments off-chain</text>
+  <text x="440" y="140" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">03 Schliessen</text>
+  <text x="440" y="160" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Endstand on-chain</text>
+</svg>

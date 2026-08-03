@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 210" role="img">
+  <title>Nostr Architektur</title>
+  <desc>Client Apps, Relays und Schluesselpaar npub nsec.</desc>
+  <rect x="0" y="0" width="640" height="210" rx="14" fill="#141414" stroke="#a020f0" stroke-opacity="0.45" stroke-width="2"/>
+  <rect x="18" y="36" width="150" height="110" rx="12" fill="#1c1c1e" stroke="#a020f0" stroke-width="1.5"/>
+  <text x="32" y="62" fill="#c084fc" font-family="system-ui,sans-serif" font-size="12" font-weight="700">01 APPS</text>
+  <text x="32" y="92" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Client</text>
+  <text x="32" y="114" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Primal, Damus,</text>
+  <text x="32" y="132" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Amethyst ...</text>
+  <path d="M180 91 H212" stroke="#a020f0" stroke-width="2.5" fill="none"/>
+  <polygon points="212,85 226,91 212,97" fill="#a020f0"/>
+  <rect x="238" y="36" width="170" height="110" rx="12" fill="rgba(160,32,240,0.14)" stroke="#a020f0" stroke-width="2"/>
+  <text x="252" y="62" fill="#c084fc" font-family="system-ui,sans-serif" font-size="12" font-weight="700">02 RELAYS</text>
+  <text x="252" y="92" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">viele Server</text>
+  <text x="252" y="114" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">nachrichten speichern</text>
+  <text x="252" y="132" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">und weiterleiten</text>
+  <path d="M420 91 H452" stroke="#a020f0" stroke-width="2.5" fill="none"/>
+  <polygon points="452,85 466,91 452,97" fill="#a020f0"/>
+  <rect x="478" y="36" width="144" height="110" rx="12" fill="#1c1c1e" stroke="#a020f0" stroke-width="1.5"/>
+  <text x="492" y="62" fill="#c084fc" font-family="system-ui,sans-serif" font-size="12" font-weight="700">03 KEYS</text>
+  <text x="492" y="92" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">npub / nsec</text>
+  <text x="492" y="114" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Identitaet dir</text>
+  <text x="492" y="132" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">nicht der App</text>
+  <text x="18" y="180" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Protokoll wie E-Mail: App wechseln, Identitaet und Kontakte bleiben.</text>
+</svg>
