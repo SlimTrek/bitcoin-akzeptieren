@@ -23,71 +23,161 @@
     <link rel="stylesheet" href="/css/site.css">
 
     <style>
-        :root {
-            --primary: #f7931a; --primary-hover: #e0820b; --bg-dark: #0a0a0a;
-            --bg-card: rgba(255, 255, 255, 0.03); --bg-card-hover: rgba(255, 255, 255, 0.07);
-            --text-main: #ffffff; --text-muted: #a3a3a3; --border-light: rgba(255, 255, 255, 0.1);
-            --success: #00c853; --danger: #ff3d00; --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* Page-only; nav/footer come from site.css + navbar.html/footer.html */
+        .bg-gradient {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 50% 10%, rgba(247, 147, 26, 0.05), transparent 50%),
+                radial-gradient(circle at 10% 90%, rgba(50, 50, 50, 0.1), transparent 40%);
+            pointer-events: none;
         }
-        * { box-sizing: border-box; }
-        body { margin: 0; font-family: var(--font-body), system-ui, sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
-        
-        /* WICHTIG: Reset für Listen - Entfernt die Punkte global */
-        ul { list-style: none; padding: 0; margin: 0; }
-
-        .bg-gradient { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 50% 10%, rgba(247, 147, 26, 0.05), transparent 50%), radial-gradient(circle at 10% 90%, rgba(50, 50, 50, 0.1), transparent 40%); pointer-events: none; }
-        
-        /* Nav Styles mit explizitem Reset für nav-links */
-        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); }
-        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); display: flex; align-items: center; gap: 10px; }
-        
-        /* Explicit list-style none for nav-links just to be double sure */
-        .nav-links { display: flex; gap: 30px; flex-wrap: wrap; list-style: none !important; padding: 0; margin: 0; } 
-        
-        .nav-links a { font-size: 0.95rem; color: var(--text-muted); font-weight: 500; text-decoration: none; } 
-        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
-        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }
-        footer { text-align: center; padding: 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); margin-top: 60px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin: 0 auto 60px; text-align: left; }
-        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
-        .footer-col ul { list-style: none; padding: 0; }
-        .footer-col li { margin-bottom: 10px; }
-        .footer-col a { color: var(--text-muted); transition: color 0.3s; text-decoration: none; }
-        .footer-col a:hover { color: var(--primary); }
-        .footer-bottom { text-align: center; border-top: 1px solid var(--border-light); padding-top: 30px; font-size: 0.8rem; }
-
-        /* Page Specific */
-        header { padding: 160px 20px 60px; text-align: center; max-width: 800px; margin: 0 auto; }
-        header h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, #aaa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header {
+            padding: calc(var(--nav-h) + 72px) 20px 60px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         header p { font-size: 1.1rem; color: var(--text-muted); }
-        .calculator-container { max-width: 900px; margin: 0 auto 80px; padding: 0 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-        .calc-box { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 20px; padding: 30px; }
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .calc-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+        }
         .input-group { margin-bottom: 25px; }
-        .input-group label { display: block; margin-bottom: 10px; font-weight: 600; color: var(--primary); font-size: 0.9rem; }
-        .input-group input, .input-group select { width: 100%; padding: 15px; background: rgba(0,0,0,0.3); border: 1px solid var(--border-light); border-radius: 10px; color: #fff; font-size: 1rem; font-family: var(--font-body), system-ui, sans-serif; transition: var(--transition); }
-        .calc-btn { width: 100%; padding: 15px; background: var(--primary); color: #000; border: none; border-radius: 10px; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: var(--transition); }
-        .calc-btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--brand);
+            font-size: 0.9rem;
+        }
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 1rem;
+            font-family: var(--font-body), system-ui, sans-serif;
+            transition: var(--transition);
+        }
+        .calc-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--brand);
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .calc-btn:hover { background: var(--brand-hover); transform: translateY(-2px); }
         .calc-btn:disabled { background: #555; cursor: not-allowed; transform: none; }
-        .result-box { background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid var(--border-light); border-radius: 20px; padding: 30px; text-align: center; opacity: 0.5; transition: var(--transition); pointer-events: none; min-height: 400px; display: flex; flex-direction: column; justify-content: center; }
-        .result-box.active { opacity: 1; pointer-events: all; border-color: var(--primary); justify-content: flex-start; }
-        .result-title { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
-        .result-value { font-size: 3rem; font-weight: 800; margin: 10px 0; color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.1); }
+        .result-box {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            opacity: 0.5;
+            transition: var(--transition);
+            pointer-events: none;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .result-box.active {
+            opacity: 1;
+            pointer-events: all;
+            border-color: var(--brand);
+            justify-content: flex-start;
+        }
+        .result-title {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .result-value {
+            font-size: 3rem;
+            font-weight: 800;
+            margin: 10px 0;
+            color: var(--text);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
         .result-profit { font-size: 1.2rem; font-weight: 600; margin-bottom: 30px; }
-        .profit-positive { color: var(--success); } .profit-negative { color: var(--danger); }
-        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left; margin-bottom: 30px; padding-top: 20px; border-top: 1px solid var(--border-light); }
+        .profit-positive { color: var(--success); }
+        .profit-negative { color: var(--danger); }
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            text-align: left;
+            margin-bottom: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
         .detail-item span { display: block; font-size: 0.8rem; color: var(--text-muted); }
         .detail-item strong { font-size: 1.1rem; }
-        .cta-box { background: rgba(247, 147, 26, 0.1); border-radius: 10px; padding: 20px; margin-top: 20px; display: none; }
+        .cta-box {
+            background: var(--brand-soft);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            display: none;
+        }
         .cta-text { font-size: 0.9rem; margin-bottom: 10px; }
-        .cta-code { display: inline-block; background: rgba(0,0,0,0.3); padding: 5px 10px; border-radius: 5px; font-family: monospace; color: var(--primary); border: 1px dashed var(--primary); }
-        .loader { display: none; border: 4px solid rgba(255, 255, 255, 0.1); border-top: 4px solid var(--primary); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 20px auto; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
+        .cta-code {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: var(--font-mono), monospace;
+            color: var(--brand);
+            border: 1px dashed var(--brand);
+        }
+        .loader {
+            display: none;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--brand);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: dca-spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes dca-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         @media (max-width: 768px) {
-            .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: var(--bg-dark); flex-direction: column; padding: 20px 0; transition: 0.5s; border-bottom: 1px solid var(--border-light); }
-            
-            .menu-toggle { display: block; }
-            header { padding-top: 120px; }
+            header { padding-top: calc(var(--nav-h) + 48px); }
             .calculator-container { grid-template-columns: 1fr; }
             .result-value { font-size: 2.5rem; }
         }
