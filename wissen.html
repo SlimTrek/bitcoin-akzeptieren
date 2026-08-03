@@ -80,6 +80,8 @@
             cursor: pointer;
             transition: var(--transition);
             font-family: var(--font-body);
+            appearance: none;
+            -webkit-appearance: none;
         }
         .cat-btn:hover,
         .cat-btn.active {
@@ -239,21 +241,21 @@
         </div>
     </div>
 
-    <div class="filter-row"><span class="filter-label">Kategorie</span></div>
-    <div class="category-nav">
-        <span class="cat-btn active" data-cat="all" onclick="setCategory('all')">Alle</span>
-        <span class="cat-btn" data-cat="Praxis" onclick="setCategory('Praxis')">Praxis</span>
-        <span class="cat-btn" data-cat="Sicherheit" onclick="setCategory('Sicherheit')">Sicherheit</span>
-        <span class="cat-btn" data-cat="Technik" onclick="setCategory('Technik')">Technik</span>
-        <span class="cat-btn" data-cat="Grundlagen" onclick="setCategory('Grundlagen')">Grundlagen</span>
+    <div class="filter-row"><span class="filter-label" id="filter-cat-label">Kategorie</span></div>
+    <div class="category-nav" role="group" aria-labelledby="filter-cat-label">
+        <button type="button" class="cat-btn active" data-cat="all" aria-pressed="true">Alle</button>
+        <button type="button" class="cat-btn" data-cat="Praxis" aria-pressed="false">Praxis</button>
+        <button type="button" class="cat-btn" data-cat="Sicherheit" aria-pressed="false">Sicherheit</button>
+        <button type="button" class="cat-btn" data-cat="Technik" aria-pressed="false">Technik</button>
+        <button type="button" class="cat-btn" data-cat="Grundlagen" aria-pressed="false">Grundlagen</button>
     </div>
 
-    <div class="filter-row"><span class="filter-label">Level</span></div>
-    <div class="category-nav">
-        <span class="level-btn active" data-level="all" onclick="setLevel('all')">Alle</span>
-        <span class="level-btn" data-level="Beginner" onclick="setLevel('Beginner')">Beginner</span>
-        <span class="level-btn" data-level="Praxis" onclick="setLevel('Praxis')">Praxis</span>
-        <span class="level-btn" data-level="Deep Dive" onclick="setLevel('Deep Dive')">Deep Dive</span>
+    <div class="filter-row"><span class="filter-label" id="filter-level-label">Level</span></div>
+    <div class="category-nav" role="group" aria-labelledby="filter-level-label">
+        <button type="button" class="level-btn active" data-level="all" aria-pressed="true">Alle</button>
+        <button type="button" class="level-btn" data-level="Beginner" aria-pressed="false">Beginner</button>
+        <button type="button" class="level-btn" data-level="Praxis" aria-pressed="false">Praxis</button>
+        <button type="button" class="level-btn" data-level="Deep Dive" aria-pressed="false">Deep Dive</button>
     </div>
     
     <div class="blog-container">
@@ -362,7 +364,9 @@
         function setCategory(category) {
             activeCategory = category;
             document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-cat') === category);
+                const on = btn.getAttribute('data-cat') === category;
+                btn.classList.toggle('active', on);
+                btn.setAttribute('aria-pressed', on ? 'true' : 'false');
             });
             applyFilters();
         }
@@ -370,10 +374,19 @@
         function setLevel(level) {
             activeLevel = level;
             document.querySelectorAll('.level-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-level') === level);
+                const on = btn.getAttribute('data-level') === level;
+                btn.classList.toggle('active', on);
+                btn.setAttribute('aria-pressed', on ? 'true' : 'false');
             });
             applyFilters();
         }
+
+        document.querySelectorAll('.cat-btn').forEach((btn) => {
+            btn.addEventListener('click', () => setCategory(btn.getAttribute('data-cat')));
+        });
+        document.querySelectorAll('.level-btn').forEach((btn) => {
+            btn.addEventListener('click', () => setLevel(btn.getAttribute('data-level')));
+        });
 
         function applyFilters() {
             const cards = document.querySelectorAll('.article-card');

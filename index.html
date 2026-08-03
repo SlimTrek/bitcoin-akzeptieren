@@ -284,19 +284,25 @@
     </section>
 
     <!-- FAQ -->
-    <section style="max-width: 800px;">
-        <h2>Häufige Fragen</h2>
+    <section style="max-width: 800px;" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Häufige Fragen</h2>
         <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Ist Bitcoin in der Schweiz legal? <span class="plus-icon">+</span></div>
-            <div class="faq-answer">Ja, absolut. Die Schweiz ("Crypto Valley") hat eine der besten Regulierungen weltweit. Du kannst Bitcoin legal besitzen und Kapitalgewinne sind für Private steuerfrei.</div>
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+                Ist Bitcoin in der Schweiz legal? <span class="plus-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">Ja, absolut. Die Schweiz ("Crypto Valley") hat eine der besten Regulierungen weltweit. Du kannst Bitcoin legal besitzen und Kapitalgewinne sind für Private steuerfrei.</div>
         </div>
         <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Bin ich zu spät? <span class="plus-icon">+</span></div>
-            <div class="faq-answer">Nein. Bitcoin ist noch in der Monetarisierungsphase. Mit einer Adoption von ca. 1-2% weltweit stehen wir immer noch am Anfang.</div>
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+                Bin ich zu spät? <span class="plus-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2">Nein. Bitcoin ist noch in der Monetarisierungsphase. Mit einer Adoption von ca. 1-2% weltweit stehen wir immer noch am Anfang.</div>
         </div>
         <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">Brauche ich viel Geld? <span class="plus-icon">+</span></div>
-            <div class="faq-answer">Nein! Du kannst Bruchteile eines Bitcoins (Satoshis) kaufen. Schon ab 10 CHF kannst du einen Sparplan starten.</div>
+            <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+                Brauche ich viel Geld? <span class="plus-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3">Nein! Du kannst Bruchteile eines Bitcoins (Satoshis) kaufen. Schon ab 10 CHF kannst du einen Sparplan starten.</div>
         </div>
     </section>
 
@@ -327,9 +333,16 @@
         document.querySelectorAll('.profile-card, .feature-box, .content-card').forEach(el => observer.observe(el));
 
         // --- FAQ Logic ---
-        function toggleFaq(el) {
-            el.parentElement.classList.toggle('active');
+        function toggleFaq(btn) {
+            const item = btn.closest('.faq-item');
+            if (!item) return;
+            const open = !item.classList.contains('active');
+            item.classList.toggle('active', open);
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         }
+        document.querySelectorAll('.faq-question').forEach((btn) => {
+            btn.addEventListener('click', () => toggleFaq(btn));
+        });
 
         // --- Copy Logic ---
         function copyAddress() {

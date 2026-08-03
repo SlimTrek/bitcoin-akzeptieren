@@ -94,9 +94,26 @@ function enablePlausible() {
     document.head.appendChild(script);
 }
 
+function ensureMainContentAnchor() {
+    if (document.getElementById('main-content')) {
+        return;
+    }
+    const candidate = document.querySelector(
+        'header, .home-hero, .container, .converter-wrapper, .page-header, body > section, main'
+    );
+    if (!candidate) {
+        return;
+    }
+    candidate.id = 'main-content';
+    if (!candidate.hasAttribute('tabindex')) {
+        candidate.setAttribute('tabindex', '-1');
+    }
+}
+
 async function initSite() {
     await loadSiteConfig();
     enablePlausible();
+    ensureMainContentAnchor();
 
     const navLoaded = await loadComponent('navbar-placeholder', '/navbar.html');
 

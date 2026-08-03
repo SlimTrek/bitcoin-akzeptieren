@@ -368,6 +368,17 @@ section.testimonials {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
+  width: 100%;
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+}
+.faq-question:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 .faq-answer {
   max-height: 0;
