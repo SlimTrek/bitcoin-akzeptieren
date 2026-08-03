@@ -147,6 +147,7 @@
             font-weight: 800;
             font-size: 1.8rem;
             color: var(--brand);
+            flex-shrink: 0;
         }
         .trust-meta { color: var(--text-muted); font-size: 0.95rem; }
         .trust-meta strong { color: var(--text); }
@@ -159,14 +160,47 @@
             font-size: 0.8rem;
             color: var(--text-muted);
         }
-        .cv-list { margin: 0; padding-left: 1.1rem; color: var(--text-muted); }
-        .cv-list li { margin-bottom: 10px; }
-        .cta-row { margin-top: 18px; }
+        .cv-timeline {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border-left: 2px solid var(--brand-border);
+        }
+        .cv-timeline li {
+            position: relative;
+            padding: 0 0 22px 22px;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+        }
+        .cv-timeline li:last-child { padding-bottom: 0; }
+        .cv-timeline li::before {
+            content: "";
+            position: absolute;
+            left: -7px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--brand);
+            box-shadow: 0 0 0 3px var(--bg);
+        }
+        .cv-timeline .yr {
+            display: inline-block;
+            font-family: var(--font-mono), monospace;
+            font-weight: 700;
+            color: var(--brand);
+            margin-right: 8px;
+            font-size: 0.85rem;
+        }
+        .cv-timeline strong { color: var(--text); }
+        .cta-row { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; }
         .cta-row a { color: var(--brand); font-weight: 700; }
+        .cta-row .sla { color: var(--text-muted); font-size: 0.9rem; }
         @media (max-width: 768px) {
             header { padding-top: calc(var(--nav-h) + 48px); }
             .trust-strip { grid-template-columns: 1fr; text-align: center; justify-items: center; }
             .pill-row { justify-content: center; }
+            .cv-timeline { text-align: left; }
         }
     </style>
 </head>
@@ -194,7 +228,7 @@
                     <span class="pill">Lightning / KMU</span>
                     <span class="pill">Nostr</span>
                 </div>
-                <p class="trust-meta" style="margin:14px 0 0; font-size:0.85rem;">Portrait-Foto folgt — bis dahin: Initialen statt Stockfoto.</p>
+                <p class="trust-meta" style="margin:14px 0 0; font-size:0.85rem;">Monogramm + NIP-05 — persönlich, ohne Stockfoto.</p>
             </div>
         </div>
         
@@ -205,19 +239,18 @@
             <p>Ich unterstütze Einzelpersonen, Selbständige und Unternehmen, die Bitcoin verstehen, sicher nutzen oder akzeptieren wollen. Meine Stärke? Ich weiss, wie es ist, am Anfang zu stehen, und erkläre dir Bitcoin auf Augenhöhe – ohne komplizierten Jargon.</p>
             <div class="cta-row">
                 <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Bitcoin%20Mentoring&body=Hallo%20Patrik%2C%0A%0AKurz%20zu%20mir%20%2F%20meinem%20Ziel%3A%20%0ABevorzugte%20Zeiten%3A%20%0A">Mentoring anfragen →</a>
-                <span style="color:var(--text-muted); margin-left:10px; font-size:0.9rem;">Antwort innert 1–2 Werktagen</span>
+                <span class="sla">Antwort innert 1–2 Werktagen</span>
             </div>
         </div>
 
         <div class="story-block">
-            <h3>Kurz-Profil</h3>
-            <ul class="cv-list">
-                <li>Lehre Elektriker → Zweitausbildung Informatik</li>
-                <li>Bitcoin seit 2016 (erster Kauf am Automaten in Zürich), intensives Lernen seit 2021</li>
-                <li>Fokus: Self-Custody, sicherer Einstieg in der Schweiz, Lightning für Geschäfte</li>
-                <li>Nebenprojekt: Bildungsseite + Nostr-Präsenz unter <code>bitcoin-akzeptieren.ch</code></li>
-            </ul>
-            <p style="margin-top:20px;"><a href="/bitcoin-beratung-und-coaching.html">Angebot &amp; Preise ansehen →</a> · <a href="/haendler.html">Für Händler →</a> · <a href="/nostr.html">Nostr →</a></p>
+            <h3>Stationen</h3>
+            <ol class="cv-timeline">
+                <li><span class="yr">2016</span> <strong>Einstieg</strong> — Erste Satoshis am Automaten in Zürich; Paper-Wallet, dann Pause.</li>
+                <li><span class="yr">2021</span> <strong>Rabbit Hole</strong> — Intensives Lernen (Technik, Geldgeschichte, Self-Custody); tausende Stunden Inhalte.</li>
+                <li><span class="yr">heute</span> <strong>Praxis</strong> — Informatiker · Fokus Self-Custody, sicherer CH-Einstieg, Lightning für KMUs · Bildungsseite + Nostr unter <code>bitcoin-akzeptieren.ch</code>.</li>
+            </ol>
+            <p style="margin-top:24px;"><a href="/bitcoin-beratung-und-coaching.html">Angebot &amp; Preise →</a> · <a href="/haendler.html">Für Händler →</a> · <a href="/fallstudien.html">Fallstudien →</a> · <a href="/nostr.html">Nostr →</a></p>
         </div>
 
         <div class="story-block">

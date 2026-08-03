@@ -334,6 +334,14 @@ section.testimonials {
   border-bottom: 1px solid var(--border);
   max-width: none;
 }
+section.testimonials .quote-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+section.testimonials a.content-card {
+  text-decoration: none;
+  color: inherit;
+}
 .quote-item p {
   font-style: italic;
   font-size: 1.05rem;
