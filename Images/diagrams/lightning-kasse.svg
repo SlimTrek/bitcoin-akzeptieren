@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 180" role="img" aria-labelledby="title desc">
+  <title id="title">Lightning an der Kasse</title>
+  <desc id="desc">Kunde zahlt per Lightning-App, Händler scannt QR, optional Sats behalten oder in CHF wechseln.</desc>
+  <style>
+    .box { fill: #0e0e0e; stroke: rgba(255,255,255,0.12); stroke-width: 1.5; }
+    .box-hot { fill: rgba(247,147,26,0.12); stroke: rgba(247,147,26,0.45); stroke-width: 1.5; }
+    .lbl { fill: #f4f4f5; font-family: "DM Sans", system-ui, sans-serif; font-size: 14px; font-weight: 700; }
+    .sub { fill: #a1a1aa; font-family: "DM Sans", system-ui, sans-serif; font-size: 11.5px; }
+    .n { fill: #f7931a; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 700; }
+    .arr { stroke: #f7931a; stroke-width: 2; fill: none; marker-end: url(#m); }
+  </style>
+  <defs>
+    <marker id="m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#f7931a"/>
+    </marker>
+  </defs>
+  <rect class="box" x="16" y="36" width="140" height="108" rx="12"/>
+  <text class="n" x="28" y="58">01</text>
+  <text class="lbl" x="28" y="86">Kunde</text>
+  <text class="sub" x="28" y="108">Lightning-Wallet</text>
+  <text class="sub" x="28" y="124">Zap · QR scannen</text>
+
+  <path class="arr" d="M168 90 H204"/>
+
+  <rect class="box-hot" x="216" y="36" width="160" height="108" rx="12"/>
+  <text class="n" x="230" y="58">02</text>
+  <text class="lbl" x="230" y="86">Kasse / App</text>
+  <text class="sub" x="230" y="108">Rechnung erzeugen</text>
+  <text class="sub" x="230" y="124">Bestätigung &lt; 1 s</text>
+
+  <path class="arr" d="M388 90 H424"/>
+
+  <rect class="box" x="436" y="36" width="188" height="108" rx="12"/>
+  <text class="n" x="450" y="58">03</text>
+  <text class="lbl" x="450" y="86">Händler-Ziel</text>
+  <text class="sub" x="450" y="108">Sats halten und/oder</text>
+  <text class="sub" x="450" y="124">auto in CHF wechseln</text>
+</svg>

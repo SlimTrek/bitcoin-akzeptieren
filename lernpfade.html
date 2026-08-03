@@ -182,13 +182,36 @@
         <p>Vier geführte Wege durch die Wissensdatenbank — je nach Ziel und Erfahrungsstand. Schritt für Schritt, ohne Umwege.</p>
     </header>
 
+    <nav class="path-map" aria-label="Überblick Lernpfade">
+        <a href="#pfad-30-tage">
+            <span class="pm-n">01</span>
+            <span class="pm-t">Erste 30 Tage</span>
+            <span class="pm-s">Null Vorwissen → erste sichere Schritte</span>
+        </a>
+        <a href="#pfad-self-custody">
+            <span class="pm-n">02</span>
+            <span class="pm-t">Self-Custody</span>
+            <span class="pm-s">Keys, Backup, Hardware Wallet</span>
+        </a>
+        <a href="#pfad-haendler">
+            <span class="pm-n">03</span>
+            <span class="pm-t">Händler / KMU</span>
+            <span class="pm-s">Lightning an der Kasse</span>
+        </a>
+        <a href="#pfad-node">
+            <span class="pm-n">04</span>
+            <span class="pm-t">Node &amp; Souveränität</span>
+            <span class="pm-s">Verify yourself</span>
+        </a>
+    </nav>
+
     <div class="content">
         <div class="intro-note">
             <strong>Hinweis:</strong> Auf der <a href="/wissen.html" style="color:var(--primary); font-weight:600;">Wissensseite</a> erscheinen laufend neue Artikel. Diese Lernpfade werden entsprechend ergänzt — wer tiefer gehen will, findet dort jederzeit mehr.
         </div>
 
         <!-- PFAD 1: ERSTE 30 TAGE -->
-        <div class="path-card">
+        <div class="path-card" id="pfad-30-tage">
             <div class="path-head">
                 <h2>1. Erste 30 Tage</h2>
                 <span class="level-pill">Beginner</span>
@@ -238,7 +261,7 @@
         </div>
 
         <!-- PFAD 2: SELF-CUSTODY -->
-        <div class="path-card">
+        <div class="path-card" id="pfad-self-custody">
             <div class="path-head">
                 <h2>2. Self-Custody</h2>
                 <span class="level-pill">Praxis</span>
@@ -294,7 +317,7 @@
         </div>
 
         <!-- PFAD 3: LIGHTNING FÜR KMU -->
-        <div class="path-card">
+        <div class="path-card" id="pfad-haendler">
             <div class="path-head">
                 <h2>3. Lightning für KMU</h2>
                 <span class="level-pill">Praxis</span>
@@ -350,7 +373,7 @@
         </div>
 
         <!-- PFAD 4: NODE & SOUVERÄNITÄT -->
-        <div class="path-card">
+        <div class="path-card" id="pfad-node">
             <div class="path-head">
                 <h2>4. Node & Souveränität</h2>
                 <span class="level-pill">Deep Dive</span>

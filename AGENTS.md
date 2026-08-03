@@ -29,6 +29,8 @@ Learning paths: `lernpfade.html` (Beginner → Deep Dive). Wissen supports categ
 
 Design system lives in `css/tokens.css`, `css/site.css`, `css/article.css`, `css/home.css` (shared chrome, buttons, cards, `.side-room` callout). Display + body font: **DM Sans** (no Outfit/Syne — both looked optisch „in die Breite“). Never use `-webkit-background-clip: text` + transparent fill on headings (clips descenders g/y/p). Prefer linking shared CSS over duplicating per-page nav/footer/button CSS in a `<style>` block. Mobile nav is owned by `navbar.html` (`.nav-inner` + CSS hamburger) and `css/site.css` (`max-width: 900px`); do not reintroduce `clip-path` menus or `minmax(400px, …)` grids.
 
+**Diagramme (Phase J):** wiederverwendbare SVGs unter `Images/diagrams/`; einbinden mit `<figure class="diagram-figure">` + `figcaption` (Styles in `site.css`). Keine generischen Stockfotos; Grafik erklärt, schmückt nicht. Quellen-Blöcke: `.source-cite`.
+
 ### Running the site (development)
 
 Serve the repo root over HTTP — do **not** open the HTML files via `file://`. `main.js` loads shared components with absolute paths (`fetch('/navbar.html')`, `/footer.html`) and pages reference assets like `/Images/...`, so the navbar/footer only render when the site is served from the repository root.

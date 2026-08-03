@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 180" role="img" aria-labelledby="title desc">
+  <title id="title">DCA Idee</title>
+  <desc id="desc">Regelmässig den gleichen Betrag investieren statt einmalig alles auf einmal.</desc>
+  <style>
+    .bar { fill: rgba(247,147,26,0.35); }
+    .bar-a { fill: #f7931a; }
+    .axis { stroke: rgba(255,255,255,0.18); stroke-width: 1; }
+    .lbl { fill: #f4f4f5; font-family: "DM Sans", system-ui, sans-serif; font-size: 14px; font-weight: 700; }
+    .sub { fill: #a1a1aa; font-family: "DM Sans", system-ui, sans-serif; font-size: 12px; }
+    .n { fill: #f7931a; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 700; }
+    .dot { fill: #f7931a; }
+  </style>
+  <text class="lbl" x="24" y="32">Gleicher Betrag · regelmässig</text>
+  <text class="sub" x="24" y="52">Preis schwankt  Kaufkraft verteilt sich über die Zeit</text>
+  <!-- price line abstract -->
+  <path d="M40 128 C 100 128, 120 70, 180 90 S 260 140, 320 100 S 400 60, 460 95 S 540 130, 600 88" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2"/>
+  <!-- purchase dots -->
+  <circle class="dot" cx="100" cy="110" r="5"/>
+  <circle class="dot" cx="200" cy="95" r="5"/>
+  <circle class="dot" cx="300" cy="118" r="5"/>
+  <circle class="dot" cx="400" cy="80" r="5"/>
+  <circle class="dot" cx="500" cy="105" r="5"/>
+  <!-- equal buy bars -->
+  <rect class="bar-a" x="90" y="145" width="20" height="18" rx="3"/>
+  <rect class="bar-a" x="190" y="145" width="20" height="18" rx="3"/>
+  <rect class="bar-a" x="290" y="145" width="20" height="18" rx="3"/>
+  <rect class="bar-a" x="390" y="145" width="20" height="18" rx="3"/>
+  <rect class="bar-a" x="490" y="145" width="20" height="18" rx="3"/>
+  <text class="n" x="560" y="158">CHF</text>
+</svg>
