@@ -17,8 +17,10 @@
   --radius: 16px;
   --radius-sm: 10px;
   --radius-pill: 999px;
-  --font-display: "Syne", system-ui, sans-serif;
-  --font-body: "Source Sans 3", system-ui, sans-serif;
+  /* Outfit = klare Headlines (kein „in die Breite“-Look wie Syne);
+     DM Sans = gut lesbarer Fliesstext fuer DE; IBM Plex fuer Codes/Sats */
+  --font-display: "Outfit", system-ui, sans-serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
   --shadow-soft: 0 0 0 1px var(--border);
   --nav-h: 72px;
