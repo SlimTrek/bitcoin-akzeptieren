@@ -74,7 +74,7 @@
         .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
         section { padding: 120px 5%; max-width: 1200px; margin: 0 auto; }
         h2 { font-size: 2.2rem; margin-bottom: 60px; text-align: center; background: linear-gradient(90deg, #fff, #999); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .target-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .target-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 30px; }
         .profile-card { background: var(--bg-card); border: 1px solid var(--border-light); padding: 40px 30px; border-radius: 20px; transition: var(--transition); position: relative; overflow: hidden; display: flex; flex-direction: column; height: 100%; }
         .profile-card:hover { transform: translateY(-10px); border-color: var(--primary); background: var(--bg-card-hover); }
         .icon-box { width: 60px; height: 60px; background: rgba(247, 147, 26, 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin-bottom: 25px; color: var(--primary); }
@@ -88,7 +88,7 @@
         .service-box h3 { margin: 0 0 15px; color: #fff; font-size: 1.3rem; }
         .service-box p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px; }
         .service-link { color: var(--primary); font-weight: 600; font-size: 0.9rem; text-decoration: none; }
-        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-top: 40px; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 30px; margin-top: 40px; }
         .tool-card { background: radial-gradient(circle at top right, rgba(247,147,26,0.05), transparent 60%), var(--bg-card); border: 1px solid var(--border-light); border-radius: 25px; padding: 40px; text-align: center; transition: var(--transition); }
         .tool-card:hover { border-color: var(--primary); }
         .tool-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
@@ -180,14 +180,15 @@
         .brand-mark {
           font-family: "Syne", system-ui, sans-serif;
           font-weight: 800;
-          letter-spacing: 0.14em;
+          letter-spacing: 0.06em;
           text-transform: uppercase;
           color: #f7931a;
           margin-bottom: 22px;
         }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
         .hero-actions .btn-outline { margin-left: 0; }
-        body { font-family: "Source Sans 3", system-ui, sans-serif !important; }
+        body { font-family: "Source Sans 3", system-ui, sans-serif !important; letter-spacing: normal !important; }
+        .tools-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)) !important; }
     </style>
     <script type="application/ld+json">
     {

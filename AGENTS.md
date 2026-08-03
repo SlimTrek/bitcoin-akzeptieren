@@ -27,7 +27,7 @@ Booking is email-first (`mailto:` with templates) with stated 1–2 business day
 
 Learning paths: `lernpfade.html` (Beginner → Deep Dive). Wissen supports category + level filters. Glossar is the term hub; Empfehlungen lists tools/podcasts/meetups with affiliate disclosure.
 
-Design system lives in `css/tokens.css`, `css/site.css`, `css/article.css`, `css/home.css` (shared chrome, buttons, cards, `.side-room` callout). Prefer linking these over duplicating per-page nav/footer/button CSS in a `<style>` block.
+Design system lives in `css/tokens.css`, `css/site.css`, `css/article.css`, `css/home.css` (shared chrome, buttons, cards, `.side-room` callout). Prefer linking these over duplicating per-page nav/footer/button CSS in a `<style>` block. Mobile nav is owned by `navbar.html` (`.nav-inner` + CSS hamburger) and `css/site.css` (`max-width: 900px`); do not reintroduce `clip-path` menus or `minmax(400px, …)` grids.
 
 ### Running the site (development)
 
