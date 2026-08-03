@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tiefgang: Wie funktioniert Proof of Work, was ist das Halving und warum ist Mining die sicherste Firewall der Welt?">
-    <title>Bitcoin Mining: Das digitale Herzschlag – Bitcoin Akzeptieren</title>
-    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-bitcoin-mining.html">
+    <meta name="description" content="Wie Schweizer KMU Bitcoin als Zahlungsmittel einführen: Von der Zahlungsannahme über die Buchhaltung bis zur Treasury-Strategie.">
+    <title>Bitcoin im Unternehmen akzeptieren: Praxisleitfaden für KMU – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-bitcoin-kmu-akzeptanz.html">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-bitcoin-mining.html">
-    <meta property="og:title" content="Bitcoin Mining: Das digitale Herzschlag – Bitcoin Akzeptieren">
-    <meta property="og:description" content="Tiefgang: Wie funktioniert Proof of Work, was ist das Halving und warum ist Mining die sicherste Firewall der Welt?">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-bitcoin-kmu-akzeptanz.html">
+    <meta property="og:title" content="Bitcoin im Unternehmen akzeptieren: Praxisleitfaden für KMU – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Wie Schweizer KMU Bitcoin als Zahlungsmittel einführen: Von der Zahlungsannahme über die Buchhaltung bis zur Treasury-Strategie.">
     <meta property="og:site_name" content="Bitcoin Akzeptieren">
     <meta property="og:locale" content="de_CH">
     <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bitcoin Mining: Das digitale Herzschlag – Bitcoin Akzeptieren">
-    <meta name="twitter:description" content="Tiefgang: Wie funktioniert Proof of Work, was ist das Halving und warum ist Mining die sicherste Firewall der Welt?">
+    <meta name="twitter:title" content="Bitcoin im Unternehmen akzeptieren: Praxisleitfaden für KMU – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Wie Schweizer KMU Bitcoin als Zahlungsmittel einführen: Von der Zahlungsannahme über die Buchhaltung bis zur Treasury-Strategie.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -33,16 +33,17 @@
         .breadcrumbs { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
         .breadcrumbs a { color: var(--text-muted); text-decoration: none; }
         h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, #ccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .meta-info { display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 40px; border-bottom: 1px solid var(--border-light); padding-bottom: 20px; }
+        .meta-info { display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 40px; border-bottom: 1px solid var(--border-light); padding-bottom: 20px; flex-wrap: wrap; }
         .content p { margin-bottom: 25px; font-size: 1.1rem; color: #ddd; }
         .content h2 { color: var(--primary); font-size: 1.8rem; margin: 50px 0 20px; }
         .content h3 { color: #fff; font-size: 1.4rem; margin: 30px 0 15px; }
         .content ul { margin-bottom: 30px; padding-left: 20px; }
         .content li { margin-bottom: 10px; color: #ddd; }
+        .alert-box { background: rgba(200, 50, 50, 0.1); border-left: 4px solid #c83232; padding: 20px; margin: 30px 0; color: #ffcccc; }
         .info-box { background: rgba(247, 147, 26, 0.1); border-left: 4px solid var(--primary); padding: 20px; margin: 30px 0; color: #fff; }
         footer { text-align: center; padding: 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
         /* mobile nav via PHASE0_SHARED_CHROME / main.js */
-    
+
         /* PHASE0_SHARED_CHROME */
         nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light, rgba(255,255,255,0.1)); }
         .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary, #f7931a); display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -64,7 +65,7 @@
             .menu-toggle { display: block; }
         }
 
-    
+
         /* PHASE1_ARTICLE_CTA */
         .article-end {
             max-width: 800px; margin: 0 auto 80px; padding: 0 20px;
@@ -94,28 +95,36 @@
 <body>
     <div id="navbar-placeholder"></div>
     <article class="article-container">
-        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Mining</div>
-        <h1>Bitcoin Mining: Wie neue Coins entstehen und das Netzwerk gesichert wird</h1>
-        <div class="meta-info"><span>Kategorie: Technik</span><span>Lesezeit: 7 Min.</span><span>Level: Beginner</span>
-        </div>
+        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Praxis</div>
+        <h1>Bitcoin im Unternehmen: Der Praxisleitfaden für KMU</h1>
+        <div class="meta-info"><span>Kategorie: Praxis</span><span>Level: Praxis</span><span>Lesezeit: 8 Min.</span></div>
         <div class="content">
-            <p>Viele denken, beim Mining geht es nur darum, reich zu werden und neue Coins zu finden. Doch das ist nur der Anreiz. Der eigentliche Zweck des Minings ist die <strong>Sicherheit</strong> der Blockchain. Ohne Miner gäbe es kein Bitcoin.</p>
-            
-            <h2>Proof of Work (Arbeitsnachweis)</h2>
-            <p>Bitcoin löst ein uraltes Problem der Informatik: Wie einigen sich tausende Computer auf eine gemeinsame Wahrheit, ohne dass sie sich kennen oder vertrauen? Die Lösung ist Energie.</p>
-            <p>Miner sind spezialisierte Computer (ASICs), die den ganzen Tag nichts anderes tun, als eine Zahl zu erraten (Hashing). Das kostet extrem viel Strom. Warum? Damit es teuer ist, zu betrügen.</p>
-            <p>Wenn du die Blockchain umschreiben wolltest (um z.B. eine Zahlung rückgängig zu machen), müsstest du alle Miner der Welt überholen. Du bräuchtest mehr Energie als ganze Industrienationen. Das nennt man die "thermodynamische Mauer". Deine Bitcoin sind durch reine Physik gesichert.</p>
+            <p>Immer mehr Schweizer Kleinunternehmen prüfen, ob sie Bitcoin als Zahlungsmittel anbieten sollen. Die grundsätzlichen Vorteile – tiefe Gebühren, keine Rückbuchungen, globale Reichweite – haben wir bereits im Artikel für Händler beleuchtet. Hier geht es um die praktischen Fragen danach: Wie läuft die Einführung konkret ab, was ist bei der Buchhaltung zu beachten, und wie sichert man die Firmengelder richtig ab?</p>
 
-            <h2>Difficulty Adjustment (Schwierigkeitsanpassung)</h2>
-            <p>Das Geniale an Bitcoin: Es passt sich an. Satoshi Nakamoto hat programmiert, dass im Durchschnitt alle 10 Minuten ein neuer Block gefunden werden soll.</p>
+            <h2>Schritt 1: Die Zahlungsannahme technisch lösen</h2>
+            <p>Für die Annahme von Zahlungen gibt es grundsätzlich zwei Wege: Eine <strong>non-custodial</strong> Lösung, bei der die Coins direkt in eine Wallet fliessen, die dein Unternehmen selbst kontrolliert, oder ein <strong>Zahlungsdienstleister</strong>, der die technische Abwicklung übernimmt und dir wahlweise Bitcoin oder direkt CHF gutschreibt. Für den Einstieg ist ein Zahlungsdienstleister oft der pragmatischere Weg – eine Übersicht möglicher Lösungen findest du im Artikel für Händler.</p>
+
+            <h2>Schritt 2: Buchhaltung und Steuern</h2>
+            <p>Für die Buchhaltung zählt der CHF-Gegenwert im Zeitpunkt der Transaktion – dieser Wert muss dokumentiert und in der Buchhaltung erfasst werden, unabhängig davon, ob die Coins sofort umgetauscht oder gehalten werden. Wie Bitcoin steuerlich in der Schweiz behandelt wird, erklären wir im Detail im Artikel zu Bitcoin & Steuern. Für unternehmensspezifische Fragen (MWST-Behandlung, Bilanzierung von gehaltenen Beständen) empfiehlt sich in jedem Fall die Rücksprache mit der eigenen Treuhandstelle – dieser Artikel ersetzt keine Steuer- oder Rechtsberatung.</p>
+
+            <h2>Schritt 3: Halten oder sofort umtauschen?</h2>
+            <p>Eine der wichtigsten strategischen Entscheidungen betrifft den Umgang mit eingehenden Bitcoin:</p>
             <ul>
-                <li>Wenn mehr Miner dazukommen (und die Rechenleistung steigt), wird das Rätsel automatisch schwieriger.</li>
-                <li>Wenn Miner abschalten (z.B. weil der Preis fällt), wird das Rätsel einfacher.</li>
+                <li><strong>Sofort umtauschen:</strong> Der Zahlungsdienstleister wandelt eingehende Zahlungen automatisch in CHF um. Kein Kursrisiko, planbare Liquidität – der einfachste Weg für die meisten Betriebe.</li>
+                <li><strong>Teilweise halten:</strong> Ein festgelegter Prozentsatz wird als Reserve in Bitcoin gehalten, der Rest sofort umgetauscht, um laufende Kosten zu decken.</li>
             </ul>
-            <p>Diese Anpassung passiert alle 2'016 Blöcke (ca. alle 2 Wochen). Das garantiert, dass Bitcoin wie ein Uhrwerk weiterläuft, egal was in der Welt passiert.</p>
+            <div class="info-box">
+                <strong>Kein Anlagerat:</strong> Ob und wie viel ein Unternehmen in Bitcoin hält, ist eine unternehmerische Risikoentscheidung, keine Anlageempfehlung. Bitcoin ist volatil – wer Reserven hält, sollte das nur mit Kapital tun, dessen kurzfristiger Wertverlust den Betrieb nicht gefährdet.
+            </div>
 
-            <h2>Das Halving</h2>
-            <p>Miner werden mit neuen Bitcoin belohnt (Block Subsidy). Zu Beginn waren es 50 BTC pro Block. Alle 210'000 Blöcke (ca. 4 Jahre) halbiert sich diese Belohnung. Heute sind es noch 3.125 BTC. Dies sorgt dafür, dass Bitcoin immer knapper wird (Deflation), im Gegensatz zu Fiat-Geld, das unendlich gedruckt wird.</p>
+            <h2>Schritt 4: Firmengelder richtig absichern</h2>
+            <p>Sobald ein Unternehmen Bitcoin in nennenswertem Umfang selbst verwahrt, sollte niemals eine einzelne Person allein über die volle Summe verfügen können. Eine Multisig-Lösung (siehe unseren Artikel zu Multisig) erzwingt, dass mindestens zwei Personen – etwa Geschäftsführung und Finanzverantwortliche – eine Auszahlung gemeinsam freigeben müssen. Das schützt sowohl vor externem Diebstahl als auch vor internem Missbrauch oder einem simplen Ausfall einer einzelnen Person.</p>
+
+            <h2>Ein Wort zu Löhnen in Bitcoin</h2>
+            <p>Manche Unternehmen überlegen, Mitarbeitenden einen Teil des Lohns in Bitcoin auszuzahlen. In der Schweiz gelten dafür arbeitsrechtliche Vorgaben, die eine Auszahlung in gesetzlicher Währung grösstenteils vorschreiben – Bitcoin-Anteile sind daher meist eher als freiwilliger Bonus oder Zusatzleistung mit Einverständnis der Mitarbeitenden denkbar, nicht als Ersatz des regulären Lohns. Wer das konkret umsetzen möchte, sollte dies zwingend arbeitsrechtlich abklären lassen.</p>
+
+            <h2>Fazit</h2>
+            <p>Bitcoin im Unternehmen zu akzeptieren ist heute technisch unkompliziert – die eigentliche Arbeit liegt in sauberen internen Prozessen: klare Buchhaltung, eine bewusste Halte-Strategie und eine Absicherung der Gelder, die nicht von einer einzelnen Person abhängt.</p>
         </div>
     </article>
     <!-- PHASE1_ARTICLE_END -->
@@ -123,9 +132,9 @@
         <div class="article-end-box">
             <h2>Weiterlesen</h2>
             <div class="related-links">
-                <a href="/artikel-energieverbrauch.html">Energieverbrauch →</a>
-                <a href="/artikel-inflation-geld.html">Inflation & Geld →</a>
-                <a href="/artikel-bitcoin-vs-krypto.html">Bitcoin vs. Krypto →</a>
+                <a href="/haendler.html">Für Händler & KMU – Übersicht →</a>
+                <a href="/artikel-bitcoin-steuern-schweiz.html">Bitcoin & Steuern (CH) →</a>
+                <a href="/artikel-multisig.html">Multisig einfach erklärt →</a>
                 <a href="/glossar.html">Begriff unklar? Zum Glossar →</a>
             </div>
         </div>
@@ -134,7 +143,7 @@
             <p>Hilfe zur Selbsthilfe: sicherer Start, Self-Custody oder Lightning fürs Geschäft — ohne Anlageberatung.</p>
             <div class="btn-row">
                 <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
-                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20artikel-bitcoin-mining.html%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20artikel-bitcoin-kmu-akzeptanz.html%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
             </div>
             <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
         </div>

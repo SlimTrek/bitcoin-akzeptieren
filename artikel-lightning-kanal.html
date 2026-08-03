@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tiefgang: Wie funktioniert Proof of Work, was ist das Halving und warum ist Mining die sicherste Firewall der Welt?">
-    <title>Bitcoin Mining: Das digitale Herzschlag – Bitcoin Akzeptieren</title>
-    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-bitcoin-mining.html">
+    <meta name="description" content="Wie Lightning-Kanäle funktionieren: Öffnen, Schliessen, Liquidität und der Unterschied zwischen custodial und non-custodial Wallets.">
+    <title>Lightning-Kanäle einfach erklärt – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-lightning-kanal.html">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-bitcoin-mining.html">
-    <meta property="og:title" content="Bitcoin Mining: Das digitale Herzschlag – Bitcoin Akzeptieren">
-    <meta property="og:description" content="Tiefgang: Wie funktioniert Proof of Work, was ist das Halving und warum ist Mining die sicherste Firewall der Welt?">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-lightning-kanal.html">
+    <meta property="og:title" content="Lightning-Kanäle einfach erklärt – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Wie Lightning-Kanäle funktionieren: Öffnen, Schliessen, Liquidität und der Unterschied zwischen custodial und non-custodial Wallets.">
     <meta property="og:site_name" content="Bitcoin Akzeptieren">
     <meta property="og:locale" content="de_CH">
     <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bitcoin Mining: Das digitale Herzschlag – Bitcoin Akzeptieren">
-    <meta name="twitter:description" content="Tiefgang: Wie funktioniert Proof of Work, was ist das Halving und warum ist Mining die sicherste Firewall der Welt?">
+    <meta name="twitter:title" content="Lightning-Kanäle einfach erklärt – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Wie Lightning-Kanäle funktionieren: Öffnen, Schliessen, Liquidität und der Unterschied zwischen custodial und non-custodial Wallets.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -33,16 +33,17 @@
         .breadcrumbs { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
         .breadcrumbs a { color: var(--text-muted); text-decoration: none; }
         h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, #ccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .meta-info { display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 40px; border-bottom: 1px solid var(--border-light); padding-bottom: 20px; }
+        .meta-info { display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 40px; border-bottom: 1px solid var(--border-light); padding-bottom: 20px; flex-wrap: wrap; }
         .content p { margin-bottom: 25px; font-size: 1.1rem; color: #ddd; }
         .content h2 { color: var(--primary); font-size: 1.8rem; margin: 50px 0 20px; }
         .content h3 { color: #fff; font-size: 1.4rem; margin: 30px 0 15px; }
         .content ul { margin-bottom: 30px; padding-left: 20px; }
         .content li { margin-bottom: 10px; color: #ddd; }
+        .alert-box { background: rgba(200, 50, 50, 0.1); border-left: 4px solid #c83232; padding: 20px; margin: 30px 0; color: #ffcccc; }
         .info-box { background: rgba(247, 147, 26, 0.1); border-left: 4px solid var(--primary); padding: 20px; margin: 30px 0; color: #fff; }
         footer { text-align: center; padding: 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
         /* mobile nav via PHASE0_SHARED_CHROME / main.js */
-    
+
         /* PHASE0_SHARED_CHROME */
         nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light, rgba(255,255,255,0.1)); }
         .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary, #f7931a); display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -64,7 +65,7 @@
             .menu-toggle { display: block; }
         }
 
-    
+
         /* PHASE1_ARTICLE_CTA */
         .article-end {
             max-width: 800px; margin: 0 auto 80px; padding: 0 20px;
@@ -94,28 +95,41 @@
 <body>
     <div id="navbar-placeholder"></div>
     <article class="article-container">
-        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Mining</div>
-        <h1>Bitcoin Mining: Wie neue Coins entstehen und das Netzwerk gesichert wird</h1>
-        <div class="meta-info"><span>Kategorie: Technik</span><span>Lesezeit: 7 Min.</span><span>Level: Beginner</span>
-        </div>
+        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Technik</div>
+        <h1>Lightning-Kanäle: So funktioniert Bitcoin in Echtzeit</h1>
+        <div class="meta-info"><span>Kategorie: Technik</span><span>Level: Praxis</span><span>Lesezeit: 7 Min.</span></div>
         <div class="content">
-            <p>Viele denken, beim Mining geht es nur darum, reich zu werden und neue Coins zu finden. Doch das ist nur der Anreiz. Der eigentliche Zweck des Minings ist die <strong>Sicherheit</strong> der Blockchain. Ohne Miner gäbe es kein Bitcoin.</p>
-            
-            <h2>Proof of Work (Arbeitsnachweis)</h2>
-            <p>Bitcoin löst ein uraltes Problem der Informatik: Wie einigen sich tausende Computer auf eine gemeinsame Wahrheit, ohne dass sie sich kennen oder vertrauen? Die Lösung ist Energie.</p>
-            <p>Miner sind spezialisierte Computer (ASICs), die den ganzen Tag nichts anderes tun, als eine Zahl zu erraten (Hashing). Das kostet extrem viel Strom. Warum? Damit es teuer ist, zu betrügen.</p>
-            <p>Wenn du die Blockchain umschreiben wolltest (um z.B. eine Zahlung rückgängig zu machen), müsstest du alle Miner der Welt überholen. Du bräuchtest mehr Energie als ganze Industrienationen. Das nennt man die "thermodynamische Mauer". Deine Bitcoin sind durch reine Physik gesichert.</p>
+            <p>Im Artikel zum Lightning-Netzwerk hast du gelernt, warum es Bitcoin blitzschnell und günstig macht. Aber wie genau funktioniert das technisch? Das Herzstück ist der <strong>Zahlungskanal</strong>. Wer versteht, wie ein Kanal geöffnet, genutzt und geschlossen wird, versteht auch, warum Lightning weder Magie noch ein neues Bitcoin ist – sondern eine clevere zweite Schicht oben drauf.</p>
 
-            <h2>Difficulty Adjustment (Schwierigkeitsanpassung)</h2>
-            <p>Das Geniale an Bitcoin: Es passt sich an. Satoshi Nakamoto hat programmiert, dass im Durchschnitt alle 10 Minuten ein neuer Block gefunden werden soll.</p>
+            <h2>Was ist ein Zahlungskanal?</h2>
+            <p>Ein Kanal ist eine Vereinbarung zwischen zwei Teilnehmern, gemeinsam einen bestimmten Betrag "on-chain" zu hinterlegen und danach untereinander beliebig oft und in Echtzeit hin- und herzuschieben – ohne dass jede einzelne Zahlung auf der Bitcoin-Blockchain landet. Erst wenn der Kanal geschlossen wird, wird der finale Kontostand wieder auf der Blockchain festgeschrieben.</p>
+
+            <h2>Kanal öffnen und schliessen</h2>
+            <p>Sowohl das Öffnen als auch das Schliessen eines Kanals sind normale Bitcoin-Transaktionen und kosten entsprechend eine on-chain Gebühr. Dazwischen können beliebig viele Zahlungen kostenlos oder für Bruchteile eines Rappens abgewickelt werden. Genau das macht Lightning für kleine, häufige Beträge so attraktiv – der teure Teil (die Blockchain-Transaktion) passiert nur zweimal, egal ob dazwischen zwei oder zweitausend Zahlungen fliessen.</p>
+
+            <h2>Inbound vs. Outbound Liquidität</h2>
+            <p>Ein Kanal hat eine feste Gesamtkapazität, die sich zwischen beiden Seiten aufteilt:</p>
             <ul>
-                <li>Wenn mehr Miner dazukommen (und die Rechenleistung steigt), wird das Rätsel automatisch schwieriger.</li>
-                <li>Wenn Miner abschalten (z.B. weil der Preis fällt), wird das Rätsel einfacher.</li>
+                <li><strong>Outbound Liquidität</strong> ist der Anteil, den <em>du</em> senden kannst.</li>
+                <li><strong>Inbound Liquidität</strong> ist der Anteil, den du empfangen kannst – er gehört technisch der Gegenseite, ist aber "auf deiner Seite" des Kanals verfügbar.</li>
             </ul>
-            <p>Diese Anpassung passiert alle 2'016 Blöcke (ca. alle 2 Wochen). Das garantiert, dass Bitcoin wie ein Uhrwerk weiterläuft, egal was in der Welt passiert.</p>
+            <p>Ein neu geöffneter Kanal hat oft nur Outbound-Kapazität, da du derjenige warst, der Geld eingezahlt hat. Wer regelmässig Zahlungen empfangen möchte (z.B. als Händler), braucht auch ausreichend Inbound-Liquidität – ein Thema, mit dem sich jeder auseinandersetzen muss, der selbst einen Lightning-Node betreibt.</p>
 
-            <h2>Das Halving</h2>
-            <p>Miner werden mit neuen Bitcoin belohnt (Block Subsidy). Zu Beginn waren es 50 BTC pro Block. Alle 210'000 Blöcke (ca. 4 Jahre) halbiert sich diese Belohnung. Heute sind es noch 3.125 BTC. Dies sorgt dafür, dass Bitcoin immer knapper wird (Deflation), im Gegensatz zu Fiat-Geld, das unendlich gedruckt wird.</p>
+            <div class="info-box">
+                <strong>Für den Einstieg:</strong> Wallets wie Phoenix oder Wallet of Satoshi verwalten Kanäle automatisch im Hintergrund. Du musst dich nicht mit Liquiditäts-Management beschäftigen – ein guter Startpunkt, um Lightning einfach im Alltag zu nutzen, bevor du dich an einen eigenen Node wagst.
+            </div>
+
+            <h2>Routing: Zahlungen ohne eigenen Kanal</h2>
+            <p>Das Geniale an Lightning: Du brauchst keinen direkten Kanal zu jedem Empfänger. Solange ein Pfad aus mehreren miteinander verbundenen Kanälen zwischen dir und dem Ziel existiert, wird die Zahlung automatisch über diese Zwischenstationen geroutet ("Routing"). Jede Zwischenstation verdient dabei eine winzige Gebühr für das Weiterleiten. Dieses vernetzte Kanal-Geflecht ist das eigentliche "Lightning-Netzwerk".</p>
+
+            <h2>Für wen lohnt sich ein eigener Node?</h2>
+            <p>Für den privaten Alltag reicht meist eine custodial oder hybride Wallet völlig aus. Ein eigener Lightning-Node mit selbst verwalteten Kanälen lohnt sich vor allem für:</p>
+            <ul>
+                <li>Händler oder KMU mit regelmässigem, planbarem Zahlungsvolumen (siehe Artikel zur Bitcoin-Akzeptanz im Unternehmen).</li>
+                <li>Wer maximale Kontrolle und Unabhängigkeit von Drittanbietern will.</li>
+                <li>Wer bereits einen eigenen Full Node betreibt und Lightning als nächsten Schritt sieht.</li>
+            </ul>
+            <p>Der Betrieb bringt zusätzliche Verantwortung mit sich: Kanäle wollen überwacht, Backups regelmässig aktualisiert und Liquidität aktiv gemanagt werden. Für die meisten reicht der Umweg über eine gute Wallet-App – der eigene Node ist ein Schritt für alle, die tiefer einsteigen wollen.</p>
         </div>
     </article>
     <!-- PHASE1_ARTICLE_END -->
@@ -123,9 +137,9 @@
         <div class="article-end-box">
             <h2>Weiterlesen</h2>
             <div class="related-links">
-                <a href="/artikel-energieverbrauch.html">Energieverbrauch →</a>
-                <a href="/artikel-inflation-geld.html">Inflation & Geld →</a>
-                <a href="/artikel-bitcoin-vs-krypto.html">Bitcoin vs. Krypto →</a>
+                <a href="/artikel-lightning-netzwerk.html">Das Lightning-Netzwerk →</a>
+                <a href="/artikel-full-node.html">Was ist ein Full Node? →</a>
+                <a href="/artikel-bitcoin-kmu-akzeptanz.html">Bitcoin im Unternehmen akzeptieren →</a>
                 <a href="/glossar.html">Begriff unklar? Zum Glossar →</a>
             </div>
         </div>
@@ -134,7 +148,7 @@
             <p>Hilfe zur Selbsthilfe: sicherer Start, Self-Custody oder Lightning fürs Geschäft — ohne Anlageberatung.</p>
             <div class="btn-row">
                 <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
-                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20artikel-bitcoin-mining.html%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20artikel-lightning-kanal.html%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
             </div>
             <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
         </div>

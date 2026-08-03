@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tiefgang: Wie funktioniert Proof of Work, was ist das Halving und warum ist Mining die sicherste Firewall der Welt?">
-    <title>Bitcoin Mining: Das digitale Herzschlag – Bitcoin Akzeptieren</title>
-    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-bitcoin-mining.html">
+    <meta name="description" content="Warum die Bitcoin-Blockchain transparent ist und mit welchen einfachen Massnahmen du deine finanzielle Privatsphäre verbesserst.">
+    <title>Bitcoin Privacy Basics: Deine Transaktionen schützen – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-privacy-basics.html">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-bitcoin-mining.html">
-    <meta property="og:title" content="Bitcoin Mining: Das digitale Herzschlag – Bitcoin Akzeptieren">
-    <meta property="og:description" content="Tiefgang: Wie funktioniert Proof of Work, was ist das Halving und warum ist Mining die sicherste Firewall der Welt?">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-privacy-basics.html">
+    <meta property="og:title" content="Bitcoin Privacy Basics: Deine Transaktionen schützen – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Warum die Bitcoin-Blockchain transparent ist und mit welchen einfachen Massnahmen du deine finanzielle Privatsphäre verbesserst.">
     <meta property="og:site_name" content="Bitcoin Akzeptieren">
     <meta property="og:locale" content="de_CH">
     <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bitcoin Mining: Das digitale Herzschlag – Bitcoin Akzeptieren">
-    <meta name="twitter:description" content="Tiefgang: Wie funktioniert Proof of Work, was ist das Halving und warum ist Mining die sicherste Firewall der Welt?">
+    <meta name="twitter:title" content="Bitcoin Privacy Basics: Deine Transaktionen schützen – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Warum die Bitcoin-Blockchain transparent ist und mit welchen einfachen Massnahmen du deine finanzielle Privatsphäre verbesserst.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -33,16 +33,17 @@
         .breadcrumbs { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
         .breadcrumbs a { color: var(--text-muted); text-decoration: none; }
         h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, #ccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .meta-info { display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 40px; border-bottom: 1px solid var(--border-light); padding-bottom: 20px; }
+        .meta-info { display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 40px; border-bottom: 1px solid var(--border-light); padding-bottom: 20px; flex-wrap: wrap; }
         .content p { margin-bottom: 25px; font-size: 1.1rem; color: #ddd; }
         .content h2 { color: var(--primary); font-size: 1.8rem; margin: 50px 0 20px; }
         .content h3 { color: #fff; font-size: 1.4rem; margin: 30px 0 15px; }
         .content ul { margin-bottom: 30px; padding-left: 20px; }
         .content li { margin-bottom: 10px; color: #ddd; }
+        .alert-box { background: rgba(200, 50, 50, 0.1); border-left: 4px solid #c83232; padding: 20px; margin: 30px 0; color: #ffcccc; }
         .info-box { background: rgba(247, 147, 26, 0.1); border-left: 4px solid var(--primary); padding: 20px; margin: 30px 0; color: #fff; }
         footer { text-align: center; padding: 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
         /* mobile nav via PHASE0_SHARED_CHROME / main.js */
-    
+
         /* PHASE0_SHARED_CHROME */
         nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light, rgba(255,255,255,0.1)); }
         .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary, #f7931a); display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -64,7 +65,7 @@
             .menu-toggle { display: block; }
         }
 
-    
+
         /* PHASE1_ARTICLE_CTA */
         .article-end {
             max-width: 800px; margin: 0 auto 80px; padding: 0 20px;
@@ -94,28 +95,35 @@
 <body>
     <div id="navbar-placeholder"></div>
     <article class="article-container">
-        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Mining</div>
-        <h1>Bitcoin Mining: Wie neue Coins entstehen und das Netzwerk gesichert wird</h1>
-        <div class="meta-info"><span>Kategorie: Technik</span><span>Lesezeit: 7 Min.</span><span>Level: Beginner</span>
-        </div>
+        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Sicherheit</div>
+        <h1>Privacy Basics: Warum jede Transaktion sichtbar ist</h1>
+        <div class="meta-info"><span>Kategorie: Sicherheit</span><span>Level: Praxis</span><span>Lesezeit: 7 Min.</span></div>
         <div class="content">
-            <p>Viele denken, beim Mining geht es nur darum, reich zu werden und neue Coins zu finden. Doch das ist nur der Anreiz. Der eigentliche Zweck des Minings ist die <strong>Sicherheit</strong> der Blockchain. Ohne Miner gäbe es kein Bitcoin.</p>
-            
-            <h2>Proof of Work (Arbeitsnachweis)</h2>
-            <p>Bitcoin löst ein uraltes Problem der Informatik: Wie einigen sich tausende Computer auf eine gemeinsame Wahrheit, ohne dass sie sich kennen oder vertrauen? Die Lösung ist Energie.</p>
-            <p>Miner sind spezialisierte Computer (ASICs), die den ganzen Tag nichts anderes tun, als eine Zahl zu erraten (Hashing). Das kostet extrem viel Strom. Warum? Damit es teuer ist, zu betrügen.</p>
-            <p>Wenn du die Blockchain umschreiben wolltest (um z.B. eine Zahlung rückgängig zu machen), müsstest du alle Miner der Welt überholen. Du bräuchtest mehr Energie als ganze Industrienationen. Das nennt man die "thermodynamische Mauer". Deine Bitcoin sind durch reine Physik gesichert.</p>
+            <p>Ein weit verbreitetes Missverständnis: Bitcoin sei anonym. Das Gegenteil ist der Fall. Die Blockchain ist ein öffentliches, für immer einsehbares Kassenbuch – jede Transaktion, jeder Betrag und jede Adresse ist für jeden nachvollziehbar, der genau hinschaut. Bitcoin ist <strong>pseudonym</strong>, nicht anonym: Solange niemand deine Adresse mit deinem Namen verknüpft, bleibst du unsichtbar. Sobald diese Verknüpfung einmal existiert, ist sie es meist für immer.</p>
 
-            <h2>Difficulty Adjustment (Schwierigkeitsanpassung)</h2>
-            <p>Das Geniale an Bitcoin: Es passt sich an. Satoshi Nakamoto hat programmiert, dass im Durchschnitt alle 10 Minuten ein neuer Block gefunden werden soll.</p>
+            <h2>Das Problem: Adress-Wiederverwendung</h2>
+            <p>Jede Bitcoin-Wallet kann beliebig viele Adressen generieren. Nutzt du für jede empfangene Zahlung eine neue Adresse, ist es für Aussenstehende deutlich schwieriger, deine gesamten Transaktionen zu einer Person zusammenzufassen. Verwendest du dagegen immer dieselbe Adresse (z.B. weil sie auf einer Visitenkarte oder Website steht), kann jeder mit einem Blockchain-Explorer deinen gesamten Zahlungseingang und -verlauf über diese eine Adresse einsehen.</p>
+
+            <h2>Die KYC-Verknüpfung</h2>
+            <p>Der grösste Privatsphäre-Verlust entsteht meist nicht durch die Blockchain selbst, sondern durch die Verifizierung (KYC) bei einer Börse. Sobald eine Börse deine Identität mit einer Bitcoin-Adresse verknüpft hat, ist diese Verbindung dokumentiert – und von dort aus lässt sich oft ein grosser Teil deiner weiteren Transaktionshistorie zurückverfolgen, sofern du Adressen wiederverwendest oder Coins nicht sauber trennst.</p>
+
+            <h2>Einfache Massnahmen für den Alltag</h2>
             <ul>
-                <li>Wenn mehr Miner dazukommen (und die Rechenleistung steigt), wird das Rätsel automatisch schwieriger.</li>
-                <li>Wenn Miner abschalten (z.B. weil der Preis fällt), wird das Rätsel einfacher.</li>
+                <li><strong>Neue Adresse pro Zahlung:</strong> Fast jede moderne Wallet macht das automatisch – nutze diese Funktion konsequent, statt eine "Lieblingsadresse" wiederzuverwenden.</li>
+                <li><strong>Eigener Full Node statt fremdem Server:</strong> Viele Wallets fragen im Hintergrund einen fremden Server nach deinem Kontostand ab – dieser Server kann deine Adressen mit deiner IP-Adresse verknüpfen. Ein eigener Full Node eliminiert diesen Mittelsmann komplett.</li>
+                <li><strong>Watch-only statt öffentlicher Tools:</strong> Statt deine Adresse in eine öffentliche Balance-Checker-Website einzugeben, nutze eine eigene Watch-only Wallet.</li>
+                <li><strong>Tor nutzen:</strong> Viele Wallets und Full Nodes unterstützen die Verbindung über das Tor-Netzwerk, was deine IP-Adresse zusätzlich verschleiert.</li>
             </ul>
-            <p>Diese Anpassung passiert alle 2'016 Blöcke (ca. alle 2 Wochen). Das garantiert, dass Bitcoin wie ein Uhrwerk weiterläuft, egal was in der Welt passiert.</p>
 
-            <h2>Das Halving</h2>
-            <p>Miner werden mit neuen Bitcoin belohnt (Block Subsidy). Zu Beginn waren es 50 BTC pro Block. Alle 210'000 Blöcke (ca. 4 Jahre) halbiert sich diese Belohnung. Heute sind es noch 3.125 BTC. Dies sorgt dafür, dass Bitcoin immer knapper wird (Deflation), im Gegensatz zu Fiat-Geld, das unendlich gedruckt wird.</p>
+            <div class="alert-box">
+                <strong>Ein Hinweis zu CoinJoin & Co.:</strong> Es gibt fortgeschrittene Techniken, die Transaktionen mehrerer Nutzer bündeln, um die Rückverfolgbarkeit zu erschweren. Das ist ein komplexes Thema mit eigenen technischen und teils rechtlichen Grauzonen je nach Anbieter und Jurisdiktion – dieser Artikel ist keine Anleitung dazu und wir sprechen keine Empfehlung für einen bestimmten Dienst aus. Wer sich dafür interessiert, sollte sich unabhängig und gründlich informieren, bevor er einen solchen Dienst nutzt.
+            </div>
+
+            <h2>Praxis für Kleinunternehmen in der Schweiz</h2>
+            <p>Wer Bitcoin als Zahlungsmittel akzeptiert, sollte für jede Rechnung eine neue Adresse generieren – so lässt sich aus den öffentlichen Zahlungseingängen nicht der gesamte Umsatz eines Geschäfts ablesen. Die meisten Zahlungslösungen (siehe Artikel zur Bitcoin-Akzeptanz im Unternehmen) erledigen das automatisch im Hintergrund; wichtig ist nur, diese Funktion nicht händisch zu umgehen.</p>
+
+            <h2>Fazit</h2>
+            <p>Privatsphäre bei Bitcoin ist kein Zustand, den du "einmal einrichtest und vergisst" – sie ist eine Gewohnheit. Wer ein paar einfache Grundregeln konsequent befolgt (neue Adressen, eigener Node, vorsichtiger Umgang mit KYC-Verknüpfungen), reduziert die Angriffsfläche massiv, ohne technisches Expertenwissen zu benötigen.</p>
         </div>
     </article>
     <!-- PHASE1_ARTICLE_END -->
@@ -123,9 +131,9 @@
         <div class="article-end-box">
             <h2>Weiterlesen</h2>
             <div class="related-links">
-                <a href="/artikel-energieverbrauch.html">Energieverbrauch →</a>
-                <a href="/artikel-inflation-geld.html">Inflation & Geld →</a>
-                <a href="/artikel-bitcoin-vs-krypto.html">Bitcoin vs. Krypto →</a>
+                <a href="/artikel-full-node.html">Was ist ein Full Node? →</a>
+                <a href="/artikel-watch-only-wallet.html">Watch-only Wallet & xPub →</a>
+                <a href="/artikel-utxo-management.html">UTXO Management →</a>
                 <a href="/glossar.html">Begriff unklar? Zum Glossar →</a>
             </div>
         </div>
@@ -134,7 +142,7 @@
             <p>Hilfe zur Selbsthilfe: sicherer Start, Self-Custody oder Lightning fürs Geschäft — ohne Anlageberatung.</p>
             <div class="btn-row">
                 <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
-                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20artikel-bitcoin-mining.html%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20artikel-privacy-basics.html%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
             </div>
             <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
         </div>

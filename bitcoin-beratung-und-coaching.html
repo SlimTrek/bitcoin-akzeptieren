@@ -75,6 +75,24 @@
         .service-item ul li::marker { color: var(--primary); }
         .cta-button { display: inline-block; margin-top: 20px; padding: 10px 20px; border: 1px solid var(--primary); color: var(--primary); border-radius: 50px; font-size: 0.9rem; font-weight: 600; text-decoration: none;}
         .cta-button:hover { background: var(--primary); color: #000; }
+        .cta-button-solid { display: inline-block; padding: 14px 28px; background: var(--primary); color: #000; font-weight: 700; border-radius: 50px; text-decoration: none; }
+        .cta-button-solid:hover { background: #ffaa33; }
+        .audience-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .audience-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 24px; }
+        .audience-card h3 { margin-top: 0; color: #fff; font-size: 1.15rem; }
+        .audience-card p { color: var(--text-muted); margin: 0; font-size: 0.95rem; }
+        .audience-card.no { border-color: rgba(255,80,80,0.25); }
+        .audience-card.no h3 { color: #ff8a8a; }
+        .outcome { color: var(--text-muted); font-size: 0.92rem; margin: 12px 0 0; padding-top: 12px; border-top: 1px solid var(--border-light); }
+        .outcome strong { color: #fff; }
+        .booking-box { background: linear-gradient(145deg, rgba(247,147,26,0.08), rgba(255,255,255,0.02)); border: 1px solid rgba(247,147,26,0.35); border-radius: 18px; padding: 36px; margin: 50px 0 20px; text-align: center; }
+        .booking-box h2 { margin: 0 0 12px; }
+        .booking-box p { color: var(--text-muted); max-width: 640px; margin: 0 auto 18px; }
+        .booking-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; text-align: left; margin: 24px 0 28px; }
+        .booking-steps div { background: rgba(0,0,0,0.35); border: 1px solid var(--border-light); border-radius: 12px; padding: 16px; }
+        .booking-steps strong { display: block; color: var(--primary); margin-bottom: 6px; }
+        .booking-steps span { color: var(--text-muted); font-size: 0.9rem; }
+        .response-time { display: inline-block; margin-top: 14px; font-size: 0.9rem; color: #ccc; }
         .details-section { background: var(--bg-card); border-radius: 16px; padding: 40px; margin-top: 60px; border: 1px solid var(--border-light); }
         .faq-item { margin-bottom: 20px; }
         .faq-item strong { color: var(--text-main); display: block; margin-bottom: 5px; }
@@ -97,82 +115,118 @@
 
     <header>
         <h1>Dein Weg zur <br>Digitalen Souveränität</h1>
-        <p>Bitcoin ist mehr als ein Investment. Es ist ein Werkzeug für Unabhängigkeit. <br>Ich helfe dir, dieses Werkzeug sicher und kompetent zu nutzen.</p>
+        <p>Bitcoin ist mehr als ein Investment. Es ist ein Werkzeug für Unabhängigkeit.<br>Ich helfe dir, dieses Werkzeug sicher und kompetent zu nutzen — Hilfe zur Selbsthilfe.</p>
+        <p style="margin-top: 24px;">
+            <a class="cta-button-solid" href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Bitcoin%20Mentoring&body=Hallo%20Patrik%2C%0A%0AIch%20m%C3%B6chte%20ein%20Mentoring%20buchen.%0A%0AThema%20%2F%20Modul%3A%20%0APaket%20%28Fokus%201h%20%2F%20Deep%20Dive%202h%29%3A%20%0ABevorzugte%20Zeiten%3A%20%0AKurz%20zu%20meinem%20Stand%3A%20%0A%0AFreundliche%20Gr%C3%BCsse%0A">Termin per E-Mail anfragen</a>
+        </p>
+        <span class="response-time">Antwort in der Regel innert 1–2 Werktagen · Zoom / Jitsi · Lightning oder Banküberweisung</span>
     </header>
 
     <section>
+        <h2 style="margin-bottom: 24px;">Für wen ist das <span>gedacht</span>?</h2>
+        <div class="audience-grid">
+            <div class="audience-card">
+                <h3>Passt gut</h3>
+                <p>Einsteiger:innen in der Schweiz, die sicher kaufen und verwahren wollen. Selbständige, die Self-Custody ernst nehmen. KMUs, die Lightning verstehen und einführen möchten.</p>
+            </div>
+            <div class="audience-card">
+                <h3>Auch sinnvoll</h3>
+                <p>Fortgeschrittene mit konkreten Fragen zu Backup, UTXO, Node oder Lightning — ohne Verkaufsdruck und ohne Jargon-Show.</p>
+            </div>
+            <div class="audience-card no">
+                <h3>Nicht geeignet</h3>
+                <p>Wer Trading-Tipps, Kursprognosen oder „die eine Münze“ sucht. Ich gebe keine Anlageberatung und keine Kaufsignale.</p>
+            </div>
+        </div>
+
         <div class="pricing-grid">
             <div class="info-card">
                 <h3>Fokus Session</h3>
                 <span class="price-tag">95 CHF</span>
                 <span class="price-sub">pro Stunde (60 Min)</span>
-                <p style="margin-top: 15px; color: var(--text-muted);">Ideal für spezifische Fragen oder die Einrichtung einer Wallet.</p>
+                <p style="margin-top: 15px; color: var(--text-muted);">Ideal für eine klare Frage, Wallet-Setup oder ein einzelnes Modul.</p>
             </div>
             <div class="info-card">
                 <h3>Deep Dive</h3>
                 <span class="price-tag">150 CHF</span>
                 <span class="price-sub">für 2 Stunden (120 Min)</span>
-                <p style="margin-top: 15px; color: var(--text-muted);">Ausführliche Strategie, Sicherheitskonzepte und umfassendes Onboarding.</p>
+                <p style="margin-top: 15px; color: var(--text-muted);">Strategie, Sicherheitskonzept und ruhiges Onboarding ohne Zeitdruck.</p>
             </div>
         </div>
 
         <h2><span>Mentoring</span> Schwerpunkte</h2>
         
         <div class="services-grid">
-            <!-- Modul 1 -->
             <div class="service-item">
-                <h3>🏁 Der sichere Start</h3>
+                <h3>Der sichere Start</h3>
                 <p>Der erste Schritt ist oft der schwerste. Wir überspringen den Lärm der Medien und konzentrieren uns auf die Fakten.</p>
                 <ul>
                     <li>Wie und wo kaufe ich Bitcoin ohne versteckte Gebühren?</li>
                     <li>KYC vs. Non-KYC: Was passt zu deiner Privatsphäre?</li>
                     <li>Einrichtung der ersten Accounts und Sparpläne.</li>
                 </ul>
-                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Bitcoin%20Start" class="cta-button">Termin anfragen</a>
+                <p class="outcome"><strong>Ergebnis:</strong> Du weisst, wie du in der Schweiz startest — und was du bewusst vermeidest.</p>
+                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Bitcoin%20Start&body=Hallo%20Patrik%2C%0A%0AModul%3A%20Sicherer%20Start%0APaket%3A%20%0ABevorzugte%20Zeiten%3A%20%0A" class="cta-button">Termin anfragen</a>
             </div>
 
-            <!-- Modul 2 -->
             <div class="service-item">
-                <h3>🔐 Self-Custody (Verwahrung)</h3>
-                <p>"Not your keys, not your coins". Das Herzstück von Bitcoin. Lerne, wie du deine eigene Bank wirst.</p>
+                <h3>Self-Custody (Verwahrung)</h3>
+                <p>„Not your keys, not your coins“. Das Herzstück von Bitcoin. Lerne, wie du deine eigene Bank wirst.</p>
                 <ul>
                     <li>Einrichtung von Hardware Wallets (BitBox02, Ledger, etc.)</li>
-                    <li>Sichere Generierung und Aufbewahrung des Backups (Seed).</li>
-                    <li>Wiederherstellungsszenarien üben (Disaster Recovery).</li>
+                    <li>Sichere Generierung und Aufbewahrung des Backups (Seed)</li>
+                    <li>Wiederherstellungsszenarien üben (Disaster Recovery)</li>
                 </ul>
-                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Self%20Custody" class="cta-button">Termin anfragen</a>
+                <p class="outcome"><strong>Ergebnis:</strong> Keys und Backup sind eingerichtet — und du kannst die Wiederherstellung selbst.</p>
+                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Self%20Custody&body=Hallo%20Patrik%2C%0A%0AModul%3A%20Self-Custody%0AHardware%20%28falls%20vorhanden%29%3A%20%0ABevorzugte%20Zeiten%3A%20%0A" class="cta-button">Termin anfragen</a>
             </div>
 
-            <!-- Modul 3 -->
             <div class="service-item">
-                <h3>🛡️ Gefahrenabwehr</h3>
+                <h3>Gefahrenabwehr</h3>
                 <p>Der Krypto-Space ist voll von Fallstricken. Ich zeige dir, wie du Betrug erkennst und deine Bestände schützt.</p>
                 <ul>
-                    <li>Erkennen von Phishing und Scams.</li>
-                    <li>Warum "Yield" und "Staking" oft Risiken bergen.</li>
-                    <li>Trennung von "Krypto-Casino" und Bitcoin-Sparen.</li>
+                    <li>Erkennen von Phishing und Scams</li>
+                    <li>Warum „Yield“ und „Staking“ oft Risiken bergen</li>
+                    <li>Trennung von Spekulation und Bitcoin-Sparen</li>
                 </ul>
-                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Sicherheit" class="cta-button">Termin anfragen</a>
+                <p class="outcome"><strong>Ergebnis:</strong> Du hast eine Checkliste und weisst, wann du „Nein“ sagst.</p>
+                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Sicherheit&body=Hallo%20Patrik%2C%0A%0AModul%3A%20Gefahrenabwehr%0ABevorzugte%20Zeiten%3A%20%0A" class="cta-button">Termin anfragen</a>
             </div>
 
-            <!-- Modul 4 -->
             <div class="service-item">
-                <h3>💬 Individuelles Mentoring</h3>
+                <h3>Individuelles Mentoring</h3>
                 <p>Du bist schon investiert, hast aber spezifische technische Fragen oder willst Nodes betreiben?</p>
                 <ul>
-                    <li>Lightning Network verstehen und nutzen.</li>
-                    <li>Technische Fragen zu Transaktionen (UTXO Management).</li>
-                    <li>Nostr Einrichtung und Keys-Management.</li>
+                    <li>Lightning Network verstehen und nutzen</li>
+                    <li>Technische Fragen zu Transaktionen (UTXO Management)</li>
+                    <li>Nostr-Einrichtung und Keys-Management</li>
                 </ul>
-                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Mentoring" class="cta-button">Termin anfragen</a>
+                <p class="outcome"><strong>Ergebnis:</strong> Deine offenen Punkte sind geklärt — mit einem konkreten nächsten Schritt.</p>
+                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Mentoring&body=Hallo%20Patrik%2C%0A%0AModul%3A%20Individuelles%20Mentoring%0AMeine%20Frage%3A%20%0ABevorzugte%20Zeiten%3A%20%0A" class="cta-button">Termin anfragen</a>
             </div>
+        </div>
+
+        <div class="booking-box" id="buchen">
+            <h2>So buchst du</h2>
+            <p>Kein Kalender-Zwang: Schreib mir eine kurze E-Mail. Ich melde mich mit Terminvorschlägen.</p>
+            <div class="booking-steps">
+                <div><strong>1. Anfrage</strong><span>Modul + gewünschte Dauer + 2–3 Zeitfenster</span></div>
+                <div><strong>2. Bestätigung</strong><span>Ich antworte innert 1–2 Werktagen mit Slot und Zahlungsinfos</span></div>
+                <div><strong>3. Session</strong><span>Online (Zoom/Jitsi) — optional vor Ort nach Absprache</span></div>
+            </div>
+            <a class="cta-button-solid" href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Bitcoin%20Mentoring&body=Hallo%20Patrik%2C%0A%0AIch%20m%C3%B6chte%20ein%20Mentoring%20buchen.%0A%0AThema%20%2F%20Modul%3A%20%0APaket%20%28Fokus%201h%20%2F%20Deep%20Dive%202h%29%3A%20%0ABevorzugte%20Zeiten%3A%20%0AKurz%20zu%20meinem%20Stand%3A%20%0A%0AFreundliche%20Gr%C3%BCsse%0A">E-Mail an patrik.bal.work@gmail.com</a>
+            <p class="response-time">Tipp: Je klarer dein Ziel in der Mail, desto gezielter wird die Session.</p>
         </div>
 
         <div class="details-section">
             <h3 style="color:var(--primary); margin-top:0;">Häufige Fragen</h3>
             <div class="faq-item">
                 <strong>Wie läuft das ab?</strong>
-                <p>Wir treffen uns digital (Zoom, Jitsi oder ähnlich). Du brauchst keine Vorkenntnisse, nur Neugier.</p>
+                <p>Wir treffen uns digital (Zoom, Jitsi oder ähnlich). Du brauchst keine Vorkenntnisse, nur Neugier. Für Self-Custody hilfreich: Hardware-Wallet schon da oder Bestellung geplant.</p>
+            </div>
+            <div class="faq-item">
+                <strong>Wie schnell bekomme ich Antwort?</strong>
+                <p>In der Regel innert 1–2 Werktagen. Dringende Sicherheitsfragen (z.&nbsp;B. Verdacht auf Kompromittierung) bitte im Betreff mit „DRINGEND“ kennzeichnen.</p>
             </div>
             <div class="faq-item">
                 <strong>Kann ich mit Bitcoin zahlen?</strong>
@@ -180,7 +234,7 @@
             </div>
             <div class="faq-item">
                 <strong>Ist das eine Finanzberatung?</strong>
-                <p>Nein. Ich biete technische Hilfe zur Selbsthilfe. Ich gebe keine Kaufempfehlungen für spezifische Zeitpunkte oder Mengen. Du triffst deine eigenen finanziellen Entscheidungen; ich zeige dir lediglich, wie du die Technologie sicher bedienst.</p>
+                <p>Nein. Ich biete technische Hilfe zur Selbsthilfe. Ich gebe keine Kaufempfehlungen für spezifische Zeitpunkte oder Mengen. Du triffst deine eigenen finanziellen Entscheidungen; ich zeige dir, wie du die Technologie sicher bedienst.</p>
             </div>
         </div>
 

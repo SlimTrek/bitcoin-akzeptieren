@@ -57,8 +57,25 @@
         .ln-address { background: rgba(0,0,0,0.5); padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border-light); font-family: monospace; display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; flex-wrap: wrap; justify-content: center; }
         .copy-btn { background: transparent; border: 1px solid var(--text-muted); color: var(--text-muted); cursor: pointer; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; transition: all 0.2s; margin-left: 10px; }
         .copy-btn:hover { border-color: #fff; color: #fff; }
+        .trust-strip { display: grid; grid-template-columns: auto 1fr; gap: 28px; align-items: center; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 20px; padding: 28px; margin-bottom: 40px; }
+        .avatar { width: 96px; height: 96px; border-radius: 50%; background: rgba(247,147,26,0.15); border: 2px solid rgba(247,147,26,0.45); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.8rem; color: var(--primary); }
+        .trust-meta { color: var(--text-muted); font-size: 0.95rem; }
+        .trust-meta strong { color: #fff; }
+        .pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .pill { display: inline-block; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border-light); font-size: 0.8rem; color: var(--text-muted); }
+        .cv-list { margin: 0; padding-left: 1.1rem; color: #ddd; }
+        .cv-list li { margin-bottom: 10px; }
+        .cta-row { margin-top: 18px; }
+        .cta-row a { color: var(--primary); font-weight: 700; }
 
-        @media (max-width: 768px) { .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; padding: 20px; } .nav-links.active { display: flex; } .menu-toggle { display: block; } header { padding-top: 120px; } }
+        @media (max-width: 768px) {
+            .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; flex-direction: column; padding: 20px 0; clip-path: circle(0% at 100% 0); transition: 0.5s; display: flex; border-bottom: 1px solid var(--border-light); }
+            .nav-links.active { clip-path: circle(150% at 100% 0); }
+            .menu-toggle { display: block; }
+            header { padding-top: 120px; }
+            .trust-strip { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+            .pill-row { justify-content: center; }
+        }
     </style>
 </head>
 <body>
@@ -73,17 +90,44 @@
     </header>
 
     <div class="content-container">
+
+        <div class="trust-strip">
+            <div class="avatar" aria-hidden="true">PB</div>
+            <div>
+                <p class="trust-meta" style="margin:0 0 8px;"><strong>Patrik Bal</strong> · Informatiker · Bitcoiner seit 2016</p>
+                <p class="trust-meta" style="margin:0;">NIP-05: <strong>patrik@bitcoin-akzeptieren.ch</strong> · Mentoring &amp; Lightning für KMUs in der Schweiz</p>
+                <div class="pill-row">
+                    <span class="pill">Self-Custody</span>
+                    <span class="pill">Hardware Wallets</span>
+                    <span class="pill">Lightning / KMU</span>
+                    <span class="pill">Nostr</span>
+                </div>
+                <p class="trust-meta" style="margin:14px 0 0; font-size:0.85rem;">Portrait-Foto folgt — bis dahin: Initialen statt Stockfoto.</p>
+            </div>
+        </div>
         
-        <!-- Block 1 -->
         <div class="story-block">
             <h3>Wer ich bin</h3>
             <p>Mein Name ist Patrik. Seit 2016 beschäftige ich mich intensiv mit Bitcoin. Was als zufällige Begegnung begann, ist heute eine tiefe Überzeugung.</p>
             <p>Ursprünglich habe ich eine Lehre als Elektriker absolviert, arbeite heute jedoch nach einer Zweitausbildung als Informatiker. Dieser technische Hintergrund hilft mir, Bitcoin nicht nur ökonomisch, sondern auch technisch in der Tiefe zu verstehen.</p>
             <p>Ich unterstütze Einzelpersonen, Selbständige und Unternehmen, die Bitcoin verstehen, sicher nutzen oder akzeptieren wollen. Meine Stärke? Ich weiss, wie es ist, am Anfang zu stehen, und erkläre dir Bitcoin auf Augenhöhe – ohne komplizierten Jargon.</p>
-            <p><a href="mailto:patrik.bal.work@gmail.com">Kontaktiere mich für dein Coaching →</a></p>
+            <div class="cta-row">
+                <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Bitcoin%20Mentoring&body=Hallo%20Patrik%2C%0A%0AKurz%20zu%20mir%20%2F%20meinem%20Ziel%3A%20%0ABevorzugte%20Zeiten%3A%20%0A">Mentoring anfragen →</a>
+                <span style="color:var(--text-muted); margin-left:10px; font-size:0.9rem;">Antwort innert 1–2 Werktagen</span>
+            </div>
         </div>
 
-        <!-- Block 2 -->
+        <div class="story-block">
+            <h3>Kurz-Profil</h3>
+            <ul class="cv-list">
+                <li>Lehre Elektriker → Zweitausbildung Informatik</li>
+                <li>Bitcoin seit 2016 (erster Kauf am Automaten in Zürich), intensives Lernen seit 2021</li>
+                <li>Fokus: Self-Custody, sicherer Einstieg in der Schweiz, Lightning für Geschäfte</li>
+                <li>Nebenprojekt: Bildungsseite + Nostr-Präsenz unter <code>bitcoin-akzeptieren.ch</code></li>
+            </ul>
+            <p style="margin-top:20px;"><a href="/bitcoin-beratung-und-coaching.html">Angebot &amp; Preise ansehen →</a> · <a href="/haendler.html">Für Händler →</a> · <a href="/nostr.html">Nostr →</a></p>
+        </div>
+
         <div class="story-block">
             <h3>Meine Bitcoin-Geschichte im Detail</h3>
             
@@ -100,12 +144,11 @@
             <p>Schätzungsweise habe ich seitdem über 2'000 Stunden Wissen angesammelt: durch Bücher, Podcasts, Meetups und Diskussionen. Bitcoin fasziniert mich, weil es so viele Bereiche des Lebens berührt: Geldgeschichte, Kryptographie, Ethik und Physik.</p>
         </div>
 
-        <!-- Block 3 -->
         <div class="story-block">
             <h3>Warum Bitcoin die Welt verändert</h3>
             <p>Bitcoin ist mehr als eine Währung – es ist ein Werkzeug für Freiheit. In Ländern mit korrupten Finanzsystemen schützt Bitcoin Menschen vor Enteignung und Zensur. Es gibt die Kontrolle über das Geld zurück an das Individuum.</p>
             <p>In der Schweiz sind wir mit dem starken Franken privilegiert, doch Bitcoin ist auch hier relevant: als Absicherung, als Investition und zunehmend als Zahlungsmittel (wie in Zug oder Lugano). Ich könnte stundenlang über Bitcoin sprechen, weil es unser Leben verbessern kann – durch Sicherheit, Freiheit und Selbstbestimmung.</p>
-            <p><a href="mailto:patrik.bal.work@gmail.com">Erfahre mehr über mein Coaching →</a></p>
+            <p><a href="/bitcoin-beratung-und-coaching.html">Coaching &amp; Mentoring →</a></p>
         </div>
 
     </div>

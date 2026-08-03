@@ -46,9 +46,18 @@
         header { padding: 160px 20px 80px; text-align: center; max-width: 800px; margin: 0 auto; }
         header h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, #ccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         header p { font-size: 1.2rem; color: var(--text-muted); }
+        .filter-row { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; padding: 0 20px; }
+        .filter-row .filter-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-right: 4px; }
         .category-nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 60px; padding: 0 20px; }
+        .category-nav:last-of-type { margin-bottom: 60px; }
         .cat-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; color: var(--text-muted); cursor: pointer; transition: var(--transition); }
         .cat-btn:hover, .cat-btn.active { background: var(--primary); color: #000; border-color: var(--primary); font-weight: 600; }
+        .level-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); padding: 8px 20px; border-radius: 50px; font-size: 0.9rem; color: var(--text-muted); cursor: pointer; transition: var(--transition); }
+        .level-btn:hover, .level-btn.active { background: #fff; color: #000; border-color: #fff; font-weight: 600; }
+        .lernpfade-banner { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; max-width: 1000px; margin: 0 auto 50px; padding: 20px 28px; background: rgba(247, 147, 26, 0.08); border: 1px solid rgba(247, 147, 26, 0.3); border-radius: 16px; }
+        .lernpfade-banner p { margin: 0; color: #fff; font-size: 1rem; }
+        .lernpfade-banner p strong { color: var(--primary); }
+        .lernpfade-banner a.btn-lernpfad { flex-shrink: 0; display: inline-block; padding: 10px 22px; background: var(--primary); color: #000; font-weight: 700; border-radius: 50px; text-decoration: none; }
         .blog-container { max-width: 1200px; margin: 0 auto; padding: 0 5% 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
         .article-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: var(--transition); opacity: 0; transform: translateY(20px); text-decoration: none;}
         .article-card.visible { opacity: 1; transform: translateY(0); }
@@ -70,78 +79,116 @@
     <div id="navbar-placeholder"></div>
 
     <header><h1>Wissensdatenbank</h1><p>Dein Kompass durch den Kaninchenbau.</p></header>
-    
+
+    <div class="lernpfade-banner">
+        <p>Nicht sicher, wo du anfangen sollst? <strong>Folge einem geführten Lernpfad</strong> statt einzelner Artikel.</p>
+        <a class="btn-lernpfad" href="/lernpfade.html">Zu den Lernpfaden →</a>
+    </div>
+
+    <div class="filter-row"><span class="filter-label">Kategorie</span></div>
     <div class="category-nav">
-        <span class="cat-btn active" onclick="filterArticles('all')">Alle</span>
-        <span class="cat-btn" onclick="filterArticles('Praxis')">Praxis</span>
-        <span class="cat-btn" onclick="filterArticles('Sicherheit')">Sicherheit</span>
-        <span class="cat-btn" onclick="filterArticles('Technik')">Technik</span>
-        <span class="cat-btn" onclick="filterArticles('Grundlagen')">Grundlagen</span>
+        <span class="cat-btn active" data-cat="all" onclick="setCategory('all')">Alle</span>
+        <span class="cat-btn" data-cat="Praxis" onclick="setCategory('Praxis')">Praxis</span>
+        <span class="cat-btn" data-cat="Sicherheit" onclick="setCategory('Sicherheit')">Sicherheit</span>
+        <span class="cat-btn" data-cat="Technik" onclick="setCategory('Technik')">Technik</span>
+        <span class="cat-btn" data-cat="Grundlagen" onclick="setCategory('Grundlagen')">Grundlagen</span>
+    </div>
+
+    <div class="filter-row"><span class="filter-label">Level</span></div>
+    <div class="category-nav">
+        <span class="level-btn active" data-level="all" onclick="setLevel('all')">Alle</span>
+        <span class="level-btn" data-level="Beginner" onclick="setLevel('Beginner')">Beginner</span>
+        <span class="level-btn" data-level="Praxis" onclick="setLevel('Praxis')">Praxis</span>
+        <span class="level-btn" data-level="Deep Dive" onclick="setLevel('Deep Dive')">Deep Dive</span>
     </div>
     
     <div class="blog-container">
         <!-- Praxis -->
-        <a href="/artikel-bitcoin-kaufen-schweiz.html" class="article-card" data-category="Praxis">
+        <a href="/artikel-bitcoin-kaufen-schweiz.html" class="article-card" data-category="Praxis" data-level="Beginner">
             <div class="card-image" style="background: linear-gradient(45deg, #1a1a1a, #333);">🇨🇭</div>
-            <div class="card-content"><span class="card-meta">Praxis</span><h3>Bitcoin Kaufen in der Schweiz</h3><p>Anleitung: Einfach, sicher und ohne komplizierte Verifizierung mit Relai.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Praxis · Beginner</span><h3>Bitcoin Kaufen in der Schweiz</h3><p>Anleitung: Einfach, sicher und ohne komplizierte Verifizierung mit Relai.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-bitcoin-kmu-akzeptanz.html" class="article-card" data-category="Praxis" data-level="Praxis">
+            <div class="card-image" style="background: linear-gradient(45deg, #1a1a1a, #333);">🏢</div>
+            <div class="card-content"><span class="card-meta">Praxis · Praxis</span><h3>Bitcoin im Unternehmen akzeptieren</h3><p>Zahlungsannahme, Buchhaltung, Halte-Strategie und Absicherung der Firmengelder – der Praxisleitfaden für KMU.</p><span class="read-more">Lesen →</span></div>
         </a>
 
         <!-- Sicherheit -->
-        <a href="/artikel-hardware-wallet-bitbox.html" class="article-card" data-category="Sicherheit">
+        <a href="/artikel-hardware-wallet-bitbox.html" class="article-card" data-category="Sicherheit" data-level="Praxis">
             <div class="card-image" style="background: linear-gradient(45deg, #111, #222);">🔐</div>
-            <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Hardware Wallets & BitBox02</h3><p>Warum "Not your keys, not your coins" so wichtig ist und wie du dein Vermögen sicherst.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Sicherheit · Praxis</span><h3>Hardware Wallets & BitBox02</h3><p>Warum "Not your keys, not your coins" so wichtig ist und wie du dein Vermögen sicherst.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-backup-seed.html" class="article-card" data-category="Sicherheit">
+        <a href="/artikel-backup-seed.html" class="article-card" data-category="Sicherheit" data-level="Praxis">
             <div class="card-image" style="background: linear-gradient(45deg, #222, #333);">📝</div>
-            <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Das richtige Backup</h3><p>Papier oder Stahl? Wie du deine Seed Phrase vor Feuer, Wasser und Verlust schützt.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Sicherheit · Praxis</span><h3>Das richtige Backup</h3><p>Papier oder Stahl? Wie du deine Seed Phrase vor Feuer, Wasser und Verlust schützt.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-bitcoin-vererben.html" class="article-card" data-category="Sicherheit">
+        <a href="/artikel-bitcoin-vererben.html" class="article-card" data-category="Sicherheit" data-level="Praxis">
             <div class="card-image" style="background: linear-gradient(45deg, #1a1a1a, #333);">⚰️</div>
-            <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Bitcoin vererben</h3><p>Ein Notfallplan für deine Angehörigen, damit deine Coins nicht verloren gehen.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Sicherheit · Praxis</span><h3>Bitcoin vererben</h3><p>Ein Notfallplan für deine Angehörigen, damit deine Coins nicht verloren gehen.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-scam-praevention.html" class="article-card" data-category="Sicherheit">
+        <a href="/artikel-scam-praevention.html" class="article-card" data-category="Sicherheit" data-level="Praxis">
             <div class="card-image" style="background: linear-gradient(45deg, #331111, #552222);">⚠️</div>
-            <div class="card-content"><span class="card-meta">Sicherheit</span><h3>Scam-Prävention</h3><p>Erkenne Betrugsmaschen, Doubling-Scams und falsche Versprechen sofort.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Sicherheit · Praxis</span><h3>Scam-Prävention</h3><p>Erkenne Betrugsmaschen, Doubling-Scams und falsche Versprechen sofort.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-multisig.html" class="article-card" data-category="Sicherheit" data-level="Deep Dive">
+            <div class="card-image" style="background: linear-gradient(45deg, #222, #333);">🔑</div>
+            <div class="card-content"><span class="card-meta">Sicherheit · Deep Dive</span><h3>Multisig einfach erklärt</h3><p>2-von-3-Setups, Anwendungsfälle und warum eine zweite Unterschrift dein Vermögen schützt.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-passphrase.html" class="article-card" data-category="Sicherheit" data-level="Deep Dive">
+            <div class="card-image" style="background: linear-gradient(45deg, #1a1a1a, #333);">🔒</div>
+            <div class="card-content"><span class="card-meta">Sicherheit · Deep Dive</span><h3>Die Passphrase (25. Wort)</h3><p>Funktionsweise, Decoy-Wallets und wie du sie testest, bevor du grosse Beträge sendest.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-watch-only-wallet.html" class="article-card" data-category="Sicherheit" data-level="Praxis">
+            <div class="card-image" style="background: linear-gradient(45deg, #111, #222);">👁️</div>
+            <div class="card-content"><span class="card-meta">Sicherheit · Praxis</span><h3>Watch-only Wallet & xPub</h3><p>Deinen Bestand beobachten, ohne die privaten Schlüssel jemals zu exponieren.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-privacy-basics.html" class="article-card" data-category="Sicherheit" data-level="Praxis">
+            <div class="card-image" style="background: linear-gradient(45deg, #331111, #552222);">🥷</div>
+            <div class="card-content"><span class="card-meta">Sicherheit · Praxis</span><h3>Privacy Basics On-chain</h3><p>Warum jede Transaktion sichtbar ist und mit welchen Gewohnheiten du deine Privatsphäre schützt.</p><span class="read-more">Lesen →</span></div>
         </a>
 
         <!-- Technik -->
-        <a href="/artikel-was-ist-nostr.html" class="article-card" data-category="Technik">
+        <a href="/artikel-was-ist-nostr.html" class="article-card" data-category="Technik" data-level="Beginner">
             <div class="card-image" style="background: linear-gradient(45deg, #2a0a3a, #5a1080);">📡</div>
-            <div class="card-content"><span class="card-meta">Technik</span><h3>Was ist Nostr?</h3><p>Das offene, zensurresistente Protokoll erklärt: Vorteile, Gründe und eine Anleitung zum Einrichten.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Technik · Beginner</span><h3>Was ist Nostr?</h3><p>Das offene, zensurresistente Protokoll erklärt: Vorteile, Gründe und eine Anleitung zum Einrichten.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-lightning-netzwerk.html" class="article-card" data-category="Technik">
+        <a href="/artikel-lightning-netzwerk.html" class="article-card" data-category="Technik" data-level="Beginner">
             <div class="card-image" style="background: linear-gradient(45deg, #222, #444);">⚡️</div>
-            <div class="card-content"><span class="card-meta">Technik</span><h3>Das Lightning Netzwerk</h3><p>Wie Bitcoin schneller und günstiger wird als Visa – einfach erklärt.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Technik · Beginner</span><h3>Das Lightning Netzwerk</h3><p>Wie Bitcoin schneller und günstiger wird als Visa – einfach erklärt.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-full-node.html" class="article-card" data-category="Technik">
+        <a href="/artikel-lightning-kanal.html" class="article-card" data-category="Technik" data-level="Praxis">
+            <div class="card-image" style="background: linear-gradient(45deg, #222, #444);">🔗</div>
+            <div class="card-content"><span class="card-meta">Technik · Praxis</span><h3>Lightning-Kanäle einfach erklärt</h3><p>Öffnen, Schliessen, Liquidität und Routing – so funktioniert Bitcoin in Echtzeit.</p><span class="read-more">Lesen →</span></div>
+        </a>
+        <a href="/artikel-full-node.html" class="article-card" data-category="Technik" data-level="Deep Dive">
             <div class="card-image" style="background: linear-gradient(45deg, #111, #333);">🖥️</div>
-            <div class="card-content"><span class="card-meta">Technik</span><h3>Was ist ein Full Node?</h3><p>Warum du deinen eigenen Knoten betreiben solltest: Privatsphäre und Unabhängigkeit.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Technik · Deep Dive</span><h3>Was ist ein Full Node?</h3><p>Warum du deinen eigenen Knoten betreiben solltest: Privatsphäre und Unabhängigkeit.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-utxo-management.html" class="article-card" data-category="Technik">
+        <a href="/artikel-utxo-management.html" class="article-card" data-category="Technik" data-level="Deep Dive">
             <div class="card-image" style="background: linear-gradient(45deg, #222, #333);">💰</div>
-            <div class="card-content"><span class="card-meta">Technik</span><h3>UTXO Management</h3><p>So sparst du Transaktionsgebühren und verhinderst "feststeckende" Coins.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Technik · Deep Dive</span><h3>UTXO Management</h3><p>So sparst du Transaktionsgebühren und verhinderst "feststeckende" Coins.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-bitcoin-mining.html" class="article-card" data-category="Technik">
+        <a href="/artikel-bitcoin-mining.html" class="article-card" data-category="Technik" data-level="Beginner">
             <div class="card-image" style="background: linear-gradient(45deg, #332200, #553300);">⛏️</div>
-            <div class="card-content"><span class="card-meta">Technik</span><h3>Bitcoin Mining erklärt</h3><p>Wie neue Coins entstehen und warum Proof of Work so viel Energie braucht.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Technik · Beginner</span><h3>Bitcoin Mining erklärt</h3><p>Wie neue Coins entstehen und warum Proof of Work so viel Energie braucht.</p><span class="read-more">Lesen →</span></div>
         </a>
 
         <!-- Grundlagen -->
-        <a href="/artikel-bitcoin-steuern-schweiz.html" class="article-card" data-category="Grundlagen">
+        <a href="/artikel-bitcoin-steuern-schweiz.html" class="article-card" data-category="Grundlagen" data-level="Beginner">
             <div class="card-image" style="background: linear-gradient(45deg, #1a1a1a, #333);">💸</div>
-            <div class="card-content"><span class="card-meta">Grundlagen</span><h3>Bitcoin & Steuern (CH)</h3><p>Steuerfreier Kapitalgewinn vs. Vermögenssteuer. Was du wissen musst.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Grundlagen · Beginner</span><h3>Bitcoin & Steuern (CH)</h3><p>Steuerfreier Kapitalgewinn vs. Vermögenssteuer. Was du wissen musst.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-bitcoin-vs-krypto.html" class="article-card" data-category="Grundlagen">
+        <a href="/artikel-bitcoin-vs-krypto.html" class="article-card" data-category="Grundlagen" data-level="Beginner">
             <div class="card-image" style="background: linear-gradient(45deg, #222, #444);">🆚</div>
-            <div class="card-content"><span class="card-meta">Grundlagen</span><h3>Bitcoin vs. Krypto</h3><p>Warum Bitcoin einzigartig ist und nicht mit "Altcoins" verglichen werden kann.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Grundlagen · Beginner</span><h3>Bitcoin vs. Krypto</h3><p>Warum Bitcoin einzigartig ist und nicht mit "Altcoins" verglichen werden kann.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-inflation-geld.html" class="article-card" data-category="Grundlagen">
+        <a href="/artikel-inflation-geld.html" class="article-card" data-category="Grundlagen" data-level="Beginner">
             <div class="card-image" style="background: linear-gradient(45deg, #111, #333);">📈</div>
-            <div class="card-content"><span class="card-meta">Grundlagen</span><h3>Inflation & Geldgeschichte</h3><p>Warum alles teurer wird und wie Bitcoin dich vor der Geldentwertung schützt.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Grundlagen · Beginner</span><h3>Inflation & Geldgeschichte</h3><p>Warum alles teurer wird und wie Bitcoin dich vor der Geldentwertung schützt.</p><span class="read-more">Lesen →</span></div>
         </a>
-        <a href="/artikel-energieverbrauch.html" class="article-card" data-category="Grundlagen">
+        <a href="/artikel-energieverbrauch.html" class="article-card" data-category="Grundlagen" data-level="Beginner">
             <div class="card-image" style="background: linear-gradient(45deg, #002200, #003300);">🌱</div>
-            <div class="card-content"><span class="card-meta">Grundlagen</span><h3>Mythos Energieverbrauch</h3><p>Ist Bitcoin schlecht für die Umwelt? Fakten statt Schlagzeilen.</p><span class="read-more">Lesen →</span></div>
+            <div class="card-content"><span class="card-meta">Grundlagen · Beginner</span><h3>Mythos Energieverbrauch</h3><p>Ist Bitcoin schlecht für die Umwelt? Fakten statt Schlagzeilen.</p><span class="read-more">Lesen →</span></div>
         </a>
     </div>
     
@@ -154,20 +201,32 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.article-card').forEach(el => observer.observe(el));
 
-        // Simple Filter Function
-        function filterArticles(category) {
-            const cards = document.querySelectorAll('.article-card');
-            const btns = document.querySelectorAll('.cat-btn');
-            
-            // Update Active Button
-            btns.forEach(btn => {
-                if(btn.innerText === category || (category === 'all' && btn.innerText === 'Alle')) btn.classList.add('active');
-                else btn.classList.remove('active');
-            });
+        // Combined Category + Level Filter
+        let activeCategory = 'all';
+        let activeLevel = 'all';
 
-            // Filter Cards
+        function setCategory(category) {
+            activeCategory = category;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-cat') === category);
+            });
+            applyFilters();
+        }
+
+        function setLevel(level) {
+            activeLevel = level;
+            document.querySelectorAll('.level-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-level') === level);
+            });
+            applyFilters();
+        }
+
+        function applyFilters() {
+            const cards = document.querySelectorAll('.article-card');
             cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
+                const matchesCategory = activeCategory === 'all' || card.getAttribute('data-category') === activeCategory;
+                const matchesLevel = activeLevel === 'all' || card.getAttribute('data-level') === activeLevel;
+                if (matchesCategory && matchesLevel) {
                     card.style.display = 'flex';
                     setTimeout(() => card.style.opacity = '1', 50); // Fade in
                 } else {

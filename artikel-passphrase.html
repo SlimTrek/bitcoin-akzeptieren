@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Tiefgang: Wie funktioniert Proof of Work, was ist das Halving und warum ist Mining die sicherste Firewall der Welt?">
-    <title>Bitcoin Mining: Das digitale Herzschlag – Bitcoin Akzeptieren</title>
-    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-bitcoin-mining.html">
+    <meta name="description" content="Alles über die BIP39-Passphrase: Funktionsweise, Decoy-Wallets, Risiken und wie du sie richtig testest und lagerst.">
+    <title>Die Passphrase (25. Wort): Tiefer Einblick – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-passphrase.html">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-bitcoin-mining.html">
-    <meta property="og:title" content="Bitcoin Mining: Das digitale Herzschlag – Bitcoin Akzeptieren">
-    <meta property="og:description" content="Tiefgang: Wie funktioniert Proof of Work, was ist das Halving und warum ist Mining die sicherste Firewall der Welt?">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-passphrase.html">
+    <meta property="og:title" content="Die Passphrase (25. Wort): Tiefer Einblick – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Alles über die BIP39-Passphrase: Funktionsweise, Decoy-Wallets, Risiken und wie du sie richtig testest und lagerst.">
     <meta property="og:site_name" content="Bitcoin Akzeptieren">
     <meta property="og:locale" content="de_CH">
     <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Bitcoin Mining: Das digitale Herzschlag – Bitcoin Akzeptieren">
-    <meta name="twitter:description" content="Tiefgang: Wie funktioniert Proof of Work, was ist das Halving und warum ist Mining die sicherste Firewall der Welt?">
+    <meta name="twitter:title" content="Die Passphrase (25. Wort): Tiefer Einblick – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Alles über die BIP39-Passphrase: Funktionsweise, Decoy-Wallets, Risiken und wie du sie richtig testest und lagerst.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -33,16 +33,17 @@
         .breadcrumbs { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
         .breadcrumbs a { color: var(--text-muted); text-decoration: none; }
         h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, #ccc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .meta-info { display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 40px; border-bottom: 1px solid var(--border-light); padding-bottom: 20px; }
+        .meta-info { display: flex; gap: 20px; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 40px; border-bottom: 1px solid var(--border-light); padding-bottom: 20px; flex-wrap: wrap; }
         .content p { margin-bottom: 25px; font-size: 1.1rem; color: #ddd; }
         .content h2 { color: var(--primary); font-size: 1.8rem; margin: 50px 0 20px; }
         .content h3 { color: #fff; font-size: 1.4rem; margin: 30px 0 15px; }
         .content ul { margin-bottom: 30px; padding-left: 20px; }
         .content li { margin-bottom: 10px; color: #ddd; }
+        .alert-box { background: rgba(200, 50, 50, 0.1); border-left: 4px solid #c83232; padding: 20px; margin: 30px 0; color: #ffcccc; }
         .info-box { background: rgba(247, 147, 26, 0.1); border-left: 4px solid var(--primary); padding: 20px; margin: 30px 0; color: #fff; }
         footer { text-align: center; padding: 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
         /* mobile nav via PHASE0_SHARED_CHROME / main.js */
-    
+
         /* PHASE0_SHARED_CHROME */
         nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light, rgba(255,255,255,0.1)); }
         .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary, #f7931a); display: flex; align-items: center; gap: 10px; text-decoration: none; }
@@ -64,7 +65,7 @@
             .menu-toggle { display: block; }
         }
 
-    
+
         /* PHASE1_ARTICLE_CTA */
         .article-end {
             max-width: 800px; margin: 0 auto 80px; padding: 0 20px;
@@ -94,28 +95,39 @@
 <body>
     <div id="navbar-placeholder"></div>
     <article class="article-container">
-        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Mining</div>
-        <h1>Bitcoin Mining: Wie neue Coins entstehen und das Netzwerk gesichert wird</h1>
-        <div class="meta-info"><span>Kategorie: Technik</span><span>Lesezeit: 7 Min.</span><span>Level: Beginner</span>
-        </div>
+        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Sicherheit</div>
+        <h1>Die Passphrase: Das unsichtbare 25. Wort</h1>
+        <div class="meta-info"><span>Kategorie: Sicherheit</span><span>Level: Deep Dive</span><span>Lesezeit: 8 Min.</span></div>
         <div class="content">
-            <p>Viele denken, beim Mining geht es nur darum, reich zu werden und neue Coins zu finden. Doch das ist nur der Anreiz. Der eigentliche Zweck des Minings ist die <strong>Sicherheit</strong> der Blockchain. Ohne Miner gäbe es kein Bitcoin.</p>
-            
-            <h2>Proof of Work (Arbeitsnachweis)</h2>
-            <p>Bitcoin löst ein uraltes Problem der Informatik: Wie einigen sich tausende Computer auf eine gemeinsame Wahrheit, ohne dass sie sich kennen oder vertrauen? Die Lösung ist Energie.</p>
-            <p>Miner sind spezialisierte Computer (ASICs), die den ganzen Tag nichts anderes tun, als eine Zahl zu erraten (Hashing). Das kostet extrem viel Strom. Warum? Damit es teuer ist, zu betrügen.</p>
-            <p>Wenn du die Blockchain umschreiben wolltest (um z.B. eine Zahlung rückgängig zu machen), müsstest du alle Miner der Welt überholen. Du bräuchtest mehr Energie als ganze Industrienationen. Das nennt man die "thermodynamische Mauer". Deine Bitcoin sind durch reine Physik gesichert.</p>
+            <p>Im Artikel zum Backup hast du gelernt, dass eine Passphrase deine 24 Wörter um eine zusätzliche Sicherheitsebene ergänzen kann. Dieser Artikel geht tiefer: Wie funktioniert das technisch genau, welche mächtigen Möglichkeiten (und Fallstricke) bringt die Passphrase mit sich, und worauf musst du unbedingt achten, bevor du sie produktiv einsetzt?</p>
 
-            <h2>Difficulty Adjustment (Schwierigkeitsanpassung)</h2>
-            <p>Das Geniale an Bitcoin: Es passt sich an. Satoshi Nakamoto hat programmiert, dass im Durchschnitt alle 10 Minuten ein neuer Block gefunden werden soll.</p>
+            <h2>Wie die Passphrase technisch funktioniert</h2>
+            <p>Deine 12 oder 24 Wörter (der BIP39-Seed) werden zusammen mit einer optionalen Passphrase durch eine kryptografische Funktion geschickt, um den eigentlichen "Master Key" deiner Wallet zu erzeugen. Ohne Passphrase entsteht daraus immer derselbe Master Key. Fügst du eine Passphrase hinzu – und sei es nur ein einziges zusätzliches Zeichen – entsteht ein komplett anderer, aber genauso gültiger Master Key. Mathematisch betrachtet erzeugt jede beliebige Passphrase (inklusive der leeren) ein eigenes, gültiges Wallet, das aus denselben 24 Wörtern hervorgeht.</p>
+
+            <h2>Plausible Deniability: Die Decoy-Wallet</h2>
+            <p>Daraus ergibt sich ein cleveres Konzept: Du kannst auf deinen 24 Wörtern <em>ohne</em> Passphrase eine kleine, glaubwürdige Menge an Bitcoin liegen lassen ("Decoy Wallet" bzw. Köder-Wallet). Der eigentliche, grössere Betrag liegt auf demselben Seed, aber <em>mit</em> einer geheimen Passphrase. Im Ernstfall – etwa bei einer erzwungenen Herausgabe – zeigst du nur die 24 Wörter und tust so, als sei das dein gesamtes Vermögen. Wer nicht weiss, dass eine Passphrase existiert, kann sie auch nicht einfordern.</p>
+
+            <div class="alert-box">
+                <strong>Das grösste Risiko: Stille Fehler.</strong> Vertippst du dich bei der Passphrase auch nur um ein einziges Zeichen oder änderst Gross-/Kleinschreibung, öffnest du kommentarlos ein völlig anderes, leeres Wallet – die Software zeigt keinen Fehler an, weil aus ihrer Sicht alles korrekt funktioniert hat. Ohne Backup der exakten Passphrase sind deine Coins dann faktisch für immer unauffindbar, obwohl die 24 Wörter korrekt sind.
+            </div>
+
+            <h2>Testen, bevor du grosse Beträge einzahlst</h2>
+            <p>Genau wegen dieses Risikos gilt: Niemals eine Passphrase "einfach ausprobieren" und direkt grosse Summen darauf senden. Der richtige Ablauf:</p>
             <ul>
-                <li>Wenn mehr Miner dazukommen (und die Rechenleistung steigt), wird das Rätsel automatisch schwieriger.</li>
-                <li>Wenn Miner abschalten (z.B. weil der Preis fällt), wird das Rätsel einfacher.</li>
+                <li>Passphrase exakt notieren (inklusive Gross-/Kleinschreibung, Leerzeichen, Sonderzeichen).</li>
+                <li>Wallet mit dieser Passphrase auf dem Gerät öffnen und eine minimale Testzahlung (wenige Franken) senden.</li>
+                <li>Gerät komplett zurücksetzen und die Wallet erneut ausschliesslich aus den 24 Wörtern plus der notierten Passphrase wiederherstellen.</li>
+                <li>Prüfen, ob die Testzahlung wieder korrekt erscheint. Erst dann grössere Beträge verschieben.</li>
             </ul>
-            <p>Diese Anpassung passiert alle 2'016 Blöcke (ca. alle 2 Wochen). Das garantiert, dass Bitcoin wie ein Uhrwerk weiterläuft, egal was in der Welt passiert.</p>
 
-            <h2>Das Halving</h2>
-            <p>Miner werden mit neuen Bitcoin belohnt (Block Subsidy). Zu Beginn waren es 50 BTC pro Block. Alle 210'000 Blöcke (ca. 4 Jahre) halbiert sich diese Belohnung. Heute sind es noch 3.125 BTC. Dies sorgt dafür, dass Bitcoin immer knapper wird (Deflation), im Gegensatz zu Fiat-Geld, das unendlich gedruckt wird.</p>
+            <h2>Wo lagerst du die Passphrase?</h2>
+            <p>Die goldene Regel: Die Passphrase darf niemals am selben Ort wie die 24 Wörter aufbewahrt werden – sonst hätte jeder, der beides findet, sofort vollen Zugriff, und der ganze Sinn der zusätzlichen Sicherheitsebene wäre hinfällig. Sinnvolle Optionen sind das Auswendiglernen (bei kurzen Phrasen), eine separate physische Lagerung an einem zweiten Ort, oder – für höhere Ansprüche – eine Aufteilung nach dem gleichen Prinzip wie beim Seed-Backup selbst.</p>
+
+            <h2>Passphrase vs. Multisig</h2>
+            <p>Beide Konzepte erhöhen die Sicherheit, aber unterschiedlich: Eine Passphrase schützt vor jemandem, der deine 24 Wörter findet, aber nicht die Passphrase kennt. Sie bleibt aber ein Konzept mit einem einzigen "Point of Failure" – vergisst du sie, ist alles weg. Multisig verteilt die Kontrolle stattdessen auf mehrere unabhängige Schlüssel und ist tendenziell ausfallsicherer, dafür komplexer im Aufbau. Wer maximale Sicherheit will, kombiniert im fortgeschrittenen Setup sogar beides.</p>
+
+            <h2>Fazit</h2>
+            <p>Die Passphrase ist eines der mächtigsten, aber auch unverzeihlichsten Werkzeuge in der Bitcoin-Selbstverwahrung. Richtig getestet und sauber dokumentiert, bietet sie einen enormen Sicherheitsgewinn gegenüber blossem Diebstahl der Seed-Wörter. Unsauber getestet, wird sie schnell zur Ursache eines permanenten und stillen Verlusts.</p>
         </div>
     </article>
     <!-- PHASE1_ARTICLE_END -->
@@ -123,9 +135,9 @@
         <div class="article-end-box">
             <h2>Weiterlesen</h2>
             <div class="related-links">
-                <a href="/artikel-energieverbrauch.html">Energieverbrauch →</a>
-                <a href="/artikel-inflation-geld.html">Inflation & Geld →</a>
-                <a href="/artikel-bitcoin-vs-krypto.html">Bitcoin vs. Krypto →</a>
+                <a href="/artikel-backup-seed.html">Das richtige Backup: Seed Phrase sichern →</a>
+                <a href="/artikel-multisig.html">Multisig einfach erklärt →</a>
+                <a href="/artikel-hardware-wallet-bitbox.html">Hardware Wallet & BitBox →</a>
                 <a href="/glossar.html">Begriff unklar? Zum Glossar →</a>
             </div>
         </div>
@@ -134,7 +146,7 @@
             <p>Hilfe zur Selbsthilfe: sicherer Start, Self-Custody oder Lightning fürs Geschäft — ohne Anlageberatung.</p>
             <div class="btn-row">
                 <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
-                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20artikel-bitcoin-mining.html%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20artikel-passphrase.html%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
             </div>
             <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
         </div>

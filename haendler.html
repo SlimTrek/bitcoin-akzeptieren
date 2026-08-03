@@ -66,6 +66,27 @@
 
         .solution-section { background: rgba(255,255,255,0.02); padding: 80px 5%; text-align: center; margin-top: 50px; }
         .cta-btn { display: inline-block; padding: 12px 30px; background: var(--primary); color: #000; font-weight: bold; text-decoration: none; border-radius: 50px; margin-top: 20px; }
+        .cta-btn-outline { display: inline-block; padding: 12px 30px; border: 1px solid var(--primary); color: var(--primary); font-weight: 600; text-decoration: none; border-radius: 50px; margin-top: 20px; margin-left: 10px; }
+        .section { padding: 60px 5%; max-width: 1100px; margin: 0 auto; }
+        .section h2 { text-align: center; margin-bottom: 16px; }
+        .section > .lead { text-align: center; color: var(--text-muted); max-width: 720px; margin: 0 auto 36px; }
+        .check-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+        .check-list li { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 12px; padding: 16px 18px; color: var(--text-muted); list-style: none; }
+        .check-list li strong { color: #fff; display: block; margin-bottom: 4px; }
+        .app-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.95rem; }
+        .app-table th, .app-table td { border: 1px solid var(--border-light); padding: 14px 16px; text-align: left; vertical-align: top; }
+        .app-table th { background: rgba(247,147,26,0.12); color: var(--primary); }
+        .app-table td { color: var(--text-muted); }
+        .app-table td strong { color: #fff; }
+        .offer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 30px; text-align: left; }
+        .offer-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 16px; padding: 28px; }
+        .offer-card h3 { margin-top: 0; color: var(--primary); }
+        .offer-card .price { font-size: 2rem; font-weight: 800; color: #fff; margin: 10px 0; }
+        .offer-card ul { margin: 16px 0 0; padding-left: 18px; list-style: disc; }
+        .offer-card li { color: var(--text-muted); margin-bottom: 8px; list-style: disc; }
+        .offer-card li::marker { color: var(--primary); }
+        .note { font-size: 0.85rem; color: #777; margin-top: 20px; }
+        .response-time { display: block; margin-top: 12px; color: #ccc; font-size: 0.9rem; }
 
         @media (max-width: 768px) {
             .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: var(--bg-dark); flex-direction: column; padding: 20px 0; clip-path: circle(0% at 100% 0); transition: 0.5s; border-bottom: 1px solid var(--border-light); }
@@ -81,57 +102,136 @@
 
     <header>
         <h1>Machen Sie Ihr Geschäft <br><span class="highlight">bereit für die Zukunft</span></h1>
-        <p>Akzeptieren Sie Bitcoin und Lightning. Keine monatlichen Gebühren, keine teuren Terminals. <br>Einfach App installieren und kassieren.</p>
-        <a href="mailto:patrik.bal.work@gmail.com" class="cta-btn">Unverbindliche Beratung anfordern</a>
+        <p>Akzeptieren Sie Bitcoin und Lightning. Keine teuren Terminals nötig.<br>Schweizer Lösungen, klare Einrichtung, Mitarbeitende, die wissen was zu tun ist.</p>
+        <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20H%C3%A4ndler%20%2F%20KMU&body=Hallo%20Patrik%2C%0A%0AIch%20interessiere%20mich%20f%C3%BCr%20Bitcoin-Akzeptanz%20im%20Gesch%C3%A4ft.%0A%0ABranche%20%2F%20Ort%3A%20%0AUngef%C3%A4hre%20Gr%C3%B6sse%20%28Mitarbeitende%20%2F%20Standorte%29%3A%20%0ABevorzugtes%20Paket%20%28Start%20%2F%20Vor-Ort%29%3A%20%0ABevorzugte%20Zeiten%3A%20%0A%0AFreundliche%20Gr%C3%BCsse%0A" class="cta-btn">Unverbindliche Beratung anfordern</a>
+        <span class="response-time">Antwort in der Regel innert 1–2 Werktagen</span>
     </header>
 
     <div class="benefits-grid">
         <div class="benefit-card">
-            <h3>💸 Weniger Gebühren</h3>
-            <p>Kreditkartenfirmen nehmen 1.5% bis 3%. Bitcoin-Zahlungen via Lightning kosten fast nichts oder pauschal 1% (je nach Anbieter). Mehr Marge für Sie.</p>
+            <h3>Weniger Gebühren</h3>
+            <p>Kreditkartenfirmen nehmen oft 1.5% bis 3%. Lightning-Zahlungen sind deutlich günstiger (je nach App oft nahe 0–1%). Mehr Marge für Sie.</p>
         </div>
         <div class="benefit-card">
-            <h3>🚀 Marketing-Effekt</h3>
-            <p>Bitcoin-Nutzer sind eine loyale Community. Wenn Sie Bitcoin akzeptieren, werden Sie auf Karten wie <strong>BTC Map</strong> gelistet und ziehen neue, kaufkräftige Kunden an.</p>
+            <h3>Marketing-Effekt</h3>
+            <p>Bitcoin-Nutzer sind eine loyale Community. Wenn Sie Bitcoin akzeptieren, werden Sie auf Karten wie <strong>BTC Map</strong> gelistet und ziehen neue Kunden an.</p>
         </div>
         <div class="benefit-card">
-            <h3>⚡ Sofortige Auszahlung</h3>
-            <p>Kein Warten auf das Geld am Monatsende. Das Geld ist sofort bei Ihnen – auf Wunsch auch direkt in Schweizer Franken umgewandelt.</p>
+            <h3>Schnelle Abwicklung</h3>
+            <p>Kein Warten auf Monatsabrechnungen. Je nach Setup: Sats behalten oder automatisch in CHF umwandeln lassen.</p>
         </div>
+    </div>
+
+    <div class="section">
+        <h2>Checkliste: Bereit für Bitcoin?</h2>
+        <p class="lead">Die meisten Betriebe brauchen kein Grossprojekt — nur Klarheit bei diesen Punkten.</p>
+        <ul class="check-list">
+            <li><strong>Ziel klären</strong> Sats halten, sofort in CHF wechseln, oder beides?</li>
+            <li><strong>Kanal wählen</strong> Smartphone/Tablet-App reicht oft — kein neues Kartenterminal nötig.</li>
+            <li><strong>Buchhaltung</strong> Wie erfassen Sie Einnahmen? (Beleg, Export, Steuer)</li>
+            <li><strong>Team schulen</strong> 10–15 Minuten reichen, damit niemand am Tresen stockt.</li>
+            <li><strong>Schild &amp; Listing</strong> Aufkleber, Website-Hinweis, Eintrag auf BTC Map.</li>
+            <li><strong>Fallback</strong> Was tun bei Offline/Netz? (kurzer Prozess, nicht panisch).</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Schweizer Apps im Überblick</h2>
+        <p class="lead">Keine Verkaufsrangliste — Orientierung, damit Sie eine informierte Wahl treffen. Details ändern sich; wir prüfen gemeinsam den aktuellen Stand.</p>
+        <div style="overflow-x:auto;">
+            <table class="app-table">
+                <thead>
+                    <tr>
+                        <th>Lösung</th>
+                        <th>Typisch gut für</th>
+                        <th>Hinweis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Swiss Bitcoin Pay</strong></td>
+                        <td>KMU mit Fokus Schweiz, einfacher Empfang</td>
+                        <td>Beliebt für schnellen Einstieg; Konditionen &amp; Features prüfen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lipa</strong></td>
+                        <td>Mobile Annahme, Lightning-fokussiert</td>
+                        <td>App-basiert; Workflow am Tresen vorher testen</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BTCPay Server</strong></td>
+                        <td>Selbständige / Tech-affine Betriebe, volle Kontrolle</td>
+                        <td>Mehr Souveränität, mehr Setup — lohnt sich mit Begleitung</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wallet + manueller QR</strong></td>
+                        <td>Sehr kleine Betriebe / Events</td>
+                        <td>Einfach, aber weniger komfortabel bei CHF-Beträgen &amp; Team</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="note">Affiliate-frei in dieser Übersicht. Empfehlungen immer abhängig von Betrieb, Volumen und Wunsch nach Self-Custody.</p>
     </div>
 
     <div class="map-section">
         <h2>Wer macht schon mit?</h2>
         <p style="color: #a3a3a3;">Entdecken Sie Geschäfte in Ihrer Nähe, die bereits Bitcoin akzeptieren.</p>
         <div class="map-container">
-            <iframe src="https://btcmap.org/map" width="100%" height="100%" style="border:none;" allowfullscreen title="BTC Map"></iframe>
+            <iframe src="https://btcmap.org/map" width="100%" height="100%" style="border:none;" allowfullscreen title="BTC Map" loading="lazy"></iframe>
         </div>
     </div>
 
     <div class="solution-section">
-        <h2>Wie funktioniert es?</h2>
+        <h2>Wie funktioniert es am Tresen?</h2>
         <p style="max-width: 700px; margin: 0 auto 30px; color: #ccc;">
-            Sie müssen kein IT-Experte sein. Es gibt Schweizer Apps (wie <strong>Swiss Bitcoin Pay</strong> oder <strong>Lipa</strong>), die auf jedem Tablet oder Smartphone laufen.
+            Sie müssen kein IT-Experte sein. Betrag eingeben → Kunde scannt QR → Bestätigung. Fertig.
         </p>
         
         <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px;">
             <div style="background: #111; padding: 20px; border-radius: 10px; width: 300px; text-align: left;">
                 <strong style="color:var(--primary)">1. Betrag eingeben</strong><br>
-                Einfach 5.00 CHF eintippen, wie bei einem Taschenrechner.
+                Einfach den CHF-Betrag tippen — wie bei einem Taschenrechner.
             </div>
             <div style="background: #111; padding: 20px; border-radius: 10px; width: 300px; text-align: left;">
                 <strong style="color:var(--primary)">2. Kunde scannt QR</strong><br>
-                Der Kunde zückt sein Handy und scannt den Code.
+                Der Kunde öffnet seine Lightning-Wallet und scannt den Code.
             </div>
             <div style="background: #111; padding: 20px; border-radius: 10px; width: 300px; text-align: left;">
                 <strong style="color:var(--primary)">3. Geld erhalten</strong><br>
-                Sekunden später zeigt die App "Bezahlt". Fertig.
+                Sekunden später zeigt die App „Bezahlt“. Sie machen weiter.
             </div>
         </div>
 
-        <h3 style="margin-top: 60px;">Mein Angebot für KMUs</h3>
-        <p>Ich helfe Ihnen bei der Auswahl der richtigen App, der Mitarbeiterschulung und der Einrichtung vor Ort.</p>
-        <a href="mailto:patrik.bal.work@gmail.com" class="cta-btn">Termin vereinbaren</a>
+        <h2 style="margin-top: 70px;">Mein Angebot für KMUs</h2>
+        <p style="max-width: 700px; margin: 0 auto; color: #ccc;">Technik + klare Abläufe. Keine Anlageberatung — praktische Einführung, damit Ihr Team souverän kassieren kann.</p>
+        <div class="offer-grid">
+            <div class="offer-card">
+                <h3>Start-Paket</h3>
+                <div class="price">150 CHF</div>
+                <p style="color:var(--text-muted); margin:0;">ca. 2 Stunden online</p>
+                <ul>
+                    <li>Bedarf &amp; Ziel (Sats vs. CHF) klären</li>
+                    <li>App-Empfehlung &amp; Setup-Begleitung</li>
+                    <li>Kurz-Schulung für 1–2 Personen</li>
+                    <li>Checkliste für Listing &amp; Schilder</li>
+                </ul>
+            </div>
+            <div class="offer-card">
+                <h3>Vor-Ort Setup</h3>
+                <div class="price">ab 280 CHF</div>
+                <p style="color:var(--text-muted); margin:0;">inkl. Anfahrt Region Zürich nach Absprache</p>
+                <ul>
+                    <li>Alles aus dem Start-Paket</li>
+                    <li>Einrichtung vor Ort am Gerät</li>
+                    <li>Testzahlung &amp; Team-Durchlauf</li>
+                    <li>Kurze Nachbetreuung per E-Mail (7 Tage)</li>
+                </ul>
+            </div>
+        </div>
+        <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20H%C3%A4ndler%20Paket&body=Hallo%20Patrik%2C%0A%0APaket%3A%20Start%20%2F%20Vor-Ort%0ABranche%20%2F%20Ort%3A%20%0ABevorzugte%20Zeiten%3A%20%0A" class="cta-btn">Paket anfragen</a>
+        <a href="/bitcoin-beratung-und-coaching.html" class="cta-btn-outline">Privates Mentoring</a>
+        <p class="note">Preise Orientierung. Exact Offerte nach kurzem Mail-Austausch. Zahlung per Lightning bevorzugt oder Rechnung.</p>
     </div>
 
     <div id="footer-placeholder"></div>

@@ -19,6 +19,10 @@ Do not delete `.well-known/nostr.json` or `bots/` without intent (NIP-05 + bot a
 
 Legal pages: `impressum.html`, `datenschutz.html` (linked from footer). SEO hygiene: `sitemap.xml`, `robots.txt`, `favicon.svg`, plus canonical/OG/Twitter tags on HTML pages.
 
+Booking is email-first (`mailto:` with templates) with stated 1–2 business day response — no Cal.com required. Merchant packages live on `haendler.html`; mentoring modules on `bitcoin-beratung-und-coaching.html`. Articles end with related links + coaching CTA.
+
+Learning paths: `lernpfade.html` (Beginner → Deep Dive). Wissen supports category + level filters. Glossar is the term hub; Empfehlungen lists tools/podcasts/meetups with affiliate disclosure.
+
 ### Running the site (development)
 
 Serve the repo root over HTTP — do **not** open the HTML files via `file://`. `main.js` loads shared components with absolute paths (`fetch('/navbar.html')`, `/footer.html`) and pages reference assets like `/Images/...`, so the navbar/footer only render when the site is served from the repository root.

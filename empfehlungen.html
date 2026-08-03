@@ -74,6 +74,18 @@
         .copy-btn { background: transparent; border: 1px solid var(--text-muted); color: var(--text-muted); cursor: pointer; padding: 5px 10px; border-radius: 5px; font-size: 0.8rem; transition: all 0.2s; }
         .copy-btn:hover { border-color: #fff; color: #fff; }
 
+        /* Disclosure box + section headings for expanded content */
+        .disclosure-top { max-width: 900px; margin: 0 auto 60px; padding: 22px 28px; background: rgba(247, 147, 26, 0.06); border: 1px solid rgba(247, 147, 26, 0.25); border-radius: 14px; font-size: 0.9rem; color: var(--text-muted); }
+        .disclosure-top strong { color: #fff; }
+        .disclosure-top ul { margin: 10px 0 0; padding-left: 20px; }
+        .disclosure-top li { margin-bottom: 6px; }
+        .section-block { margin-top: 100px; }
+        .section-header { max-width: 1200px; margin: 0 auto 40px; padding: 0 5%; }
+        .section-header h2 { font-size: 2rem; margin-bottom: 10px; color: #fff; }
+        .section-header p { color: var(--text-muted); font-size: 1.05rem; max-width: 700px; margin: 0; }
+        .note-custodial { font-size: 0.8rem; color: #f7931a; background: rgba(247, 147, 26, 0.08); border: 1px solid rgba(247, 147, 26, 0.25); padding: 10px 12px; border-radius: 8px; margin-bottom: 20px; }
+        .tag-neutral { color: var(--text-muted); border-color: var(--border-light); }
+
         @media (max-width: 768px) { .nav-links { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; padding: 20px; } .nav-links.active { display: flex; } .menu-toggle { display: block; } header { padding-top: 120px; } .grid-container { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -87,6 +99,14 @@
         <h1>Werkzeuge & Wissen</h1>
         <p>Produkte und Ressourcen, die ich selbst nutze und zu 100% unterstütze.</p>
     </header>
+
+    <div class="disclosure-top">
+        <p style="margin-top:0;"><strong>Transparenz-Hinweis:</strong> Ich zeige hier nur, was ich selbst nutze oder für sinnvoll halte. Damit du einschätzen kannst, wo meine Motivation liegt:</p>
+        <ul>
+            <li><strong>Affiliate-Links (Provision für mich, kein Aufpreis für dich):</strong> BitBox02 (Shift Crypto) und die Relai App (Code <code>PATRIK</code>).</li>
+            <li><strong>Keine Affiliate-Links (reine Empfehlung, keine Provision):</strong> alle Wallets & Apps, Bücher, Podcasts, Meetups/Community-Links und Node-Projekte weiter unten.</li>
+        </ul>
+    </div>
 
     <div class="grid-container">
         <!-- 1. Hardware Wallet -->
@@ -127,8 +147,140 @@
         </div>
     </div>
 
+    <!-- Wallets & Apps -->
+    <section class="section-block">
+        <div class="section-header">
+            <h2>Wallets & Apps</h2>
+            <p>Für den Alltag neben der Hardware Wallet. Keine Affiliate-Links, reine Empfehlungen.</p>
+        </div>
+        <div class="grid-container">
+            <div class="rec-card">
+                <span class="tag tag-neutral">Lightning</span>
+                <h3>Phoenix Wallet</h3>
+                <p>Self-custodial Lightning-Wallet von ACINQ. Kanäle und Liquidität werden automatisch verwaltet – ideal für schnelle, günstige Alltagszahlungen, ohne dass du Lightning selbst verstehen musst.</p>
+                <a href="https://phoenix.acinq.co/" target="_blank" class="btn-outline" style="margin-top: auto;">Zur Webseite</a>
+            </div>
+            <div class="rec-card">
+                <span class="tag tag-neutral">Desktop / Fortgeschritten</span>
+                <h3>Sparrow Wallet</h3>
+                <p>Die Referenz für Desktop-Wallets: Watch-only-Setups, Multisig, volle Coin-Control und native Anbindung an Hardware Wallets wie die BitBox02. Etwas Lernkurve, aber unschlagbar für Fortgeschrittene.</p>
+                <a href="https://sparrowwallet.com/" target="_blank" class="btn-outline" style="margin-top: auto;">Zur Webseite</a>
+            </div>
+            <div class="rec-card">
+                <span class="tag tag-neutral">Mobil</span>
+                <h3>BlueWallet</h3>
+                <p>Einsteigerfreundliche Mobile-Wallet mit Watch-only-Unterstützung für deine Hardware Wallet, Lightning-Funktion und guter Übersicht – praktisch als Zweit-Wallet zum Beobachten deiner Bestände unterwegs.</p>
+                <a href="https://bluewallet.io/" target="_blank" class="btn-outline" style="margin-top: auto;">Zur Webseite</a>
+            </div>
+            <div class="rec-card">
+                <span class="tag tag-neutral">Einsteiger Lightning</span>
+                <h3>Muun & Wallet of Satoshi</h3>
+                <div class="note-custodial">Achtung: Wallet of Satoshi ist <strong>custodial</strong> – praktisch zum Ausprobieren, aber „Not your keys, not your coins“. Nicht für grössere Beträge nutzen.</div>
+                <p>Muun kombiniert On-Chain und Lightning selbstverwahrend in einer simplen App. Wallet of Satoshi ist noch einfacher, dafür verwahrt der Anbieter deine Sats – guter Einstieg, kein Ersatz für eine eigene Wallet.</p>
+                <a href="https://muun.com/" target="_blank" class="btn-outline">Muun ansehen</a>
+                <a href="https://www.walletofsatoshi.com/" target="_blank" class="btn-outline" style="margin-top: 10px;">Wallet of Satoshi ansehen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weiterlesen & Weiterhören -->
+    <section class="section-block">
+        <div class="section-header">
+            <h2>Weiterlesen & Weiterhören</h2>
+            <p>Bücher und Podcasts, mit denen ich selbst am meisten gelernt habe.</p>
+        </div>
+        <div class="grid-container">
+            <div class="rec-card">
+                <span class="tag tag-neutral">Buch</span>
+                <h3>Layered Money</h3>
+                <p>Nik Bhatia erklärt Geld als Schichtsystem – von Gold über Zentralbanken bis zu Bitcoin und CBDCs. Sehr gut, um Bitcoin monetär einzuordnen, auch für Leute mit Finance-Hintergrund.</p>
+                <a href="https://www.layeredmoney.com/" target="_blank" class="btn-outline" style="margin-top: auto;">Mehr erfahren</a>
+            </div>
+            <div class="rec-card">
+                <span class="tag tag-neutral">Buch (Deutsch)</span>
+                <h3>21 Lektionen</h3>
+                <p>Gigis „Meine Reise in den Bitcoin Kaninchenbau“ – 21 kurze, dichte Kapitel zu Philosophie, Ökonomie und Technik. Eines der meistempfohlenen Bücher unter deutschsprachigen Bitcoinern.</p>
+                <a href="https://aprycot.media/shop/21-lektionen/" target="_blank" class="btn-outline" style="margin-top: auto;">Beim Verlag ansehen</a>
+            </div>
+            <div class="rec-card">
+                <span class="tag tag-neutral">Podcast (Deutsch)</span>
+                <h3>Einundzwanzig</h3>
+                <p>Der deutschsprachige Bitcoin-Podcast: wöchentlich News, Interviews, Lesestunden und „Der Weg“ mit Bitcoin-Geschichten aus der Community – inklusive Ablegern für die Schweiz.</p>
+                <a href="https://einundzwanzig.space/" target="_blank" class="btn-outline" style="margin-top: auto;">Zum Podcast</a>
+            </div>
+            <div class="rec-card">
+                <span class="tag tag-neutral">Podcast (Englisch)</span>
+                <h3>Stephan Livera Podcast</h3>
+                <p>Fokussierte Interviews zu Bitcoin-Ökonomie und -Technik mit führenden Entwicklern, Ökonomen und Analysten. Etwas technischer, sehr fundiert.</p>
+                <a href="https://stephanlivera.com/" target="_blank" class="btn-outline" style="margin-top: auto;">Zum Podcast</a>
+            </div>
+            <div class="rec-card">
+                <span class="tag tag-neutral">Podcast (Englisch)</span>
+                <h3>What Bitcoin Did</h3>
+                <p>Peter McCormack im Gespräch mit den bekanntesten Stimmen der Bitcoin-Welt – breiter Themenmix von Makro über Adoption bis Politik, gut für den Überblick.</p>
+                <a href="https://www.whatbitcoindid.com/" target="_blank" class="btn-outline" style="margin-top: auto;">Zum Podcast</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schweiz & Community -->
+    <section class="section-block">
+        <div class="section-header">
+            <h2>Schweiz & Community</h2>
+            <p>Andere Bitcoiner treffen und weiterführende Ressourcen auf dieser Seite.</p>
+        </div>
+        <div class="grid-container">
+            <div class="rec-card">
+                <span class="tag tag-neutral">Konferenz</span>
+                <h3>Plan ₿ Forum, Lugano</h3>
+                <p>Europas grösste Bitcoin-Konferenz, jährlich in Lugano – der Schweizer Stadt mit der aktivsten Bitcoin-Kreislaufwirtschaft. Guter Startpunkt, um die Schweizer Szene live kennenzulernen.</p>
+                <a href="https://planb.lugano.ch/" target="_blank" class="btn-outline" style="margin-top: auto;">Zur Webseite</a>
+            </div>
+            <div class="rec-card">
+                <span class="tag tag-neutral">Meetups</span>
+                <h3>Bitcoin-Meetups Schweiz</h3>
+                <p>In Zürich, Bern, Basel, Lugano und weiteren Städten gibt es regelmässige Bitcoin-Stammtische. Am einfachsten findest du aktive Gruppen über Meetup.com oder die lokalen Telegram-Gruppen der Einundzwanzig-Community.</p>
+                <a href="https://www.meetup.com/find/?keywords=bitcoin&location=ch" target="_blank" class="btn-outline" style="margin-top: auto;">Meetups suchen</a>
+            </div>
+            <div class="rec-card">
+                <span class="tag tag-neutral">Ressource</span>
+                <h3>Bitcoin-Akzeptanzstellen</h3>
+                <p>Wo in der Schweiz kannst du bereits mit Bitcoin bezahlen? Die Übersicht auf dieser Seite zeigt Händler, Restaurants und Dienstleister, die Bitcoin akzeptieren.</p>
+                <a href="/haendler.html" class="btn-outline" style="margin-top: auto;">Zu den Händlern</a>
+            </div>
+            <div class="rec-card">
+                <span class="tag tag-neutral">Ressource</span>
+                <h3>Geführte Lernpfade</h3>
+                <p>Erste 30 Tage, Self-Custody, Lightning für KMU oder Node &amp; Souveränität — strukturiert statt Artikel-Chaos.</p>
+                <a href="/lernpfade.html" class="btn-outline" style="margin-top: auto;">Zu den Lernpfaden</a>
+            </div>
+            <div class="rec-card">
+                <span class="tag tag-neutral">Ressource</span>
+                <h3>Wissen & Grundlagen</h3>
+                <p>Glossar, Artikel und Einsteiger-Guides zu Bitcoin – der richtige Ort, um Begriffe nachzuschlagen oder dich Schritt für Schritt einzuarbeiten.</p>
+                <a href="/wissen.html" class="btn-outline" style="margin-top: auto;">Zur Wissensseite</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eigene Node -->
+    <section class="section-block">
+        <div class="section-header">
+            <h2>Eigene Full Node betreiben</h2>
+            <p>Für alle, die Bitcoin selbst verifizieren statt vertrauen wollen – zum Selbst-Recherchieren.</p>
+        </div>
+        <div class="grid-container">
+            <div class="rec-card">
+                <span class="tag tag-neutral">Fortgeschritten</span>
+                <h3>Start9 · Umbrel · RaspiBlitz</h3>
+                <p>Drei verbreitete Wege zur eigenen Full Node inkl. Lightning: Start9 und Umbrel als fertige Node-Betriebssysteme mit App-Store, RaspiBlitz als DIY-Projekt auf Raspberry-Pi-Basis. Vergleiche selbst, welches Projekt zu deinem technischen Niveau passt.</p>
+                <a href="/artikel-full-node.html" class="btn-outline" style="margin-top: auto;">Warum eine eigene Node? (Artikel)</a>
+            </div>
+        </div>
+    </section>
+
     <div class="disclaimer">
-        <p>Transparenz-Hinweis: Einige Links sind Affiliate-Links. Ich erhalte eine kleine Provision, für dich entstehen keine Mehrkosten.</p>
+        <p>Transparenz-Hinweis: Einige Links sind Affiliate-Links. Ich erhalte eine kleine Provision, für dich entstehen keine Mehrkosten. Details siehe Hinweis oben.</p>
     </div>
 
     <div class="support-section">

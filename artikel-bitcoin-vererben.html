@@ -64,6 +64,31 @@
             .menu-toggle { display: block; }
         }
 
+    
+        /* PHASE1_ARTICLE_CTA */
+        .article-end {
+            max-width: 800px; margin: 0 auto 80px; padding: 0 20px;
+        }
+        .article-end-box {
+            background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px; padding: 28px; margin-bottom: 18px;
+        }
+        .article-end-box h2 {
+            margin: 0 0 14px; font-size: 1.35rem; color: #fff;
+            background: none; -webkit-text-fill-color: unset;
+        }
+        .related-links { display: flex; flex-direction: column; gap: 10px; }
+        .related-links a { color: #f7931a; text-decoration: none; font-weight: 600; }
+        .related-links a:hover { text-decoration: underline; }
+        .coaching-cta p { color: #b0b0b0; margin: 0 0 16px; }
+        .coaching-cta .btn-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+        .coaching-cta .btn {
+            display: inline-block; padding: 10px 20px; background: #f7931a; color: #000;
+            font-weight: 700; border-radius: 50px; text-decoration: none;
+        }
+        .coaching-cta .btn-link { color: #f7931a; font-weight: 600; text-decoration: none; }
+        .coaching-cta .meta { display: block; margin-top: 12px; font-size: 0.85rem; color: #888; }
+
     </style>
 </head>
 <body>
@@ -71,7 +96,8 @@
     <article class="article-container">
         <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Vererben</div>
         <h1>Bitcoin vererben: Der Notfallplan für deine Erben</h1>
-        <div class="meta-info"><span>Kategorie: Sicherheit</span><span>Lesezeit: 7 Min.</span></div>
+        <div class="meta-info"><span>Kategorie: Sicherheit</span><span>Lesezeit: 7 Min.</span><span>Level: Praxis</span>
+        </div>
         <div class="content">
             <p>Bitcoin bietet dir absolute Souveränität. Es gibt keine Bank, die dein Konto einfrieren kann. Das bedeutet aber auch: Es gibt keine Bank, die im Todesfall den Zugang an deine Erben übertragen kann. Wenn du deine Zugangsdaten mit ins Grab nimmst, sind die Coins für immer verloren – sie werden zu "Spenden" an alle anderen Bitcoin-Nutzer, da das Angebot verknappt wird.</p>
             
@@ -104,8 +130,29 @@
             <p>Der beste Plan nützt nichts, wenn deine Erben Angst vor der Technik haben und die Hardware Wallet in den Müll werfen. Sprich mit ihnen. Erkläre ihnen (zumindest grob), was Bitcoin ist und dass dort Wert gespeichert ist. Übe den Ernstfall einmal trocken durch.</p>
         </div>
     </article>
+    <!-- PHASE1_ARTICLE_END -->
+    <aside class="article-end">
+        <div class="article-end-box">
+            <h2>Weiterlesen</h2>
+            <div class="related-links">
+                <a href="/artikel-backup-seed.html">Seed-Backup →</a>
+                <a href="/artikel-hardware-wallet-bitbox.html">Hardware Wallet →</a>
+                <a href="/artikel-bitcoin-steuern-schweiz.html">Steuern CH →</a>
+                <a href="/glossar.html">Begriff unklar? Zum Glossar →</a>
+            </div>
+        </div>
+        <div class="article-end-box coaching-cta">
+            <h2>Fragen offen?</h2>
+            <p>Hilfe zur Selbsthilfe: sicherer Start, Self-Custody oder Lightning fürs Geschäft — ohne Anlageberatung.</p>
+            <div class="btn-row">
+                <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20artikel-bitcoin-vererben.html%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
+            </div>
+            <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
+        </div>
+    </aside>
+
     <div id="footer-placeholder"></div>
-    <script>document.getElementById('mobile-menu').addEventListener('click', () => document.getElementById('nav-links').classList.toggle('active'));</script>
     <script src="/main.js"></script>
 </body>
 </html>
