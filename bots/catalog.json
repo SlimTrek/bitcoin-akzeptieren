@@ -1,0 +1,214 @@
+{
+  "updated": "2026-08-03",
+  "operator": {
+    "name": "Patrik Bal",
+    "nip05": "patrik@bitcoin-akzeptieren.ch",
+    "npub": "npub10qq5dzeylr3lvqy4yv5q93778g3ly9g9q2ag7tqhnjkfm7mv877sy2gdjd",
+    "pubkey_hex": "7801468b24f8e3f60095232802c7de3a23f2150502ba8f2c179cac9dfb6c3fbd"
+  },
+  "groups": [
+    {
+      "id": "core",
+      "title": "Hauptkanäle",
+      "description": "Tägliche Inspiration und Bitcoin-Klartext – die Kernstimmen der Bot Army.",
+      "bots": [
+        {
+          "id": "fact_bot",
+          "slug": "fact",
+          "display_name": "Bitcoin Facts",
+          "tag": "Bitcoin & Sound Money",
+          "blurb": "Harte Fakten zu Bitcoin und Sound Money – ohne Shitcoin-Noise.",
+          "npub": "npub15pfu03955f0kkjgdlvcjksumk2mdk5pxaqtgf05j0mc7m5c8ku5spuu44e",
+          "pubkey_hex": "a053c7c4b4a25f6b490dfb312b439bb2b6db5026e81684be927ef1edd307b729",
+          "nip05": "fact@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/fact_bot.png",
+          "featured": true,
+          "visible": true
+        },
+        {
+          "id": "motivation_bot",
+          "slug": "motivation",
+          "display_name": "The Coach",
+          "tag": "Mindset & Klarheit",
+          "blurb": "Beobachtungen zu Veränderung, Disziplin und mentaler Stärke – ohne Poster-Weisheiten.",
+          "npub": "npub1sjgumk65zxyk64g9f8n5g9ntgfkkfg4g0e3g47fp7p98ujmwpdasxdqjud",
+          "pubkey_hex": "8491cddb5411896d550549e744166b426d64a2a87e628af921f04a7e4b6e0b7b",
+          "nip05": "motivation@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/motivation_bot.png",
+          "featured": true,
+          "visible": true
+        },
+        {
+          "id": "love_bot",
+          "slug": "love",
+          "display_name": "Real Talk",
+          "tag": "Beziehungen",
+          "blurb": "Klare Worte zu Liebe, Vertrauen und dem Chaos menschlicher Beziehungen.",
+          "npub": "npub1r806x4fsepx69tsprzqha3v97jjsck40m6xuvglq06ezsfpqanwsxaq5as",
+          "pubkey_hex": "19dfa35530c84da2ae0118817ec585f4a50c5aafde8dc623e07eb2282420ecdd",
+          "nip05": "love@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/love_bot.png",
+          "featured": true,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "sport",
+      "title": "Sport & Performance",
+      "description": "Automatisierte News-Feeds für Sport, Fitness und Esports.",
+      "bots": [
+        {
+          "id": "mma_news_bot",
+          "slug": "mma",
+          "display_name": "MMA Insider",
+          "tag": "MMA & UFC",
+          "blurb": "Fights, Matchups und ehrliche Takes – ohne PR-Geschwafel.",
+          "npub": "npub1lfvp4l62zvwc4axtve2hhf69ercmxvctawcag8fwsxg77wppl7hq8ksht3",
+          "pubkey_hex": "fa581aff4a131d8af4cb66557ba745c8f1b3330bebb1d41d2e8191ef3821ffae",
+          "nip05": "mma@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/mma_news_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "soccer_news_bot",
+          "slug": "soccer",
+          "display_name": "Football Insider",
+          "tag": "Fussball",
+          "blurb": "Taktik, Transfers und Schiedsrichter-Fails – für Leute, die wirklich schauen.",
+          "npub": "npub1rclsrnqcylhmdk89ktwz4sfh77a5ymcn3tceakzg5hkvyaw3texs7yq3yt",
+          "pubkey_hex": "1e3f01cc1827efb6d8e5b2dc2ac137f7bb426f138af19ed848a5ecc275d15e4d",
+          "nip05": "soccer@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/soccer_news_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "racing_news_bot",
+          "slug": "racing",
+          "display_name": "Motorsport Insider",
+          "tag": "Motorsport",
+          "blurb": "F1 und Motorsport: Strategie, Reglement und Performance.",
+          "npub": "npub1y2hm6lkr7px672rj2ty95x8etjycq6kaynzu5gzvauqx92jmwewsrzjxj0",
+          "pubkey_hex": "22afbd7ec3f04daf287252c85a18f95c89806add24c5ca204cef0062aa5b765d",
+          "nip05": "racing@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/racing_news_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "esports_news_bot",
+          "slug": "esports",
+          "display_name": "Esports Feed",
+          "tag": "Esports",
+          "blurb": "Roster-Moves, Meta und Turnierergebnisse aus dem Competitive Gaming.",
+          "npub": "npub1c7nsvq95n9e8h9ujn8d5ds0ad6u3gw9tqydujpr597ela2f8677qqpmgra",
+          "pubkey_hex": "c7a70600b499727b979299db46c1fd6eb91438ab011bc904742fb3fea927d7bc",
+          "nip05": "esports@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/esports_news_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "womens_sports_news_bot",
+          "slug": "womenssports",
+          "display_name": "Women's Sports Feed",
+          "tag": "Frauen-Sport",
+          "blurb": "WNBA, NWSL, WTA – Leistung und Resultate, kein Filler.",
+          "npub": "npub1uwzhz4funf9e03hwl3uxg2utsxa5rea3y9y740ta594rrve0ryqqqfzsdg",
+          "pubkey_hex": "e38571553c9a4b97c6eefc78642b8b81bb41e7b12149eabd7da16a31b32f1900",
+          "nip05": "womenssports@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/womens_sports_news_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "fitness_news_bot",
+          "slug": "fitness",
+          "display_name": "Training Lab",
+          "tag": "Fitness",
+          "blurb": "Science-backed Training und Health-News – ohne Supplement-Werbung.",
+          "npub": "npub1a3l582klswspjd5ds2fpwgqp9l9fjtj72tqr5tk565ahx96cekzsjyc2jd",
+          "pubkey_hex": "ec7f43aadf83a019368d82921720012fca992e5e52c03a2ed4d53b731758cd85",
+          "nip05": "fitness@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/fitness_news_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "extreme_sports_news_bot",
+          "slug": "extremesports",
+          "display_name": "Extreme Sports Feed",
+          "tag": "Extremsport",
+          "blurb": "X Games, Red Bull und echte Progression statt Medien-Hype.",
+          "npub": "npub1v2lxclnltt5e5gz0968vcwkkssq3dahr2sgfpm03sm2vclk266uq4vgjkn",
+          "pubkey_hex": "62be6c7e7f5ae99a204f2e8ecc3ad6840116f6e3541090edf186d4cc7ecad6b8",
+          "nip05": "extremesports@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/extreme_sports_news_bot.png",
+          "featured": false,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "auto",
+      "title": "Auto & Mobility",
+      "description": "Automotive, Tuning, Oldtimer und E-Mobilität.",
+      "bots": [
+        {
+          "id": "automotive_trend_bot",
+          "slug": "automotive",
+          "display_name": "Auto Insider",
+          "tag": "Automotive",
+          "blurb": "Reveals, Specs und Branchentrends – clean, ohne Clickbait.",
+          "npub": "npub1lfu0hzcs7u3rpe9cm20kqpynqsrkulc0c9dgrqjtjcrvx343muqqas8mhy",
+          "pubkey_hex": "fa78fb8b10f72230e4b8da9f60049304076e7f0fc15a81824b9606c346b1df00",
+          "nip05": "automotive@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/automotive_trend_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "tuning_engineering_bot",
+          "slug": "tuning",
+          "display_name": "Tuning & Tech",
+          "tag": "Tuning",
+          "blurb": "Physik und Engineering hinter Fahrzeug-Modifikationen.",
+          "npub": "npub143lnla0ak72vcu8znjxxzuck08wv56pzqx7azs4cnprpq4rt6rvqhcvqmx",
+          "pubkey_hex": "ac7f3ff5fdb794cc70e29c8c61731679dcca682201bdd142b8984610546bd0d8",
+          "nip05": "tuning@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/tuning_engineering_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "classic_restoration_bot",
+          "slug": "classics",
+          "display_name": "Classic Garage",
+          "tag": "Oldtimer",
+          "blurb": "Markt und Schrauber-Tipps für 80er/90er-Ikonen.",
+          "npub": "npub1zf8wxtdmzhnh8ckq0zd7sh3sjqu9n7awsysh86ul8zc6jpn48tvqjpypqd",
+          "pubkey_hex": "124ee32dbb15e773e2c0789be85e30903859fbae812173eb9f38b1a906753ad8",
+          "nip05": "classics@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/classic_restoration_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "ev_mobility_bot",
+          "slug": "evtech",
+          "display_name": "EV Tech Tracker",
+          "tag": "E-Mobilität",
+          "blurb": "Batterien, Ladekurven und EV-News – technisch und verständlich.",
+          "npub": "npub1ldrnm5ezt00uruznt445yr5nyjxsk0rkwxvgnvdwdzdmsg4es4xsy5aalq",
+          "pubkey_hex": "fb473dd3225bdfc1f0535d6b420e93248d0b3c76719889b1ae689bb822b9854d",
+          "nip05": "evtech@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/ev_mobility_bot.png",
+          "featured": false,
+          "visible": true
+        }
+      ]
+    }
+  ]
+}

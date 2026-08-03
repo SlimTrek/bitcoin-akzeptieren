@@ -3,353 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kuratierte Nostr-Bots von Bitcoin Akzeptieren: Bitcoin, Motivation, Psychologie und Sport-News. Dezentral, unzensierbar und ohne Algorithmus.">
-    <title>Nostr Bots – Bitcoin Akzeptieren</title>
+    <meta name="description" content="Nostr-Bot-Army von Patrik: Bitcoin, Mindset, Sport und Automotive – dezentrale Feeds ohne Algorithmus. Folge den aktuellen Kanälen auf Nostr.">
+    <title>Nostr Bot Army – Bitcoin Akzeptieren</title>
     <link rel="canonical" href="https://bitcoin-akzeptieren.ch/nostr.html">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bitcoin-akzeptieren.ch/nostr.html">
-    <meta property="og:title" content="Nostr Bots – Bitcoin Akzeptieren">
-    <meta property="og:description" content="Kuratierte Nostr-Bots von Bitcoin Akzeptieren: Bitcoin, Motivation, Psychologie und Sport-News. Dezentral, unzensierbar und ohne Algorithmus.">
+    <meta property="og:title" content="Nostr Bot Army – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Nostr-Bot-Army von Patrik: Bitcoin, Mindset, Sport und Automotive – dezentrale Feeds ohne Algorithmus.">
     <meta property="og:site_name" content="Bitcoin Akzeptieren">
     <meta property="og:locale" content="de_CH">
     <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nostr Bots – Bitcoin Akzeptieren">
-    <meta name="twitter:description" content="Kuratierte Nostr-Bots von Bitcoin Akzeptieren: Bitcoin, Motivation, Psychologie und Sport-News. Dezentral, unzensierbar und ohne Algorithmus.">
+    <meta name="twitter:title" content="Nostr Bot Army – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Nostr-Bot-Army von Patrik: Bitcoin, Mindset, Sport und Automotive – dezentrale Feeds ohne Algorithmus.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/site.css">
-    <style>
-        /* Gleiche Variablen */
-        :root { --primary: #a020f0; --bitcoin: #f7931a; --bg-dark: #0a0a0a; --bg-card: rgba(255, 255, 255, 0.03); --bg-card-hover: rgba(160, 32, 240, 0.1); --text-main: #ffffff; --text-muted: #a3a3a3; --border-light: rgba(255, 255, 255, 0.1); --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
-        .bg-gradient { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 20% 20%, rgba(160, 32, 240, 0.08), transparent 40%), radial-gradient(circle at 80% 80%, rgba(247, 147, 26, 0.05), transparent 40%); pointer-events: none; }
-
-        /* Nav & Footer Styles */
-        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); }
-        .logo { font-weight: 800; font-size: 1.2rem; color: var(--bitcoin); display: flex; align-items: center; gap: 10px; }
-        .nav-links { display: flex; gap: 20px; list-style: none; }
-        .nav-links a { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; text-decoration: none; }
-        .nav-links a:hover { color: var(--primary); } .nav-links a.active { color: var(--primary); }
-        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }
-        footer { background: #000; padding: 80px 5% 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); margin-top: 60px; text-align: center; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin: 0 auto 60px; text-align: left; }
-        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
-        .footer-col ul { list-style: none; padding: 0; }
-        .footer-col li { margin-bottom: 10px; }
-        .footer-col a { color: var(--text-muted); transition: color 0.3s; text-decoration: none; }
-        .footer-col a:hover { color: var(--primary); }
-        .footer-bottom { text-align: center; border-top: 1px solid var(--border-light); padding-top: 30px; font-size: 0.8rem; }
-
-        /* HERO */
-        header { padding: 170px 20px 60px; text-align: center; max-width: 860px; margin: 0 auto; }
-        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(160, 32, 240, 0.12); border: 1px solid rgba(160, 32, 240, 0.35); color: #d8b4fe; padding: 6px 16px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 28px; }
-        .hero-dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 10px var(--primary); animation: pulse 2s infinite; }
-        header h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.08; letter-spacing: -1px; margin-bottom: 20px; background: linear-gradient(135deg, #fff 0%, #d8b4fe 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        header h1 span { background: linear-gradient(135deg, var(--primary) 0%, #ff8a3c 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-        header p.lead { font-size: 1.2rem; color: var(--text-muted); max-width: 620px; margin: 0 auto 34px; }
-        .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-        .btn-hero { padding: 14px 30px; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: var(--transition); display: inline-block; }
-        .btn-hero-primary { background: var(--primary); color: #fff; box-shadow: 0 0 22px rgba(160, 32, 240, 0.25); }
-        .btn-hero-primary:hover { background: #8a1bc4; transform: translateY(-3px); box-shadow: 0 0 30px rgba(160, 32, 240, 0.45); }
-        .btn-hero-ghost { background: transparent; color: #fff; border: 1px solid var(--border-light); }
-        .btn-hero-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.05); }
-        .hero-stats { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 46px; }
-        .hero-stat { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 14px; padding: 16px 26px; min-width: 130px; }
-        .hero-stat .num { display: block; font-size: 1.6rem; font-weight: 800; color: #fff; }
-        .hero-stat .lbl { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
-        .hero-note { font-size: 0.85rem; color: var(--text-muted); margin: 22px auto 0; max-width: 520px; }
-        .hero-note a { color: var(--text-muted); text-decoration: underline; }
-        .hero-note a:hover { color: var(--primary); }
-
-        /* Sections */
-        section { padding: 60px 5% 40px; max-width: 1200px; margin: 0 auto; scroll-margin-top: 90px; }
-        h2 { text-align: center; margin-bottom: 12px; font-size: clamp(1.8rem, 3vw, 2.2rem); color: #fff; }
-        .section-sub { text-align: center; color: var(--text-muted); max-width: 640px; margin: 0 auto 45px; font-size: 1.02rem; }
-
-        /* Was ist Nostr – Benefit Cards */
-        .benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
-        .benefit-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 18px; padding: 30px 26px; transition: var(--transition); }
-        .benefit-card:hover { border-color: var(--primary); background: var(--bg-card-hover); transform: translateY(-5px); }
-        .benefit-icon { width: 52px; height: 52px; border-radius: 12px; background: rgba(160, 32, 240, 0.12); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 18px; }
-        .benefit-card h3 { margin: 0 0 10px; font-size: 1.15rem; color: #fff; }
-        .benefit-card p { margin: 0; color: var(--text-muted); font-size: 0.92rem; }
-
-        /* Bots */
-        .profiles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .profile-card { background: var(--bg-card); border: 1px solid var(--border-light); padding: 34px 28px; border-radius: 20px; text-align: center; transition: var(--transition); position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; }
-        .profile-card:hover { border-color: var(--primary); background: var(--bg-card-hover); transform: translateY(-6px); }
-        .avatar { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #333, #111); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 18px; border: 2px solid var(--primary); box-shadow: 0 0 15px rgba(160, 32, 240, 0.3); }
-        .card-tag { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; color: var(--primary); background: rgba(160, 32, 240, 0.1); border: 1px solid rgba(160, 32, 240, 0.25); padding: 4px 12px; border-radius: 50px; margin-bottom: 14px; }
-        .profile-card h3 { margin: 0 0 10px; font-size: 1.4rem; color: #fff; }
-        .profile-card p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 24px; flex-grow: 1; }
-        .btn-group { display: flex; gap: 10px; width: 100%; justify-content: center; }
-        .btn { padding: 10px 18px; border-radius: 10px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: var(--transition); text-align: center; flex: 1; text-decoration: none; }
-        .btn-primary { background: var(--primary); color: #fff; border: 1px solid var(--primary); }
-        .btn-primary:hover { background: #8a1bc4; }
-        .btn-secondary { background: transparent; color: var(--text-muted); border: 1px solid var(--border-light); }
-        .btn-secondary:hover { border-color: #fff; color: #fff; }
-
-        /* Sport Grid */
-        .sports-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
-        .mini-card { background: var(--bg-card); padding: 24px 20px; border-radius: 16px; text-align: center; border: 1px solid var(--border-light); transition: var(--transition); display: flex; flex-direction: column; }
-        .mini-card:hover { border-color: var(--primary); background: var(--bg-card-hover); transform: translateY(-4px); }
-        .mini-card .mini-icon { font-size: 2rem; margin-bottom: 10px; }
-        .mini-card h4 { margin: 0 0 4px; color: #fff; font-size: 1.05rem; }
-        .mini-card p { font-size: 0.82rem; color: var(--text-muted); margin: 0 0 18px; flex-grow: 1; }
-        .mini-card .btn-group { margin-top: auto; }
-
-        /* Onboarding Steps */
-        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; margin-bottom: 30px; }
-        .step-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 18px; padding: 32px 26px; position: relative; transition: var(--transition); }
-        .step-card:hover { border-color: var(--primary); }
-        .step-num { position: absolute; top: 24px; right: 26px; font-size: 2.4rem; font-weight: 800; color: rgba(160, 32, 240, 0.25); line-height: 1; }
-        .step-card h3 { margin: 0 0 12px; font-size: 1.2rem; color: #fff; padding-right: 40px; }
-        .step-card p { margin: 0; color: var(--text-muted); font-size: 0.92rem; }
-        .client-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-        .client-links a { padding: 10px 22px; border-radius: 50px; border: 1px solid var(--border-light); color: var(--text-muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: var(--transition); }
-        .client-links a:hover { border-color: var(--primary); color: #fff; background: var(--bg-card-hover); }
-
-        /* Support */
-        .support-box { background: linear-gradient(145deg, rgba(160,32,240,0.06), rgba(255,255,255,0.01)); border: 1px solid var(--border-light); border-radius: 20px; padding: 40px 30px; text-align: center; max-width: 640px; margin: 0 auto; }
-        .support-box h3 { margin: 0 0 8px; color: #fff; font-size: 1.4rem; }
-        .support-box p { color: var(--text-muted); margin: 0 0 20px; }
-        .zap-address { display: inline-block; background: rgba(0,0,0,0.4); border: 1px solid var(--border-light); border-radius: 10px; padding: 12px 18px; font-family: monospace; color: var(--bitcoin); word-break: break-all; }
-
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(160, 32, 240, 0.5); } 70% { box-shadow: 0 0 0 10px rgba(160, 32, 240, 0); } 100% { box-shadow: 0 0 0 0 rgba(160, 32, 240, 0); } }
-
-        @media (max-width: 768px) {
-            .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: var(--bg-dark); flex-direction: column; padding: 20px 0; transition: 0.5s; border-bottom: 1px solid var(--border-light); }
-            
-            .menu-toggle { display: block; }
-            header { padding-top: 130px; }
-        }
-    </style>
+    <link rel="stylesheet" href="/css/nostr.css">
 </head>
-<body>
-
-    <div class="bg-gradient"></div>
-
+<body class="nostr-page">
+    <div class="nostr-atmosphere" aria-hidden="true"></div>
     <div id="navbar-placeholder"></div>
 
-    <!-- HERO -->
-    <header>
-        <div class="hero-badge">
-            <span class="hero-dot"></span> Powered by Nostr · Offenes Protokoll
+    <header class="nostr-hero">
+        <p class="eyebrow">Nostr · Offenes Protokoll</p>
+        <h1>Dezentrale Feeds.<br><em>Ohne Algorithmus.</em></h1>
+        <p class="lead">Kuratierte Bot-Kanäle zu Bitcoin, Mindset, Sport und Mobility – direkt in deinen Nostr-Client. Keine Werbung, keine Reichweiten-Drosselung, keine Konzern-Accounts.</p>
+        <div class="hero-actions">
+            <a class="btn" href="#bots">Bots entdecken</a>
+            <a class="btn-outline" href="#was-ist-nostr">Was ist Nostr?</a>
         </div>
-        <h1>Dezentrale Bots.<br><span>Feeds ohne Algorithmus.</span></h1>
-        <p class="lead">Kuratierte News und Inspiration – direkt in deinen Feed. Keine Werbung, keine Zensur, kein manipulierter Algorithmus. Nur die Themen, die dich wirklich interessieren.</p>
-        <div class="hero-buttons">
-            <a href="#bots" class="btn-hero btn-hero-primary">Bots entdecken</a>
-            <a href="#was-ist-nostr" class="btn-hero btn-hero-ghost">Was ist Nostr?</a>
-        </div>
-        <div class="hero-stats">
-            <div class="hero-stat"><span class="num">3</span><span class="lbl">Hauptkanäle</span></div>
-            <div class="hero-stat"><span class="num">6</span><span class="lbl">Sport-Feeds</span></div>
+        <div class="hero-stats" aria-live="polite">
+            <div class="hero-stat"><span class="num" id="stat-bots">–</span><span class="lbl">Kanäle</span></div>
+            <div class="hero-stat"><span class="num" id="stat-groups">–</span><span class="lbl">Themen</span></div>
             <div class="hero-stat"><span class="num">24/7</span><span class="lbl">Automatisiert</span></div>
         </div>
-        <p class="hero-note">Ein persönliches Community-Projekt von Patrik – für Bitcoin-Bildung &amp; Beratung geht's zu <a href="/wissen.html">wissen.html</a>.</p>
     </header>
 
-    <!-- NEBENRAUM HINWEIS -->
     <div class="side-room">
         <strong>Nebenraum: Community &amp; Experiment</strong>
-        <p>Bitcoin-Bildung und Beratung sind der Kern dieser Seite. Die Nostr-Bots hier sind Patriks persönlicher Community- und Hobby-Bereich – ein Nebenraum zum Ausprobieren, kein Hauptprodukt.</p>
-        <p>Auf der Suche nach echtem Bitcoin-Wissen? <a href="/wissen.html">Wissen</a> · <a href="/lernpfade.html">Lernpfade</a> · <a href="/bitcoin-beratung-und-coaching.html">Beratung &amp; Coaching</a></p>
+        <p>Bitcoin-Bildung und Beratung sind der Kern dieser Website. Die Nostr-Bot-Army ist Patriks Community- und Hobby-Bereich – sichtbar, aber kein Hauptprodukt.</p>
+        <p><a href="/wissen.html">Wissen</a> · <a href="/lernpfade.html">Lernpfade</a> · <a href="/bitcoin-beratung-und-coaching.html">Beratung</a></p>
     </div>
 
-    <!-- WAS IST NOSTR -->
-    <section id="was-ist-nostr">
+    <section class="nostr-section" id="was-ist-nostr">
         <h2>Was ist Nostr?</h2>
-        <p class="section-sub">Nostr ist kein „Krypto-Ding", sondern ein offenes Protokoll für soziale Netzwerke. Du besitzt deine Identität und deine Kontakte – kein Konzern kann dich aussperren oder deine Reichweite drosseln.</p>
+        <p class="section-sub">Ein offenes Protokoll für soziale Netzwerke. Du besitzt Identität und Kontakte – kein Konzern kann dich aussperren oder deine Timeline umsortieren.</p>
         <div class="benefit-grid">
-            <div class="benefit-card">
-                <div class="benefit-icon">🔓</div>
+            <article class="benefit-card">
+                <div class="icon">01</div>
                 <h3>Zensurresistent</h3>
-                <p>Niemand kann deinen Account löschen oder Beiträge verbergen. Deine Stimme und deine Reichweite gehören dir.</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">🔑</div>
-                <h3>Deine Identität</h3>
-                <p>Ein Schlüsselpaar statt E-Mail und Passwort. Dein Profil funktioniert über alle Nostr-Apps hinweg – ohne Anmeldung bei einem Anbieter.</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">🧭</div>
+                <p>Niemand löscht deinen Account zentral. Deine Stimme bleibt über Relays erreichbar.</p>
+            </article>
+            <article class="benefit-card">
+                <div class="icon">02</div>
+                <h3>Deine Schlüssel</h3>
+                <p>Ein Schlüsselpaar statt E-Mail-Login. Dasselbe Profil in Primal, Damus, Amethyst &amp; Co.</p>
+            </article>
+            <article class="benefit-card">
+                <div class="icon">03</div>
                 <h3>Kein Algorithmus</h3>
-                <p>Du siehst in Echtzeit, wem du folgst. Keine versteckte Sortierung, kein Rage-Bait, keine Werbung dazwischen.</p>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">⚡</div>
-                <h3>Value-4-Value</h3>
-                <p>Gefällt dir ein Beitrag? Sende Sats (Bitcoin) direkt als „Zap" – ganz ohne Bank, in Sekunden und weltweit.</p>
-            </div>
+                <p>Du siehst, wem du folgst – in Echtzeit, ohne versteckte Sortierung oder Rage-Bait.</p>
+            </article>
+            <article class="benefit-card">
+                <div class="icon">04</div>
+                <h3>Value-for-Value</h3>
+                <p>Gefällt dir etwas? Zap Sats per Lightning – direkt, global, ohne Zwischenhändler.</p>
+            </article>
         </div>
-        <div style="text-align:center; margin-top:38px;">
-            <a href="/artikel-was-ist-nostr.html" class="btn-hero btn-hero-ghost">Ausführlicher Guide: Was ist Nostr &amp; wie richte ich es ein? →</a>
-        </div>
+        <p class="center-link">
+            <a class="btn-outline" href="/artikel-was-ist-nostr.html">Guide: Nostr einrichten →</a>
+        </p>
     </section>
 
-    <!-- BOTS -->
-    <section id="bots">
-        <h2>Meine Hauptkanäle</h2>
-        <p class="section-sub">Automatisierte Bots, die täglich Mehrwert ins Netzwerk speisen. Folge ihnen mit einem Tap – oder wirf zuerst einen Blick in die Web-Vorschau.</p>
-        <div class="profiles-grid">
-            <div class="profile-card">
-                <div class="avatar">⚡️</div>
-                <span class="card-tag">Bitcoin &amp; Freiheit</span>
-                <h3>BitRebell</h3>
-                <p>Ehrlich, kontrovers und direkt. Ungeschminkte Meinungen zu Bitcoin, Zentralbanken und finanzieller Souveränität.</p>
-                <div class="btn-group">
-                    <a href="nostr:npub15pfu03955f0kkjgdlvcjksumk2mdk5pxaqtgf05j0mc7m5c8ku5spuu44e" class="btn btn-primary">In App öffnen</a>
-                    <a href="https://primal.net/p/npub15pfu03955f0kkjgdlvcjksumk2mdk5pxaqtgf05j0mc7m5c8ku5spuu44e" target="_blank" rel="noopener" class="btn btn-secondary">Web Vorschau</a>
-                </div>
-            </div>
-            <div class="profile-card">
-                <div class="avatar">🧠</div>
-                <span class="card-tag">Mindset &amp; Stoizismus</span>
-                <h3>Mr. Motivation</h3>
-                <p>Dein täglicher Stoizismus-Booster. Strategien für Persönlichkeitsentwicklung, Disziplin und mentalen Fokus.</p>
-                <div class="btn-group">
-                    <a href="nostr:npub1sjgumk65zxyk64g9f8n5g9ntgfkkfg4g0e3g47fp7p98ujmwpdasxdqjud" class="btn btn-primary">In App öffnen</a>
-                    <a href="https://primal.net/p/npub1sjgumk65zxyk64g9f8n5g9ntgfkkfg4g0e3g47fp7p98ujmwpdasxdqjud" target="_blank" rel="noopener" class="btn btn-secondary">Web Vorschau</a>
-                </div>
-            </div>
-            <div class="profile-card">
-                <div class="avatar">❤️</div>
-                <span class="card-tag">Psychologie &amp; Beziehungen</span>
-                <h3>Dr. Summer</h3>
-                <p>KI-gestützter Ratgeber für emotionale Themen, Beziehungen und Stressbewältigung – einfühlsam und praxisnah.</p>
-                <div class="btn-group">
-                    <a href="nostr:npub1r806x4fsepx69tsprzqha3v97jjsck40m6xuvglq06ezsfpqanwsxaq5as" class="btn btn-primary">In App öffnen</a>
-                    <a href="https://primal.net/p/npub1r806x4fsepx69tsprzqha3v97jjsck40m6xuvglq06ezsfpqanwsxaq5as" target="_blank" rel="noopener" class="btn btn-secondary">Web Vorschau</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div id="bots"></div>
+    <div id="bots-catalog">
+        <p class="catalog-error">Bot-Katalog wird geladen…</p>
+    </div>
 
-    <!-- SPORT -->
-    <section id="sport">
-        <h2>Sport News Netzwerk</h2>
-        <p class="section-sub">Automatisierte News-Feeds für jede Sportart. Folge nur dem, was dich wirklich interessiert – ohne Boulevard und ohne Werbung.</p>
-        <div class="sports-grid">
-            <div class="mini-card">
-                <div class="mini-icon">🥊</div>
-                <h4>MMA News</h4>
-                <p>UFC &amp; Kampfsport Updates</p>
-                <div class="btn-group">
-                    <a href="nostr:npub1lfvp4l62zvwc4axtve2hhf69ercmxvctawcag8fwsxg77wppl7hq8ksht3" class="btn btn-primary">Folgen</a>
-                    <a href="https://primal.net/p/npub1lfvp4l62zvwc4axtve2hhf69ercmxvctawcag8fwsxg77wppl7hq8ksht3" target="_blank" rel="noopener" class="btn btn-secondary">Web</a>
-                </div>
-            </div>
-            <div class="mini-card">
-                <div class="mini-icon">⚽️</div>
-                <h4>Soccer News</h4>
-                <p>Fußball Ligen &amp; Transfers</p>
-                <div class="btn-group">
-                    <a href="nostr:npub1rclsrnqcylhmdk89ktwz4sfh77a5ymcn3tceakzg5hkvyaw3texs7yq3yt" class="btn btn-primary">Folgen</a>
-                    <a href="https://primal.net/p/npub1rclsrnqcylhmdk89ktwz4sfh77a5ymcn3tceakzg5hkvyaw3texs7yq3yt" target="_blank" rel="noopener" class="btn btn-secondary">Web</a>
-                </div>
-            </div>
-            <div class="mini-card">
-                <div class="mini-icon">🏎️</div>
-                <h4>Racing News</h4>
-                <p>F1 &amp; Motorsport</p>
-                <div class="btn-group">
-                    <a href="nostr:npub1y2hm6lkr7px672rj2ty95x8etjycq6kaynzu5gzvauqx92jmwewsrzjxj0" class="btn btn-primary">Folgen</a>
-                    <a href="https://primal.net/p/npub1y2hm6lkr7px672rj2ty95x8etjycq6kaynzu5gzvauqx92jmwewsrzjxj0" target="_blank" rel="noopener" class="btn btn-secondary">Web</a>
-                </div>
-            </div>
-            <div class="mini-card">
-                <div class="mini-icon">🏓</div>
-                <h4>Pickleball</h4>
-                <p>Trends &amp; Turniere</p>
-                <div class="btn-group">
-                    <a href="nostr:npub1h5xdlu6pyg4cw6d88f7x8mrssvv5dmey0pdfdxmwv086tmtzg4lsun23sm" class="btn btn-primary">Folgen</a>
-                    <a href="https://primal.net/p/npub1h5xdlu6pyg4cw6d88f7x8mrssvv5dmey0pdfdxmwv086tmtzg4lsun23sm" target="_blank" rel="noopener" class="btn btn-secondary">Web</a>
-                </div>
-            </div>
-            <div class="mini-card">
-                <div class="mini-icon">🎮</div>
-                <h4>eSports</h4>
-                <p>Gaming &amp; Turniere</p>
-                <div class="btn-group">
-                    <a href="nostr:npub1c7nsvq95n9e8h9ujn8d5ds0ad6u3gw9tqydujpr597ela2f8677qqpmgra" class="btn btn-primary">Folgen</a>
-                    <a href="https://primal.net/p/npub1c7nsvq95n9e8h9ujn8d5ds0ad6u3gw9tqydujpr597ela2f8677qqpmgra" target="_blank" rel="noopener" class="btn btn-secondary">Web</a>
-                </div>
-            </div>
-            <div class="mini-card">
-                <div class="mini-icon">🏋️‍♀️</div>
-                <h4>Fitness</h4>
-                <p>Workouts &amp; Health</p>
-                <div class="btn-group">
-                    <a href="nostr:npub1a3l582klswspjd5ds2fpwgqp9l9fjtj72tqr5tk565ahx96cekzsjyc2jd" class="btn btn-primary">Folgen</a>
-                    <a href="https://primal.net/p/npub1a3l582klswspjd5ds2fpwgqp9l9fjtj72tqr5tk565ahx96cekzsjyc2jd" target="_blank" rel="noopener" class="btn btn-secondary">Web</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ONBOARDING -->
-    <section id="start">
+    <section class="nostr-section" id="start">
         <h2>So folgst du den Bots</h2>
-        <p class="section-sub">Noch keinen Nostr-Client? In unter zwei Minuten bist du dabei – ganz ohne E-Mail oder Telefonnummer.</p>
+        <p class="section-sub">In unter zwei Minuten startklar – ohne E-Mail und ohne Telefonnummer.</p>
         <div class="steps-grid">
-            <div class="step-card">
+            <article class="step-card">
                 <span class="step-num">1</span>
                 <h3>App wählen</h3>
-                <p>Lade dir einen Nostr-Client. Primal läuft im Browser und auf dem Handy, Damus ist für iPhone, Amethyst für Android.</p>
-            </div>
-            <div class="step-card">
+                <p>Primal (Web &amp; Mobile), Damus (iOS) oder Amethyst (Android).</p>
+            </article>
+            <article class="step-card">
                 <span class="step-num">2</span>
-                <h3>Profil erstellen</h3>
-                <p>In Sekunden erstellt – ohne E-Mail und ohne Telefonnummer. Sichere deinen privaten Schlüssel (nsec) gut auf. Er ist dein Login.</p>
-            </div>
-            <div class="step-card">
+                <h3>Schlüssel sichern</h3>
+                <p>Dein privater Schlüssel (nsec) ist dein Login. Sicher speichern – er ist nicht wiederherstellbar.</p>
+            </article>
+            <article class="step-card">
                 <span class="step-num">3</span>
-                <h3>Bots folgen</h3>
-                <p>Tippe oben bei einem Bot auf „In App öffnen" und drücke auf Folgen. Fertig – ab jetzt landen die News direkt in deinem Feed.</p>
-            </div>
+                <h3>Bot folgen</h3>
+                <p>„In App öffnen“ tippen und Folgen. Ab dann landen die Posts in deinem Feed.</p>
+            </article>
         </div>
         <div class="client-links">
-            <a href="https://primal.net" target="_blank" rel="noopener">Primal (Web · iOS · Android)</a>
-            <a href="https://damus.io" target="_blank" rel="noopener">Damus (iOS)</a>
-            <a href="https://play.google.com/store/apps/details?id=com.vitorpamplona.amethyst" target="_blank" rel="noopener">Amethyst (Android)</a>
+            <a href="https://primal.net" target="_blank" rel="noopener noreferrer">Primal</a>
+            <a href="https://damus.io" target="_blank" rel="noopener noreferrer">Damus</a>
+            <a href="https://play.google.com/store/apps/details?id=com.vitorpamplona.amethyst" target="_blank" rel="noopener noreferrer">Amethyst</a>
         </div>
     </section>
 
-    <!-- SUPPORT -->
-    <section id="support">
+    <section class="nostr-section" id="support">
         <div class="support-box">
-            <h3>⚡ Support The Mission</h3>
-            <p>Gefällt dir das Projekt? Sende einen Zap und halte die Bots am Laufen.</p>
+            <h3>Support the Mission</h3>
+            <p>Gefällt dir das Projekt? Ein Zap hält die Kanäle am Laufen.</p>
             <span class="zap-address">humanraft81@walletofsatoshi.com</span>
         </div>
     </section>
 
     <div id="footer-placeholder"></div>
     <script src="/main.js"></script>
-
-    <script>
-        // Animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.benefit-card, .profile-card, .mini-card, .step-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease-out';
-            observer.observe(el);
-        });
-    </script>
+    <script src="/js/bots-catalog.js"></script>
 </body>
 </html>

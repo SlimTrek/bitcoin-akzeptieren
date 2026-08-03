@@ -15,7 +15,7 @@ Same pattern as Project Phoenix — scripts live in this repo root:
 
 If this clone sits under Project Phoenix, you can also use `Sync-Website-Start.cmd` / `Sync-Website-Ende.cmd` in the Phoenix root (thin launchers into this folder).
 
-Do not delete `.well-known/nostr.json` or `bots/` without intent (NIP-05 + bot avatars).
+Do not delete `.well-known/nostr.json` or `bots/` without intent (NIP-05 + bot avatars). The Nostr marketing page (`nostr.html`) renders bots from `bots/catalog.json` via `js/bots-catalog.js` — update the catalog (or run `Nostr_Bot_Army/tools/export_website_bots_catalog.py`) when bots change; do not hardcode bot cards again.
 
 Legal pages: `impressum.html`, `datenschutz.html` (linked from footer). SEO hygiene: `sitemap.xml`, `robots.txt`, `favicon.svg`, plus canonical/OG/Twitter tags on HTML pages.
 
