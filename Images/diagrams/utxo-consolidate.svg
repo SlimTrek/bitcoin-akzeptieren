@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img" aria-labelledby="title desc">
+  <title id="title">UTXO Konsolidierung</title>
+  <desc id="desc">Viele kleine Münzen werden zu einer grossen Münze konsolidiert, damit künftige Gebühren sinken.</desc>
+  <style>
+    .box { fill: #0e0e0e; stroke: rgba(255,255,255,0.12); stroke-width: 1.5; }
+    .box-hot { fill: rgba(247,147,26,0.12); stroke: rgba(247,147,26,0.45); stroke-width: 1.5; }
+    .lbl { fill: #f4f4f5; font-family: "DM Sans", system-ui, sans-serif; font-size: 14px; font-weight: 700; }
+    .sub { fill: #a1a1aa; font-family: "DM Sans", system-ui, sans-serif; font-size: 11.5px; }
+    .coin { fill: rgba(247,147,26,0.35); stroke: #f7931a; stroke-width: 1.2; }
+    .coin-big { fill: #f7931a; }
+    .arr { stroke: #f7931a; stroke-width: 2; fill: none; marker-end: url(#m); }
+    .n { fill: #f7931a; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 700; }
+  </style>
+  <defs>
+    <marker id="m" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#f7931a"/>
+    </marker>
+  </defs>
+  <rect class="box" x="20" y="28" width="240" height="144" rx="12"/>
+  <text class="n" x="36" y="52">VORHER</text>
+  <text class="lbl" x="36" y="78">Viele kleine UTXOs</text>
+  <text class="sub" x="36" y="98">z. B. 52 Sparplan-Münzen</text>
+  <circle class="coin" cx="56" cy="138" r="10"/>
+  <circle class="coin" cx="84" cy="138" r="10"/>
+  <circle class="coin" cx="112" cy="138" r="10"/>
+  <circle class="coin" cx="140" cy="138" r="10"/>
+  <circle class="coin" cx="168" cy="138" r="10"/>
+  <circle class="coin" cx="196" cy="138" r="10"/>
+  <text class="sub" x="210" y="142">&</text>
+  <path class="arr" d="M278 100 H322"/>
+  <text class="sub" x="280" y="88">selbst senden</text>
+  <rect class="box-hot" x="334" y="28" width="286" height="144" rx="12"/>
+  <text class="n" x="350" y="52">NACHHER</text>
+  <text class="lbl" x="350" y="78">Eine grosse UTXO</text>
+  <text class="sub" x="350" y="98">weniger Bytes · günstigere Spends</text>
+  <circle class="coin-big" cx="470" cy="142" r="22"/>
+</svg>

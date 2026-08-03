@@ -33,6 +33,11 @@
         <div class="content">
             <p>Im Artikel zum Backup hast du gelernt, dass eine Passphrase deine 24 Wörter um eine zusätzliche Sicherheitsebene ergänzen kann. Dieser Artikel geht tiefer: Wie funktioniert das technisch genau, welche mächtigen Möglichkeiten (und Fallstricke) bringt die Passphrase mit sich, und worauf musst du unbedingt achten, bevor du sie produktiv einsetzt?</p>
 
+            <figure class="diagram-figure">
+                <img src="/Images/diagrams/passphrase-layers.svg" width="640" height="200" alt="Seed plus Passphrase erzeugen ein anderes Wallet" loading="lazy" decoding="async">
+                <figcaption>Seed und Passphrase nie am selben Ort. Ein Tippfehler öffnet oft unbemerkt ein leeres Wallet.</figcaption>
+            </figure>
+
             <h2>Wie die Passphrase technisch funktioniert</h2>
             <p>Deine 12 oder 24 Wörter (der BIP39-Seed) werden zusammen mit einer optionalen Passphrase durch eine kryptografische Funktion geschickt, um den eigentlichen "Master Key" deiner Wallet zu erzeugen. Ohne Passphrase entsteht daraus immer derselbe Master Key. Fügst du eine Passphrase hinzu – und sei es nur ein einziges zusätzliches Zeichen – entsteht ein komplett anderer, aber genauso gültiger Master Key. Mathematisch betrachtet erzeugt jede beliebige Passphrase (inklusive der leeren) ein eigenes, gültiges Wallet, das aus denselben 24 Wörtern hervorgeht.</p>
 

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img" aria-labelledby="title desc">
+  <title id="title">Bitcoin Steuern Schweiz privat</title>
+  <desc id="desc">Privatvermögen: oft steuerfreier Kapitalgewinn, aber Vermögenssteuer und saubere Dokumentation.</desc>
+  <style>
+    .box { fill: #0e0e0e; stroke: rgba(255,255,255,0.12); stroke-width: 1.5; }
+    .box-hot { fill: rgba(247,147,26,0.12); stroke: rgba(247,147,26,0.45); stroke-width: 1.5; }
+    .box-warn { fill: rgba(239,68,68,0.08); stroke: rgba(239,68,68,0.4); stroke-width: 1.5; }
+    .lbl { fill: #f4f4f5; font-family: "DM Sans", system-ui, sans-serif; font-size: 13.5px; font-weight: 700; }
+    .sub { fill: #a1a1aa; font-family: "DM Sans", system-ui, sans-serif; font-size: 11px; }
+    .n { fill: #f7931a; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11px; font-weight: 700; }
+  </style>
+  <rect class="box-hot" x="16" y="36" width="190" height="120" rx="12"/>
+  <text class="n" x="32" y="60">1 · GEWINN</text>
+  <text class="lbl" x="32" y="92">Kapitalgewinn</text>
+  <text class="sub" x="32" y="114">Privatanleger oft</text>
+  <text class="sub" x="32" y="132">steuerfrei (Halten)</text>
+  <rect class="box" x="222" y="36" width="190" height="120" rx="12"/>
+  <text class="n" x="238" y="60">2 · VERMÖGEN</text>
+  <text class="lbl" x="238" y="92">Vermögenssteuer</text>
+  <text class="sub" x="238" y="114">Bestand per 31.12.</text>
+  <text class="sub" x="238" y="132">ESTV-Kurs / Deklaration</text>
+  <rect class="box-warn" x="428" y="36" width="196" height="120" rx="12"/>
+  <text class="n" x="444" y="60">3 · ACHTUNG</text>
+  <text class="lbl" x="444" y="92">Gewerbsmässig?</text>
+  <text class="sub" x="444" y="114">Viel Trading / Leverage</text>
+  <text class="sub" x="444" y="132">’ andere Regeln</text>
+  <text class="sub" x="16" y="178">Keine Steuerberatung  bei Unsicherheit Treuhänder / ESTV-Kanton abklären.</text>
+</svg>

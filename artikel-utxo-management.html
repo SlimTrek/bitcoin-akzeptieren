@@ -33,7 +33,12 @@
         </div>
         <div class="content">
             <p>Hast du dich schon einmal gewundert, warum eine Bitcoin-Transaktion manchmal 50 Rappen und ein anderes Mal 10 Franken kostet, obwohl der Betrag derselbe ist? Die Antwort liegt im <strong>UTXO-Modell</strong> (Unspent Transaction Output).</p>
-            
+
+            <figure class="diagram-figure">
+                <img src="/Images/diagrams/utxo-consolidate.svg" width="640" height="200" alt="Viele kleine UTXOs werden zu einer grossen UTXO konsolidiert" loading="lazy" decoding="async">
+                <figcaption>Viele kleine „Münzen“ im Sparschwein → bei niedrigen Gebühren an dich selbst senden → eine grosse UTXO für günstige spätere Spends.</figcaption>
+            </figure>
+
             <h2>Das Sparschwein-Prinzip</h2>
             <p>Stell dir dein Bitcoin-Wallet nicht wie ein Bankkonto mit einem Saldo vor, sondern wie ein durchsichtiges Sparschwein.</p>
             <p>Jedes Mal, wenn du Bitcoin kaufst (z.B. einen wöchentlichen Sparplan über 50 CHF), wirfst du eine neue Münze in das Sparschwein. Nach einem Jahr hast du 52 einzelne Münzen darin liegen. Dein Wallet zeigt dir zwar den Gesamtwert an ("Summe: 2'600 CHF"), aber technisch gesehen besitzt du 52 separate Teile.</p>
