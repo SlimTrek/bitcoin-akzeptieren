@@ -8,6 +8,7 @@
   <url><loc>https://bitcoin-akzeptieren.ch/about.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/empfehlungen.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/nostr.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bitcoin-akzeptieren.ch/digest.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/dca-rechner.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/sats-converter.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/impressum.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
@@ -36,4 +37,8 @@
   <url><loc>https://bitcoin-akzeptieren.ch/artikel-privacy-basics.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/artikel-bitcoin-kmu-akzeptanz.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/artikel-passphrase.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://bitcoin-akzeptieren.ch/thema-bitcoin-kaufen-schweiz.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://bitcoin-akzeptieren.ch/thema-bitcoin-steuern-schweiz.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://bitcoin-akzeptieren.ch/thema-hardware-wallet.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://bitcoin-akzeptieren.ch/thema-bitcoin-akzeptieren-kmu.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
 </urlset>

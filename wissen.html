@@ -59,6 +59,12 @@
         .lernpfade-banner p { margin: 0; color: #fff; font-size: 1rem; }
         .lernpfade-banner p strong { color: var(--primary); }
         .lernpfade-banner a.btn-lernpfad { flex-shrink: 0; display: inline-block; padding: 10px 22px; background: var(--primary); color: #000; font-weight: 700; border-radius: 50px; text-decoration: none; }
+        .themen-banner { max-width: 1000px; margin: 0 auto 50px; padding: 20px 28px; background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 16px; }
+        .themen-banner p.themen-label { margin: 0 0 14px; color: var(--text-muted); font-size: 0.9rem; }
+        .themen-banner p.themen-label strong { color: #fff; }
+        .themen-links { display: flex; gap: 12px; flex-wrap: wrap; }
+        .themen-links a { padding: 8px 18px; border-radius: 50px; border: 1px solid var(--border-light); background: rgba(255,255,255,0.03); color: #fff; font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: var(--transition); }
+        .themen-links a:hover { border-color: var(--primary); color: var(--primary); }
         .blog-container { max-width: 1200px; margin: 0 auto; padding: 0 5% 100px; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
         .article-card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; transition: var(--transition); opacity: 0; transform: translateY(20px); text-decoration: none;}
         .article-card.visible { opacity: 1; transform: translateY(0); }
@@ -84,6 +90,16 @@
     <div class="lernpfade-banner">
         <p>Nicht sicher, wo du anfangen sollst? <strong>Folge einem geführten Lernpfad</strong> statt einzelner Artikel.</p>
         <a class="btn-lernpfad" href="/lernpfade.html">Zu den Lernpfaden →</a>
+    </div>
+
+    <div class="themen-banner">
+        <p class="themen-label"><strong>Themen-Cluster:</strong> Vertiefe dich in ein Thema statt einzelne Artikel zu suchen.</p>
+        <div class="themen-links">
+            <a href="/thema-bitcoin-kaufen-schweiz.html">Bitcoin kaufen CH →</a>
+            <a href="/thema-bitcoin-steuern-schweiz.html">Bitcoin Steuern →</a>
+            <a href="/thema-hardware-wallet.html">Hardware Wallet →</a>
+            <a href="/thema-bitcoin-akzeptieren-kmu.html">Bitcoin für KMU →</a>
+        </div>
     </div>
 
     <div class="filter-row"><span class="filter-label">Kategorie</span></div>

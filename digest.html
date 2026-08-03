@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Updates & Digest von Bitcoin Akzeptieren: kein Newsletter-Spam, sondern Nostr folgen oder auf Wunsch eine kurze E-Mail bei grösseren Updates.">
+    <title>Updates & Digest – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/digest.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/digest.html">
+    <meta property="og:title" content="Updates & Digest – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Updates & Digest von Bitcoin Akzeptieren: kein Newsletter-Spam, sondern Nostr folgen oder auf Wunsch eine kurze E-Mail bei grösseren Updates.">
+    <meta property="og:site_name" content="Bitcoin Akzeptieren">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Updates & Digest – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Updates & Digest von Bitcoin Akzeptieren: kein Newsletter-Spam, sondern Nostr folgen oder auf Wunsch eine kurze E-Mail bei grösseren Updates.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Syne:wght@700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/site.css">
+    <style>
+        :root { --primary: #f7931a; --bg-dark: #0a0a0a; --bg-card: rgba(255, 255, 255, 0.03); --text-main: #ffffff; --text-muted: #a3a3a3; --border-light: rgba(255, 255, 255, 0.1); --transition: all 0.3s ease; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background-color: var(--bg-dark); color: var(--text-main); line-height: 1.7; }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        nav { position: fixed; top: 0; left: 0; width: 100%; padding: 15px 5%; background: rgba(10, 10, 10, 0.8); backdrop-filter: blur(12px); z-index: 100; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); }
+        .logo { font-weight: 800; font-size: 1.2rem; color: var(--primary); display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo:hover { text-decoration: none; }
+        .nav-links { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; flex-wrap: wrap; }
+        .nav-links a { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; text-decoration: none; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); text-decoration: none; }
+        .menu-toggle { display: none; cursor: pointer; font-size: 1.5rem; color: var(--text-main); }
+        footer { background: #000; padding: 80px 5% 40px; border-top: 1px solid var(--border-light); font-size: 0.9rem; color: var(--text-muted); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 60px; max-width: 1200px; margin: 0 auto 60px; }
+        .footer-col h4 { color: #fff; margin-bottom: 20px; font-size: 1.1rem; }
+        .footer-col ul { list-style: none; padding: 0; }
+        .footer-col li { margin-bottom: 10px; }
+        .footer-col a { color: var(--text-muted); transition: color 0.3s; text-decoration: none; }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-bottom { text-align: center; border-top: 1px solid var(--border-light); padding-top: 30px; font-size: 0.8rem; }
+        header { padding: 160px 20px 60px; text-align: center; max-width: 800px; margin: 0 auto; }
+        header h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 12px; }
+        header p { color: var(--text-muted); }
+        .content { max-width: 800px; margin: 0 auto; padding: 0 5% 100px; }
+        .card { background: var(--bg-card); border: 1px solid var(--border-light); border-radius: 16px; padding: 32px; margin-bottom: 24px; }
+        .card h2 { margin-top: 0; color: var(--primary); font-size: 1.3rem; }
+        .card p, .card li { color: var(--text-muted); }
+        .card ul { padding-left: 1.2rem; }
+        .note { font-size: 0.85rem; color: #777; }
+        .btn-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+        .btn-digest { display: inline-block; padding: 12px 26px; border-radius: 50px; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: var(--transition); }
+        .btn-digest-primary { background: var(--primary); color: #000; }
+        .btn-digest-primary:hover { background: #e0820b; text-decoration: none; }
+        .btn-digest-ghost { background: transparent; color: var(--text-main); border: 1px solid var(--border-light); }
+        .btn-digest-ghost:hover { border-color: var(--primary); color: var(--primary); text-decoration: none; }
+        @media (max-width: 768px) {
+            .nav-links { position: absolute; top: 70px; left: 0; width: 100%; background: #0a0a0a; flex-direction: column; padding: 20px 0; clip-path: circle(0% at 100% 0); transition: 0.5s; border-bottom: 1px solid var(--border-light); }
+            .nav-links.active { clip-path: circle(150% at 100% 0); }
+            .menu-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <header>
+        <h1>Updates & Digest</h1>
+        <p>Kein Newsletter, kein Spam. Zwei Wege, um auf dem Laufenden zu bleiben.</p>
+    </header>
+
+    <div class="content">
+        <div class="card">
+            <h2>1. Auf Nostr folgen</h2>
+            <p>Der schnellste und dezentralste Weg: Folge den <a href="/nostr.html">Nostr-Kanälen</a> von Bitcoin Akzeptieren. Neue Artikel, Fallstudien und Projekt-Updates landen dort direkt in deinem Feed – ohne Algorithmus, ohne Zwischenhändler.</p>
+            <div class="btn-row">
+                <a href="/nostr.html" class="btn-digest btn-digest-primary">Zu den Nostr-Kanälen</a>
+            </div>
+        </div>
+        <div class="card">
+            <h2>2. Digest per E-Mail (auf Anfrage)</h2>
+            <p>Es gibt keine Newsletter-Software und keine automatische Verteilerliste im Hintergrund. Wenn du trotzdem gelegentlich per E-Mail über grössere Updates informiert werden willst (z.&nbsp;B. neue Lernpfade oder Fallstudien), schreib mir kurz „Digest-Interesse".</p>
+            <p>Deine Adresse wird dafür manuell und ausschliesslich für diesen Zweck notiert – erst nachdem du geschrieben hast, nicht vorher.</p>
+            <div class="btn-row">
+                <a href="mailto:patrik.bal.work@gmail.com?subject=Digest-Interesse" class="btn-digest btn-digest-ghost">Digest-Interesse per E-Mail</a>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Datenschutz</h2>
+            <p>Es existiert keine Tracking-Liste und kein Abo-System, solange du dich nicht aktiv per E-Mail meldest. Details zu Daten und eingebundenen Diensten findest du in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
+</body>
+</html>

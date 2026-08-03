@@ -66,7 +66,38 @@ function markActiveNavLink() {
     });
 }
 
+async function loadSiteConfig() {
+    if (window.BA_SITE) {
+        return;
+    }
+    await new Promise((resolve) => {
+        const script = document.createElement('script');
+        script.src = '/js/site-config.js';
+        script.onload = resolve;
+        script.onerror = resolve; // continue without analytics if missing
+        document.head.appendChild(script);
+    });
+}
+
+function enablePlausible() {
+    const domain = window.BA_SITE && window.BA_SITE.plausibleDomain;
+    if (!domain || typeof domain !== 'string' || !domain.trim()) {
+        return;
+    }
+    if (document.querySelector('script[data-domain][src*="plausible"]')) {
+        return;
+    }
+    const script = document.createElement('script');
+    script.defer = true;
+    script.dataset.domain = domain.trim();
+    script.src = 'https://plausible.io/js/script.js';
+    document.head.appendChild(script);
+}
+
 async function initSite() {
+    await loadSiteConfig();
+    enablePlausible();
+
     const navLoaded = await loadComponent('navbar-placeholder', '/navbar.html');
 
     if (navLoaded) {
