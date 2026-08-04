@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-03",
+  "updated": "2026-08-04",
   "operator": {
     "name": "Patrik Bal",
     "nip05": "patrik@bitcoin-akzeptieren.ch",
@@ -205,6 +205,26 @@
           "pubkey_hex": "fb473dd3225bdfc1f0535d6b420e93248d0b3c76719889b1ae689bb822b9854d",
           "nip05": "evtech@bitcoin-akzeptieren.ch",
           "avatar": "/bots/avatars/ev_mobility_bot.png",
+          "featured": false,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "protocol",
+      "title": "Protokoll & Dev",
+      "description": "Nostr-Entwicklung, NIPs und Relay-Themen.",
+      "bots": [
+        {
+          "id": "nostr_dev_bot",
+          "slug": "dev",
+          "display_name": "Nostr Dev News",
+          "tag": "Nostr Dev",
+          "blurb": "NIP-Drafts, Spec-Änderungen und was sie für Relays bedeuten.",
+          "npub": "npub1prd9l87ncnxwd4fj6kvw5546p5jpfe4ldyfc9p356ef2uc86zsaswmvax8",
+          "pubkey_hex": "08da5f9fd3c4cce6d532d598ea52ba0d2414e6bf6913828634d652ae60fa143b",
+          "nip05": "dev@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/nostr_dev_bot.png",
           "featured": false,
           "visible": true
         }
