@@ -77,6 +77,28 @@
     }
   }
 
+  function renderOperator(operator) {
+    const mount = document.getElementById("operator-card");
+    if (!mount || !operator || !operator.npub) {
+      return;
+    }
+    const name = escapeHtml(operator.name || "Operator");
+    const nip05 = escapeHtml(operator.nip05 || "");
+    const npub = encodeURIComponent(operator.npub);
+    mount.innerHTML =
+      `<article class="operator-card bot-card is-visible">` +
+      `<span class="bot-tag">Operator</span>` +
+      `<h3>${name}</h3>` +
+      (nip05 ? `<p class="bot-nip05">${nip05}</p>` : "") +
+      `<p class="bot-blurb">Mensch hinter den Bots — Bildung &amp; Mentoring auf dieser Website, Nostr als Nebenraum.</p>` +
+      `<div class="bot-actions">` +
+      `<a class="btn" href="nostr:${npub}">In App öffnen</a>` +
+      `<a class="btn-outline" href="https://primal.net/p/${npub}" target="_blank" rel="noopener noreferrer">Web</a>` +
+      `<a class="btn-outline" href="/about.html">About</a>` +
+      `</div>` +
+      `</article>`;
+  }
+
   function revealCards() {
     const cards = document.querySelectorAll(".bot-card, .benefit-card, .step-card");
     if (!("IntersectionObserver" in window)) {
@@ -109,6 +131,7 @@
         throw new Error("HTTP " + response.status);
       }
       const catalog = await response.json();
+      renderOperator(catalog.operator);
       mount.innerHTML = (catalog.groups || []).map(renderGroup).join("");
       updateStats(catalog);
       revealCards();

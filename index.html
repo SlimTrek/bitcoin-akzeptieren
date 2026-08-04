@@ -17,8 +17,9 @@
     <meta name="twitter:title" content="Bitcoin Akzeptieren – Wissen, Beratung &amp; Souveränität">
     <meta name="twitter:description" content="Schweizer Bitcoin-Wissensplattform: Self-Custody, Lightning für Händler, Mentoring und praxisnahe Anleitungen – von Patrik.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="/Images/Backround.jpg" fetchpriority="high">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/home.css">
     <script type="application/ld+json">
@@ -386,8 +387,16 @@
             }
         }
         
-        fetchMarketData();
-        setInterval(fetchMarketData, 60000);
+        // Nach First Paint: Live-Widgets nicht im kritischen Pfad
+        const startMarket = () => {
+            fetchMarketData();
+            setInterval(fetchMarketData, 60000);
+        };
+        if ("requestIdleCallback" in window) {
+            requestIdleCallback(startMarket, { timeout: 2000 });
+        } else {
+            setTimeout(startMarket, 1);
+        }
     </script>
 </body>
 </html>

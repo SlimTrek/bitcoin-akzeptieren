@@ -39,9 +39,11 @@
   <url><loc>https://bitcoin-akzeptieren.ch/artikel-lightning-kanal.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/artikel-privacy-basics.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/artikel-bitcoin-kmu-akzeptanz.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://bitcoin-akzeptieren.ch/artikel-bitcoin-kmu-buchhaltung.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/artikel-passphrase.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/thema-bitcoin-kaufen-schweiz.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/thema-bitcoin-steuern-schweiz.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/thema-hardware-wallet.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://bitcoin-akzeptieren.ch/thema-bitcoin-akzeptieren-kmu.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://bitcoin-akzeptieren.ch/thema-lightning.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
 </urlset>

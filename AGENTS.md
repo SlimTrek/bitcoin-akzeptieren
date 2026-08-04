@@ -19,7 +19,7 @@ Do not delete `.well-known/nostr.json` or `bots/` without intent (NIP-05 + bot a
 
 Legal pages: `impressum.html`, `datenschutz.html` (linked from footer). SEO hygiene: `sitemap.xml`, `robots.txt`, `favicon.svg`, plus canonical/OG/Twitter tags on HTML pages.
 
-SEO clusters (Phase 4): hub pages `thema-bitcoin-kaufen-schweiz.html`, `thema-bitcoin-steuern-schweiz.html`, `thema-hardware-wallet.html`, `thema-bitcoin-akzeptieren-kmu.html` (footer „Themen“, Wissen-Banner, Startseite). JSON-LD: FAQPage + WebSite/Person on `index.html`, FAQPage on `bitcoin-beratung-und-coaching.html`, BreadcrumbList on thema hubs.
+SEO clusters (Phase 4+): hub pages `thema-bitcoin-kaufen-schweiz.html`, `thema-bitcoin-steuern-schweiz.html`, `thema-hardware-wallet.html`, `thema-lightning.html`, `thema-bitcoin-akzeptieren-kmu.html` (footer „Themen“, Wissen-Banner, Startseite). JSON-LD: FAQPage + WebSite/Person on `index.html`, FAQPage on `bitcoin-beratung-und-coaching.html`, BreadcrumbList on thema hubs. KMU deep-dive: `artikel-bitcoin-kmu-buchhaltung.html`.
 
 Analytics (Phase 4): optional Plausible Analytics, off by default. Toggle via `js/site-config.js` → `window.BA_SITE.plausibleDomain` (empty string = disabled). `main.js` loads that config on `DOMContentLoaded` and injects the Plausible script only if a domain is set; documented in `datenschutz.html`. `digest.html` is an interest-only "Updates & Digest" page — no newsletter backend, just a link to follow on Nostr or an optional `mailto:` "Digest-Interesse" request (linked from footer under Community).
 
