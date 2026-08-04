@@ -73,7 +73,7 @@
         "Fragen offen?",
         "Praxis"
       ],
-      "body": "Bitcoin kaufen in der Schweiz – Anleitung – Bitcoin Akzeptieren Start > Wissen > Bitcoin Kaufen Der einfachste Weg, in der Schweiz Bitcoin zu kaufen Kategorie: Praxis Lesezeit: 4 Min. Level: Beginner Wenn du in der Schweiz lebst, hast du einen riesigen Vorteil: Wir haben eines der besten Ökosysteme für Bitcoin weltweit. Trotzdem wirkt der erste Kauf für viele kompliziert. Muss ich mich mit Ausweis registrieren? Welche Börse ist sicher? Was sind private Keys? In diesem Artikel zeige ich dir, warum ich für Einsteiger und Sparer fast ausschliesslich Schweizer \"Bitcoin-only\" Apps empfehle und wie du in weniger als 10 Minuten deine ersten Satoshis besitzt. Warum \"Bitcoin-only\" Apps? Grosse Krypto-Börsen (wie Binance oder Coinbase) sind oft überladen. Sie bieten tausende von \"Coins\" an, die oft keinen langfristigen Wert haben (sogenannte Shitcoins). Dazu kommt, dass der Anmeldeprozess oft mühsam ist und Tage dauert. Schweizer Anbieter wie Relai gehen einen anderen Weg: Fokus: Nur Bitcoin. Keine Ablenkung. Einfachheit: Keine Registrierung nötig (bis zu gewissen Limits). Self-Custody: Die Bitcoin landen direkt auf deiner Wallet in der App, nicht bei der Börse. Das Thema KYC (Know Your Customer) Normalerweise musst du bei Banken deinen Pass scannen und Selfies machen (KYC). In der Schweiz erlaubt die Regulierung jedoch den Kauf von kleinen Mengen (bis zu 1'000 CHF pro Tag und 100'000 CH",
+      "body": "Bitcoin kaufen in der Schweiz – Anleitung – Bitcoin Akzeptieren Start > Wissen > Bitcoin Kaufen Der einfachste Weg, in der Schweiz Bitcoin zu kaufen Kategorie: Praxis Lesezeit: 4 Min. Level: Beginner Wenn du in der Schweiz lebst, hast du einen riesigen Vorteil: Wir haben eines der besten Ökosysteme für Bitcoin weltweit. Trotzdem wirkt der erste Kauf für viele kompliziert. Muss ich mich mit Ausweis registrieren? Welche Börse ist sicher? Was sind private Keys? In diesem Artikel zeige ich dir, warum ich für Einsteiger und Sparer fast ausschliesslich Schweizer \"Bitcoin-only\" Apps empfehle und wie du in weniger als 10 Minuten deine ersten Satoshis besitzt. Warum \"Bitcoin-only\" Apps? Grosse Krypto-Börsen (wie Binance oder Coinbase) sind oft überladen. Sie bieten tausende von \"Coins\" an, die oft keinen langfristigen Wert haben (sogenannte Shitcoins). Dazu kommt, dass der Anmeldeprozess oft mühsam ist und Tage dauert. Schweizer Anbieter wie Relai gehen einen anderen Weg: Fokus: Nur Bitcoin. Keine Ablenkung. Einfachheit: Keine Registrierung nötig (bis zu gewissen Limits). Self-Custody: Du erhältst eine eigene Hot-Wallet mit Private Key — die Coins liegen nicht bei Relai als Börsen-Guthaben.",
       "boost": 1.25
     },
     {
@@ -557,7 +557,7 @@
       "type": "Fallstudie",
       "category": "Fallstudie",
       "level": "",
-      "description": "Illustratives Beispiel: Typischer Weg Relai → BitBox → Letter of Instruction. Kein echter Kundenfall, keine Anlage- oder Rechtsberatung.",
+      "description": "Illustratives Beispiel: Relai-Hot-Wallet → BitBox Cold Storage → Letter of Instruction. Kein echter Kundenfall.",
       "keywords": [
         "case",
         "notfallplan",
@@ -569,7 +569,7 @@
         "Weiterlesen",
         "Ähnliche Ausgangslage?"
       ],
-      "body": "Beispiel: Relai, BitBox und Notfallplan – Bitcoin Akzeptieren Fallstudien > Notfallplan Illustrativ Self-Custody Vererben Relai, BitBox und Notfallplan Szenario: Sparplan ohne Nachlass-Klarheit Typische Dauer: ca. 4 Wochen berufsbegleitend Fokus: Mentoring + Letter of Instruction Hinweis: Illustratives Beispiel / typisches Szenario — kein dokumentierter Kundenfall. Keine Anlage-, Steuer- oder Rechtsberatung. Testament und Erbschaftsfragen gehören zum Treuhänder/Notar; hier geht es um technische Klarheit für Angehörige. Ausgangslage (Szenario) Stell dir vor: Jemand in der Schweiz spart seit einiger Zeit über Relai in Bitcoin, die Coins liegen aber noch ganz oder teilweise auf der App bzw. einer Börse. Hardware Wallet und Stahl-Backup sind «irgendwann» geplant. Gleichzeitig gibt es Partner:in oder Kinder — und niemanden, der im Ernstfall wüsste, wo die Keys sind und wie man sie nutzt. Die Angst: nicht nur Verlust der Coins bei einem Börsenproblem, sondern auch ein digitaler Totalschaden für die Familie. Ziel Drei klare Ergebnisse: (1) laufende Käufe bleiben einfach, (2) Bestand liegt in Self-Custody mit getestetem Backup, (3) ein Letter of Instruction erklärt Angehörigen den Weg — ohne Seed Phrase im Testament. Schritte (typischer Ablauf) Bestand & Risiko klären: Was liegt wo (App, Exchange, bereits eigene Wallet)? Welches Sicherheitsniveau ist realistisch — ohne Overnight-Multis",
+      "body": "Beispiel: Relai, BitBox und Notfallplan – Bitcoin Akzeptieren Fallstudien &gt; Notfallplan Illustrativ Self-Custody Vererben Relai, BitBox und Notfallplan Szenario: Sparplan ohne Nachlass-Klarheit Typische Dauer: ca. 4 Wochen berufsbegleitend Fokus: Mentoring + Letter of Instruction Hinweis: Illustratives Beispiel / typisches Szenario — kein dokumentierter Kundenfall. Keine Anlage-, Steuer- oder Rechtsberatung. Testament und Erbschaftsfragen gehören zum Treuhänder/Notar; hier geht es um technische Klarheit für Angehörige. Ausgangslage (Szenario) Stell dir vor: Jemand in der Schweiz spart seit einiger Zeit über Relai in Bitcoin. Relai ist non-custodial (eigene Keys in der App-Hot-Wallet) — trotzdem liegen grössere Beträge oft nur auf dem Handy, Seed und Hardware Wallet sind «irgendwann» geplant. Gleichzeitig gibt es Partner:in oder Kinder — und niemanden, der im Ernstfall wüsste, wo die Keys sind und wie man sie nutzt. Die Angst: Handy-Verlust oder ungeprüftes Backup — und ein digitaler Totalschaden für die Familie. Ziel Drei klare Ergebnisse: (1) laufende Käufe bleiben einfach, (2) Bestand liegt in Self-Custody mit getestetem Backup, (3) ein Letter of Instruction erklärt Angehörige",
       "boost": 1.0
     },
     {
@@ -1593,13 +1593,13 @@
       "type": "Begriff",
       "category": "Glossar",
       "level": "",
-      "description": "Eine Schweizer App, um extrem einfach Bitcoin zu kaufen. Code PATRIK nutzen .",
+      "description": "Schweizer Bitcoin-App: non-custodial Hot-Wallet mit eigenen Keys, Kauf mit möglichem KYC.",
       "keywords": [
         "Relai",
         "glossar",
         "definition"
       ],
-      "body": "Eine Schweizer App, um extrem einfach Bitcoin zu kaufen. Code PATRIK nutzen .",
+      "body": "Relai: Schweizer Bitcoin-App, non-custodial Hot-Wallet mit eigenen Keys, Kauf mit möglichem KYC. Code PATRIK.",
       "boost": 1.4
     },
     {
@@ -1848,19 +1848,20 @@
       "type": "Artikel",
       "category": "Praxis",
       "level": "Einstieg",
-      "description": "Du hast Bitcoin gekauft — und jetzt? Abheben, Backup testen, Hardware Wallet später. Praxis-Checkliste für die Schweiz.",
+      "description": "Relai: Keys schon dein — Seed prüfen, grosse Beträge auf Hardware. Bei Custody-Börsen zuerst abheben.",
       "keywords": [
         "nach dem kauf",
-        "abheben",
-        "withdraw",
-        "self custody",
-        "erste schritte",
-        "test transaktion",
+        "relai",
+        "non-custodial",
         "seed",
         "backup",
-        "relai",
-        "boerse"
-      ]
+        "hardware wallet",
+        "abheben",
+        "boerse",
+        "hot wallet",
+        "bitbox"
+      ],
+      "body": "Nach dem Kauf: Erste sichere Schritte – Bitcoin Akzeptieren Wissen > Praxis Nach dem Kauf: Was du als Nächstes tun solltest Kategorie: Praxis Lesezeit: 7 Min. Level: Einstieg Der Kauf fühlt sich fertig an — oft ist der nächste Schritt aber ein anderer, je nachdem wo du gekauft hast. Wichtig: Relai ist keine Custody-Börse . Du bekommst eine eigene Hot-Wallet mit Private Key; die Coins liegen nicht als IOU bei Relai. KYC kann trotzdem anfallen — das ändert nichts an der Key-Hoheit. Dieser Text trennt die zwei Wege klar. Keine Anlageberatung — nur die Reihenfolge, die am wenigsten schiefgeht. Relai-Pfad: Keys schon dein → Seed prüfen → grosse Beträge auf Hardware. Custody-Börse: zuerst abheben (gestrichelt). 1. Relai: Seed sichern — kein „Abheben“ nötig Bei Relai sind die Keys bereits deine. Priorität Nr.&nbsp;1: die Seed Phrase offline aufschreiben und einen Restore testen (Zweitgerät oder Reset-Übung). Ohne geprüftes Backup ist die App nur so sicher wie dein Handy. Vertiefung: Seed-Backup Stufen und die Kauf-Anleitung Bitcoin kaufen Schweiz . 2. Custody-Börse: erst abheben Bei klassischen Börsen (Coins auf dem Börsenkonto) gilt weiter: kleine Test-Transaktion auf eine Adresse, deren"
     }
   ]
 }

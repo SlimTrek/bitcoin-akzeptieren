@@ -1,30 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
   <title>Nach dem Kauf</title>
-  <desc>Kaufen, abheben, Backup testen, optional Hardware Wallet.</desc>
+  <desc>Relai: Keys schon dein. Seed pruefen. Grosse Betraege auf Hardware. Boerse separat abheben.</desc>
   <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
-  <rect x="14" y="40" width="130" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <rect x="14" y="40" width="130" height="120" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
   <text x="26" y="70" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">01</text>
-  <text x="26" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Gekauft</text>
-  <text x="26" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Noch custodial</text>
-  <text x="26" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">App / Boerse</text>
+  <text x="26" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Relai</text>
+  <text x="26" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Keys schon dein</text>
+  <text x="26" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">kein Abheben</text>
   <path d="M156 100 H176" stroke="#f7931a" stroke-width="2.5" fill="none"/>
   <polygon points="176,94 190,100 176,106" fill="#f7931a"/>
-  <rect x="202" y="40" width="130" height="120" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <rect x="202" y="40" width="130" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
   <text x="214" y="70" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">02</text>
-  <text x="214" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Abheben</text>
-  <text x="214" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Kleine Test-Tx</text>
-  <text x="214" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">dann Rest</text>
+  <text x="214" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Seed</text>
+  <text x="214" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">offline + Restore</text>
+  <text x="214" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Handy ist Hot</text>
   <path d="M344 100 H364" stroke="#f7931a" stroke-width="2.5" fill="none"/>
   <polygon points="364,94 378,100 364,106" fill="#f7931a"/>
   <rect x="390" y="40" width="110" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
   <text x="402" y="70" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">03</text>
-  <text x="402" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Backup</text>
-  <text x="402" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Seed offline</text>
-  <text x="402" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Restore testen</text>
-  <path d="M512 100 H530" stroke="#f7931a" stroke-width="2.5" fill="none"/>
-  <polygon points="530,94 544,100 530,106" fill="#f7931a"/>
-  <rect x="556" y="40" width="70" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
-  <text x="566" y="90" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="13" font-weight="700">HW</text>
-  <text x="562" y="114" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="10">optional</text>
-  <text x="564" y="132" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="10">spaeter</text>
+  <text x="402" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">BitBox</text>
+  <text x="402" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">grosse Betraege</text>
+  <text x="402" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Cold Storage</text>
+  <path d="M512 100 H530" stroke="#71717a" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
+  <rect x="542" y="40" width="82" height="120" rx="12" fill="#1c1c1e" stroke="#71717a" stroke-width="1.5"/>
+  <text x="552" y="88" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11" font-weight="700">Boerse?</text>
+  <text x="550" y="112" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="10">dann erst</text>
+  <text x="552" y="130" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="10">abheben</text>
 </svg>

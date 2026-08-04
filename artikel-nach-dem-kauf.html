@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Du hast Bitcoin gekauft — und jetzt? Abheben, Backup testen, Hardware Wallet später. Praxis-Checkliste für die Schweiz.">
+    <meta name="description" content="Du hast Bitcoin gekauft — und jetzt? Relai: Keys schon dein. Seed prüfen, grosse Beträge auf Hardware. Bei Custody-Börsen zuerst abheben.">
     <title>Nach dem Kauf: Erste sichere Schritte – Bitcoin Akzeptieren</title>
     <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-nach-dem-kauf.html">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-nach-dem-kauf.html">
     <meta property="og:title" content="Nach dem Kauf: Erste sichere Schritte – Bitcoin Akzeptieren">
-    <meta property="og:description" content="Du hast Bitcoin gekauft — und jetzt? Abheben, Backup testen, Hardware Wallet später. Praxis-Checkliste für die Schweiz.">
+    <meta property="og:description" content="Du hast Bitcoin gekauft — und jetzt? Relai: Keys schon dein. Seed prüfen, grosse Beträge auf Hardware. Bei Custody-Börsen zuerst abheben.">
     <meta property="og:site_name" content="Bitcoin Akzeptieren">
     <meta property="og:locale" content="de_CH">
     <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Nach dem Kauf: Erste sichere Schritte – Bitcoin Akzeptieren">
-    <meta name="twitter:description" content="Du hast Bitcoin gekauft — und jetzt? Abheben, Backup testen, Hardware Wallet später. Praxis-Checkliste für die Schweiz.">
+    <meta name="twitter:description" content="Du hast Bitcoin gekauft — und jetzt? Relai: Keys schon dein. Seed prüfen, grosse Beträge auf Hardware. Bei Custody-Börsen zuerst abheben.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="/css/article.css">
     <style>
@@ -31,33 +31,32 @@
         </div>
 
         <div class="content">
-            <p>Der Kauf über Relai oder eine Börse fühlt sich fertig an — ist er aber nicht. Solange die Coins auf dem Konto der App liegen, sind es IOUs. Self-Custody beginnt erst, wenn du auf eine Adresse abhebst, deren Keys du kontrollierst.</p>
-            <p>Dieser Text ist eine Checkliste für die Stunden und Tage danach. Keine Anlageberatung — nur die technische Reihenfolge, die am wenigsten schiefgeht.</p>
+            <p>Der Kauf fühlt sich fertig an — oft ist der nächste Schritt aber ein anderer, je nachdem <em>wo</em> du gekauft hast. Wichtig: <strong>Relai ist keine Custody-Börse</strong>. Du bekommst eine eigene Hot-Wallet mit Private Key; die Coins liegen nicht als IOU bei Relai. KYC kann trotzdem anfallen — das ändert nichts an der Key-Hoheit.</p>
+            <p>Dieser Text trennt die zwei Wege klar. Keine Anlageberatung — nur die Reihenfolge, die am wenigsten schiefgeht.</p>
 
             <figure class="diagram-figure">
-                <img src="/Images/diagrams/nach-dem-kauf.svg" width="640" height="200" alt="Gekauft, abheben, Backup, optional Hardware Wallet" loading="lazy" decoding="async">
-                <figcaption>Vier Stationen: custodial kaufen → abheben → Backup prüfen → Hardware Wallet wenn die Summe wächst.</figcaption>
+                <img src="/Images/diagrams/nach-dem-kauf.svg" width="640" height="200" alt="Relai: Keys schon dein, Seed prüfen, BitBox für grosse Beträge; Börse separat abheben" loading="lazy" decoding="async">
+                <figcaption>Relai-Pfad: Keys schon dein → Seed prüfen → grosse Beträge auf Hardware. Custody-Börse: zuerst abheben (gestrichelt).</figcaption>
             </figure>
 
-            <h2>1. Kleine Test-Transaktion zuerst</h2>
-            <p>Richte eine Wallet ein (Software für den Einstieg, später Hardware). Kopiere die Empfangsadresse, sende einen kleinen Betrag von der Börse/App, warte auf Bestätigungen. Stimmt der Betrag und die Adresse, hebst du den Rest nach.</p>
-            <p>Wer den ganzen Stack auf einmal an eine falsch kopierte Adresse schickt, lernt das Netzwerk auf die teure Art.</p>
+            <h2>1. Relai: Seed sichern — kein „Abheben“ nötig</h2>
+            <p>Bei Relai sind die Keys bereits deine. Priorität Nr.&nbsp;1: die Seed Phrase offline aufschreiben und einen Restore testen (Zweitgerät oder Reset-Übung). Ohne geprüftes Backup ist die App nur so sicher wie dein Handy.</p>
+            <p>Vertiefung: <a href="/artikel-backup-seed.html">Seed-Backup Stufen</a> und die Kauf-Anleitung <a href="/artikel-bitcoin-kaufen-schweiz.html">Bitcoin kaufen Schweiz</a>.</p>
 
-            <h2>2. Seed aufschreiben — und Restore testen</h2>
-            <p>Das Backup (12/24 Wörter) gehört offline auf Papier oder Stahl, nicht in Screenshots oder Cloud-Notizen. Danach: Wallet zurücksetzen oder auf einem Zweitgerät wiederherstellen und prüfen, ob der Saldo erscheint. Ein ungeprüftes Backup ist Hoffnung, kein Plan.</p>
-            <p>Vertiefung: <a href="/artikel-backup-seed.html">Seed-Backup Stufen</a>.</p>
+            <h2>2. Custody-Börse: erst abheben</h2>
+            <p>Bei klassischen Börsen (Coins auf dem Börsenkonto) gilt weiter: kleine Test-Transaktion auf eine Adresse, deren Keys du kontrollierst — dann den Rest. Wer den ganzen Stack an eine falsch kopierte Adresse schickt, lernt das Netzwerk auf die teure Art.</p>
 
-            <h2>3. Börse nicht als Langzeit-Tresor</h2>
-            <p>Für den nächsten DCA-Kauf darfst du die App behalten. Dauerhaft grosses Guthaben dort zu lassen, koppelt dich an deren Ausfälle, Hacks und Konto-Sperren. Zielbild: kaufen → abheben → ruhen lassen.</p>
+            <h2>3. Hot-Wallet vs. Cold Storage</h2>
+            <p>Relai als Sparplan-App behalten ist sinnvoll — sie ist Hot-Wallet, nicht Tresor. Sobald der Betrag wehtut, wenn das Handy weg wäre, gehören grössere Bestände auf eine Hardware Wallet (z.&nbsp;B. BitBox). Das ist ein Upgrade der Verwahrung, kein „Rausholen aus Relai-Custody“.</p>
 
             <h2>4. Hardware Wallet — wann?</h2>
-            <p>Nicht am Tag 1 Pflicht. Sobald der Betrag wehtut, wenn er weg wäre, lohnt ein Gerät wie BitBox. Keys bleiben on-device; du signierst am Gerät. Siehe <a href="/artikel-hardware-wallet-bitbox.html">Hardware Wallet</a>.</p>
+            <p>Nicht am Tag 1 Pflicht. Keys bleiben on-device; du signierst am Gerät. Siehe <a href="/artikel-hardware-wallet-bitbox.html">Hardware Wallet</a>.</p>
 
             <h2>5. Notfall und Erben mitdenken</h2>
-            <p>Self-Custody ohne Anleitung für Angehörige ist ein Risiko der anderen Art. Ein Letter of Instruction (ohne Seed im Brief) gehört früh dazu — nicht erst „irgendwann“. Siehe <a href="/artikel-bitcoin-vererben.html">Bitcoin vererben</a> und die Fallstudie <a href="/case-notfallplan.html">Notfallplan</a>.</p>
+            <p>Self-Custody ohne Anleitung für Angehörige ist ein Risiko der anderen Art. Ein Letter of Instruction (ohne Seed im Brief) gehört früh dazu. Siehe <a href="/artikel-bitcoin-vererben.html">Bitcoin vererben</a> und die Fallstudie <a href="/case-notfallplan.html">Notfallplan</a>.</p>
 
             <h2>Fazit</h2>
-            <p>Kaufen ist der einfache Teil. Die nächsten 48 Stunden entscheiden, ob du wirklich Bitcoin hältst — oder nur einen App-Saldo. Test-Tx, geprüftes Backup, Börse leeren: das ist der Einstiegspfad.</p>
+            <p>Bei Relai entscheidet die nächsten 48 Stunden vor allem: Seed geprüft? Bei einer Custody-Börse zusätzlich: Bestand abgehoben? Und sobald die Summe wächst: Cold Storage statt nur Handy.</p>
         </div>
     </article>
     <!-- PHASE1_ARTICLE_END -->

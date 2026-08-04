@@ -1,24 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
-  <title>Bitcoin kaufen Schweiz</title>
-  <desc>Relai oder Boerse, dann Abheben auf eigene Wallet, dann Seed-Backup.</desc>
+  <title>Relai Self-Custody Einstieg</title>
+  <desc>Relai Hot-Wallet mit eigenen Keys, Seed sichern, spaeter Hardware Wallet.</desc>
   <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
-  <rect x="18" y="36" width="170" height="128" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <rect x="18" y="36" width="170" height="128" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
   <text x="32" y="62" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">01</text>
-  <text x="32" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Kaufen</text>
-  <text x="32" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Relai / CH-Boerse</text>
-  <text x="32" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">KYC - CHF rein</text>
+  <text x="32" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Relai</text>
+  <text x="32" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Eigene Keys</text>
+  <text x="32" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Hot-Wallet + KYC</text>
   <path d="M200 100 H228" stroke="#f7931a" stroke-width="2.5" fill="none"/>
   <polygon points="228,94 242,100 228,106" fill="#f7931a"/>
-  <rect x="254" y="36" width="170" height="128" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <rect x="254" y="36" width="170" height="128" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
   <text x="268" y="62" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">02</text>
-  <text x="268" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Abheben</text>
-  <text x="268" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Eigene Adresse</text>
-  <text x="268" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">not your keys sonst</text>
+  <text x="268" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Seed sichern</text>
+  <text x="268" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">12 Woerter offline</text>
+  <text x="268" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Restore testen</text>
   <path d="M436 100 H464" stroke="#f7931a" stroke-width="2.5" fill="none"/>
   <polygon points="464,94 478,100 464,106" fill="#f7931a"/>
   <rect x="490" y="36" width="132" height="128" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
   <text x="504" y="62" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">03</text>
-  <text x="504" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Sichern</text>
-  <text x="504" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Seed / Hardware</text>
-  <text x="504" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Backup getrennt</text>
+  <text x="504" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">BitBox</text>
+  <text x="504" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Cold Storage</text>
+  <text x="504" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">wenn Summe waechst</text>
 </svg>
