@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Scam-Warnsignale</title>
+  <desc>Vier typische Warnsignale: Druck, Geheimhaltung, Fake-Apps, Seed abfragen.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="16" y="32" width="145" height="136" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="28" y="58" fill="#f7931a" font-family="system-ui,sans-serif" font-size="11" font-weight="700">FLAG 1</text>
+  <text x="28" y="92" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Zeitdruck</text>
+  <text x="28" y="116" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">"Nur heute"</text>
+  <text x="28" y="138" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Panik erzeugen</text>
+  <rect x="171" y="32" width="145" height="136" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="183" y="58" fill="#f7931a" font-family="system-ui,sans-serif" font-size="11" font-weight="700">FLAG 2</text>
+  <text x="183" y="92" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Geheim</text>
+  <text x="183" y="116" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">"Erzaehl niemandem"</text>
+  <text x="183" y="138" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Isolation</text>
+  <rect x="326" y="32" width="145" height="136" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="338" y="58" fill="#f7931a" font-family="system-ui,sans-serif" font-size="11" font-weight="700">FLAG 3</text>
+  <text x="338" y="92" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Fake-App</text>
+  <text x="338" y="116" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Links aus Chat</text>
+  <text x="338" y="138" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Falsche Stores</text>
+  <rect x="481" y="32" width="143" height="136" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="493" y="58" fill="#f7931a" font-family="system-ui,sans-serif" font-size="11" font-weight="700">FLAG 4</text>
+  <text x="493" y="92" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Seed fragen</text>
+  <text x="493" y="116" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Nie teilen</text>
+  <text x="493" y="138" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Sofort Abbruch</text>
+</svg>

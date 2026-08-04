@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Bitcoin vs Tokens</title>
+  <desc>Bitcoin als Geldnetz vs. Token mit Issuer und Roadmap.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="24" y="28" width="280" height="144" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="40" y="58" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">BITCOIN</text>
+  <text x="40" y="90" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="16" font-weight="700">Geldnetz</text>
+  <text x="40" y="116" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Feste Regeln, kein CEO</text>
+  <text x="40" y="138" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Knappheit + Sicherheit</text>
+  <text x="40" y="158" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Settlement Layer</text>
+  <rect x="336" y="28" width="280" height="144" rx="12" fill="#1c1c1e" stroke="#71717a" stroke-width="1.5"/>
+  <text x="352" y="58" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12" font-weight="700">VIELE TOKENS</text>
+  <text x="352" y="90" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="16" font-weight="700">Produkt / Equity</text>
+  <text x="352" y="116" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Team, Roadmap, Supply</text>
+  <text x="352" y="138" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Andere Risiko-Logik</text>
+  <text x="352" y="158" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Nicht automatisch Geld</text>
+</svg>

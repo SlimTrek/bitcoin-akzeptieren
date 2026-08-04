@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>KMU Buchhaltung Bitcoin</title>
+  <desc>Zahlung, CHF-Gegenwert am Stichtag, Beleg, Treuhaender.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="16" y="40" width="130" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="28" y="70" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">01</text>
+  <text x="28" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Zahlung</text>
+  <text x="28" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Lightning / on-chain</text>
+  <text x="28" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Rechnung klar</text>
+  <path d="M158 100 H180" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="180,94 194,100 180,106" fill="#f7931a"/>
+  <rect x="206" y="40" width="130" height="120" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="218" y="70" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">02</text>
+  <text x="218" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">CHF-Wert</text>
+  <text x="218" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Kurs am Tag</text>
+  <text x="218" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">eine Regel</text>
+  <path d="M348 100 H370" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="370,94 384,100 370,106" fill="#f7931a"/>
+  <rect x="396" y="40" width="110" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="408" y="70" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">03</text>
+  <text x="408" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Beleg</text>
+  <text x="408" y="122" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">Export / PDF</text>
+  <text x="408" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">nachvollziehbar</text>
+  <path d="M518 100 H536" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="536,94 550,100 536,106" fill="#f7931a"/>
+  <rect x="562" y="40" width="62" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="570" y="90" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="12" font-weight="700">TH</text>
+  <text x="568" y="112" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="10">Treu-</text>
+  <text x="568" y="128" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="10">hand</text>
+</svg>
