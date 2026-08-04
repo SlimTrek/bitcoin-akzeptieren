@@ -165,8 +165,12 @@
         }
         .cta-button-outline:hover { background: var(--brand); color: #000 !important; }
         @media (max-width: 768px) {
-            header { padding-top: calc(var(--nav-h) + 48px); }
-            .path-card { padding: 26px 20px; }
+            header { padding: calc(var(--nav-h) + 36px) 16px 28px; }
+            header h1 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
+            header p { font-size: 1rem; }
+            .intro-note { margin-bottom: 28px; padding: 14px 16px; }
+            .path-card { padding: 22px 16px; margin-bottom: 22px; }
+            .path-head h2 { font-size: 1.25rem; }
         }
     </style>
 </head>
