@@ -23,7 +23,9 @@ SEO clusters (Phase 4): hub pages `thema-bitcoin-kaufen-schweiz.html`, `thema-bi
 
 Analytics (Phase 4): optional Plausible Analytics, off by default. Toggle via `js/site-config.js` → `window.BA_SITE.plausibleDomain` (empty string = disabled). `main.js` loads that config on `DOMContentLoaded` and injects the Plausible script only if a domain is set; documented in `datenschutz.html`. `digest.html` is an interest-only "Updates & Digest" page — no newsletter backend, just a link to follow on Nostr or an optional `mailto:` "Digest-Interesse" request (linked from footer under Community).
 
-Booking is email-first (`mailto:` with templates) with stated 1–2 business day response — no Cal.com required. Merchant packages live on `haendler.html`; mentoring modules on `bitcoin-beratung-und-coaching.html`. Articles end with related links + coaching CTA. **Ansprache:** Bildung & Mentoring = **du**; Händler/KMU = **Sie** (siehe Impressum).
+Booking is email-first (`mailto:` with templates) with stated 1–2 business day response — no Cal.com required. Split landing: `erstgespraech.html` (Privat vs. KMU). Merchant packages live on `haendler.html`; mentoring modules on `bitcoin-beratung-und-coaching.html`. Articles end with related links + coaching CTA. **Ansprache:** Bildung & Mentoring = **du**; Händler/KMU = **Sie** (siehe Impressum).
+
+**Fallstudien** (`fallstudien.html`, `case-*.html`) are **illustrative scenarios**, not anonymized real client cases — keep that wording; do not reintroduce “echte Mentoring-Fälle” / fake testimonials.
 
 Learning paths: `lernpfade.html` (Beginner → Deep Dive). Wissen supports category + level filters. Glossar is the term hub; Empfehlungen lists tools/podcasts/meetups with affiliate disclosure.
 
