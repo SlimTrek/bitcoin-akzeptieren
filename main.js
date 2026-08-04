@@ -80,18 +80,27 @@ async function loadSiteConfig() {
 }
 
 function enablePlausible() {
-    const domain = window.BA_SITE && window.BA_SITE.plausibleDomain;
-    if (!domain || typeof domain !== 'string' || !domain.trim()) {
+    const cfg = window.BA_SITE || {};
+    const src = typeof cfg.plausibleScriptSrc === 'string' ? cfg.plausibleScriptSrc.trim() : '';
+    if (!src) {
         return;
     }
-    if (document.querySelector('script[data-domain][src*="plausible"]')) {
+    if (document.querySelector('script[src*="plausible.io/js/"]')) {
         return;
     }
     const script = document.createElement('script');
-    script.defer = true;
-    script.dataset.domain = domain.trim();
-    script.src = 'https://plausible.io/js/script.js';
+    script.async = true;
+    script.src = src;
     document.head.appendChild(script);
+
+    // Plausible new installer queue + init (same as their <head> snippet).
+    window.plausible = window.plausible || function () {
+        (plausible.q = plausible.q || []).push(arguments);
+    };
+    plausible.init = plausible.init || function (i) {
+        plausible.o = i || {};
+    };
+    plausible.init();
 }
 
 function ensureMainContentAnchor() {
