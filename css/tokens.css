@@ -1,4 +1,6 @@
 /* Design tokens — Bitcoin Akzeptieren */
+@import url("fonts.css");
+
 :root {
   --brand: #f7931a;
   --brand-hover: #ffaa33;
