@@ -266,6 +266,19 @@
           "avatar": "/bots/avatars/open_source_tracker_bot.png",
           "featured": false,
           "visible": true
+        },
+        {
+          "id": "sysadmin_security_bot",
+          "slug": "secops",
+          "display_name": "sysadmin_security_bot",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub1vrz23cxhh6ypg5jzxumvqf6kxqpf459y66u3prgfe9y8jz3srvcqzsf8t6",
+          "pubkey_hex": "60c4a8e0d7be881452423736c0275630029ad0a4d6b9108d09c948790a301b30",
+          "nip05": "secops@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/sysadmin_security_bot.png",
+          "featured": false,
+          "visible": true
         }
       ]
     }
