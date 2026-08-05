@@ -125,14 +125,11 @@ nav {
   align-items: center;
   gap: 8px;
   text-decoration: none !important;
-  min-width: 0;
-  flex: 0 1 auto;
-  overflow: hidden;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 .logo svg { flex-shrink: 0; }
 .logo-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 .logo:hover { color: var(--brand-hover) !important; }
@@ -152,10 +149,10 @@ nav {
 
 .nav-search {
   position: relative;
-  flex: 1 1 180px;
-  min-width: 120px;
-  max-width: 280px;
-  margin: 0 4px;
+  flex: 0 1 200px;
+  min-width: 140px;
+  max-width: 220px;
+  margin: 0 8px 0 auto;
 }
 
 .nav-search input[type="search"] {
@@ -253,13 +250,14 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 14px 18px;
+  align-items: center;
+  gap: 4px 16px;
   list-style: none;
   margin: 0;
   padding: 0;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
-  flex: 0 1 auto;
+  flex: 0 0 auto;
 }
 
 .nav-links a {
@@ -268,10 +266,92 @@ nav {
   color: var(--text-muted) !important;
   font-weight: 600;
   text-decoration: none !important;
+  white-space: nowrap;
 }
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--brand) !important;
+}
+
+/* „Mehr“ — sekundäre Links als Dropdown (Desktop) */
+.nav-more {
+  position: relative;
+  list-style: none;
+}
+
+.nav-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: inherit;
+}
+
+.nav-more-btn:hover,
+.nav-more-btn.active,
+.nav-more.is-open .nav-more-btn {
+  color: var(--brand);
+}
+
+.nav-more-chevron {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  opacity: 0.7;
+  transition: transform 0.15s var(--ease);
+}
+
+.nav-more.is-open .nav-more-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-more-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 180px;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  background: #111;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+  z-index: 1102;
+}
+
+.nav-more.is-open .nav-more-menu,
+.nav-more:focus-within .nav-more-menu {
+  display: block;
+}
+
+.nav-more-menu li {
+  margin: 0;
+}
+
+.nav-more-menu a {
+  display: block !important;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+}
+
+.nav-more-menu a:hover,
+.nav-more-menu a.active {
+  background: var(--bg-card-hover);
 }
 
 .menu-toggle {
@@ -524,7 +604,10 @@ footer {
   .cases-grid {
     grid-template-columns: 1fr !important;
   }
+}
 
+/* Nav compact: Notebook & Tablet — Burger statt gequetschte Linkleiste */
+@media (max-width: 1100px) {
   nav {
     padding-left: max(12px, env(safe-area-inset-left, 0px)) !important;
     padding-right: max(8px, env(safe-area-inset-right, 0px)) !important;
@@ -538,7 +621,7 @@ footer {
 
   .nav-inner {
     display: flex !important;
-    flex-wrap: nowrap !important;
+    flex-wrap: wrap !important;
     align-items: center !important;
     justify-content: space-between !important;
     gap: 8px !important;
@@ -554,6 +637,12 @@ footer {
     max-width: calc(100% - 52px) !important;
     font-size: 0.95rem !important;
     letter-spacing: normal !important;
+    overflow: hidden;
+  }
+
+  .logo-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .nav-search {
@@ -563,15 +652,9 @@ footer {
     width: 100% !important;
     margin: 0 0 6px !important;
   }
-  .nav-inner {
-    flex-wrap: wrap !important;
-  }
+
   .menu-toggle {
     order: 2;
-  }
-
-  /* Always visible burger — beats page-local display:none */
-  .menu-toggle {
     display: inline-flex !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -592,7 +675,26 @@ footer {
     background: transparent !important;
   }
 
-  /* Closed: fully removed from layout (no clip-path ghosts) */
+  /* Mehr-Dropdown flach in die Burger-Liste legen */
+  .nav-more-btn {
+    display: none !important;
+  }
+
+  .nav-more,
+  .nav-more-menu {
+    display: contents !important;
+  }
+
+  .nav-more-menu {
+    position: static !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
   .nav-links {
     display: none !important;
     position: absolute !important;
@@ -624,25 +726,34 @@ footer {
     max-height: min(75vh, 560px) !important;
   }
 
-  .nav-links li {
+  .nav-links > li,
+  .nav-more-menu > li {
     list-style: none !important;
     margin: 0 !important;
     border-bottom: 1px solid var(--border);
   }
 
-  .nav-links li:last-child { border-bottom: none; }
+  .nav-links > li:last-child {
+    border-bottom: none;
+  }
 
-  .nav-links a {
+  .nav-links a,
+  .nav-more-menu a {
     display: block !important;
     padding: 14px 8px !important;
     min-height: 44px;
     box-sizing: border-box;
     letter-spacing: normal !important;
+    border-radius: 0 !important;
+  }
+
+  .nav-more-menu a:hover {
+    background: transparent !important;
   }
 }
 
-/* Desktop: hide burger, keep links in the bar */
-@media (min-width: 901px) {
+/* Wide desktop: Logo + kompakte Suche + Primärlinks + Mehr */
+@media (min-width: 1101px) {
   .menu-toggle { display: none !important; }
   .nav-links {
     display: flex !important;

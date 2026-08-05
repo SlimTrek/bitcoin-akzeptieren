@@ -32,12 +32,16 @@ function setupMobileMenu() {
         const open = !navList.classList.contains('active');
         navList.classList.toggle('active', open);
         setExpanded(open);
+        if (open) {
+            closeNavMore();
+        }
     });
 
     navList.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
             navList.classList.remove('active');
             setExpanded(false);
+            closeNavMore();
         });
     });
 
@@ -49,21 +53,70 @@ function setupMobileMenu() {
     });
 }
 
+function closeNavMore() {
+    const more = document.querySelector('.nav-more');
+    const moreBtn = document.getElementById('nav-more-btn');
+    if (!more || !moreBtn) {
+        return;
+    }
+    more.classList.remove('is-open');
+    moreBtn.setAttribute('aria-expanded', 'false');
+}
+
+function setupNavMore() {
+    const more = document.querySelector('.nav-more');
+    const moreBtn = document.getElementById('nav-more-btn');
+    if (!more || !moreBtn) {
+        return;
+    }
+
+    moreBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const open = !more.classList.contains('is-open');
+        more.classList.toggle('is-open', open);
+        moreBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!more.contains(event.target)) {
+            closeNavMore();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeNavMore();
+        }
+    });
+}
+
 function markActiveNavLink() {
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav-links a');
+    let secondaryActive = false;
 
     navLinks.forEach((link) => {
         const linkPath = new URL(link.href).pathname;
+        let isActive = false;
 
         if (currentPath === '/' || currentPath === '/index.html') {
-            if (linkPath === '/') {
-                link.classList.add('active');
-            }
-        } else if (linkPath === currentPath) {
+            isActive = linkPath === '/';
+        } else {
+            isActive = linkPath === currentPath;
+        }
+
+        if (isActive) {
             link.classList.add('active');
+            if (link.closest('.nav-more-menu')) {
+                secondaryActive = true;
+            }
         }
     });
+
+    const moreBtn = document.getElementById('nav-more-btn');
+    if (moreBtn && secondaryActive) {
+        moreBtn.classList.add('active');
+    }
 }
 
 async function loadSiteConfig() {
@@ -129,6 +182,7 @@ async function initSite() {
     if (navLoaded) {
         markActiveNavLink();
         setupMobileMenu();
+        setupNavMore();
     }
 
     await loadComponent('footer-placeholder', '/footer.html');
