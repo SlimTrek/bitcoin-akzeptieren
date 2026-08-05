@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vier geführte Lernpfade zu Bitcoin: Einstieg, Self-Custody, Lightning für KMU und Node-Betrieb. Schritt für Schritt mit konkreten Anleitungen.">
+    <meta name="description" content="Vier Lernpfade zu Bitcoin: zuerst verstehen, dann verwahren, dann anwenden. Wissen vor Kauf — optionale Praxis-Übungen inklusive.">
     <title>Lernpfade – Bitcoin Akzeptieren</title>
     <link rel="canonical" href="https://bitcoin-akzeptieren.ch/lernpfade.html">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bitcoin-akzeptieren.ch/lernpfade.html">
     <meta property="og:title" content="Lernpfade – Bitcoin Akzeptieren">
-    <meta property="og:description" content="Vier geführte Lernpfade zu Bitcoin: Einstieg, Self-Custody, Lightning für KMU und Node-Betrieb. Schritt für Schritt mit konkreten Anleitungen.">
+    <meta property="og:description" content="Vier Lernpfade zu Bitcoin: zuerst verstehen, dann verwahren, dann anwenden. Wissen vor Kauf — optionale Praxis-Übungen inklusive.">
     <meta property="og:site_name" content="Bitcoin Akzeptieren">
     <meta property="og:locale" content="de_CH">
     <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Lernpfade – Bitcoin Akzeptieren">
-    <meta name="twitter:description" content="Vier geführte Lernpfade zu Bitcoin: Einstieg, Self-Custody, Lightning für KMU und Node-Betrieb. Schritt für Schritt mit konkreten Anleitungen.">
+    <meta name="twitter:description" content="Vier Lernpfade zu Bitcoin: zuerst verstehen, dann verwahren, dann anwenden. Wissen vor Kauf — optionale Praxis-Übungen inklusive.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 
 <link rel="stylesheet" href="/css/site.css">
@@ -32,7 +32,7 @@
         }
         ul, ol { list-style: none; padding: 0; margin: 0; }
         header {
-            padding: calc(var(--nav-h) + 100px) 20px 60px;
+            padding: calc(var(--nav-h) + 100px) 20px 40px;
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
@@ -49,12 +49,63 @@
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 14px;
-            padding: 18px 24px;
-            font-size: 0.9rem;
+            padding: 20px 24px;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            margin-bottom: 50px;
+            margin-bottom: 28px;
+            line-height: 1.6;
         }
         .intro-note strong { color: var(--text); }
+        .intro-note a { color: var(--brand); font-weight: 600; text-decoration: none; }
+        .intro-note a:hover { text-decoration: underline; }
+        .intro-note p { margin: 0 0 12px; }
+        .intro-note p:last-child { margin-bottom: 0; }
+        .path-for {
+            margin: 0 0 14px;
+            padding: 12px 14px;
+            border-left: 3px solid var(--brand);
+            background: rgba(247, 147, 26, 0.05);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .path-for strong { color: var(--text); }
+        .principle-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 44px;
+        }
+        .principle {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 14px 12px;
+            text-align: center;
+        }
+        .principle .pn {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--brand);
+            margin-bottom: 6px;
+            letter-spacing: 0.04em;
+        }
+        .principle .pt {
+            display: block;
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .principle .ps {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
         .path-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
@@ -63,6 +114,7 @@
             margin-bottom: 32px;
             transition: var(--transition);
             overflow: visible;
+            scroll-margin-top: 88px;
         }
         .path-card:hover {
             border-color: var(--brand-border);
@@ -88,6 +140,13 @@
             border: 1px solid var(--brand-border);
             white-space: nowrap;
         }
+        .path-prereq {
+            margin: 0 0 14px;
+            font-size: 0.88rem;
+            color: var(--text-faint);
+        }
+        .path-prereq a { color: var(--brand); font-weight: 600; text-decoration: none; }
+        .path-prereq a:hover { text-decoration: underline; }
         .path-intro { color: var(--text-muted); margin: 0 0 24px; font-size: 0.98rem; }
         .path-steps { counter-reset: step; margin-bottom: 22px; }
         .path-steps li {
@@ -118,15 +177,42 @@
         .step-body a:hover { text-decoration: underline; }
         .step-body span.or { color: var(--text-muted); font-weight: 400; margin: 0 4px; }
         .step-body p { margin: 4px 0 0; color: var(--text-muted); font-size: 0.9rem; }
-        .step-body .soon-tag {
+        .praxis-box {
+            margin: 8px 0 22px;
+            padding: 22px 22px 18px;
+            border: 1px dashed var(--brand-border);
+            border-radius: var(--radius);
+            background: rgba(247, 147, 26, 0.04);
+        }
+        .praxis-box h3 {
+            margin: 0 0 6px;
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+        .praxis-label {
             display: inline-block;
+            margin-bottom: 10px;
+            padding: 3px 10px;
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--brand-border);
+            background: var(--brand-soft);
+            color: var(--brand);
             font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .praxis-box > p {
+            margin: 0 0 14px;
             color: var(--text-muted);
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            padding: 2px 10px;
-            margin-left: 6px;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+        .praxis-box .path-steps { margin-bottom: 0; }
+        .praxis-box .path-steps li::before {
+            content: "P" counter(step);
+            font-size: 0.72rem;
+            width: 34px;
         }
         .outcome {
             color: var(--text-muted);
@@ -136,6 +222,13 @@
             border-top: 1px solid var(--border);
         }
         .outcome strong { color: var(--text); }
+        .path-next {
+            margin: 0 0 20px;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+        .path-next a { color: var(--brand); font-weight: 700; text-decoration: none; }
+        .path-next a:hover { text-decoration: underline; }
         .cta-button {
             display: inline-block;
             padding: 12px 26px;
@@ -153,24 +246,20 @@
             color: var(--text-muted);
             font-size: 0.88rem;
         }
-        .cta-button-outline {
-            display: inline-block;
-            padding: 12px 26px;
-            border: 1px solid var(--brand);
-            color: var(--brand);
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .cta-button-outline:hover { background: var(--brand); color: #000 !important; }
+        .response-time a { color: var(--brand); font-weight: 600; }
         @media (max-width: 768px) {
             header { padding: calc(var(--nav-h) + 36px) 16px 28px; }
             header h1 { font-size: clamp(1.6rem, 7vw, 2.2rem); }
             header p { font-size: 1rem; }
-            .intro-note { margin-bottom: 28px; padding: 14px 16px; }
+            .principle-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                margin-bottom: 28px;
+            }
+            .intro-note { margin-bottom: 20px; padding: 14px 16px; }
             .path-card { padding: 22px 16px; margin-bottom: 22px; }
             .path-head h2 { font-size: 1.25rem; }
+            .praxis-box { padding: 16px; }
         }
     </style>
 </head>
@@ -182,24 +271,24 @@
 
     <header>
         <h1>Lernpfade</h1>
-        <p>Vier geführte Wege durch die Wissensdatenbank — je nach Ziel und Erfahrungsstand. Schritt für Schritt, ohne Umwege.</p>
+        <p>Zuerst verstehen, dann handeln. Vier geführte Wege — Wissen vor Praxis, Kauf nur wenn du bereit bist.</p>
     </header>
 
     <nav class="path-map" aria-label="Überblick Lernpfade">
-        <a href="#pfad-30-tage">
+        <a href="#pfad-fundament">
             <span class="pm-n">01</span>
-            <span class="pm-t">Erste 30 Tage</span>
-            <span class="pm-s">Null Vorwissen → erste sichere Schritte</span>
+            <span class="pm-t">Fundament</span>
+            <span class="pm-s">Verstehen — Kauf optional</span>
         </a>
         <a href="#pfad-self-custody">
             <span class="pm-n">02</span>
             <span class="pm-t">Self-Custody</span>
-            <span class="pm-s">Keys, Backup, Hardware Wallet</span>
+            <span class="pm-s">Keys, Backup, Notfallplan</span>
         </a>
         <a href="#pfad-haendler">
             <span class="pm-n">03</span>
             <span class="pm-t">Händler / KMU</span>
-            <span class="pm-s">Lightning, Kasse, Buchhaltung</span>
+            <span class="pm-s">Lightning verstehen &amp; einführen</span>
         </a>
         <a href="#pfad-node">
             <span class="pm-n">04</span>
@@ -210,63 +299,116 @@
 
     <div class="content">
         <div class="intro-note">
-            <strong>Hinweis:</strong> Auf der <a href="/wissen.html" style="color:var(--primary); font-weight:600;">Wissensseite</a> erscheinen laufend neue Artikel. Diese Lernpfade werden entsprechend ergänzt — wer tiefer gehen will, findet dort jederzeit mehr.
+            <p><strong>Warum so aufgebaut?</strong> 2016 habe ich Bitcoin gekauft und Coins willkürlich irgendwohin gesendet — ohne wirklich zu verstehen, was eine Adresse, ein Seed oder Self-Custody ist. Genau diesen Fehler sollen die Lernpfade verhindern: zuerst Wissen, dann Handeln. Kauf ist optional und nie der Startpunkt.</p>
+            <p>Die Reihenfolge ist eine Empfehlung, kein Zwang. Wer sich schon gut informiert und technikaffin fühlt, darf später einsteigen — aber ehrlich prüfen, ob die Grundlagen (Begriffe, Risiken, Scams) wirklich sitzen. Neue Artikel landen auf der <a href="/wissen.html">Wissensseite</a>; die Pfade zeigen nur die sinnvolle Reihenfolge.</p>
         </div>
 
-        <!-- PFAD 1: ERSTE 30 TAGE -->
-        <div class="path-card" id="pfad-30-tage">
-            <div class="path-head">
-                <h2>1. Erste 30 Tage</h2>
-                <span class="level-pill">Beginner</span>
+        <div class="principle-row" aria-label="Vier Stufen">
+            <div class="principle">
+                <span class="pn">STUFE 1</span>
+                <span class="pt">Verstehen</span>
+                <span class="ps">Warum Bitcoin existiert</span>
             </div>
-            <p class="path-intro">Der komplette Einstieg für alle, die heute mit null Vorwissen starten und sicher die ersten Schritte gehen wollen.</p>
+            <div class="principle">
+                <span class="pn">STUFE 2</span>
+                <span class="pt">Verwahren</span>
+                <span class="ps">Keys &amp; Backup beherrschen</span>
+            </div>
+            <div class="principle">
+                <span class="pn">STUFE 3</span>
+                <span class="pt">Anwenden</span>
+                <span class="ps">Zahlen &amp; Händler-Praxis</span>
+            </div>
+            <div class="principle">
+                <span class="pn">STUFE 4</span>
+                <span class="pt">Souveränität</span>
+                <span class="ps">Eigene Infrastruktur</span>
+            </div>
+        </div>
+
+        <!-- PFAD 1: FUNDAMENT -->
+        <div class="path-card" id="pfad-fundament">
+            <span id="pfad-30-tage" hidden></span>
+            <div class="path-head">
+                <h2>1. Fundament: Bitcoin verstehen</h2>
+                <span class="level-pill">Wissen</span>
+            </div>
+            <p class="path-for"><strong>Für wen:</strong> Einsteiger:innen und alle, die den klassischen Fehler vermeiden wollen — kaufen und verschicken, ohne zu wissen, was sie tun. Auch sinnvoll, wenn du schon Coins hast, aber das Fundament nie sauber nachgeholt hast.</p>
+            <p class="path-intro">Ziel ist Orientierung, nicht der schnelle Kauf. Am Ende weisst du, <em>ob</em> und <em>wie</em> du weitermachen willst — und warum Wissen vor Praxis kommt.</p>
             <ol class="path-steps">
                 <li>
                     <div class="step-body">
-                        <strong><a href="/glossar.html">Glossar durchstöbern</a></strong>
-                        <p>Die wichtigsten Begriffe (Wallet, Seed, Sats, Node) in einfacher Sprache.</p>
+                        <strong><a href="/glossar.html">Glossar: die Sprache lernen</a></strong>
+                        <p>Wallet, Seed, Sats, Node, Lightning — Begriffe in klarer Sprache, bevor es technisch wird.</p>
                     </div>
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/artikel-bitcoin-kaufen-schweiz.html">Bitcoin sicher kaufen (Schweiz)</a></strong>
-                        <p>Anleitung ohne komplizierte Verifizierung — der einfachste Einstieg.</p>
-                    </div>
-                </li>
-                        <li>
-                            <div class="step-body">
-                                <strong><a href="/artikel-nach-dem-kauf.html">Nach dem Kauf</a></strong>
-                                <p>Relai: Seed &amp; Restore. Börse: abheben. Hot-Wallet ist kein Cold Storage.</p>
-                            </div>
-                        </li>
-
-                <li>
-                    <div class="step-body">
-                        <strong><a href="/artikel-backup-seed.html">Das richtige Backup</a><span class="or">oder</span><a href="/artikel-hardware-wallet-bitbox.html">Hardware Wallet einrichten</a></strong>
-                        <p>Seed Phrase sichern oder gleich mit einer Hardware Wallet (BitBox02) starten.</p>
+                        <strong><a href="/artikel-inflation-geld.html">Inflation &amp; Geldgeschichte</a></strong>
+                        <p>Warum Kaufkraft schwindet und welches Problem Bitcoin lösen will.</p>
                     </div>
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/dca-rechner.html">DCA-Rechner ausprobieren</a></strong>
-                        <p>Verstehen, wie sich regelmässiges Sparen langfristig auswirkt.</p>
+                        <strong><a href="/artikel-bitcoin-vs-krypto.html">Bitcoin vs. „Krypto“</a></strong>
+                        <p>Was Bitcoin von Altcoins unterscheidet — und warum „der nächste Bitcoin“ meist keines ist.</p>
                     </div>
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/artikel-scam-praevention.html">Scam-Prävention lesen</a></strong>
-                        <p>Betrugsmaschen erkennen, bevor sie zum Problem werden.</p>
+                        <strong><a href="/artikel-scam-praevention.html">Scam-Prävention</a></strong>
+                        <p>Betrugsmaschen erkennen, <em>bevor</em> Geld oder Seeds im Spiel sind. Pflichtlektüre.</p>
                     </div>
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/bitcoin-beratung-und-coaching.html">Fragen offen? Coaching buchen</a></strong>
-                        <p>Individuelle Begleitung für alles, was noch unklar ist.</p>
+                        <strong><a href="/artikel-privacy-basics.html">Privacy Basics</a></strong>
+                        <p>Was eine Transaktion über dich verrät — und welche Gewohnheiten helfen.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-body">
+                        <strong><a href="/thema-bitcoin-steuern-schweiz.html">Steuern in der Schweiz</a><span class="or">·</span><a href="/artikel-bitcoin-steuern-schweiz.html">Artikel</a></strong>
+                        <p>Vermögenssteuer, Kapitalgewinn, Deklaration — Überblick, keine Steuerberatung.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-body">
+                        <strong><a href="/thema-hardware-wallet.html">Self-Custody im Überblick</a></strong>
+                        <p>Was „Not your keys“ bedeutet — konzeptionell, noch ohne Setup-Zwang. Vertiefung folgt in Pfad&nbsp;2.</p>
                     </div>
                 </li>
             </ol>
-            <p class="outcome"><strong>Ergebnis:</strong> Du hast sicher gekauft, dein erstes Backup steht, und du weisst, wovor du dich hüten musst.</p>
-            <a class="cta-button" href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Coaching%20Lernpfad%20Erste%2030%20Tage&body=Hallo%20Patrik%2C%0A%0AIch%20bin%20den%20Lernpfad%20%22Erste%2030%20Tage%22%20durchgegangen%20und%20h%C3%A4tte%20gerne%20Unterst%C3%BCtzung.%0A%0AMeine%20Frage%20%2F%20mein%20Ziel%3A%20%0ABevorzugte%20Zeiten%3A%20%0A%0AFreundliche%20Gr%C3%BCsse%0A">Coaching anfragen</a>
+
+            <div class="praxis-box">
+                <span class="praxis-label">Optional · Praxis-Übung</span>
+                <h3>Kleine Übung — nur wenn du bereit bist</h3>
+                <p>Kein Muss für diesen Pfad. Wenn du Theorie mit einem winzigen Betrag verknüpfen willst (den du verschmerzen kannst), übe den Ablauf einmal durch — und geh danach zu Pfad&nbsp;2, bevor grössere Summen folgen.</p>
+                <ol class="path-steps">
+                    <li>
+                        <div class="step-body">
+                            <strong><a href="/artikel-bitcoin-kaufen-schweiz.html">Bitcoin sicher kaufen (Schweiz)</a></strong>
+                            <p>Relai oder Börse — der einfachste Einstieg in der CH.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-body">
+                            <strong><a href="/artikel-nach-dem-kauf.html">Nach dem Kauf</a></strong>
+                            <p>Seed &amp; Restore, abheben, Hot-Wallet ≠ Cold Storage.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-body">
+                            <strong><a href="/dca-rechner.html">DCA-Rechner ausprobieren</a></strong>
+                            <p>Regelmässiges Sparen verstehen — ohne Timing-Druck.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <p class="outcome"><strong>Ergebnis:</strong> Du verstehst Motivation, Risiken und Grundbegriffe. Kauf war optional — du entscheidest bewusst, ob du zu Self-Custody weitergehst.</p>
+            <p class="path-next">Als Nächstes: <a href="#pfad-self-custody">Pfad 2 · Self-Custody →</a></p>
+            <a class="cta-button" href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Coaching%20Lernpfad%20Fundament&body=Hallo%20Patrik%2C%0A%0AIch%20bin%20den%20Lernpfad%20%22Fundament%3A%20Bitcoin%20verstehen%22%20durchgegangen%20und%20h%C3%A4tte%20gerne%20Unterst%C3%BCtzung.%0A%0AMeine%20Frage%20%2F%20mein%20Ziel%3A%20%0ABevorzugte%20Zeiten%3A%20%0A%0AFreundliche%20Gr%C3%BCsse%0A">Fragen? Coaching anfragen</a>
             <span class="response-time">Antwort in der Regel innert 1–2 Werktagen</span>
         </div>
 
@@ -276,30 +418,32 @@
                 <h2>2. Self-Custody</h2>
                 <span class="level-pill">Praxis</span>
             </div>
-            <p class="path-intro">„Not your keys, not your coins.“ Für alle, die ihre Bitcoin selbst verwahren und für den Ernstfall vorsorgen wollen.</p>
+            <p class="path-for"><strong>Für wen:</strong> Alle, die Bitcoin selbst verwahren und Backup sowie Wiederherstellung beherrschen wollen — bevor Beträge ernst werden. Pfad&nbsp;1 kannst du überspringen, wenn Begriffe, Risiken und Scam-Prävention wirklich sitzen und du dich technikaffin fühlst.</p>
+            <p class="path-prereq">Empfohlen vorher: <a href="#pfad-fundament">Pfad 1</a> · Scam-Prävention gelesen</p>
+            <p class="path-intro">„Not your keys, not your coins.“ Hier richtest du Verwahrung, Backup und Notfallplan ein — und übst die Wiederherstellung, bevor grosse Summen folgen.</p>
             <ol class="path-steps">
                 <li>
                     <div class="step-body">
+                        <strong><a href="/thema-hardware-wallet.html">Themen-Hub Hardware Wallet</a></strong>
+                        <p>Überblick: BitBox, Seed, Watch-only — der Startpunkt für die Praxis.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-body">
                         <strong><a href="/artikel-hardware-wallet-bitbox.html">Hardware Wallet einrichten</a></strong>
-                        <p>Warum eine Hardware Wallet (z. B. BitBox02) das Fundament ist.</p>
+                        <p>Warum eine Hardware Wallet (z.&nbsp;B. BitBox02) das Fundament der Verwahrung ist.</p>
                     </div>
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/artikel-backup-seed.html">Backup & Seed Phrase sichern</a></strong>
-                        <p>Papier oder Stahl — Schutz vor Feuer, Wasser und Verlust.</p>
+                        <strong><a href="/artikel-backup-seed.html">Backup &amp; Seed Phrase sichern</a></strong>
+                        <p>Papier oder Stahl — Schutz vor Feuer, Wasser und Verlust. Restore einmal üben.</p>
                     </div>
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/artikel-bitcoin-vererben.html">Bitcoin vererben</a></strong>
-                        <p>Ein Notfallplan, damit deine Angehörigen im Ernstfall Zugriff haben.</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="step-body">
-                        <strong><a href="/case-notfallplan.html">Beispiel: Relai → BitBox → Notfallplan</a></strong>
-                        <p>Illustratives Szenario (kein echter Kundenfall): Sparplan, Self-Custody und Letter of Instruction.</p>
+                        <strong><a href="/case-self-custody.html">Beispiel: Self-Custody-Setup</a></strong>
+                        <p>Illustratives Szenario (kein echter Kundenfall): vom Hot-Wallet-Denken zur eigenen Custody.</p>
                     </div>
                 </li>
                 <li>
@@ -310,25 +454,26 @@
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/artikel-multisig.html">Multisig Basics</a></strong>
-                        <p>Mehrere Schlüssel für höhere Sicherheit — wenn Single-Sig nicht mehr reicht.</p>
+                        <strong><a href="/artikel-bitcoin-vererben.html">Bitcoin vererben</a></strong>
+                        <p>Letter of Instruction — damit Angehörige im Ernstfall wissen, was zu tun ist.</p>
                     </div>
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/artikel-passphrase.html">Passphrase (25. Wort)</a></strong>
-                        <p>Optionale Zusatzschicht — mächtig, aber nur mit klarem Backup-Plan.</p>
+                        <strong><a href="/case-notfallplan.html">Beispiel: Relai → BitBox → Notfallplan</a></strong>
+                        <p>Illustratives Szenario: Sparplan, Self-Custody und Notfalldokument zusammen.</p>
                     </div>
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/bitcoin-beratung-und-coaching.html">Self-Custody-Coaching buchen</a></strong>
-                        <p>Gemeinsames Einrichten und Üben der Wiederherstellung.</p>
+                        <strong><a href="/artikel-passphrase.html">Passphrase (25.&nbsp;Wort)</a><span class="or">·</span><a href="/artikel-multisig.html">Multisig Basics</a></strong>
+                        <p>Optionale Zusatzschichten — nur mit klarem Backup-Plan und wenn Single-Sig nicht mehr reicht.</p>
                     </div>
                 </li>
             </ol>
-            <p class="outcome"><strong>Ergebnis:</strong> Deine Keys, dein Backup und dein Notfallplan stehen — und du kannst die Wiederherstellung selbst.</p>
-            <a class="cta-button" href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Coaching%20Lernpfad%20Self-Custody&body=Hallo%20Patrik%2C%0A%0AIch%20bin%20den%20Lernpfad%20%22Self-Custody%22%20durchgegangen%20und%20h%C3%A4tte%20gerne%20Unterst%C3%BCtzung.%0A%0AMeine%20Frage%20%2F%20mein%20Ziel%3A%20%0ABevorzugte%20Zeiten%3A%20%0A%0AFreundliche%20Gr%C3%BCsse%0A">Coaching anfragen</a>
+            <p class="outcome"><strong>Ergebnis:</strong> Keys, Backup und Notfallplan stehen — und du hast die Wiederherstellung selbst geübt.</p>
+            <p class="path-next">Weiter: <a href="#pfad-haendler">Pfad 3 · Lightning für KMU</a> · oder <a href="#pfad-node">Pfad 4 · Node</a></p>
+            <a class="cta-button" href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Coaching%20Lernpfad%20Self-Custody&body=Hallo%20Patrik%2C%0A%0AIch%20bin%20den%20Lernpfad%20%22Self-Custody%22%20durchgegangen%20und%20h%C3%A4tte%20gerne%20Unterst%C3%BCtzung.%0A%0AMeine%20Frage%20%2F%20mein%20Ziel%3A%20%0ABevorzugte%20Zeiten%3A%20%0A%0AFreundliche%20Gr%C3%BCsse%0A">Self-Custody-Coaching anfragen</a>
             <span class="response-time">Antwort in der Regel innert 1–2 Werktagen</span>
         </div>
 
@@ -336,16 +481,12 @@
         <div class="path-card" id="pfad-haendler">
             <div class="path-head">
                 <h2>3. Lightning für KMU</h2>
-                <span class="level-pill">Praxis</span>
+                <span class="level-pill">Praxis · Sie</span>
             </div>
-            <p class="path-intro">Für Händler:innen und KMU, die Bitcoin-Zahlungen via Lightning einführen wollen — ohne teure Terminals. Inkl. Buchhaltung/Treuhänder-Vorbereitung.</p>
+            <p class="path-for"><strong>Für wen:</strong> Händler:innen und KMU, die Bitcoin-Zahlungen (Lightning) einführen wollen — zuerst das Modell verstehen, dann Paket und Erstgespräch. Nicht gedacht als Einstieg für absolute Bitcoin-Anfänger:innen; Grundlagen aus Pfad&nbsp;1 helfen enorm.</p>
+            <p class="path-prereq">Empfohlen: Bitcoin-Grundlagen (Pfad&nbsp;1) · Ansprache auf diesem Pfad: Sie</p>
+            <p class="path-intro">Zuerst verstehen, dann einführen. Lightning ohne teure Terminals — inklusive Buchhaltungs-Übergabe an den Treuhänder.</p>
             <ol class="path-steps">
-                <li>
-                    <div class="step-body">
-                        <strong><a href="/haendler.html">Angebot für Händler ansehen</a></strong>
-                        <p>Pakete, Ablauf und Kosten für die Einführung im Geschäft.</p>
-                    </div>
-                </li>
                 <li>
                     <div class="step-body">
                         <strong><a href="/thema-lightning.html">Themen-Hub Lightning</a></strong>
@@ -354,14 +495,14 @@
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/artikel-lightning-netzwerk.html">Lightning Netzwerk verstehen</a></strong>
-                        <p>Wie Zahlungen schneller und günstiger werden als mit Kreditkarte.</p>
+                        <strong><a href="/artikel-lightning-netzwerk.html">Lightning-Netzwerk verstehen</a></strong>
+                        <p>Wie Zahlungen schneller und günstiger werden als mit Karte — ohne Overengineering.</p>
                     </div>
                 </li>
                 <li>
                     <div class="step-body">
                         <strong><a href="/artikel-lightning-kanal.html">Lightning-Kanäle</a></strong>
-                        <p>Was hinter dem QR-Code steckt — ohne Overengineering.</p>
+                        <p>Was hinter dem QR-Code steckt — genug Technik für die Kasse, nicht mehr.</p>
                     </div>
                 </li>
                 <li>
@@ -384,29 +525,32 @@
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/sats-converter.html">Sats Converter nutzen</a></strong>
+                        <strong><a href="/sats-converter.html">Sats Converter</a></strong>
                         <p>Preise in Satoshis umrechnen — praktisch für den Kassenalltag.</p>
                     </div>
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/erstgespraech.html">Erstgespräch wählen</a></strong>
-                        <p>Privat vs. Geschäft — kurze Mail, Antwort innert 1–2 Werktagen.</p>
+                        <strong><a href="/haendler.html">Angebot für Händler</a><span class="or">·</span><a href="/erstgespraech.html">Erstgespräch</a></strong>
+                        <p>Pakete und Ablauf — erst nachdem Sie das Modell verstanden haben.</p>
                     </div>
                 </li>
             </ol>
-            <p class="outcome"><strong>Ergebnis:</strong> Du weisst, welches Paket zu deinem Betrieb passt, und kannst Lightning-Zahlungen sowie die Buchhaltungs-Übergabe konkret angehen.</p>
+            <p class="outcome"><strong>Ergebnis:</strong> Sie wissen, welches Setup zu Ihrem Betrieb passt, und können Lightning sowie die Buchhaltungs-Übergabe konkret angehen.</p>
+            <p class="path-next">Vertiefung: <a href="/thema-bitcoin-akzeptieren-kmu.html">KMU-Hub</a> · privat weiter mit <a href="#pfad-node">Pfad 4</a></p>
             <a class="cta-button" href="/erstgespraech.html">Erstgespräch wählen</a>
-            <span class="response-time">Antwort in der Regel innert 1–2 Werktagen · <a href="/case-kmu-lightning.html">Beispiel Lightning</a> · <a href="/thema-bitcoin-akzeptieren-kmu.html">KMU-Hub</a></span>
+            <span class="response-time">Antwort in der Regel innert 1–2 Werktagen · <a href="/case-kmu-lightning.html">Beispiel Lightning</a></span>
         </div>
 
         <!-- PFAD 4: NODE & SOUVERÄNITÄT -->
         <div class="path-card" id="pfad-node">
             <div class="path-head">
-                <h2>4. Node & Souveränität</h2>
+                <h2>4. Node &amp; Souveränität</h2>
                 <span class="level-pill">Deep Dive</span>
             </div>
-            <p class="path-intro">Für Fortgeschrittene, die volle Unabhängigkeit wollen: eigener Node, sauberes UTXO-Management und dezentrale Kommunikation.</p>
+            <p class="path-for"><strong>Für wen:</strong> Technikaffine Fortgeschrittene, die eigene Infrastruktur betreiben (oder planen) wollen — Full Node, UTXOs, Lightning, Nostr. Nur sinnvoll, wenn Self-Custody schon sitzt; sonst zuerst Pfad&nbsp;2.</p>
+            <p class="path-prereq">Empfohlen vorher: solide <a href="#pfad-self-custody">Self-Custody</a> · optional Lightning-Grundlagen</p>
+            <p class="path-intro">Volle Unabhängigkeit: eigener Node, sauberes UTXO-Management und dezentrale Kommunikation — ohne den 2016-Fehler „irgendetwas klicken, ohne zu wissen warum“.</p>
             <ol class="path-steps">
                 <li>
                     <div class="step-body">
@@ -417,13 +561,19 @@
                 <li>
                     <div class="step-body">
                         <strong><a href="/artikel-utxo-management.html">UTXO Management</a></strong>
-                        <p>Transaktionsgebühren sparen und „feststeckende“ Coins vermeiden.</p>
+                        <p>Gebühren sparen und „feststeckende“ Coins vermeiden.</p>
                     </div>
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/thema-lightning.html">Themen-Hub Lightning</a><span class="or">/</span><a href="/artikel-lightning-netzwerk.html">Lightning Netzwerk</a></strong>
-                        <p>Schnelle Zahlungen verstehen — und den eigenen Node sinnvoll einbinden.</p>
+                        <strong><a href="/artikel-energieverbrauch.html">Energieverbrauch</a><span class="or">·</span><a href="/artikel-bitcoin-mining.html">Mining verstehen</a></strong>
+                        <p>Fakten statt Schlagzeilen — damit du die Kritik einordnen kannst.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="step-body">
+                        <strong><a href="/thema-lightning.html">Lightning am eigenen Node</a></strong>
+                        <p>Schnelle Zahlungen — und den Node sinnvoll einbinden.</p>
                     </div>
                 </li>
                 <li>
@@ -434,13 +584,14 @@
                 </li>
                 <li>
                     <div class="step-body">
-                        <strong><a href="/bitcoin-beratung-und-coaching.html">Individuelles Mentoring buchen</a></strong>
-                        <p>Node-Setup, Lightning-Kanäle und Nostr-Keys gemeinsam einrichten.</p>
+                        <strong><a href="/nostr.html">Nostr Bot Army ansehen</a></strong>
+                        <p>Optional: dezentrale Feeds ohne Algorithmus — Community-Nebenraum.</p>
                     </div>
                 </li>
             </ol>
-            <p class="outcome"><strong>Ergebnis:</strong> Du betreibst deine eigene Infrastruktur und bist unabhängig von Drittanbietern.</p>
-            <a class="cta-button" href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Coaching%20Lernpfad%20Node%20%26%20Souver%C3%A4nit%C3%A4t&body=Hallo%20Patrik%2C%0A%0AIch%20bin%20den%20Lernpfad%20%22Node%20%26%20Souver%C3%A4nit%C3%A4t%22%20durchgegangen%20und%20h%C3%A4tte%20gerne%20Unterst%C3%BCtzung.%0A%0AMeine%20Frage%20%2F%20mein%20Ziel%3A%20%0ABevorzugte%20Zeiten%3A%20%0A%0AFreundliche%20Gr%C3%BCsse%0A">Coaching anfragen</a>
+            <p class="outcome"><strong>Ergebnis:</strong> Du betreibst (oder planst) eigene Infrastruktur und bist weniger abhängig von Drittanbietern.</p>
+            <p class="path-next">Zurück zum Überblick: <a href="#pfad-fundament">Pfad 1</a> · <a href="/wissen.html">Alle Artikel</a></p>
+            <a class="cta-button" href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20Coaching%20Lernpfad%20Node%20%26%20Souver%C3%A4nit%C3%A4t&body=Hallo%20Patrik%2C%0A%0AIch%20bin%20den%20Lernpfad%20%22Node%20%26%20Souver%C3%A4nit%C3%A4t%22%20durchgegangen%20und%20h%C3%A4tte%20gerne%20Unterst%C3%BCtzung.%0A%0AMeine%20Frage%20%2F%20mein%20Ziel%3A%20%0ABevorzugte%20Zeiten%3A%20%0A%0AFreundliche%20Gr%C3%BCsse%0A">Mentoring anfragen</a>
             <span class="response-time">Antwort in der Regel innert 1–2 Werktagen</span>
         </div>
     </div>
