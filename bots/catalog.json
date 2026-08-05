@@ -240,6 +240,19 @@
           "avatar": "/bots/avatars/ai_news_bot.png",
           "featured": false,
           "visible": true
+        },
+        {
+          "id": "btc_mining_news_bot",
+          "slug": "mining",
+          "display_name": "btc_mining_news_bot",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub10kpq5atf22p0knrmt4qja0h4jw73qprg86ncytq8672m9x3zkc5qmcaraa",
+          "pubkey_hex": "7d820a75695282fb4c7b5d412ebef593bd1004683ea7822c07d795b29a22b628",
+          "nip05": "mining@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/btc_mining_news_bot.png",
+          "featured": false,
+          "visible": true
         }
       ]
     }
