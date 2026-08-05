@@ -253,6 +253,19 @@
           "avatar": "/bots/avatars/btc_mining_news_bot.png",
           "featured": false,
           "visible": true
+        },
+        {
+          "id": "open_source_tracker_bot",
+          "slug": "opensource",
+          "display_name": "open_source_tracker_bot",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub16hrv0ztdk4fwktnaqjnxe6uqdzutkknuxfkmknlummqj0d9lr84q9js6tv",
+          "pubkey_hex": "d5c6c7896db552eb2e7d04a66ceb8068b8bb5a7c326dbb4ffcdec127b4bf19ea",
+          "nip05": "opensource@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/open_source_tracker_bot.png",
+          "featured": false,
+          "visible": true
         }
       ]
     }
