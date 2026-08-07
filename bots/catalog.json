@@ -383,6 +383,19 @@
           "avatar": "/bots/avatars/fashion_news_bot.png",
           "featured": false,
           "visible": true
+        },
+        {
+          "id": "cosmetics_news_bot",
+          "slug": "cosmetics",
+          "display_name": "Cosmetics Desk",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub1mepxc88l6tywykd869f57egnz9d56uygxquzd09aava68nauw23s5906qg",
+          "pubkey_hex": "de426c1cffd2c8e259a7d1534f6513115b4d7088303826bcbdeb3ba3cfbc72a3",
+          "nip05": "cosmetics@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/cosmetics_news_bot.png",
+          "featured": false,
+          "visible": true
         }
       ]
     }
