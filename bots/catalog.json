@@ -331,6 +331,19 @@
           "avatar": "/bots/avatars/comics_news_bot.png",
           "featured": false,
           "visible": true
+        },
+        {
+          "id": "manga_news_bot",
+          "slug": "manga",
+          "display_name": "Manga Desk",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub12ntq39hed2s5e88v7cmf0fuh7ycgvmcehx6jsch2wheglncnjjzqlcylzv",
+          "pubkey_hex": "54d60896f96aa14c9cecf63697a797f130866f19b9b52862ea75f28fcf139484",
+          "nip05": "manga@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/manga_news_bot.png",
+          "featured": false,
+          "visible": true
         }
       ]
     }
