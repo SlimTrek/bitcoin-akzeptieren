@@ -6,6 +6,7 @@
   "use strict";
 
   const CATALOG_URL = "/bots/catalog.json";
+  const CORE_OPEN_BY_DEFAULT = true;
 
   function escapeHtml(value) {
     return String(value || "")
@@ -44,7 +45,7 @@
     );
   }
 
-  function renderGroup(group) {
+  function renderGroup(group, { open } = {}) {
     const bots = visibleBots(group);
     if (!bots.length) {
       return "";
@@ -52,13 +53,82 @@
     const featured = bots.some((b) => b.featured);
     const gridClass = featured ? "bots-grid bots-grid--featured" : "bots-grid";
     const cards = bots.map((bot) => botCard(bot, !!bot.featured)).join("");
+    const count = bots.length;
+    const openAttr = open ? " open" : "";
     return (
-      `<section class="bot-group" id="group-${escapeHtml(group.id)}" aria-labelledby="title-${escapeHtml(group.id)}">` +
-      `<h2 id="title-${escapeHtml(group.id)}">${escapeHtml(group.title)}</h2>` +
+      `<details class="bot-group" id="group-${escapeHtml(group.id)}" data-group-id="${escapeHtml(group.id)}"${openAttr}>` +
+      `<summary class="bot-group__summary">` +
+      `<span class="bot-group__title" id="title-${escapeHtml(group.id)}">${escapeHtml(group.title)}</span>` +
+      `<span class="bot-group__count">${count}</span>` +
+      `</summary>` +
       `<p class="section-sub">${escapeHtml(group.description || "")}</p>` +
       `<div class="${gridClass}">${cards}</div>` +
-      `</section>`
+      `</details>`
     );
+  }
+
+  function renderFilter(groups) {
+    const options = groups
+      .filter((g) => visibleBots(g).length)
+      .map(
+        (g) =>
+          `<option value="${escapeHtml(g.id)}">${escapeHtml(g.title)} (${visibleBots(g).length})</option>`
+      )
+      .join("");
+    return (
+      `<div class="bots-filter" id="bots-filter">` +
+      `<label for="bots-niche-select">Nische wählen</label>` +
+      `<select id="bots-niche-select" aria-controls="bots-catalog-groups">` +
+      `<option value="all">Alle Nischen</option>` +
+      options +
+      `</select>` +
+      `</div>`
+    );
+  }
+
+  function applyNicheFilter(selectedId) {
+    const groups = document.querySelectorAll(".bot-group[data-group-id]");
+    groups.forEach((el) => {
+      const id = el.getAttribute("data-group-id");
+      const match = selectedId === "all" || id === selectedId;
+      el.hidden = !match;
+      if (match && selectedId !== "all") {
+        el.open = true;
+      }
+    });
+  }
+
+  function bindFilter() {
+    const select = document.getElementById("bots-niche-select");
+    if (!select) {
+      return;
+    }
+
+    function syncFromSelect() {
+      applyNicheFilter(select.value);
+      if (select.value !== "all") {
+        const target = document.getElementById("group-" + select.value);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    }
+
+    function syncFromHash() {
+      const hash = (location.hash || "").replace(/^#group-/, "");
+      if (hash && [...select.options].some((o) => o.value === hash)) {
+        select.value = hash;
+        applyNicheFilter(hash);
+        const target = document.getElementById("group-" + hash);
+        if (target) {
+          target.open = true;
+        }
+      }
+    }
+
+    select.addEventListener("change", syncFromSelect);
+    window.addEventListener("hashchange", syncFromHash);
+    syncFromHash();
   }
 
   function updateStats(catalog) {
@@ -131,9 +201,21 @@
         throw new Error("HTTP " + response.status);
       }
       const catalog = await response.json();
+      const groups = catalog.groups || [];
       renderOperator(catalog.operator);
-      mount.innerHTML = (catalog.groups || []).map(renderGroup).join("");
+      mount.innerHTML =
+        renderFilter(groups) +
+        `<div id="bots-catalog-groups">` +
+        groups
+          .map((g) =>
+            renderGroup(g, {
+              open: CORE_OPEN_BY_DEFAULT && g.id === "core",
+            })
+          )
+          .join("") +
+        `</div>`;
       updateStats(catalog);
+      bindFilter();
       revealCards();
     } catch (err) {
       console.error("Bot-Katalog konnte nicht geladen werden:", err);

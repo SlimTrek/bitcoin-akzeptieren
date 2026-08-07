@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Bitcoin Halving</title>
+  <desc>Blockbelohnung halbiert sich ungefaehr alle vier Jahre.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="18" y="50" width="130" height="100" rx="10" fill="#1c1c1e" stroke="#71717a" stroke-width="1.5"/>
+  <text x="30" y="78" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11" font-weight="700">2009</text>
+  <text x="30" y="108" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="16" font-weight="700">50 BTC</text>
+  <text x="30" y="132" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">pro Block</text>
+  <path d="M158 100 H178" stroke="#f7931a" stroke-width="2" fill="none"/>
+  <polygon points="178,95 190,100 178,105" fill="#f7931a"/>
+  <rect x="200" y="50" width="130" height="100" rx="10" fill="#1c1c1e" stroke="#71717a" stroke-width="1.5"/>
+  <text x="212" y="78" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11" font-weight="700">2012</text>
+  <text x="212" y="108" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="16" font-weight="700">25 BTC</text>
+  <text x="212" y="132" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">halbiert</text>
+  <path d="M340 100 H360" stroke="#f7931a" stroke-width="2" fill="none"/>
+  <polygon points="360,95 372,100 360,105" fill="#f7931a"/>
+  <rect x="382" y="50" width="110" height="100" rx="10" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="394" y="78" fill="#f7931a" font-family="system-ui,sans-serif" font-size="11" font-weight="700">...</text>
+  <text x="394" y="108" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="16" font-weight="700">3.125</text>
+  <text x="394" y="132" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="11">aktuell ca.</text>
+  <path d="M502 100 H522" stroke="#f7931a" stroke-width="2" fill="none"/>
+  <polygon points="522,95 534,100 522,105" fill="#f7931a"/>
+  <rect x="544" y="50" width="78" height="100" rx="10" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="554" y="88" fill="#f7931a" font-family="system-ui,sans-serif" font-size="11" font-weight="700">MAX</text>
+  <text x="554" y="118" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">21M</text>
+</svg>

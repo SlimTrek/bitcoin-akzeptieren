@@ -581,8 +581,9 @@
         <form class="intake" id="einschaetzung" novalidate>
             <h2>Kosteneinschätzung für Ihr Geschäft</h2>
             <p class="lead-local">
-                Ausfüllen statt langes Mail tippen. Sie sehen sofort eine <strong style="color:var(--text);">Orientierungssumme</strong> nach Festpreisen —
-                bei grösseren Setups Hinweise zur Infrastruktur. Die Anfrage geht als E-Mail an mich (kein Konto, kein Backend).
+                Ausfüllen statt langes Mail tippen. Die angezeigte Summe ist eine <strong style="color:var(--text);">Orientierung</strong> anhand typischer Pakete —
+                <strong style="color:var(--text);">kein definitiver Preis</strong>. Je nach Aufwand, Grösse und Situation kann die Offerte höher (oder anders) ausfallen.
+                Verbindlich wird erst eine schriftliche Festofferte nach dem Austausch.
             </p>
 
             <div class="intake-grid">
@@ -676,11 +677,21 @@
             </div>
 
             <div class="estimate-panel" aria-live="polite">
-                <h3>Einschätzung (Orientierung)</h3>
+                <h3>Einschätzung (Orientierung — unverbindlich)</h3>
                 <div class="estimate-total" id="est-total">280 CHF</div>
-                <p class="estimate-note" id="est-note">Live-Berechnung nach den Festpreisen oben. Keine verbindliche Offerte.</p>
+                <p class="estimate-note" id="est-note">
+                    Kein Festpreis. Die Kalkulation dient der Einordnung; der tatsächliche Aufwand entscheidet.
+                    Kosten können je nach Situation und Aufwand angepasst (auch erhöht) werden — verbindlich erst nach schriftlicher Offerte.
+                </p>
                 <ul class="estimate-lines" id="est-lines"></ul>
                 <ul class="estimate-flags" id="est-flags"></ul>
+            </div>
+
+            <div class="intake-field full" style="margin-top:16px;">
+                <label for="f-ack" style="display:flex; gap:10px; align-items:flex-start; font-weight:500; cursor:pointer;">
+                    <input id="f-ack" name="ack" type="checkbox" required style="width:auto; margin-top:3px; flex-shrink:0;">
+                    <span>Ich verstehe: Die Summe ist <strong style="color:var(--text);">keine verbindliche Offerte</strong>. Der Preis kann je nach Aufwand, Unternehmensgrösse und Situation angepasst werden. Verbindlich ist erst die schriftliche Offerte.</span>
+                </label>
             </div>
 
             <div class="intake-actions">
@@ -690,7 +701,7 @@
             </div>
             <p class="intake-hint">
                 Es öffnet sich Ihr E-Mail-Programm mit vorausgefüllter Nachricht an patrik.bal.work@gmail.com.
-                Keine Daten werden auf einem Server gespeichert. Antwort in der Regel innert 1–2 Werktagen.
+                Keine Daten werden auf einem Server gespeichert. Antwort innert 1–2 Werktagen — inkl. Klärung, ob die Orientierung passt oder eine angepasste Offerte nötig ist.
             </p>
         </form>
 
@@ -797,14 +808,16 @@
 
             function render() {
                 const est = compute();
-                el('est-total').textContent = CHF(est.total);
-                el('est-note').textContent = est.flags.some((f) => f.indexOf('Festofferte') !== -1)
-                    ? 'Orientierungssumme — bei Ihrem Umfang folgt eine kurze Festofferte vor Arbeitsbeginn.'
-                    : 'Live-Berechnung nach den Festpreisen oben. Keine verbindliche Offerte.';
+                el('est-total').textContent = 'ca. ' + CHF(est.total);
+                el('est-note').textContent =
+                    'Unverbindliche Orientierung (ca.). Kein definitiver Preis — je nach Aufwand, Grösse und Situation kann die Offerte abweichen oder höher ausfallen. Verbindlich erst schriftlich.';
                 el('est-lines').innerHTML = est.lines.map(([label, amt]) =>
                     '<li><span>' + label + '</span><span>' + CHF(amt) + '</span></li>'
                 ).join('');
-                el('est-flags').innerHTML = est.flags.map((f) => '<li>' + f + '</li>').join('');
+                const always = 'Preisvorbehalt: Anpassung nach realem Aufwand möglich; Arbeit startet erst nach Ihrer Bestätigung der Offerte.';
+                const flags = est.flags.slice();
+                if (flags.indexOf(always) === -1) flags.unshift(always);
+                el('est-flags').innerHTML = flags.map((f) => '<li>' + f + '</li>').join('');
                 return est;
             }
 
@@ -828,11 +841,20 @@
                     alert('Bitte Firma, Name und E-Mail ausfüllen.');
                     return;
                 }
+                if (!el('f-ack').checked) {
+                    alert('Bitte bestätigen Sie, dass die Summe unverbindlich ist und je nach Aufwand angepasst werden kann.');
+                    el('f-ack').focus();
+                    return;
+                }
                 const est = render();
                 const body = [
                     'Hallo Patrik,',
                     '',
                     'Anfrage Kosteneinschätzung (Händler / KMU) über haendler.html',
+                    '',
+                    'Hinweis (vom Formular bestätigt): Die vorausgerechnete Summe ist KEINE verbindliche Offerte.',
+                    'Kosten können je nach Aufwand, Unternehmensgrösse und Situation angepasst (auch erhöht) werden.',
+                    'Verbindlich ist erst eine schriftliche Offerte; Arbeit startet erst nach Bestätigung.',
                     '',
                     '— Betrieb —',
                     'Firma: ' + el('f-firma').value.trim(),
@@ -850,8 +872,8 @@
                     'Infrastruktur: ' + labelOf('f-setup'),
                     'POS: ' + (el('f-pos').value.trim() || '—'),
                     '',
-                    '— Einschätzung (Orientierung) —',
-                    'Summe: ' + CHF(est.total),
+                    '— Einschätzung (unverbindliche Orientierung) —',
+                    'Summe (ca.): ' + CHF(est.total),
                     est.lines.map(([l, a]) => '- ' + l + ': ' + CHF(a)).join('\n'),
                     est.flags.length ? ('Hinweise:\n' + est.flags.map((f) => '- ' + f).join('\n')) : '',
                     '',

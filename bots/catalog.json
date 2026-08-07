@@ -211,9 +211,9 @@
       ]
     },
     {
-      "id": "protocol",
-      "title": "Protokoll & Dev",
-      "description": "Nostr-Entwicklung, NIPs und Relay-Themen.",
+      "id": "tech",
+      "title": "Tech & Protokoll",
+      "description": "Nostr, AI, Mining, Open Source und Security-Ops – für Leute, die Systeme bauen und betreiben.",
       "bots": [
         {
           "id": "nostr_dev_bot",
@@ -231,9 +231,9 @@
         {
           "id": "ai_news_bot",
           "slug": "ai",
-          "display_name": "ai_news_bot",
-          "tag": "Nostr",
-          "blurb": "Automatisierter Nostr-Kanal.",
+          "display_name": "AI News Desk",
+          "tag": "AI & ML",
+          "blurb": "Labs, Modelle und Infrastruktur – unabhängige AI-News, kein Vendor-PR.",
           "npub": "npub1zfg39yrrk50tzpxknqzlxcaz43yyuyz0zsxqtrxp27nwvd26423s22q208",
           "pubkey_hex": "1251129063b51eb104d69805f363a2ac484e104f140c058cc157a6e6355aaaa3",
           "nip05": "ai@bitcoin-akzeptieren.ch",
@@ -244,9 +244,9 @@
         {
           "id": "btc_mining_news_bot",
           "slug": "mining",
-          "display_name": "btc_mining_news_bot",
-          "tag": "Nostr",
-          "blurb": "Automatisierter Nostr-Kanal.",
+          "display_name": "BTC Mining Desk",
+          "tag": "Bitcoin Mining",
+          "blurb": "Hashrate, ASICs, Pools und Energy – Mining-Ops, kein Preis-Theater.",
           "npub": "npub10kpq5atf22p0knrmt4qja0h4jw73qprg86ncytq8672m9x3zkc5qmcaraa",
           "pubkey_hex": "7d820a75695282fb4c7b5d412ebef593bd1004683ea7822c07d795b29a22b628",
           "nip05": "mining@bitcoin-akzeptieren.ch",
@@ -257,9 +257,9 @@
         {
           "id": "open_source_tracker_bot",
           "slug": "opensource",
-          "display_name": "open_source_tracker_bot",
-          "tag": "Nostr",
-          "blurb": "Automatisierter Nostr-Kanal.",
+          "display_name": "Open Source Tracker",
+          "tag": "Open Source",
+          "blurb": "Releases und Tooling – Linux, Python, Container, Dev-Platforms.",
           "npub": "npub16hrv0ztdk4fwktnaqjnxe6uqdzutkknuxfkmknlummqj0d9lr84q9js6tv",
           "pubkey_hex": "d5c6c7896db552eb2e7d04a66ceb8068b8bb5a7c326dbb4ffcdec127b4bf19ea",
           "nip05": "opensource@bitcoin-akzeptieren.ch",
@@ -270,9 +270,9 @@
         {
           "id": "sysadmin_security_bot",
           "slug": "secops",
-          "display_name": "sysadmin_security_bot",
-          "tag": "Nostr",
-          "blurb": "Automatisierter Nostr-Kanal.",
+          "display_name": "Sysadmin Security",
+          "tag": "Security Ops",
+          "blurb": "Patch-first Security für Operatoren – CVEs mit Impact, ohne Panik-Headlines.",
           "npub": "npub1vrz23cxhh6ypg5jzxumvqf6kxqpf459y66u3prgfe9y8jz3srvcqzsf8t6",
           "pubkey_hex": "60c4a8e0d7be881452423736c0275630029ad0a4d6b9108d09c948790a301b30",
           "nip05": "secops@bitcoin-akzeptieren.ch",
@@ -407,6 +407,164 @@
           "pubkey_hex": "c1ded48b4eb69b82d75d086bc7fa252a18e9b4e4e42ede56057543e51dd0f2b1",
           "nip05": "longevity@bitcoin-akzeptieren.ch",
           "avatar": "/bots/avatars/longevity_tracker_bot.png",
+          "featured": false,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "title": "Musik",
+      "description": "Metal, Techno und Klassik – Szenen-News ohne Chart-Spam.",
+      "bots": [
+        {
+          "id": "heavy_riff_bot",
+          "slug": "metal",
+          "display_name": "Heavy Riff",
+          "tag": "Metal",
+          "blurb": "Riffs, Releases und Tour-News aus dem Heavy-Universum – ohne Chart-Spam.",
+          "npub": "npub1kpyvtur0qahhfwnn9tnmutk4nth67qv5qa9dyjvhh44y792rdr8svrwpuw",
+          "pubkey_hex": "b048c5f06f076f74ba732ae7be2ed59aefaf0194074ad24997bd6a4f154368cf",
+          "nip05": "metal@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/heavy_riff_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "underground_techno_bot",
+          "slug": "techno",
+          "display_name": "Underground Techno",
+          "tag": "Techno",
+          "blurb": "Underground Techno: Labels, Floor-Reports und Szene – kein Festival-Filler.",
+          "npub": "npub1ctfuahkufej6t0p4xywg7fs7dpfw2y79vcgm8r7njgmql7495nvqwkg0kp",
+          "pubkey_hex": "c2d3cededc4e65a5bc35311c8f261e6852e513c56611b38fd392360ffaa5a4d8",
+          "nip05": "techno@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/underground_techno_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "classical_virtuoso_bot",
+          "slug": "classical",
+          "display_name": "Classical Virtuoso",
+          "tag": "Klassik",
+          "blurb": "Aufführungen, Aufnahmen und Virtuosen – klassische Musik mit Substanz.",
+          "npub": "npub1p79lawahq0ua6ksqgz4ywn0cnm7dz7pywlh97gfufd2ur6gak7cq3mvzjf",
+          "pubkey_hex": "0f8bfebbb703f9dd5a0040aa474df89efcd1782477ee5f213c4b55c1e91db7b0",
+          "nip05": "classical@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/classical_virtuoso_bot.png",
+          "featured": false,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "culture",
+      "title": "Bücher & Comics",
+      "description": "Bücher, Comics und Manga – Releases, Adaptionen und Szene, ohne Spoiler-Overkill.",
+      "bots": [
+        {
+          "id": "books_news_bot",
+          "slug": "books",
+          "display_name": "Books Desk",
+          "tag": "Bücher",
+          "blurb": "Neuerscheinungen, Debatten und Lesestoff – Bücher-News ohne Spoiler-Overkill.",
+          "npub": "npub10e09jjs8knd2zcnw2a36tqdxezk6prjf2jccavuxeldg8n5hxkrqvplzpw",
+          "pubkey_hex": "7e5e594a07b4daa1626e5763a581a6c8ada08e4954b18eb386cfda83ce973586",
+          "nip05": "books@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/books_news_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "comics_news_bot",
+          "slug": "comics",
+          "display_name": "Comics Desk",
+          "tag": "Comics",
+          "blurb": "Panels, Publisher und Adaptionen – Comics-Desk für Leute, die lesen.",
+          "npub": "npub1fs9dlczfvpmu4mylvmgzkgswtynxtp2jjevwrjq2fjsqry50a7uq8wa7ef",
+          "pubkey_hex": "4c0adfe0496077caec9f66d02b220e59266585529658e1c80a4ca001928fefb8",
+          "nip05": "comics@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/comics_news_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "manga_news_bot",
+          "slug": "manga",
+          "display_name": "Manga Desk",
+          "tag": "Manga",
+          "blurb": "Serien, Releases und Industry-News aus dem Manga-Kosmos.",
+          "npub": "npub12ntq39hed2s5e88v7cmf0fuh7ycgvmcehx6jsch2wheglncnjjzqlcylzv",
+          "pubkey_hex": "54d60896f96aa14c9cecf63697a797f130866f19b9b52862ea75f28fcf139484",
+          "nip05": "manga@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/manga_news_bot.png",
+          "featured": false,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "lifestyle",
+      "title": "Lifestyle & Health",
+      "description": "Fashion, Cosmetics und Longevity – Trends und Forschung, kein Influencer-Geschrei.",
+      "bots": [
+        {
+          "id": "fashion_news_bot",
+          "slug": "fashion",
+          "display_name": "Fashion Desk",
+          "tag": "Fashion",
+          "blurb": "Collections, Craft und Industry – Fashion-News ohne Influencer-Geschrei.",
+          "npub": "npub1f6r0z20wgnksdejjzng8c5a84keuxwcsh4cwkzmeujxyt4p4mlaqf2ewc5",
+          "pubkey_hex": "4e86f129ee44ed06e65214d07c53a7adb3c33b10bd70eb0b79e48c45d435dffa",
+          "nip05": "fashion@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/fashion_news_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "cosmetics_news_bot",
+          "slug": "cosmetics",
+          "display_name": "Cosmetics Desk",
+          "tag": "Cosmetics",
+          "blurb": "Formeln, Brands und Trends – Cosmetics mit Substanz statt Hype.",
+          "npub": "npub1mepxc88l6tywykd869f57egnz9d56uygxquzd09aava68nauw23s5906qg",
+          "pubkey_hex": "de426c1cffd2c8e259a7d1534f6513115b4d7088303826bcbdeb3ba3cfbc72a3",
+          "nip05": "cosmetics@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/cosmetics_news_bot.png",
+          "featured": false,
+          "visible": true
+        },
+        {
+          "id": "longevity_tracker_bot",
+          "slug": "longevity",
+          "display_name": "Longevity Tracker",
+          "tag": "Longevity",
+          "blurb": "Forschung und Praxis zu Gesundheitsspannen – nüchtern, ohne Wunderversprechen.",
+          "npub": "npub1c80dfz6wk6dc946app4u07399gvwnd8yushdu4s9w4p728ws72cs5z9yvq",
+          "pubkey_hex": "c1ded48b4eb69b82d75d086bc7fa252a18e9b4e4e42ede56057543e51dd0f2b1",
+          "nip05": "longevity@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/longevity_tracker_bot.png",
+          "featured": false,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "maker",
+      "title": "Maker & Hardware",
+      "description": "Additive Fertigung und Hardware-Praxis – Prozesse, Maschinen, Material.",
+      "bots": [
+        {
+          "id": "additive_manufacturing_bot",
+          "slug": "additive",
+          "display_name": "Additive Manufacturing",
+          "tag": "3D-Druck",
+          "blurb": "Additive Fertigung: Maschinen, Material und Prozesse – Maker-News mit Tiefgang.",
+          "npub": "npub16kuwqwxg06d0f00a72ghy69x9vk8j8qv2v6jad78h8euwasslf6scpmtzr",
+          "pubkey_hex": "d5b8e038c87e9af4bdfdf2917268a62b2c791c0c53352eb7c7b9f3c77610fa75",
+          "nip05": "additive@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/additive_manufacturing_bot.png",
           "featured": false,
           "visible": true
         }

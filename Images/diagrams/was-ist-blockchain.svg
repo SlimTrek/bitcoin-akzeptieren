@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Blockchain einfach</title>
+  <desc>Bloecke verkettet: Transaktionen, Hash, naechster Block.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="20" y="44" width="160" height="112" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="34" y="72" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">BLOCK n</text>
+  <text x="34" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">Transaktionen</text>
+  <text x="34" y="124" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Hash + Zeit</text>
+  <path d="M192 100 H224" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="224,94 238,100 224,106" fill="#f7931a"/>
+  <rect x="250" y="44" width="160" height="112" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="264" y="72" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">BLOCK n+1</text>
+  <text x="264" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">verkettet</text>
+  <text x="264" y="124" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Referenz auf n</text>
+  <path d="M422 100 H454" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="454,94 468,100 454,106" fill="#f7931a"/>
+  <rect x="480" y="44" width="140" height="112" rx="12" fill="#1c1c1e" stroke="#71717a" stroke-width="1.5"/>
+  <text x="494" y="72" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12" font-weight="700">BLOCK n+2</text>
+  <text x="494" y="100" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="14" font-weight="700">...</text>
+  <text x="494" y="124" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Nodes pruefen</text>
+</svg>

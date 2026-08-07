@@ -106,12 +106,16 @@
             <div class="term-group">
                 <div class="term-letter">B</div>
                 <div class="term-item">
+                    <h3 class="term-title">Bech32 / Bech32m</h3>
+                    <p class="term-desc">Adressformate für SegWit (<code>bc1q…</code>) bzw. Taproot (<code>bc1p…</code>). Fehlererkennung eingebaut — trotzdem Zeichen prüfen. <a href="/artikel-bitcoin-adressen.html" class="internal-link">Adressen verstehen</a>.</p>
+                </div>
+                <div class="term-item">
                     <h3 class="term-title">BitBox02</h3>
                     <p class="term-desc">Eine Schweizer Hardware Wallet von Shift Crypto. Gilt als eine der sichersten Methoden zur Aufbewahrung. <a href="/artikel-hardware-wallet-bitbox.html" class="internal-link">Hier geht's zum Testbericht</a>.</p>
                 </div>
                 <div class="term-item">
                     <h3 class="term-title">Blockchain</h3>
-                    <p class="term-desc">Ein digitales Kassenbuch, das auf tausenden Computern gleichzeitig gespeichert ist. Es garantiert, dass niemand Bitcoin fälschen kann.</p>
+                    <p class="term-desc">Ein digitales Kassenbuch aus verketteten Blöcken, das auf vielen Computern gleichzeitig geprüft wird. Bei Bitcoin: öffentliche Transaktionsgeschichte mit festen Regeln — kein Web3-Marketing. <a href="/artikel-was-ist-blockchain.html" class="internal-link">Artikel: Was ist eine Blockchain?</a></p>
                 </div>
                 <div class="term-item">
                     <h3 class="term-title">Buchhaltung (KMU / Bitcoin)</h3>
@@ -123,6 +127,14 @@
             <div class="term-group">
                 <div class="term-letter">C</div>
                 <div class="term-item">
+                    <h3 class="term-title">Channel Balance (Lightning)</h3>
+                    <p class="term-desc">Wie viel Kapazität in welche Richtung in einem Lightning-Kanal noch fliessen kann. Ohne Liquidität stockt Routing. <a href="/artikel-lightning-kanal.html" class="internal-link">Lightning-Kanäle</a>.</p>
+                </div>
+                <div class="term-item">
+                    <h3 class="term-title">Coin Control</h3>
+                    <p class="term-desc">Manuelle Auswahl, welche UTXOs (digitale „Münzen“) du für eine Transaktion ausgibst — wichtig für Gebühren und Privatsphäre. <a href="/artikel-utxo-management.html" class="internal-link">UTXO Management</a>.</p>
+                </div>
+                <div class="term-item">
                     <h3 class="term-title">Cold Wallet</h3>
                     <p class="term-desc">Eine Wallet, deren privater Schlüssel nie mit dem Internet in Berührung kommt. Der Goldstandard für die sichere Aufbewahrung grösserer Beträge. <a href="/artikel-hardware-wallet-bitbox.html" class="internal-link">Mehr zur Hardware Wallet</a>.</p>
                 </div>
@@ -132,7 +144,15 @@
                 </div>
                 <div class="term-item">
                     <h3 class="term-title">Confirmation (Bestätigung)</h3>
-                    <p class="term-desc">Sobald ein Block eine Transaktion enthält, gilt sie als 1x bestätigt. Je mehr Bestätigungen, desto sicherer und unumkehrbarer ist die Zahlung.</p>
+                    <p class="term-desc">Sobald ein Block eine Transaktion enthält, gilt sie als 1× bestätigt. Je mehr Bestätigungen, desto sicherer. <a href="/artikel-transaktionen-gebuehren.html" class="internal-link">Transaktionen &amp; Gebühren</a>.</p>
+                </div>
+                <div class="term-item">
+                    <h3 class="term-title">CPFP (Child Pays for Parent)</h3>
+                    <p class="term-desc">Technik, um eine hängende Transaktion zu beschleunigen: eine Folge-TX mit höherer Fee „zieht“ die erste mit. Fortgeschritten — Alternative zu RBF. <a href="/artikel-transaktionen-gebuehren.html" class="internal-link">Gebühren &amp; hängende TX</a>.</p>
+                </div>
+                <div class="term-item">
+                    <h3 class="term-title">Custodial</h3>
+                    <p class="term-desc">Verwahrung durch Dritte (z.&nbsp;B. Börse): Du hast Login, oft nicht die Keys. Gegenparteirisiko. Gegensatz: Self-Custody. <a href="/artikel-wallet-arten.html" class="internal-link">Wallet-Arten</a> · <a href="/artikel-boersenrisiko.html" class="internal-link">Börsenrisiko</a>.</p>
                 </div>
             </div>
 
@@ -142,6 +162,10 @@
                 <div class="term-item">
                     <h3 class="term-title">DCA (Sparplan)</h3>
                     <p class="term-desc">"Dollar Cost Averaging". Regelmässiges Kaufen kleiner Beträge, um Kursschwankungen auszugleichen. <a href="/artikel-dca.html" class="internal-link">DCA erklärt</a> · <a href="/dca-rechner.html" class="internal-link">Rechner</a>.</p>
+                </div>
+                <div class="term-item">
+                    <h3 class="term-title">Descriptor</h3>
+                    <p class="term-desc">Moderne Wallet-Beschreibung (Output Descriptor): legt fest, wie Adressen und Keys abgeleitet werden — wichtig für Backup und Multisig-Kompatibilität.</p>
                 </div>
                 <div class="term-item">
                     <h3 class="term-title">Difficulty</h3>
@@ -197,7 +221,7 @@
                 <div class="term-letter">H</div>
                 <div class="term-item">
                     <h3 class="term-title">Halving</h3>
-                    <p class="term-desc">Alle 4 Jahre halbiert sich die Menge neuer Bitcoin. Das macht Bitcoin zum härtesten Geld der Welt. <a href="/artikel-bitcoin-mining.html" class="internal-link">Mehr zum Mining</a>.</p>
+                    <p class="term-desc">Alle ~4 Jahre (210'000 Blöcke) halbiert sich die Block-Belohnung neuer Bitcoin. Eingebaute Drosselung der Emission — keine Kursgarantie. <a href="/artikel-halving.html" class="internal-link">Halving erklärt</a> · <a href="/artikel-bitcoin-mining.html" class="internal-link">Mining</a>.</p>
                 </div>
                 <div class="term-item">
                     <h3 class="term-title">Hardware Wallet</h3>
@@ -257,7 +281,7 @@
                 <div class="term-letter">M</div>
                 <div class="term-item">
                     <h3 class="term-title">Mempool</h3>
-                    <p class="term-desc">Der "Wartesaal" für Transaktionen, die auf ihre Bestätigung im nächsten Block warten. Ist der Mempool voll, steigen die Gebühren für eine schnelle Bestätigung.</p>
+                    <p class="term-desc">Der "Wartesaal" für Transaktionen, die auf ihre Bestätigung im nächsten Block warten. Ist der Mempool voll, steigen die Gebühren. <a href="/artikel-transaktionen-gebuehren.html" class="internal-link">Transaktionen &amp; Gebühren</a>.</p>
                 </div>
                 <div class="term-item">
                     <h3 class="term-title">Mining</h3>
@@ -319,6 +343,10 @@
                     <p class="term-desc">Ein zusätzliches, selbst gewähltes 25. Wort zu deiner Seed Phrase. Erzeugt eine komplett neue, versteckte Wallet und schützt zusätzlich vor physischem Diebstahl. <a href="/artikel-passphrase.html" class="internal-link">Artikel: Die Passphrase</a>.</p>
                 </div>
                 <div class="term-item">
+                    <h3 class="term-title">Proof of Work (PoW)</h3>
+                    <p class="term-desc">Konsensmechanismus von Bitcoin: Miner müssen Rechenarbeit leisten, damit Blöcke gültig sind. Macht Angriffe teuer und knüpft Sicherheit an Energie. <a href="/artikel-bitcoin-mining.html" class="internal-link">Mining</a> · <a href="/artikel-was-ist-blockchain.html" class="internal-link">Blockchain</a>.</p>
+                </div>
+                <div class="term-item">
                     <h3 class="term-title">Peg</h3>
                     <p class="term-desc">Die Kopplung eines Sidechain-Assets im Verhältnis 1:1 an echte Bitcoin, die dafür auf der Hauptkette gesperrt werden.</p>
                 </div>
@@ -342,7 +370,7 @@
                 <div class="term-letter">R</div>
                 <div class="term-item">
                     <h3 class="term-title">RBF (Replace-By-Fee)</h3>
-                    <p class="term-desc">Eine Funktion, mit der eine unbestätigte Transaktion durch eine neue Version mit höherer Gebühr ersetzt wird, um sie schneller zu bestätigen.</p>
+                    <p class="term-desc">Unbestätigte Transaktion durch eine Version mit höherer Gebühr ersetzen, um sie schneller zu bestätigen. <a href="/artikel-transaktionen-gebuehren.html" class="internal-link">Gebühren &amp; hängende TX</a>.</p>
                 </div>
                 <div class="term-item">
                     <h3 class="term-title">Relai</h3>
@@ -359,7 +387,11 @@
                 <div class="term-letter">S</div>
                 <div class="term-item">
                     <h3 class="term-title">Satoshi (Sat)</h3>
-                    <p class="term-desc">Die kleinste Einheit von Bitcoin: 1 Bitcoin = 100'000'000 Satoshi. Benannt nach dem pseudonymen Erfinder Satoshi Nakamoto. <a href="/sats-converter.html" class="internal-link">Sats in Franken umrechnen</a>.</p>
+                    <p class="term-desc">Die kleinste Einheit von Bitcoin: 1 BTC = 100'000'000 Satoshi. Benannt nach Satoshi Nakamoto. <a href="/artikel-satoshi-einheiten.html" class="internal-link">Einheiten erklärt</a> · <a href="/sats-converter.html" class="internal-link">Sats Converter</a>.</p>
+                </div>
+                <div class="term-item">
+                    <h3 class="term-title">sat/vB</h3>
+                    <p class="term-desc">Gebühreneinheit On-chain: Satoshis pro virtuellem Byte. Entscheidet über Priorität im Mempool — nicht „Prozent vom Betrag“. <a href="/artikel-transaktionen-gebuehren.html" class="internal-link">Transaktionen &amp; Gebühren</a>.</p>
                 </div>
                 <div class="term-item">
                     <h3 class="term-title">Seed Phrase</h3>
@@ -367,11 +399,11 @@
                 </div>
                 <div class="term-item">
                     <h3 class="term-title">SegWit</h3>
-                    <p class="term-desc">"Segregated Witness" – ein 2017 eingeführtes Upgrade, das Transaktionen effizienter macht und tiefere Gebühren ermöglicht. Erkennbar an Adressen, die mit "bc1" beginnen.</p>
+                    <p class="term-desc">"Segregated Witness" – Upgrade (2017), das Transaktionen effizienter macht. Adressen oft <code>bc1q…</code>. <a href="/artikel-bitcoin-adressen.html" class="internal-link">Adressen verstehen</a>.</p>
                 </div>
                 <div class="term-item">
                     <h3 class="term-title">Self-Custody (Selbstverwahrung)</h3>
-                    <p class="term-desc">Das Prinzip, deine privaten Schlüssel selbst zu verwalten statt einer Börse anzuvertrauen. Die Grundlage von "Not Your Keys, Not Your Coins". <a href="/artikel-hardware-wallet-bitbox.html" class="internal-link">So sicherst du deine Keys</a>.</p>
+                    <p class="term-desc">Das Prinzip, deine privaten Schlüssel selbst zu verwalten statt einer Börse anzuvertrauen. Die Grundlage von "Not Your Keys, Not Your Coins". <a href="/artikel-wallet-arten.html" class="internal-link">Wallet-Arten</a> · <a href="/artikel-hardware-wallet-bitbox.html" class="internal-link">Hardware Wallet</a>.</p>
                 </div>
                 <div class="term-item">
                     <h3 class="term-title">Sidechain</h3>
@@ -392,7 +424,11 @@
                 <div class="term-letter">T</div>
                 <div class="term-item">
                     <h3 class="term-title">Taproot</h3>
-                    <p class="term-desc">Ein 2021 aktiviertes Upgrade, das komplexe Transaktionen (z.B. Multisig) auf der Blockchain wie normale Zahlungen aussehen lässt – besser für Privatsphäre und Effizienz.</p>
+                    <p class="term-desc">Upgrade (2021): komplexe Ausgaben können wie einfache Zahlungen aussehen — Effizienz und Privatsphäre. Adressen oft <code>bc1p…</code>. <a href="/artikel-bitcoin-adressen.html" class="internal-link">Adressen verstehen</a>.</p>
+                </div>
+                <div class="term-item">
+                    <h3 class="term-title">Timelock</h3>
+                    <p class="term-desc">Bedingung, die Bitcoin erst ab einem Zeitpunkt oder Block freigibt. Basis für Lightning-Sicherheitsmechanismen und manche Inheritance-Setups.</p>
                 </div>
                 <div class="term-item">
                     <h3 class="term-title">Tor</h3>
