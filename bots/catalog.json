@@ -396,6 +396,19 @@
           "avatar": "/bots/avatars/cosmetics_news_bot.png",
           "featured": false,
           "visible": true
+        },
+        {
+          "id": "longevity_tracker_bot",
+          "slug": "longevity",
+          "display_name": "Longevity Tracker",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub1c80dfz6wk6dc946app4u07399gvwnd8yushdu4s9w4p728ws72cs5z9yvq",
+          "pubkey_hex": "c1ded48b4eb69b82d75d086bc7fa252a18e9b4e4e42ede56057543e51dd0f2b1",
+          "nip05": "longevity@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/longevity_tracker_bot.png",
+          "featured": false,
+          "visible": true
         }
       ]
     }
