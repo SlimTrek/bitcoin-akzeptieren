@@ -344,6 +344,19 @@
           "avatar": "/bots/avatars/manga_news_bot.png",
           "featured": false,
           "visible": true
+        },
+        {
+          "id": "underground_techno_bot",
+          "slug": "techno",
+          "display_name": "Underground Techno",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub1ctfuahkufej6t0p4xywg7fs7dpfw2y79vcgm8r7njgmql7495nvqwkg0kp",
+          "pubkey_hex": "c2d3cededc4e65a5bc35311c8f261e6852e513c56611b38fd392360ffaa5a4d8",
+          "nip05": "techno@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/underground_techno_bot.png",
+          "featured": false,
+          "visible": true
         }
       ]
     }
