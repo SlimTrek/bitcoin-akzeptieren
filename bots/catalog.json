@@ -370,6 +370,19 @@
           "avatar": "/bots/avatars/classical_virtuoso_bot.png",
           "featured": false,
           "visible": true
+        },
+        {
+          "id": "fashion_news_bot",
+          "slug": "fashion",
+          "display_name": "Fashion Desk",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub1f6r0z20wgnksdejjzng8c5a84keuxwcsh4cwkzmeujxyt4p4mlaqf2ewc5",
+          "pubkey_hex": "4e86f129ee44ed06e65214d07c53a7adb3c33b10bd70eb0b79e48c45d435dffa",
+          "nip05": "fashion@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/fashion_news_bot.png",
+          "featured": false,
+          "visible": true
         }
       ]
     }
