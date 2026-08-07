@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Coin Control: UTXOs bewusst wählen für Gebühren, Privacy und getrennte Herkunft — Praxis-Deep-Dive nach UTXO-Basics.">
+    <title>Coin Control praktisch – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-coin-control.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-coin-control.html">
+    <meta property="og:title" content="Coin Control praktisch – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Coin Control: UTXOs bewusst wählen für Gebühren, Privacy und getrennte Herkunft — Praxis-Deep-Dive nach UTXO-Basics.">
+    <meta property="og:site_name" content="Bitcoin Akzeptieren">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coin Control praktisch – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Coin Control: UTXOs bewusst wählen für Gebühren, Privacy und getrennte Herkunft — Praxis-Deep-Dive nach UTXO-Basics.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/article.css">
+    <style>
+        .active { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <article class="article-container">
+        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Technik</div>
+        <h1>Coin Control: UTXOs bewusst wählen</h1>
+        <div class="meta-info"><span>Kategorie: Technik</span><span>Lesezeit: 9 Min.</span><span>Level: Deep Dive</span>
+        </div>
+        <div class="content">
+            <p>Standard-Wallets wählen Inputs automatisch. <strong>Coin Control</strong> heisst: Du entscheidest, welche UTXOs in eine Transaktion gehen — für Gebühren, Privacy und saubere Trennung von Herkunft. Vorwissen: <a href="/artikel-utxo-management.html">UTXO Management</a>.</p>
+
+            <figure class="diagram-figure">
+                <img src="/Images/diagrams/coin-control.svg" width="640" height="200" alt="KYC-UTXO und private UTXO getrennt wählen" loading="lazy" decoding="async">
+                <figcaption>Nicht alles in einen Topf: Herkunft labeln und Inputs bewusst kombinieren — oder bewusst getrennt lassen.</figcaption>
+            </figure>
+
+            <h2>1. Warum Auto-Auswahl manchmal schlecht ist</h2>
+            <ul>
+                <li><strong>Gebühren:</strong> Viele kleine Inputs = grosse TX = teurer (<a href="/artikel-transaktionen-gebuehren.html">sat/vB</a>).</li>
+                <li><strong>Privacy:</strong> Eine Zahlung, die KYC-Coins und „private“ Coins mischt, verknüpft Historien on-chain. <a href="/artikel-privacy-basics.html">Privacy Basics</a>.</li>
+                <li><strong>Dust:</strong> Winzige UTXOs unnötig mitnehmen treibt Fees, ohne Nutzen.</li>
+            </ul>
+
+            <h2>2. Was Coin Control in der Praxis ist</h2>
+            <p>In Sparrow, Electrum, BitBox-App (je nach Modus) u.&nbsp;a. siehst du die Liste der UTXOs — oft mit Betrag, Adresse, optional Label. Vor dem Senden hakt du die Inputs an, die du verwenden willst; Change geht zurück an dich (neue Adresse).</p>
+            <div class="info-box">Labels sind Gold: „Relai 2024“, „P2P“, „Erstattung Firma“. Ohne Labels rätst du später — und mischst versehentlich.</div>
+
+            <h2>3. Typische Anwendungsfälle</h2>
+            <ol>
+                <li><strong>Günstig senden:</strong> Wenige, ausreichend grosse UTXOs wählen statt 20 Mini-Münzen.</li>
+                <li><strong>Konsolidieren:</strong> Bei niedrigen Fees mehrere kleine UTXOs derselben „Herkunft“ zu einer zusammenfassen.</li>
+                <li><strong>Nicht mischen:</strong> Börsen-/KYC-UTXOs nicht mit Coins kombinieren, die du privat halten willst.</li>
+                <li><strong>Gezielte Ausgabe:</strong> Genau eine UTXO ausgeben, deren Historie du kennst.</li>
+            </ol>
+
+            <h2>4. Grenzen und Fallstricke</h2>
+            <ul>
+                <li>Coin Control ersetzt kein Coinjoin und macht dich nicht unsichtbar.</li>
+                <li>Change-Output ist wieder eine UTXO — Label und Strategie mitdenken.</li>
+                <li>Zu aggressive Fragmentierung = später teure Spends.</li>
+                <li>Falsche Inputs = du „verbrennst“ Privacy oder zahlst unnötig Fees — langsam üben mit kleinen Beträgen.</li>
+            </ul>
+            <div class="alert-box">Seed und Passphrase bleiben tabu. Coin Control ist eine Wallet-Funktion — kein Support fragt danach.</div>
+
+            <h2>5. Wann du es brauchst</h2>
+            <p>Für den ersten 50-CHF-Kauf: oft Overkill. Sobald Stack, mehrere Quellen und Gebühren wehtun — oder Privacy dir wichtig ist — wird Coin Control zum Alltagswerkzeug neben Konsolidierung und Watch-only (<a href="/artikel-watch-only-wallet.html">Watch-only</a>).</p>
+
+            <h2>Fazit</h2>
+            <p>Coin Control ist die manuelle Gangschaltung zum UTXO-Motor: mehr Kontrolle über Fees und Verknüpfungen. Erst verstehen, dann labeln, dann bewusst wählen — nicht jedes Mal maximal kompliziert, sondern wenn es zählt.</p>
+        </div>
+    </article>
+    <!-- PHASE1_ARTICLE_END -->
+    <aside class="article-end">
+        <div class="article-end-box">
+            <h2>Weiterlesen</h2>
+            <div class="related-links">
+                <a href="/artikel-utxo-management.html">UTXO Management →</a>
+                <a href="/artikel-privacy-basics.html">Privacy Basics →</a>
+                <a href="/artikel-rbf-cpfp.html">RBF &amp; CPFP →</a>
+                <a href="/glossar.html?q=Coin%20Control">Glossar →</a>
+            </div>
+        </div>
+        <div class="article-end-box coaching-cta">
+            <h2>Fragen offen?</h2>
+            <p>Hilfe zur Selbsthilfe: sicherer Start, Self-Custody oder Lightning fürs Geschäft — ohne Anlageberatung.</p>
+            <div class="btn-row">
+                <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20Coin%20Control%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
+            </div>
+            <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
+        </div>
+    </aside>
+
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
+</body>
+</html>

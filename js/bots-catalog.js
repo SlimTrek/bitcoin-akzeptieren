@@ -6,7 +6,8 @@
   "use strict";
 
   const CATALOG_URL = "/bots/catalog.json";
-  const CORE_OPEN_BY_DEFAULT = true;
+  /** Open these groups on first paint (newest showcase + core). */
+  const OPEN_BY_DEFAULT = new Set(["newest", "core"]);
 
   function escapeHtml(value) {
     return String(value || "")
@@ -51,12 +52,20 @@
       return "";
     }
     const featured = bots.some((b) => b.featured);
-    const gridClass = featured ? "bots-grid bots-grid--featured" : "bots-grid";
-    const cards = bots.map((bot) => botCard(bot, !!bot.featured)).join("");
+    const isNewest = group.id === "newest";
+    const gridClass =
+      (featured || isNewest ? "bots-grid bots-grid--featured" : "bots-grid") +
+      (isNewest ? " bots-grid--newest" : "");
+    const cards = bots
+      .map((bot) => botCard(bot, !!bot.featured || isNewest))
+      .join("");
     const count = bots.length;
     const openAttr = open ? " open" : "";
+    const groupClass = isNewest
+      ? "bot-group bot-group--newest"
+      : "bot-group";
     return (
-      `<details class="bot-group" id="group-${escapeHtml(group.id)}" data-group-id="${escapeHtml(group.id)}"${openAttr}>` +
+      `<details class="${groupClass}" id="group-${escapeHtml(group.id)}" data-group-id="${escapeHtml(group.id)}"${openAttr}>` +
       `<summary class="bot-group__summary">` +
       `<span class="bot-group__title" id="title-${escapeHtml(group.id)}">${escapeHtml(group.title)}</span>` +
       `<span class="bot-group__count">${count}</span>` +
@@ -209,7 +218,7 @@
         groups
           .map((g) =>
             renderGroup(g, {
-              open: CORE_OPEN_BY_DEFAULT && g.id === "core",
+              open: OPEN_BY_DEFAULT.has(g.id),
             })
           )
           .join("") +

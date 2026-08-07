@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lightning-Liquidität Deep Dive: Inbound vs. Outbound, warum Zahlungen failen, Routing und was Node-Betreiber vs. App-Nutzer wissen müssen.">
+    <title>Lightning-Liquidität &amp; Routing – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-lightning-liquiditaet.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-lightning-liquiditaet.html">
+    <meta property="og:title" content="Lightning-Liquidität &amp; Routing – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Lightning-Liquidität Deep Dive: Inbound vs. Outbound, warum Zahlungen failen, Routing und was Node-Betreiber vs. App-Nutzer wissen müssen.">
+    <meta property="og:site_name" content="Bitcoin Akzeptieren">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lightning-Liquidität &amp; Routing – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Lightning-Liquidität Deep Dive: Inbound vs. Outbound, warum Zahlungen failen, Routing und was Node-Betreiber vs. App-Nutzer wissen müssen.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/article.css">
+    <style>
+        .active { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <article class="article-container">
+        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Technik</div>
+        <h1>Lightning-Liquidität &amp; Routing</h1>
+        <div class="meta-info"><span>Kategorie: Technik</span><span>Lesezeit: 10 Min.</span><span>Level: Deep Dive</span>
+        </div>
+        <div class="content">
+            <p>„Payment failed“ auf Lightning ist oft kein Bug, sondern <strong>Liquidität</strong>: Irgendwo auf dem Pfad fehlt Kapazität in die richtige Richtung. Aufbauend auf <a href="/artikel-lightning-netzwerk.html">Lightning</a> und <a href="/artikel-lightning-kanal.html">Kanälen</a>.</p>
+
+            <figure class="diagram-figure">
+                <img src="/Images/diagrams/lightning-liquiditaet.svg" width="640" height="200" alt="Outbound, Routing, Inbound" loading="lazy" decoding="async">
+                <figcaption>Senden braucht Outbound — Empfangen Inbound — dazwischen muss die Route mitspielen.</figcaption>
+            </figure>
+
+            <h2>1. Kapazität ist nicht „Kontostand“</h2>
+            <p>Ein Kanal hat eine feste Grösse. Was sich bewegt, ist die Aufteilung:</p>
+            <ul>
+                <li><strong>Outbound:</strong> Anteil, den du senden kannst.</li>
+                <li><strong>Inbound:</strong> Anteil, den du empfangen kannst (Gegenseite „hat Platz“ für dich).</li>
+            </ul>
+            <p>Alles Outbound → du kannst senden, aber kaum empfangen. Alles Inbound → Empfang ok, Senden blockiert. Genau deshalb fühlt sich Lightning anders an als ein Bankkonto.</p>
+
+            <h2>2. Routing: der unsichtbare Mittelweg</h2>
+            <p>Zahlst du nicht direkt an deinen Kanalpartner, sucht die Wallet einen <strong>Pfad</strong> über andere Nodes. Jeder Hop braucht genug Liquidität in Zahlungsrichtung. Schlägt der Versuch fehl, probiert die App oft Alternativen — oder gibt auf.</p>
+            <div class="info-box">Custodial / LSP-Wallets (viele Handy-Apps) managen Liquidität für dich. Self-custodial Nodes spürst du die Physik stärker — mehr Kontrolle, mehr Verantwortung.</div>
+
+            <h2>3. Typische Fallen</h2>
+            <ul>
+                <li><strong>Zu grosser Betrag</strong> für die verfügbare Route / Kanalgrösse.</li>
+                <li><strong>Kein Inbound</strong>, wenn du als Händler empfangen willst, aber Kanäle „voll auf deiner Seite“ sind.</li>
+                <li><strong>Unzuverlässige Peers</strong> oder schlecht vernetzte Nodes.</li>
+                <li><strong>Alte Invoice</strong> abgelaufen — neu erstellen, nicht „nochmal senden“ blind.</li>
+            </ul>
+
+            <h2>4. Was App-Nutzer vs. Node-Betreiber tun</h2>
+            <p><strong>Alltag / LSP-App:</strong> Oft reicht „Kanal öffnen“ bzw. der Dienst managt Peers. Bei Failures: Betrag splitten, andere Wallet testen, Invoice erneuern.</p>
+            <p><strong>Eigener Node:</strong> Peers wählen, Inbound einkaufen oder erarbeiten (z.&nbsp;B. Loop/Swap-Dienste, Dual-Fund, Routing-Aktivität), Fees setzen, Kanäle rebalancen. Das ist Betrieb — nicht „einmal einrichten und vergessen“. Vertiefung Node: <a href="/artikel-full-node.html">Full Node</a>.</p>
+
+            <h2>5. Händler-Perspektive (kurz)</h2>
+            <p>An der Kasse zählt zuverlässiges Empfangen → Inbound. Viele CH-Apps lösen das über den Anbieter. Self-hosted (z.&nbsp;B. BTCPay + eigener LN) braucht bewusste Liquiditätsplanung. Orientierung: <a href="/haendler.html">Händler / KMU</a>.</p>
+            <div class="alert-box">Lightning ist Bitcoin — aber UX und Liquidität sind eine eigene Disziplin. Wer on-chain denkt („Saldo reicht“), unterschätzt Inbound/Outbound.</div>
+
+            <h2>Fazit</h2>
+            <p>Liquidität steuert, was Lightning gerade kann. Routing verbindet Kanäle zu einem Pfad — oder eben nicht. Verstehst du Inbound/Outbound, hörst Fehlermeldungen auf, wie Magie zu klingen, und weisst, ob eine App-LSP oder ein eigener Node zu dir passt.</p>
+        </div>
+    </article>
+    <!-- PHASE1_ARTICLE_END -->
+    <aside class="article-end">
+        <div class="article-end-box">
+            <h2>Weiterlesen</h2>
+            <div class="related-links">
+                <a href="/artikel-lightning-kanal.html">Lightning-Kanäle →</a>
+                <a href="/artikel-lightning-netzwerk.html">Lightning-Netzwerk →</a>
+                <a href="/thema-lightning.html">Themen-Hub Lightning →</a>
+                <a href="/glossar.html?q=Channel">Glossar: Channel Balance →</a>
+            </div>
+        </div>
+        <div class="article-end-box coaching-cta">
+            <h2>Fragen offen?</h2>
+            <p>Hilfe zur Selbsthilfe: sicherer Start, Self-Custody oder Lightning fürs Geschäft — ohne Anlageberatung.</p>
+            <div class="btn-row">
+                <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20Lightning-Liquidit%C3%A4t%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
+            </div>
+            <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
+        </div>
+    </aside>
+
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
+</body>
+</html>

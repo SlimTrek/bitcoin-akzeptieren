@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Coin Control</title>
+  <desc>UTXOs bewusst waehlen statt Auto-Auswahl der Wallet.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="20" y="40" width="180" height="120" rx="12" fill="#1c1c1e" stroke="#71717a" stroke-width="1.5"/>
+  <text x="34" y="68" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12" font-weight="700">UTXO A</text>
+  <text x="34" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Boerse KYC</text>
+  <text x="34" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">nicht mischen</text>
+  <text x="34" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">mit P2P-Coins</text>
+  <rect x="220" y="40" width="180" height="120" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="234" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">WAEHLEN</text>
+  <text x="234" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Coin Control</text>
+  <text x="234" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Inputs bewusst</text>
+  <text x="234" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Fee + Privacy</text>
+  <rect x="420" y="40" width="200" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="434" y="68" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12" font-weight="700">UTXO B</text>
+  <text x="434" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Privat / P2P</text>
+  <text x="434" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">getrennt halten</text>
+  <text x="434" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Label in Wallet</text>
+</svg>

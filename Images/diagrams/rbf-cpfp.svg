@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>RBF und CPFP</title>
+  <desc>Zwei Wege: TX ersetzen mit hoeherer Fee, oder Kind-TX zieht Eltern nach.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="20" y="36" width="290" height="128" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="36" y="66" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">RBF</text>
+  <text x="36" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">TX ersetzen</text>
+  <text x="36" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Gleiche Inputs, hoehere Fee</text>
+  <text x="36" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Wenn Wallet RBF erlaubt</text>
+  <rect x="330" y="36" width="290" height="128" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="346" y="66" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">CPFP</text>
+  <text x="346" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Kind zieht Eltern</text>
+  <text x="346" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Neue TX aus dem Output</text>
+  <text x="346" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Hohe Fee auf dem Kind</text>
+</svg>

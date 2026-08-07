@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hängende Bitcoin-Transaktion? RBF und CPFP erklärt: Fee erhöhen, TX ersetzen oder Kind-TX — Deep Dive ohne Panik.">
+    <title>RBF &amp; CPFP: Hängende Transaktionen – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-rbf-cpfp.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-rbf-cpfp.html">
+    <meta property="og:title" content="RBF &amp; CPFP: Hängende Transaktionen – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Hängende Bitcoin-Transaktion? RBF und CPFP erklärt: Fee erhöhen, TX ersetzen oder Kind-TX — Deep Dive ohne Panik.">
+    <meta property="og:site_name" content="Bitcoin Akzeptieren">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RBF &amp; CPFP: Hängende Transaktionen – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Hängende Bitcoin-Transaktion? RBF und CPFP erklärt: Fee erhöhen, TX ersetzen oder Kind-TX — Deep Dive ohne Panik.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/article.css">
+    <style>
+        .active { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <article class="article-container">
+        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Technik</div>
+        <h1>RBF &amp; CPFP: Wenn die Transaktion hängt</h1>
+        <div class="meta-info"><span>Kategorie: Technik</span><span>Lesezeit: 10 Min.</span><span>Level: Deep Dive</span>
+        </div>
+        <div class="content">
+            <p>Unbestätigt heisst selten „verloren“. Meist war die Gebühr zu niedrig für den aktuellen Mempool. Dieser Deep Dive erklärt die zwei Standard-Werkzeuge: <strong>RBF</strong> (Replace-by-Fee) und <strong>CPFP</strong> (Child Pays for Parent). Grundlagen vorher: <a href="/artikel-transaktionen-gebuehren.html">Transaktionen &amp; Gebühren</a>.</p>
+
+            <figure class="diagram-figure">
+                <img src="/Images/diagrams/rbf-cpfp.svg" width="640" height="200" alt="RBF ersetzt die TX; CPFP zieht mit Kind-TX nach" loading="lazy" decoding="async">
+                <figcaption>RBF: dieselbe Logik, höhere Fee. CPFP: neue TX aus dem Output „bezahlt“ die Eltern mit.</figcaption>
+            </figure>
+
+            <h2>1. Zuerst prüfen — dann handeln</h2>
+            <ol>
+                <li>TX-ID in einem Explorer (z.&nbsp;B. mempool.space) öffnen.</li>
+                <li>Status: unconfirmed? Fee-Rate in sat/vB? RBF signalisiert?</li>
+                <li>Wallet: zeigt sie „ersetzen“ / „Fee bump“?</li>
+            </ol>
+            <div class="alert-box">Nicht eine zweite Zahlung an dieselbe Adresse schicken, nur weil die erste „hängt“. Das kann doppelt ankommen. Erst Status verstehen.</div>
+
+            <h2>2. RBF — die Transaktion ersetzen</h2>
+            <p><strong>Replace-by-Fee</strong> erlaubt (wenn beim Senden aktiviert bzw. signalisiert), eine unbestätigte TX durch eine neue Version mit höherer Fee zu ersetzen. Inputs bleiben typischerweise dieselben; Miner bevorzugen die teurere Variante.</p>
+            <ul>
+                <li><strong>Wann:</strong> Du kontrollierst die sendende Wallet und RBF ist verfügbar.</li>
+                <li><strong>Vorteil:</strong> Direkt, klar, in vielen modernen Wallets eingebaut.</li>
+                <li><strong>Grenze:</strong> Manche Empfänger/Börsen mögen RBF nicht für 0-conf; für private Sends oft egal.</li>
+            </ul>
+            <div class="info-box">Opt-in RBF (BIP125): Die Original-TX muss ersetzbar signalisiert sein. Manche Wallets setzen das standardmässig; prüfe die Einstellung <em>vor</em> dem nächsten Gross-Send.</div>
+
+            <h2>3. CPFP — das Kind zahlt für die Eltern</h2>
+            <p>Wenn du die Eltern-TX nicht ersetzen kannst (kein RBF, fremde Wallet, schon „fest“ im Mempool ohne Replace-Flag), kannst du oft einen <strong>Output</strong> der hängenden TX als Input einer neuen TX nutzen — mit bewusst hoher Fee. Miner wollen das Kind; dafür müssen sie die Eltern mitnehmen.</p>
+            <ul>
+                <li><strong>Wann:</strong> Du kontrollierst einen Empfangs-Output der hängenden TX (z.&nbsp;B. Change an dich, oder Empfang auf eigener Wallet).</li>
+                <li><strong>Aufwand:</strong> Fortgeschrittener; nicht jede App macht „Bump“ per Klick.</li>
+                <li><strong>Fee:</strong> Die effektive Rate zählt über Eltern+Kind — nicht nur die Kind-Fee allein.</li>
+            </ul>
+
+            <h2>4. Entscheidungshilfe</h2>
+            <ul>
+                <li>RBF verfügbar → meist zuerst RBF.</li>
+                <li>Kein RBF, aber eigener Output → CPFP prüfen.</li>
+                <li>Weder noch → warten (Fees sinken oft) oder Wallet/Support-Doku; nicht panisch doppelspenden.</li>
+                <li>Sehr niedrige Dringlichkeit → Warten ist kostenlos.</li>
+            </ul>
+
+            <h2>5. Prävention</h2>
+            <p>Fee der Dringlichkeit anpassen, Mempool ansehen, bei Unsicherheit „normal/schnell“ statt Blind-Minimum. Viele kleine UTXOs machen TX schwer und teuer — <a href="/artikel-utxo-management.html">UTXO</a> und <a href="/artikel-coin-control.html">Coin Control</a>.</p>
+
+            <h2>Fazit</h2>
+            <p>Hängen ist ein Fee-Markt-Problem, kein „Bitcoin kaputt“. RBF ersetzt, CPFP zieht nach — beides schlägt Panik-Doppelzahlung. Wer die Tools kennt, bleibt ruhig, wenn der Mempool voll ist.</p>
+        </div>
+    </article>
+    <!-- PHASE1_ARTICLE_END -->
+    <aside class="article-end">
+        <div class="article-end-box">
+            <h2>Weiterlesen</h2>
+            <div class="related-links">
+                <a href="/artikel-transaktionen-gebuehren.html">Transaktionen &amp; Fees →</a>
+                <a href="/artikel-utxo-management.html">UTXO Management →</a>
+                <a href="/artikel-coin-control.html">Coin Control →</a>
+                <a href="/glossar.html?q=RBF">Glossar: RBF →</a>
+            </div>
+        </div>
+        <div class="article-end-box coaching-cta">
+            <h2>Fragen offen?</h2>
+            <p>Hilfe zur Selbsthilfe: sicherer Start, Self-Custody oder Lightning fürs Geschäft — ohne Anlageberatung.</p>
+            <div class="btn-row">
+                <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20RBF%20%26%20CPFP%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
+            </div>
+            <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
+        </div>
+    </aside>
+
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
+</body>
+</html>

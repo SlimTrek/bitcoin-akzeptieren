@@ -216,6 +216,25 @@
   border-bottom: 1px solid var(--border);
 }
 
+/* Showcase strip for freshly onboarded bots (before niche placement). */
+.bot-group--newest {
+  margin-top: 8px;
+  padding-top: 32px;
+  border: 1px solid var(--brand-border);
+  border-radius: var(--radius, 12px);
+  background:
+    linear-gradient(180deg, var(--brand-soft), transparent 72%),
+    var(--bg);
+}
+
+.bot-group--newest .bot-group__title {
+  color: var(--brand);
+}
+
+.bot-group--newest .bot-group__count {
+  border-color: var(--brand-border);
+}
+
 .bot-group[hidden] {
   display: none;
 }
