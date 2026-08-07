@@ -147,17 +147,238 @@
             font-size: 2rem;
             font-weight: 800;
             color: var(--text);
-            margin: 10px 0;
+            margin: 10px 0 4px;
             line-height: 1.2;
         }
-        .offer-card ul { margin: 16px 0 0; padding-left: 18px; list-style: disc; }
+        .offer-card .price-badge {
+            display: inline-block;
+            margin-bottom: 8px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--brand-border);
+            background: var(--brand-soft);
+            color: var(--brand);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+        .offer-card .price-meta {
+            color: var(--text-muted);
+            margin: 0 0 8px;
+            font-size: 0.92rem;
+        }
+        .offer-card .scope-label {
+            margin: 14px 0 6px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+        }
+        .offer-card ul { margin: 8px 0 0; padding-left: 18px; list-style: disc; }
         .offer-card li { color: var(--text-muted); margin-bottom: 8px; list-style: disc; }
         .offer-card li::marker { color: var(--brand); }
+        .calc-box {
+            max-width: 820px;
+            margin: 36px auto 0;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.28);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px 26px;
+        }
+        .calc-box h3 {
+            margin: 0 0 10px;
+            color: var(--text);
+            font-size: 1.15rem;
+            line-height: 1.35;
+        }
+        .calc-box > p {
+            margin: 0 0 16px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .addon-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+        }
+        .addon-table th,
+        .addon-table td {
+            border-top: 1px solid var(--border);
+            padding: 12px 8px;
+            text-align: left;
+            vertical-align: top;
+        }
+        .addon-table th { color: var(--text-faint); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+        .addon-table td { color: var(--text-muted); }
+        .addon-table td strong { color: var(--text); }
+        .addon-table .chf {
+            white-space: nowrap;
+            font-weight: 700;
+            color: var(--brand);
+            font-variant-numeric: tabular-nums;
+        }
+        .calc-box .foot {
+            margin: 14px 0 0;
+            font-size: 0.85rem;
+            color: #888;
+            line-height: 1.45;
+        }
+        .intake {
+            max-width: 920px;
+            margin: 48px auto 0;
+            text-align: left;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: clamp(22px, 3vw, 32px);
+            box-sizing: border-box;
+        }
+        .intake > h2 {
+            text-align: left;
+            margin: 0 0 10px;
+            font-size: clamp(1.35rem, 1.1rem + 1vw, 1.7rem);
+        }
+        .intake > .lead-local {
+            margin: 0 0 22px;
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.55;
+            max-width: 40rem;
+        }
+        .intake-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+            gap: 14px 16px;
+        }
+        .intake-field { min-width: 0; }
+        .intake-field.full { grid-column: 1 / -1; }
+        .intake-field label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .intake-field .req { color: var(--brand); }
+        .intake-field input,
+        .intake-field select,
+        .intake-field textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(0, 0, 0, 0.35);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+        .intake-field textarea { min-height: 96px; resize: vertical; }
+        .intake-field input:focus,
+        .intake-field select:focus,
+        .intake-field textarea:focus {
+            outline: none;
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.15);
+        }
+        .estimate-panel {
+            margin-top: 22px;
+            padding: 18px 18px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--brand-border);
+            background: var(--brand-soft);
+        }
+        .estimate-panel h3 {
+            margin: 0 0 8px;
+            font-size: 1rem;
+            color: var(--text);
+        }
+        .estimate-total {
+            font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem);
+            font-weight: 800;
+            color: var(--text);
+            font-variant-numeric: tabular-nums;
+            line-height: 1.2;
+            margin: 0 0 6px;
+        }
+        .estimate-note {
+            margin: 0 0 12px;
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.45;
+        }
+        .estimate-lines {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .estimate-lines li {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 7px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .estimate-lines li span:last-child {
+            color: var(--text);
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+        }
+        .estimate-flags {
+            margin: 12px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+        .estimate-flags li {
+            margin: 0 0 6px;
+            padding-left: 14px;
+            position: relative;
+            color: var(--text-muted);
+            font-size: 0.86rem;
+            line-height: 1.4;
+        }
+        .estimate-flags li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--brand);
+        }
+        .intake-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-top: 18px;
+        }
+        .intake-actions .cta-btn { margin-top: 0; border: none; cursor: pointer; font-family: var(--font-body); font-size: 1rem; }
+        .intake-actions .cta-btn-outline { margin-top: 0; margin-left: 0; background: transparent; cursor: pointer; font-family: var(--font-body); }
+        .intake-hint {
+            margin: 12px 0 0;
+            font-size: 0.82rem;
+            color: #888;
+            line-height: 1.45;
+        }
         .note { font-size: 0.85rem; color: #777; margin-top: 20px; }
         .response-time { display: block; margin-top: 12px; color: #ccc; font-size: 0.9rem; }
         @media (max-width: 768px) {
             header { padding-top: calc(var(--nav-h) + 48px); }
             .cta-btn-outline { margin-left: 0; display: inline-block; }
+            .addon-table th:first-child,
+            .addon-table td:first-child { padding-left: 0; }
+            .addon-table th:last-child,
+            .addon-table td:last-child { padding-right: 0; text-align: right; }
         }
     </style>
 </head>
@@ -168,8 +389,8 @@
     <header>
         <h1>Machen Sie Ihr Geschäft <br><span class="highlight">bereit für die Zukunft</span></h1>
         <p>Akzeptieren Sie Bitcoin und Lightning. Keine teuren Terminals nötig.<br>Schweizer Lösungen, klare Einrichtung, Mitarbeitende, die wissen was zu tun ist.</p>
-        <a href="/erstgespraech.html" class="cta-btn">Erstgespräch wählen</a>
-        <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20H%C3%A4ndler%20%2F%20KMU&body=Hallo%20Patrik%2C%0A%0AIch%20interessiere%20mich%20f%C3%BCr%20Bitcoin-Akzeptanz%20im%20Gesch%C3%A4ft.%0A%0ABranche%20%2F%20Ort%3A%20%0AUngef%C3%A4hre%20Gr%C3%B6sse%20%28Mitarbeitende%20%2F%20Standorte%29%3A%20%0ABevorzugtes%20Paket%20%28Start%20%2F%20Vor-Ort%29%3A%20%0ABevorzugte%20Zeiten%3A%20%0A%0AFreundliche%20Gr%C3%BCsse%0A" class="cta-btn" style="margin-left:12px;">Direkt per E-Mail</a>
+        <a href="#einschaetzung" class="cta-btn">Kosteneinschätzung</a>
+        <a href="/erstgespraech.html" class="cta-btn" style="margin-left:12px;">Erstgespräch wählen</a>
         <span class="response-time">Antwort in der Regel innert 1–2 Werktagen · <a href="/case-kmu-lightning.html" style="color:var(--brand);">Beispiel Lightning</a> · <a href="/fallstudien.html" style="color:var(--brand);">Alle Fallstudien</a></span>
     </header>
 
@@ -274,39 +495,385 @@
         </div>
 
         <h2 style="margin-top: 70px;">Mein Angebot für KMUs</h2>
-        <p style="max-width: 700px; margin: 0 auto; color: #ccc;">Technik + klare Abläufe. Keine Anlageberatung — praktische Einführung, damit Ihr Team souverän kassieren kann.</p>
+        <p style="max-width: 720px; margin: 0 auto; color: #ccc;">
+            Technik + klare Abläufe. <strong style="color:var(--text);">Festpreise für den Standardfall</strong> — damit Sie vorab rechnen können.
+            Keine Anlageberatung. Erweiterungen sind optional und mit CHF ausgewiesen.
+        </p>
         <div class="offer-grid">
             <div class="offer-card">
+                <span class="price-badge">Festpreis</span>
                 <h3>Start-Paket</h3>
                 <div class="price">150 CHF</div>
-                <p style="color:var(--text-muted); margin:0;">ca. 2 Stunden online</p>
+                <p class="price-meta">ca. 2 Stunden · online</p>
+                <p class="scope-label">Enthalten</p>
                 <ul>
                     <li>Bedarf &amp; Ziel (Sats vs. CHF) klären</li>
-                    <li>App-Empfehlung &amp; Setup-Begleitung</li>
+                    <li>App-Empfehlung &amp; Setup-Begleitung (1 Gerät)</li>
                     <li>Kurz-Schulung für 1–2 Personen</li>
-                    <li>Checkliste für Listing &amp; Schilder</li>
+                    <li>Checkliste Listing &amp; Schilder</li>
+                </ul>
+                <p class="scope-label">Nicht enthalten</p>
+                <ul>
+                    <li>Vor-Ort-Termin, BTCPay-Server, weitere Standorte</li>
                 </ul>
             </div>
             <div class="offer-card">
+                <span class="price-badge">Festpreis</span>
                 <h3>Vor-Ort Setup</h3>
-                <div class="price">ab 280 CHF</div>
-                <p style="color:var(--text-muted); margin:0;">inkl. Anfahrt Region Zürich nach Absprache</p>
+                <div class="price">280 CHF</div>
+                <p class="price-meta">Standardfall · Region Zürich inkl. Anfahrt</p>
+                <p class="scope-label">Enthalten</p>
                 <ul>
                     <li>Alles aus dem Start-Paket</li>
-                    <li>Einrichtung vor Ort am Gerät</li>
-                    <li>Testzahlung &amp; Team-Durchlauf</li>
+                    <li>1 Standort · 1 Gerät · Team bis 3 Personen</li>
+                    <li>Einrichtung vor Ort, Testzahlung, Team-Durchlauf</li>
                     <li>Kurze Nachbetreuung per E-Mail (7 Tage)</li>
+                </ul>
+                <p class="scope-label">Nicht enthalten</p>
+                <ul>
+                    <li>Weitere Standorte/Geräte, BTCPay, Anfahrt ausserhalb Zürich → siehe Tabelle</li>
                 </ul>
             </div>
         </div>
-        <a href="mailto:patrik.bal.work@gmail.com?subject=Anfrage%20H%C3%A4ndler%20Paket&body=Hallo%20Patrik%2C%0A%0APaket%3A%20Start%20%2F%20Vor-Ort%0ABranche%20%2F%20Ort%3A%20%0ABevorzugte%20Zeiten%3A%20%0A" class="cta-btn">Paket anfragen</a>
-        <a href="/bitcoin-beratung-und-coaching.html" class="cta-btn-outline">Privates Mentoring</a>
-        <p class="note">Praxisbeispiel: <a href="/case-kmu-lightning.html" style="color:var(--primary);">Fallstudie Lightning im Laden</a> · Übersicht: <a href="/fallstudien.html" style="color:var(--primary);">alle Fallstudien</a>. Vertiefung im <a href="/thema-bitcoin-akzeptieren-kmu.html" style="color:var(--primary);">Themen-Hub Bitcoin für KMU</a>. Preise Orientierung. Exact Offerte nach kurzem Mail-Austausch. Zahlung per Lightning bevorzugt oder Rechnung. Antwort in der Regel innert 1–2 Werktagen.</p>
+
+        <div class="calc-box">
+            <h3>So können Sie kalkulieren</h3>
+            <p>
+                Die beiden Pakete oben sind Festpreise für den beschriebenen Umfang.
+                Brauchen Sie mehr (z.&nbsp;B. zweites Gerät, BTCPay, Team-Schulung), addieren Sie die Positionen — oder ich schicke nach dem Erstgespräch eine <strong style="color:var(--text);">kurze Festofferte, bevor Arbeit beginnt</strong>.
+            </p>
+            <table class="addon-table">
+                <thead>
+                    <tr>
+                        <th>Erweiterung</th>
+                        <th>Preis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Weiteres Gerät / Kasse</strong> am selben Standort (Setup + Kurztest)</td>
+                        <td class="chf">+ 80 CHF</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weiterer Standort</strong> (wie Vor-Ort, ohne doppelte Konzeption)</td>
+                        <td class="chf">+ 180 CHF</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Zusätzliche Team-Schulung</strong> (bis 4 Personen, ca. 30–45 Min.)</td>
+                        <td class="chf">+ 60 CHF</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anfahrt ausserhalb Region Zürich</strong></td>
+                        <td class="chf">nach Absprache</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Komplexes Setup</strong> (z.&nbsp;B. BTCPay Server, Sonderfälle)</td>
+                        <td class="chf">95 CHF / h</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="foot">
+                Beispiel: Vor-Ort Zürich (280) + zweites Gerät (80) = <strong style="color:var(--text);">360 CHF</strong> — klar vor dem Termin.
+                Noch einfacher: <a href="#einschaetzung" style="color:var(--primary);">Formular Kosteneinschätzung</a> ausfüllen — Live-Summe + Anfrage per E-Mail.
+            </p>
+        </div>
+
+        <form class="intake" id="einschaetzung" novalidate>
+            <h2>Kosteneinschätzung für Ihr Geschäft</h2>
+            <p class="lead-local">
+                Ausfüllen statt langes Mail tippen. Sie sehen sofort eine <strong style="color:var(--text);">Orientierungssumme</strong> nach Festpreisen —
+                bei grösseren Setups Hinweise zur Infrastruktur. Die Anfrage geht als E-Mail an mich (kein Konto, kein Backend).
+            </p>
+
+            <div class="intake-grid">
+                <div class="intake-field">
+                    <label for="f-firma">Firma / Betrieb <span class="req">*</span></label>
+                    <input id="f-firma" name="firma" type="text" required autocomplete="organization" placeholder="z. B. Café Muster">
+                </div>
+                <div class="intake-field">
+                    <label for="f-branche">Branche</label>
+                    <input id="f-branche" name="branche" type="text" placeholder="Gastronomie, Detailhandel, …">
+                </div>
+                <div class="intake-field">
+                    <label for="f-ort">Ort / PLZ</label>
+                    <input id="f-ort" name="ort" type="text" autocomplete="address-level2" placeholder="z. B. 8004 Zürich">
+                </div>
+                <div class="intake-field">
+                    <label for="f-region">Region</label>
+                    <select id="f-region" name="region">
+                        <option value="zh" selected>Region Zürich (Anfahrt inkl. bei Vor-Ort)</option>
+                        <option value="other">Ausserhalb Region Zürich</option>
+                    </select>
+                </div>
+                <div class="intake-field">
+                    <label for="f-size">Unternehmensgrösse</label>
+                    <select id="f-size" name="size">
+                        <option value="s" selected>1–5 Mitarbeitende</option>
+                        <option value="m">6–20 Mitarbeitende</option>
+                        <option value="l">21+ / mehrere Abteilungen</option>
+                    </select>
+                </div>
+                <div class="intake-field">
+                    <label for="f-package">Bevorzugtes Paket</label>
+                    <select id="f-package" name="package">
+                        <option value="start">Start-Paket (online, 150 CHF)</option>
+                        <option value="vorort" selected>Vor-Ort Setup (280 CHF)</option>
+                        <option value="unsure">Noch unsicher — Empfehlung erwünscht</option>
+                    </select>
+                </div>
+                <div class="intake-field">
+                    <label for="f-locations">Standorte</label>
+                    <input id="f-locations" name="locations" type="number" min="1" max="20" value="1" inputmode="numeric">
+                </div>
+                <div class="intake-field">
+                    <label for="f-devices">Kassen / Geräte</label>
+                    <input id="f-devices" name="devices" type="number" min="1" max="30" value="1" inputmode="numeric">
+                </div>
+                <div class="intake-field">
+                    <label for="f-staff">Personen zu schulen</label>
+                    <input id="f-staff" name="staff" type="number" min="1" max="40" value="2" inputmode="numeric">
+                </div>
+                <div class="intake-field">
+                    <label for="f-goal">Ziel der Einnahmen</label>
+                    <select id="f-goal" name="goal">
+                        <option value="chf" selected>Sofort / meist in CHF</option>
+                        <option value="sats">Sats halten</option>
+                        <option value="both">Beides / flexibel</option>
+                    </select>
+                </div>
+                <div class="intake-field">
+                    <label for="f-setup">Gewünschte Infrastruktur</label>
+                    <select id="f-setup" name="setup">
+                        <option value="app" selected>Einfache Tablet-/Smartphone-App</option>
+                        <option value="btcpay">BTCPay Server / mehr Kontrolle</option>
+                        <option value="unsure">Weiss noch nicht</option>
+                    </select>
+                </div>
+                <div class="intake-field">
+                    <label for="f-pos">Bestehende Kasse / POS (optional)</label>
+                    <input id="f-pos" name="pos" type="text" placeholder="z. B. iPad-Kasse, kein Terminal, …">
+                </div>
+                <div class="intake-field full">
+                    <label for="f-notes">Was ist Ihnen wichtig?</label>
+                    <textarea id="f-notes" name="notes" placeholder="z. B. Go-Live-Termin, mehrere Filialen, Buchhaltung mit Treuhänder, …"></textarea>
+                </div>
+                <div class="intake-field">
+                    <label for="f-name">Ihr Name <span class="req">*</span></label>
+                    <input id="f-name" name="name" type="text" required autocomplete="name">
+                </div>
+                <div class="intake-field">
+                    <label for="f-email">E-Mail <span class="req">*</span></label>
+                    <input id="f-email" name="email" type="email" required autocomplete="email">
+                </div>
+                <div class="intake-field">
+                    <label for="f-phone">Telefon (optional)</label>
+                    <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+                </div>
+                <div class="intake-field">
+                    <label for="f-times">Bevorzugte Zeiten</label>
+                    <input id="f-times" name="times" type="text" placeholder="2–3 Zeitfenster">
+                </div>
+            </div>
+
+            <div class="estimate-panel" aria-live="polite">
+                <h3>Einschätzung (Orientierung)</h3>
+                <div class="estimate-total" id="est-total">280 CHF</div>
+                <p class="estimate-note" id="est-note">Live-Berechnung nach den Festpreisen oben. Keine verbindliche Offerte.</p>
+                <ul class="estimate-lines" id="est-lines"></ul>
+                <ul class="estimate-flags" id="est-flags"></ul>
+            </div>
+
+            <div class="intake-actions">
+                <button type="submit" class="cta-btn" id="est-submit">Einschätzung per E-Mail senden</button>
+                <button type="button" class="cta-btn-outline" id="est-reset">Zurücksetzen</button>
+                <a class="cta-btn-outline" href="/bitcoin-beratung-und-coaching.html">Privates Mentoring</a>
+            </div>
+            <p class="intake-hint">
+                Es öffnet sich Ihr E-Mail-Programm mit vorausgefüllter Nachricht an patrik.bal.work@gmail.com.
+                Keine Daten werden auf einem Server gespeichert. Antwort in der Regel innert 1–2 Werktagen.
+            </p>
+        </form>
+
+        <p class="note" style="margin-top:28px;">Praxisbeispiel: <a href="/case-kmu-lightning.html" style="color:var(--primary);">Fallstudie Lightning im Laden</a> · Übersicht: <a href="/fallstudien.html" style="color:var(--primary);">alle Fallstudien</a>. Vertiefung im <a href="/thema-bitcoin-akzeptieren-kmu.html" style="color:var(--primary);">Themen-Hub Bitcoin für KMU</a>. Zahlung per Lightning bevorzugt oder Rechnung.</p>
     </div>
 
     <div id="footer-placeholder"></div>
 
-    
     <script src="/main.js"></script>
+    <script>
+        (function () {
+            const PRICE = {
+                start: 150,
+                vorort: 280,
+                extraDevice: 80,
+                extraLocation: 180,
+                extraTraining: 60,
+                complexHour: 95
+            };
+
+            const form = document.getElementById('einschaetzung');
+            if (!form) return;
+
+            const el = (id) => document.getElementById(id);
+            const CHF = (n) => new Intl.NumberFormat('de-CH', { style: 'currency', currency: 'CHF', maximumFractionDigits: 0 }).format(n);
+
+            function num(id, fallback) {
+                const v = parseInt(el(id).value, 10);
+                return Number.isFinite(v) && v > 0 ? v : fallback;
+            }
+
+            function compute() {
+                let pkg = el('f-package').value;
+                const locations = num('f-locations', 1);
+                const devices = num('f-devices', 1);
+                const staff = num('f-staff', 1);
+                const region = el('f-region').value;
+                const size = el('f-size').value;
+                const setup = el('f-setup').value;
+                const flags = [];
+
+                if (pkg === 'unsure') {
+                    pkg = (locations > 1 || devices > 1 || size !== 's') ? 'vorort' : 'start';
+                    flags.push('Paket «unsicher»: Einschätzung als ' + (pkg === 'vorort' ? 'Vor-Ort' : 'Start') + ' — Empfehlung folgt in der Antwort.');
+                }
+
+                const lines = [];
+                let total = 0;
+
+                if (pkg === 'start') {
+                    total += PRICE.start;
+                    lines.push(['Start-Paket (online)', PRICE.start]);
+                    if (locations > 1 || devices > 1) {
+                        flags.push('Mehrere Standorte/Geräte: Online-Start oft zu knapp — Vor-Ort oder Erweiterungen prüfen.');
+                    }
+                } else {
+                    total += PRICE.vorort;
+                    lines.push(['Vor-Ort Setup (Standard)', PRICE.vorort]);
+                }
+
+                const extraLoc = Math.max(0, locations - 1);
+                if (extraLoc > 0) {
+                    const amt = extraLoc * PRICE.extraLocation;
+                    total += amt;
+                    lines.push([extraLoc + ' weiterer Standort/Standorte', amt]);
+                }
+
+                const extraDev = Math.max(0, devices - 1);
+                if (extraDev > 0) {
+                    const amt = extraDev * PRICE.extraDevice;
+                    total += amt;
+                    lines.push([extraDev + ' weiteres Gerät/Geräte', amt]);
+                }
+
+                const includedStaff = pkg === 'start' ? 2 : 3;
+                if (staff > includedStaff) {
+                    const blocks = Math.ceil((staff - includedStaff) / 4);
+                    const amt = blocks * PRICE.extraTraining;
+                    total += amt;
+                    lines.push(['Zusätzliche Team-Schulung (' + blocks + '×)', amt]);
+                }
+
+                let complexHours = 0;
+                if (setup === 'btcpay') {
+                    complexHours = size === 'l' ? 8 : (size === 'm' ? 5 : 3);
+                    const amt = complexHours * PRICE.complexHour;
+                    total += amt;
+                    lines.push(['BTCPay / komplex (Orientierung ' + complexHours + ' h × 95)', amt]);
+                    flags.push('BTCPay: Stunden sind Schätzung — nach Kurzgespräch Festofferte.');
+                }
+
+                if (region === 'other' && pkg === 'vorort') {
+                    flags.push('Anfahrt ausserhalb Region Zürich: Zuschlag nach Absprache (noch nicht in der Summe).');
+                }
+                if (size === 'l' || locations >= 3 || devices >= 4) {
+                    flags.push('Grössere Infrastruktur: Summe ist Orientierung — ich prüfe POS, Netzwerk und Abläufe und sende eine verbindliche Festofferte.');
+                }
+                if (setup === 'unsure') {
+                    flags.push('Infrastruktur offen: im Erstgespräch vergleichen wir App vs. BTCPay anhand Ihres Betriebs.');
+                }
+
+                return { total, lines, flags, pkg, locations, devices, staff, region, size, setup, complexHours };
+            }
+
+            function render() {
+                const est = compute();
+                el('est-total').textContent = CHF(est.total);
+                el('est-note').textContent = est.flags.some((f) => f.indexOf('Festofferte') !== -1)
+                    ? 'Orientierungssumme — bei Ihrem Umfang folgt eine kurze Festofferte vor Arbeitsbeginn.'
+                    : 'Live-Berechnung nach den Festpreisen oben. Keine verbindliche Offerte.';
+                el('est-lines').innerHTML = est.lines.map(([label, amt]) =>
+                    '<li><span>' + label + '</span><span>' + CHF(amt) + '</span></li>'
+                ).join('');
+                el('est-flags').innerHTML = est.flags.map((f) => '<li>' + f + '</li>').join('');
+                return est;
+            }
+
+            function labelOf(selectId) {
+                const s = el(selectId);
+                return s.options[s.selectedIndex] ? s.options[s.selectedIndex].text : s.value;
+            }
+
+            form.addEventListener('input', render);
+            form.addEventListener('change', render);
+            render();
+
+            el('est-reset').addEventListener('click', () => {
+                form.reset();
+                render();
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (!el('f-firma').value.trim() || !el('f-name').value.trim() || !el('f-email').value.trim()) {
+                    alert('Bitte Firma, Name und E-Mail ausfüllen.');
+                    return;
+                }
+                const est = render();
+                const body = [
+                    'Hallo Patrik,',
+                    '',
+                    'Anfrage Kosteneinschätzung (Händler / KMU) über haendler.html',
+                    '',
+                    '— Betrieb —',
+                    'Firma: ' + el('f-firma').value.trim(),
+                    'Branche: ' + (el('f-branche').value.trim() || '—'),
+                    'Ort: ' + (el('f-ort').value.trim() || '—'),
+                    'Region: ' + labelOf('f-region'),
+                    'Grösse: ' + labelOf('f-size'),
+                    '',
+                    '— Setup —',
+                    'Paket-Wunsch: ' + labelOf('f-package'),
+                    'Standorte: ' + est.locations,
+                    'Geräte: ' + est.devices,
+                    'Personen schulen: ' + est.staff,
+                    'Ziel Einnahmen: ' + labelOf('f-goal'),
+                    'Infrastruktur: ' + labelOf('f-setup'),
+                    'POS: ' + (el('f-pos').value.trim() || '—'),
+                    '',
+                    '— Einschätzung (Orientierung) —',
+                    'Summe: ' + CHF(est.total),
+                    est.lines.map(([l, a]) => '- ' + l + ': ' + CHF(a)).join('\n'),
+                    est.flags.length ? ('Hinweise:\n' + est.flags.map((f) => '- ' + f).join('\n')) : '',
+                    '',
+                    '— Kontakt —',
+                    'Name: ' + el('f-name').value.trim(),
+                    'E-Mail: ' + el('f-email').value.trim(),
+                    'Telefon: ' + (el('f-phone').value.trim() || '—'),
+                    'Zeiten: ' + (el('f-times').value.trim() || '—'),
+                    '',
+                    'Notizen:',
+                    el('f-notes').value.trim() || '—',
+                    '',
+                    'Freundliche Grüsse',
+                    el('f-name').value.trim()
+                ].filter((line, i, arr) => !(line === '' && arr[i - 1] === '')).join('\n');
+
+                const subject = 'Kosteneinschätzung KMU: ' + el('f-firma').value.trim();
+                window.location.href = 'mailto:patrik.bal.work@gmail.com'
+                    + '?subject=' + encodeURIComponent(subject)
+                    + '&body=' + encodeURIComponent(body);
+            });
+        })();
+    </script>
 </body>
 </html>
