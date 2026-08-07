@@ -292,6 +292,19 @@
           "avatar": "/bots/avatars/heavy_riff_bot.png",
           "featured": false,
           "visible": true
+        },
+        {
+          "id": "additive_manufacturing_bot",
+          "slug": "additive",
+          "display_name": "Additive Manufacturing",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub16kuwqwxg06d0f00a72ghy69x9vk8j8qv2v6jad78h8euwasslf6scpmtzr",
+          "pubkey_hex": "d5b8e038c87e9af4bdfdf2917268a62b2c791c0c53352eb7c7b9f3c77610fa75",
+          "nip05": "additive@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/additive_manufacturing_bot.png",
+          "featured": false,
+          "visible": true
         }
       ]
     }
