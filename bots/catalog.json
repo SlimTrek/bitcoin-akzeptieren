@@ -357,6 +357,19 @@
           "avatar": "/bots/avatars/underground_techno_bot.png",
           "featured": false,
           "visible": true
+        },
+        {
+          "id": "classical_virtuoso_bot",
+          "slug": "classical",
+          "display_name": "Classical Virtuoso",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub1p79lawahq0ua6ksqgz4ywn0cnm7dz7pywlh97gfufd2ur6gak7cq3mvzjf",
+          "pubkey_hex": "0f8bfebbb703f9dd5a0040aa474df89efcd1782477ee5f213c4b55c1e91db7b0",
+          "nip05": "classical@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/classical_virtuoso_bot.png",
+          "featured": false,
+          "visible": true
         }
       ]
     }
