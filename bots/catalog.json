@@ -305,6 +305,19 @@
           "avatar": "/bots/avatars/additive_manufacturing_bot.png",
           "featured": false,
           "visible": true
+        },
+        {
+          "id": "books_news_bot",
+          "slug": "books",
+          "display_name": "Books Desk",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub10e09jjs8knd2zcnw2a36tqdxezk6prjf2jccavuxeldg8n5hxkrqvplzpw",
+          "pubkey_hex": "7e5e594a07b4daa1626e5763a581a6c8ada08e4954b18eb386cfda83ce973586",
+          "nip05": "books@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/books_news_bot.png",
+          "featured": false,
+          "visible": true
         }
       ]
     }
