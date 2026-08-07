@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hot Wallet, Cold Storage und Custodial erklärt: wo liegen die Keys, wann reicht das Handy, wann brauchst du Hardware — Praxis für die Schweiz.">
+    <title>Wallet-Arten: Hot, Cold &amp; Custodial – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-wallet-arten.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-wallet-arten.html">
+    <meta property="og:title" content="Wallet-Arten: Hot, Cold &amp; Custodial – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Hot Wallet, Cold Storage und Custodial erklärt: wo liegen die Keys, wann reicht das Handy, wann brauchst du Hardware — Praxis für die Schweiz.">
+    <meta property="og:site_name" content="Bitcoin Akzeptieren">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Wallet-Arten: Hot, Cold &amp; Custodial – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Hot Wallet, Cold Storage und Custodial erklärt: wo liegen die Keys, wann reicht das Handy, wann brauchst du Hardware — Praxis für die Schweiz.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/article.css">
+    <style>
+        .active { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <article class="article-container">
+        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Sicherheit</div>
+        <h1>Wallet-Arten: Hot, Cold und Custodial</h1>
+        <div class="meta-info"><span>Kategorie: Sicherheit</span><span>Lesezeit: 9 Min.</span><span>Level: Beginner</span>
+        </div>
+        <div class="content">
+            <p>„Wallet“ klingt nach einem Konto. Technisch ist es eher ein Schlüsselbund: Software oder Gerät, das Keys verwaltet und Transaktionen signiert. Die entscheidende Frage lautet nicht „welche App ist cool?“, sondern: <strong>Wo liegen die privaten Keys?</strong></p>
+
+            <figure class="diagram-figure">
+                <img src="/Images/diagrams/wallet-arten.svg" width="640" height="200" alt="Custodial, Hot Wallet und Cold Storage im Vergleich" loading="lazy" decoding="async">
+                <figcaption>Custodial = Keys beim Anbieter. Hot = Keys on-device, online. Cold = Keys offline, typisch Hardware.</figcaption>
+            </figure>
+
+            <h2>1. Custodial — Keys beim Anbieter</h2>
+            <p>Klassische Börsen und manche Apps verwahren Bitcoin für dich. Du siehst ein Guthaben; rechtlich und technisch hält oft der Anbieter die Keys. Du hast einen Login — und ein Gegenparteirisiko (Hack, Insolvenz, Konto-Freeze).</p>
+            <ul>
+                <li><strong>Vorteil:</strong> Einfach, oft guter On-/Off-Ramp in CHF.</li>
+                <li><strong>Nachteil:</strong> Not your keys. Auszahlungen können stocken.</li>
+                <li><strong>Praxis:</strong> Für Handel/kleine Beträge ok — langfristiges Sparen eher abheben. Siehe <a href="/artikel-nach-dem-kauf.html">Nach dem Kauf</a>.</li>
+            </ul>
+            <div class="info-box"><strong>Relai-Hinweis:</strong> Relai ist keine klassische Custody-Börse im Sinne „Coins liegen bei Relai als IOU“. Du bekommst eine Hot-Wallet mit eigenen Keys — Seed trotzdem prüfen und sichern. Kauf-Anleitung: <a href="/artikel-bitcoin-kaufen-schweiz.html">Bitcoin kaufen Schweiz</a>.</div>
+
+            <h2>2. Hot Wallet — Keys on-device, online</h2>
+            <p>Handy- oder Desktop-Wallets speichern Keys auf dem Gerät, das mit dem Internet verbunden ist. Du kontrollierst die Keys (wenn du den Seed hast) — aber Malware, Diebstahl und Phishing sind real.</p>
+            <ul>
+                <li><strong>Sinnvoll für:</strong> kleine Beträge, Lernen, Lightning-Alltag, „Taschengeld“.</li>
+                <li><strong>Pflicht:</strong> Seed offline, Geräte-PIN/Biometrie, nur Software von offiziellen Quellen.</li>
+                <li><strong>Grenze:</strong> Sobald der Verlust wehtun würde, gehört der Grossteil auf Cold Storage.</li>
+            </ul>
+
+            <h2>3. Cold Storage — Keys offline</h2>
+            <p>Cold bedeutet: die Signatur-Keys kommen möglichst nie mit dem Internet in Kontakt. Am praktikabelsten für Privatpersonen: eine <strong>Hardware Wallet</strong> (z.&nbsp;B. BitBox). Du prüfst Betrag und Adresse am Gerät und bestätigst dort.</p>
+            <p>Setup und Denkweise: <a href="/artikel-hardware-wallet-bitbox.html">Hardware Wallet &amp; BitBox</a>, Themen-Hub <a href="/thema-hardware-wallet.html">Hardware Wallet</a>. Backup bleibt der Seed — Gerät ohne Seed ist ersetzbar, Seed ohne Disziplin ist das Risiko.</p>
+
+            <h2>4. Wann was? Eine einfache Heuristik</h2>
+            <ol>
+                <li><strong>Üben / winzige Beträge:</strong> Hot-Wallet oder Self-Custody-Kauf-App, Seed testen (Restore).</li>
+                <li><strong>Wachsende Summe:</strong> Hardware Wallet, Bestand splitten (Hot nur für Ausgaben).</li>
+                <li><strong>Sehr hohe Beträge / Familie:</strong> Passphrase, Multisig, Erbenplan — Vertiefung in <a href="/artikel-passphrase.html">Passphrase</a>, <a href="/artikel-multisig.html">Multisig</a>, <a href="/artikel-bitcoin-vererben.html">Vererben</a>.</li>
+            </ol>
+            <div class="alert-box">Es gibt kein „eine Wallet für alles“. Trenne Tagesgeld (Hot/Lightning) und Sparstack (Cold). Das reduziert Schaden, wenn das Handy weg ist.</div>
+
+            <h2>5. Watch-only gehört dazu — ist aber keine Wallet zum Ausgeben</h2>
+            <p>Mit einer Watch-only-Ansicht (xPub) siehst du Salden und Transaktionen, ohne private Keys zu laden. Ideal auf dem Alltagshandling — Ausgeben bleibt am sicheren Gerät. <a href="/artikel-watch-only-wallet.html">Watch-only &amp; xPub</a>.</p>
+
+            <h2>Fazit</h2>
+            <p>Custodial ist bequem und riskant als Langzeitlager. Hot ist Self-Custody mit Online-Risiko. Cold ist die Standardlösung für Beträge, die zählen. Entscheide nach Keys und Summe — nicht nach App-Marketing.</p>
+        </div>
+    </article>
+    <!-- PHASE1_ARTICLE_END -->
+    <aside class="article-end">
+        <div class="article-end-box">
+            <h2>Weiterlesen</h2>
+            <div class="related-links">
+                <a href="/artikel-keys-seed-adresse.html">Keys, Seed &amp; Adresse →</a>
+                <a href="/artikel-hardware-wallet-bitbox.html">Hardware Wallet →</a>
+                <a href="/artikel-nach-dem-kauf.html">Nach dem Kauf →</a>
+                <a href="/lernpfade.html#pfad-self-custody">Lernpfad Self-Custody →</a>
+            </div>
+        </div>
+        <div class="article-end-box coaching-cta">
+            <h2>Fragen offen?</h2>
+            <p>Hilfe zur Selbsthilfe: sicherer Start, Self-Custody oder Lightning fürs Geschäft — ohne Anlageberatung.</p>
+            <div class="btn-row">
+                <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20Wallet-Arten%3A%20Hot%2C%20Cold%20und%20Custodial%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
+            </div>
+            <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
+        </div>
+    </aside>
+
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
+</body>
+</html>

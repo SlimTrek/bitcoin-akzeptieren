@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Transaktion und Gebuehren</title>
+  <desc>Von der Wallet in den Mempool, dann in einen Block.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="20" y="40" width="140" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="34" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">01</text>
+  <text x="34" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Wallet</text>
+  <text x="34" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">TX + Fee</text>
+  <text x="34" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">sat/vB waehlen</text>
+  <path d="M172 100 H204" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="204,94 218,100 204,106" fill="#f7931a"/>
+  <rect x="230" y="40" width="160" height="120" rx="12" fill="#1c1c1e" stroke="#71717a" stroke-width="1.5"/>
+  <text x="244" y="68" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12" font-weight="700">02</text>
+  <text x="244" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Mempool</text>
+  <text x="244" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Warteschlange</text>
+  <text x="244" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Hoehere Fee = schneller</text>
+  <path d="M402 100 H434" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="434,94 448,100 434,106" fill="#f7931a"/>
+  <rect x="460" y="40" width="160" height="120" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="474" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">03</text>
+  <text x="474" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Block</text>
+  <text x="474" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">~10 Min. Ziel</text>
+  <text x="474" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Bestaetigungen</text>
+</svg>

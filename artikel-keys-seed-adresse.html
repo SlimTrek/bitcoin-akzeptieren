@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Private Key, Seed Phrase und Bitcoin-Adresse erklärt: was geheim bleibt, was du teilen darfst und warum der Seed das eigentliche Backup ist.">
+    <title>Private Key, Seed &amp; Adresse erklärt – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-keys-seed-adresse.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-keys-seed-adresse.html">
+    <meta property="og:title" content="Private Key, Seed &amp; Adresse erklärt – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Private Key, Seed Phrase und Bitcoin-Adresse erklärt: was geheim bleibt, was du teilen darfst und warum der Seed das eigentliche Backup ist.">
+    <meta property="og:site_name" content="Bitcoin Akzeptieren">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Private Key, Seed &amp; Adresse erklärt – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Private Key, Seed Phrase und Bitcoin-Adresse erklärt: was geheim bleibt, was du teilen darfst und warum der Seed das eigentliche Backup ist.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/article.css">
+    <style>
+        .active { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <article class="article-container">
+        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Sicherheit</div>
+        <h1>Private Key, Seed &amp; Adresse: die Bausteine</h1>
+        <div class="meta-info"><span>Kategorie: Sicherheit</span><span>Lesezeit: 8 Min.</span><span>Level: Beginner</span>
+        </div>
+        <div class="content">
+            <p>Die meisten Bitcoin-Unfälle entstehen nicht durch „Hack der Blockchain“, sondern durch Verwechslung: Seed fotografieren, Adresse falsch kopieren, Keys einer Börse überlassen. Drei Begriffe reichen, um das zu vermeiden.</p>
+
+            <figure class="diagram-figure">
+                <img src="/Images/diagrams/keys-seed-adresse.svg" width="640" height="200" alt="Von Seed über Private Key zur öffentlichen Adresse" loading="lazy" decoding="async">
+                <figcaption>Seed und Private Key bleiben geheim. Die Adresse darfst du teilen — sie ist Empfang, keine Auszahlung.</figcaption>
+            </figure>
+
+            <h2>1. Die Seed Phrase (Wiederherstellungssatz)</h2>
+            <p>Beim Einrichten einer Wallet siehst du meist <strong>12 oder 24 Wörter</strong> in fester Reihenfolge (BIP-39). Das ist kein Passwort für eine Website — es ist der Master-Schlüssel, aus dem die Wallet private Keys ableitet.</p>
+            <ul>
+                <li>Wer den Seed hat, kann die Wallet auf einem anderen Gerät wiederherstellen und Coins ausgeben.</li>
+                <li>Wer den Seed verliert und das Gerät zerstört, verliert den Zugang — oft unwiderruflich.</li>
+                <li>Offline aufbewahren (Papier/Stahl), nie in Cloud, Screenshot oder Chat. Praxis: <a href="/artikel-backup-seed.html">Das richtige Backup</a>.</li>
+            </ul>
+            <div class="alert-box">Kein Support fragt nach deinem Seed. Wer danach fragt, will deine Coins. Punkt.</div>
+
+            <h2>2. Der Private Key</h2>
+            <p>Ein Private Key ist eine geheime Zahl, mit der Transaktionen <strong>signiert</strong> werden. Moderne Wallets zeigen ihn selten einzeln — du arbeitest mit dem Seed und dem Gerät. Wichtig ist die Idee: Signieren beweist Besitz, ohne den Key preiszugeben.</p>
+            <p>Hardware Wallets halten Keys on-device; die Signatur passiert am Gerät. Siehe <a href="/artikel-hardware-wallet-bitbox.html">Hardware Wallet &amp; BitBox</a>.</p>
+
+            <h2>3. Die Adresse (öffentlich)</h2>
+            <p>Eine Bitcoin-Adresse (oft <code>bc1…</code>) ist wie eine IBAN zum Empfangen. Du kannst sie teilen, als QR zeigen oder speichern. Senden an eine Adresse heisst: Coins an diese Schlüsselkontrolle umbuchen — nicht „an eine Person“, sondern an Keys.</p>
+            <ul>
+                <li><strong>Prüfe Anfang und Ende</strong> nach dem Kopieren — und am besten mehr Zeichen.</li>
+                <li>Kleine <strong>Test-Transaktion</strong>, bevor grosse Beträge wandern.</li>
+                <li>Viele Wallets erzeugen fortlaufend neue Empfangsadressen — das ist normal und gut für Privatsphäre.</li>
+            </ul>
+            <p>Mehr zu Formaten, QR und Test-Transaktion: <a href="/artikel-bitcoin-adressen.html">Bitcoin-Adressen verstehen</a>. Gebühren und Bestätigung: <a href="/artikel-transaktionen-gebuehren.html">Transaktionen &amp; Gebühren</a>.</p>
+
+            <h2>4. Was ist was — in einem Satz</h2>
+            <ul>
+                <li><strong>Seed:</strong> Backup der ganzen Wallet — geheim, offline.</li>
+                <li><strong>Private Key:</strong> Signiert Ausgaben — geheim, meist im Gerät.</li>
+                <li><strong>Adresse:</strong> Empfangsziel — öffentlich, prüfbar.</li>
+                <li><strong>xPub / Watch-only:</strong> Bestand sehen ohne Ausgeben — <a href="/artikel-watch-only-wallet.html">Watch-only Wallet</a>.</li>
+            </ul>
+
+            <h2>5. Typische Anfängerfehler</h2>
+            <ol>
+                <li>Seed tippen „zur Verifizierung“ auf einer Website.</li>
+                <li>Seed in Notizen-App oder E-Mail speichern.</li>
+                <li>Annahme: Börsen-Login = Self-Custody (oft falsch).</li>
+                <li>Adresse aus dem Transaktionsverlauf tippen ohne Prüfung (Address Poisoning — <a href="/artikel-scam-praevention.html">Scams</a>).</li>
+            </ol>
+
+            <h2>Fazit</h2>
+            <p>Seed und Private Key sind Besitz. Die Adresse ist nur der Briefkasten. Wenn das sitzt, wird klar, warum Wallet-Art und Backup wichtiger sind als der Kaufklick — und warum „Not your keys…“ keine Phrase, sondern Betriebssystem ist.</p>
+        </div>
+    </article>
+    <!-- PHASE1_ARTICLE_END -->
+    <aside class="article-end">
+        <div class="article-end-box">
+            <h2>Weiterlesen</h2>
+            <div class="related-links">
+                <a href="/artikel-wallet-arten.html">Wallet-Arten →</a>
+                <a href="/artikel-bitcoin-adressen.html">Adressen verstehen →</a>
+                <a href="/artikel-backup-seed.html">Seed-Backup →</a>
+                <a href="/artikel-was-ist-bitcoin.html">Was ist Bitcoin? →</a>
+            </div>
+        </div>
+        <div class="article-end-box coaching-cta">
+            <h2>Fragen offen?</h2>
+            <p>Hilfe zur Selbsthilfe: sicherer Start, Self-Custody oder Lightning fürs Geschäft — ohne Anlageberatung.</p>
+            <div class="btn-row">
+                <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20Private%20Key%2C%20Seed%20%26%20Adresse%3A%20die%20Bausteine%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
+            </div>
+            <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
+        </div>
+    </aside>
+
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
+</body>
+</html>

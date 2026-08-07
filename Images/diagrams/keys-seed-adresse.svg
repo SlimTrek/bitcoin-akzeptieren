@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Seed, Key und Adresse</title>
+  <desc>Von der Seed Phrase ueber den Private Key zur oeffentlichen Adresse.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="20" y="40" width="160" height="120" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="34" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">GEHEIM</text>
+  <text x="34" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Seed Phrase</text>
+  <text x="34" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">12 / 24 Woerter</text>
+  <text x="34" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Backup der Wallet</text>
+  <path d="M192 100 H224" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="224,94 238,100 224,106" fill="#f7931a"/>
+  <rect x="250" y="40" width="160" height="120" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="264" y="68" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">GEHEIM</text>
+  <text x="264" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Private Key</text>
+  <text x="264" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Signiert Ausgaben</text>
+  <text x="264" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Nie teilen</text>
+  <path d="M422 100 H454" stroke="#f7931a" stroke-width="2.5" fill="none"/>
+  <polygon points="454,94 468,100 454,106" fill="#f7931a"/>
+  <rect x="480" y="40" width="140" height="120" rx="12" fill="#1c1c1e" stroke="#71717a" stroke-width="1.5"/>
+  <text x="494" y="68" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12" font-weight="700">OEFFENTLICH</text>
+  <text x="494" y="98" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Adresse</text>
+  <text x="494" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">bc1q...</text>
+  <text x="494" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Darf man teilen</text>
+</svg>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin-Adressen verstehen: bc1q/bc1p, QR, Zeichen prüfen, Test-Transaktion — damit falsche Empfänger und Address Poisoning keine Chance haben.">
+    <title>Bitcoin-Adressen verstehen – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-bitcoin-adressen.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-bitcoin-adressen.html">
+    <meta property="og:title" content="Bitcoin-Adressen verstehen – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Bitcoin-Adressen verstehen: bc1q/bc1p, QR, Zeichen prüfen, Test-Transaktion — damit falsche Empfänger und Address Poisoning keine Chance haben.">
+    <meta property="og:site_name" content="Bitcoin Akzeptieren">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Bitcoin-Adressen verstehen – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Bitcoin-Adressen verstehen: bc1q/bc1p, QR, Zeichen prüfen, Test-Transaktion — damit falsche Empfänger und Address Poisoning keine Chance haben.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/article.css">
+    <style>
+        .active { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <article class="article-container">
+        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Praxis</div>
+        <h1>Bitcoin-Adressen verstehen</h1>
+        <div class="meta-info"><span>Kategorie: Praxis</span><span>Lesezeit: 8 Min.</span><span>Level: Beginner</span>
+        </div>
+        <div class="content">
+            <p>Eine Adresse ist kein „Kontoname“, sondern ein Empfangsziel unter Schlüsselkontrolle. Falsch gesendet = meist endgültig weg. Deshalb lohnt sich fünf Minuten Verständnis mehr als jede Kursprognose.</p>
+            <p>Bausteine drumherum: <a href="/artikel-keys-seed-adresse.html">Keys, Seed &amp; Adresse</a>.</p>
+
+            <figure class="diagram-figure">
+                <img src="/Images/diagrams/bitcoin-adressen.svg" width="640" height="200" alt="Adresse erzeugen, vergleichen, Test-Transaktion" loading="lazy" decoding="async">
+                <figcaption>Aus der eigenen Wallet erzeugen → Zeichen/QR prüfen → bei grossen Beträgen erst Test-TX.</figcaption>
+            </figure>
+
+            <h2>1. Was eine Adresse ist — und was nicht</h2>
+            <ul>
+                <li><strong>Ist:</strong> Öffentliche Empfangsinformation (oft als Text oder QR).</li>
+                <li><strong>Ist nicht:</strong> dein Login, dein Seed oder ein Widerrufsrecht bei der Bank.</li>
+                <li><strong>Gehört zu Keys:</strong> Wer die passenden privaten Keys hat, kann von dort ausgeben — nicht wer die Adresse „kennt“.</li>
+            </ul>
+            <p>Viele Wallets zeigen fortlaufend neue Empfangsadressen. Das ist normal und gut für die Privatsphäre — alte Adressen bleiben meist empfangsfähig, wiederverwenden ist trotzdem ungeschickt. <a href="/artikel-privacy-basics.html">Privacy Basics</a>.</p>
+
+            <h2>2. Typische Formate (ohne Examensdruck)</h2>
+            <ul>
+                <li><strong><code>bc1q…</code></strong> — häufig SegWit (Bech32). Weit verbreitet, meist günstigere Fees als Legacy.</li>
+                <li><strong><code>bc1p…</code></strong> — Taproot (Bech32m). Moderner; nicht jede alte Börse/Wallet mag ihn — vor dem Senden kompatibel prüfen.</li>
+                <li><strong><code>1…</code> / <code>3…</code></strong> — ältere Formate (Legacy / verschachtelt). Funktionieren oft noch, sind aber grösser/teurer.</li>
+            </ul>
+            <div class="info-box">Du musst keine Formate auswendig lernen. Praxis: Empfangsadresse aus <em>deiner</em> aktuellen Wallet kopieren bzw. QR zeigen — und denselben String auf dem Absendergerät prüfen.</div>
+
+            <h2>3. Prüfen wie ein Profi (auch als Anfänger)</h2>
+            <ol>
+                <li>Adresse in der Empfänger-Wallet erzeugen — nicht aus einem alten Screenshot tippen.</li>
+                <li>Nach dem Einfügen: <strong>Anfang, Mitte und Ende</strong> vergleichen (nicht nur die ersten/letzten 4 Zeichen).</li>
+                <li>QR scannen schlägt Abtippen — Clipboard-Malware existiert.</li>
+                <li>Bei Beträgen, die wehtun: <strong>kleine Test-Transaktion</strong>, warten auf Bestätigung, dann Rest. <a href="/artikel-transaktionen-gebuehren.html">Gebühren &amp; Bestätigungen</a>.</li>
+            </ol>
+            <div class="alert-box"><strong>Address Poisoning:</strong> Betrüger senden Mini-Beträge von Adressen, die deinen Anfang/Ende ähneln — in der Hoffnung, du kopierst sie aus der Historie. Nie blind aus dem Verlauf wählen. <a href="/artikel-scam-praevention.html">Scams</a>.</div>
+
+            <h2>4. Lightning ist eine andere „Adresse“</h2>
+            <p>Lightning-Rechnungen (BOLT11 / oft LNURL) sind zeitlich begrenzt und anders formatiert als On-chain-<code>bc1…</code>. Scanne die Rechnung in einer Lightning-fähigen Wallet — sende nicht „irgendetwas On-chain“ an einen Lightning-String. <a href="/artikel-lightning-netzwerk.html">Lightning</a>.</p>
+
+            <h2>Fazit</h2>
+            <p>Adressen sind Briefkästen: öffentlich, prüfbar, ohne Undo. QR + Zeichenvergleich + Test-TX verhindern die teuersten Anfängerfehler — und machen Self-Custody alltagstauglich.</p>
+        </div>
+    </article>
+    <!-- PHASE1_ARTICLE_END -->
+    <aside class="article-end">
+        <div class="article-end-box">
+            <h2>Weiterlesen</h2>
+            <div class="related-links">
+                <a href="/artikel-keys-seed-adresse.html">Keys, Seed &amp; Adresse →</a>
+                <a href="/artikel-transaktionen-gebuehren.html">Transaktionen &amp; Fees →</a>
+                <a href="/artikel-boersenrisiko.html">Börsenrisiko / abheben →</a>
+                <a href="/artikel-privacy-basics.html">Privacy Basics →</a>
+            </div>
+        </div>
+        <div class="article-end-box coaching-cta">
+            <h2>Fragen offen?</h2>
+            <p>Hilfe zur Selbsthilfe: sicherer Start, Self-Custody oder Lightning fürs Geschäft — ohne Anlageberatung.</p>
+            <div class="btn-row">
+                <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20Bitcoin-Adressen%20verstehen%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
+            </div>
+            <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
+        </div>
+    </aside>
+
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
+</body>
+</html>

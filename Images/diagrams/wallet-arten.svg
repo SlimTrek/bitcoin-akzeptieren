@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 200" role="img">
+  <title>Wallet-Arten</title>
+  <desc>Custodial, Hot Wallet und Cold Storage im Vergleich.</desc>
+  <rect x="0" y="0" width="640" height="200" rx="14" fill="#141414" stroke="#f7931a" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="20" y="36" width="190" height="128" rx="12" fill="#1c1c1e" stroke="#71717a" stroke-width="1.5"/>
+  <text x="36" y="66" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12" font-weight="700">CUSTODIAL</text>
+  <text x="36" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Boerse / App</text>
+  <text x="36" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Keys beim Anbieter</text>
+  <text x="36" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">IOU-Risiko</text>
+  <rect x="225" y="36" width="190" height="128" rx="12" fill="#1c1c1e" stroke="#f7931a" stroke-width="1.5"/>
+  <text x="241" y="66" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">HOT</text>
+  <text x="241" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Handy / Laptop</text>
+  <text x="241" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Keys on-device</text>
+  <text x="241" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Online-Risiko</text>
+  <rect x="430" y="36" width="190" height="128" rx="12" fill="rgba(247,147,26,0.14)" stroke="#f7931a" stroke-width="2"/>
+  <text x="446" y="66" fill="#f7931a" font-family="system-ui,sans-serif" font-size="12" font-weight="700">COLD</text>
+  <text x="446" y="96" fill="#f4f4f5" font-family="system-ui,sans-serif" font-size="15" font-weight="700">Hardware</text>
+  <text x="446" y="120" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Keys offline</text>
+  <text x="446" y="142" fill="#a1a1aa" font-family="system-ui,sans-serif" font-size="12">Fuer groessere Betraege</text>
+</svg>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin-Transaktionen erklärt: Mempool, Bestätigungen, sat/vB-Gebühren und was du tust, wenn eine TX „hängt“ — Praxis ohne Node-Zwang.">
+    <title>Transaktionen, Bestätigungen &amp; Gebühren – Bitcoin Akzeptieren</title>
+    <link rel="canonical" href="https://bitcoin-akzeptieren.ch/artikel-transaktionen-gebuehren.html">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bitcoin-akzeptieren.ch/artikel-transaktionen-gebuehren.html">
+    <meta property="og:title" content="Transaktionen, Bestätigungen &amp; Gebühren – Bitcoin Akzeptieren">
+    <meta property="og:description" content="Bitcoin-Transaktionen erklärt: Mempool, Bestätigungen, sat/vB-Gebühren und was du tust, wenn eine TX „hängt“ — Praxis ohne Node-Zwang.">
+    <meta property="og:site_name" content="Bitcoin Akzeptieren">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:image" content="https://bitcoin-akzeptieren.ch/Images/Backround.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Transaktionen, Bestätigungen &amp; Gebühren – Bitcoin Akzeptieren">
+    <meta name="twitter:description" content="Bitcoin-Transaktionen erklärt: Mempool, Bestätigungen, sat/vB-Gebühren und was du tust, wenn eine TX „hängt“ — Praxis ohne Node-Zwang.">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="/css/article.css">
+    <style>
+        .active { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+    <article class="article-container">
+        <div class="breadcrumbs"><a href="/wissen.html">Wissen</a> > Technik</div>
+        <h1>Transaktionen, Bestätigungen &amp; Gebühren</h1>
+        <div class="meta-info"><span>Kategorie: Technik</span><span>Lesezeit: 9 Min.</span><span>Level: Beginner</span>
+        </div>
+        <div class="content">
+            <p>Eine Bitcoin-Überweisung ist keine Sofort-SEPA-Zahlung. Du schickst eine signierte Nachricht ins Netzwerk; Miner packen sie in einen Block. Wer Gebühren und Bestätigungen versteht, vermeidet Panik und teure Fehler.</p>
+
+            <figure class="diagram-figure">
+                <img src="/Images/diagrams/transaktionen-gebuehren.svg" width="640" height="200" alt="Wallet zu Mempool zu Block" loading="lazy" decoding="async">
+                <figcaption>Wallet sendet → Mempool (Warteschlange) → Block (Bestätigung). Die Fee steuert die Priorität.</figcaption>
+            </figure>
+
+            <h2>1. Was passiert beim Senden?</h2>
+            <ol>
+                <li>Du wählst Betrag und Empfangsadresse.</li>
+                <li>Die Wallet baut eine Transaktion und signiert sie mit dem Private Key.</li>
+                <li>Die TX landet im <strong>Mempool</strong> — der Warteschlange unbestätigter Transaktionen.</li>
+                <li>Ein Miner nimmt sie in einen <strong>Block</strong> auf → erste Bestätigung.</li>
+                <li>Weitere Blöcke darüber = mehr Bestätigungen (höhere finale Sicherheit).</li>
+            </ol>
+            <p>Zielzeit pro Block: ca. 10 Minuten — im Schnitt, nicht als Garantie. Bei hohem Andrang kann es länger dauern, bis deine Fee „dran“ ist.</p>
+
+            <h2>2. Gebühren: sat/vB, nicht „Prozent vom Betrag“</h2>
+            <p>On-chain zahlst du für den <strong>Platz</strong>, den deine Transaktion im Block braucht — gemessen in virtuellen Bytes. Die Einheit ist oft <strong>Satoshis pro vByte (sat/vB)</strong>.</p>
+            <ul>
+                <li>Kleine Beträge können relativ teuer wirken, wenn die TX „schwer“ ist (viele Inputs).</li>
+                <li>Grosse Beträge sind nicht automatisch teurer — entscheidend ist die TX-Grösse.</li>
+                <li>Wallets schlagen oft „schnell / normal / sparsam“ vor; bei Eile höhere sat/vB wählen.</li>
+            </ul>
+            <div class="info-box">Live-Lage: Seiten wie mempool.space zeigen empfohlene Fees. Auf dieser Website siehst du Gebühren-Widgets auf der Startseite, sofern die API erreichbar ist — dennoch immer in der eigenen Wallet prüfen.</div>
+
+            <h2>3. Wie viele Bestätigungen?</h2>
+            <p>Für kleine private Transfers reicht oft 1 Bestätigung zum „angekommen“. Für grosse Summen warten manche auf 3–6 Bestätigungen, bevor sie den Empfang als sicher betrachten. Börsen setzen eigene Regeln (z.&nbsp;B. erst gutschreiben nach N Bestätigungen).</p>
+            <p>Lightning löst den Alltag anders: Zahlungen sind sofort und günstig, Settlement bleibt Bitcoin. Überblick: <a href="/artikel-lightning-netzwerk.html">Lightning-Netzwerk</a>.</p>
+
+            <h2>4. Wenn die Transaktion „hängt“</h2>
+            <p>Unbestätigt heisst nicht verloren — oft nur zu niedrige Fee bei vollem Mempool.</p>
+            <ul>
+                <li><strong>Warten:</strong> Fees können sinken; manche Wallets zeigen ETA.</li>
+                <li><strong>RBF (Replace-by-Fee):</strong> Falls aktiviert, kannst du die Fee erhöhen und die TX ersetzen.</li>
+                <li><strong>CPFP:</strong> Eine Folge-TX „zieht“ die erste mit höherer Fee nach — fortgeschritten.</li>
+            </ul>
+            <div class="alert-box">Nicht panisch eine zweite Zahlung an dieselbe Adresse schicken, ohne zu verstehen, was unbestätigt ist. Doppelt senden kann doppelt ankommen — oder Chaos erzeugen. Erst Explorer/Wallet-Status prüfen.</div>
+
+            <h2>5. Praxis-Checkliste vor dem Senden</h2>
+            <ol>
+                <li>Adresse/QR aus der Empfänger-Wallet — Zeichen vergleichen.</li>
+                <li>Bei grossen Beträgen: kleine Test-TX zuerst.</li>
+                <li>Fee der Dringlichkeit anpassen; nicht blind „Minimum“.</li>
+                <li>TX-ID speichern (Explorer), bis bestätigt.</li>
+                <li>Viele kleine UTXOs? Später Gebühren sparen mit Konsolidierung — <a href="/artikel-utxo-management.html">UTXO Management</a>.</li>
+            </ol>
+
+            <h2>Fazit</h2>
+            <p>Bitcoin priorisiert Sicherheit und dezentrale Settlement vor Sofortigkeit. Mempool und sat/vB erklären Wartezeiten; Bestätigungen erklären finale Sicherheit. Für Kaffee und Alltag: Lightning. Für grosse Transfers: Adresse prüfen, Fee bewusst setzen, ruhig bleiben.</p>
+        </div>
+    </article>
+    <!-- PHASE1_ARTICLE_END -->
+    <aside class="article-end">
+        <div class="article-end-box">
+            <h2>Weiterlesen</h2>
+            <div class="related-links">
+                <a href="/artikel-keys-seed-adresse.html">Keys, Seed &amp; Adresse →</a>
+                <a href="/artikel-lightning-netzwerk.html">Lightning →</a>
+                <a href="/artikel-utxo-management.html">UTXO Management →</a>
+                <a href="/artikel-was-ist-bitcoin.html">Was ist Bitcoin? →</a>
+            </div>
+        </div>
+        <div class="article-end-box coaching-cta">
+            <h2>Fragen offen?</h2>
+            <p>Hilfe zur Selbsthilfe: sicherer Start, Self-Custody oder Lightning fürs Geschäft — ohne Anlageberatung.</p>
+            <div class="btn-row">
+                <a class="btn" href="/bitcoin-beratung-und-coaching.html">Mentoring ansehen</a>
+                <a class="btn-link" href="mailto:patrik.bal.work@gmail.com?subject=Frage%20zum%20Artikel&body=Hallo%20Patrik%2C%0A%0AIch%20habe%20den%20Artikel%20Transaktionen%2C%20Best%C3%A4tigungen%20%26%20Geb%C3%BChren%20gelesen.%0AMeine%20Frage%3A%20%0A">Kurz per E-Mail fragen</a>
+            </div>
+            <span class="meta">Antwort in der Regel innert 1–2 Werktagen</span>
+        </div>
+    </aside>
+
+    <div id="footer-placeholder"></div>
+    <script src="/main.js"></script>
+</body>
+</html>
