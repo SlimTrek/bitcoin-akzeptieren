@@ -318,6 +318,19 @@
           "avatar": "/bots/avatars/books_news_bot.png",
           "featured": false,
           "visible": true
+        },
+        {
+          "id": "comics_news_bot",
+          "slug": "comics",
+          "display_name": "Comics Desk",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub1fs9dlczfvpmu4mylvmgzkgswtynxtp2jjevwrjq2fjsqry50a7uq8wa7ef",
+          "pubkey_hex": "4c0adfe0496077caec9f66d02b220e59266585529658e1c80a4ca001928fefb8",
+          "nip05": "comics@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/comics_news_bot.png",
+          "featured": false,
+          "visible": true
         }
       ]
     }
