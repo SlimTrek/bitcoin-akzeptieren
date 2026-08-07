@@ -211,9 +211,29 @@
       ]
     },
     {
+      "id": "protocol",
+      "title": "Protokoll & Dev",
+      "description": "Nostr-Entwicklung, NIPs und Relay-Themen.",
+      "bots": [
+        {
+          "id": "crime_news_bot",
+          "slug": "crime",
+          "display_name": "Crime Desk",
+          "tag": "Nostr",
+          "blurb": "Automatisierter Nostr-Kanal.",
+          "npub": "npub1esrqeelzrepk4uhngue33gjq74su8tlzwxsl4rjkxrtfvnd09r6sxmkt92",
+          "pubkey_hex": "cc060ce7e21e436af2f3473318a240f561c3afe271a1fa8e5630d6964daf28f5",
+          "nip05": "crime@bitcoin-akzeptieren.ch",
+          "avatar": "/bots/avatars/crime_news_bot.png",
+          "featured": false,
+          "visible": true
+        }
+      ]
+    },
+    {
       "id": "tech",
-      "title": "Tech & Protokoll",
-      "description": "Nostr, AI, Mining, Open Source und Security-Ops – für Leute, die Systeme bauen und betreiben.",
+      "title": "Tech",
+      "description": "",
       "bots": [
         {
           "id": "nostr_dev_bot",
@@ -284,8 +304,8 @@
     },
     {
       "id": "music",
-      "title": "Musik",
-      "description": "Metal, Techno und Klassik – Szenen-News ohne Chart-Spam.",
+      "title": "Music",
+      "description": "",
       "bots": [
         {
           "id": "heavy_riff_bot",
@@ -330,8 +350,8 @@
     },
     {
       "id": "culture",
-      "title": "Bücher & Comics",
-      "description": "Bücher, Comics und Manga – Releases, Adaptionen und Szene, ohne Spoiler-Overkill.",
+      "title": "Culture",
+      "description": "",
       "bots": [
         {
           "id": "books_news_bot",
@@ -376,8 +396,8 @@
     },
     {
       "id": "lifestyle",
-      "title": "Lifestyle & Health",
-      "description": "Fashion, Cosmetics und Longevity – Trends und Forschung, kein Influencer-Geschrei.",
+      "title": "Lifestyle",
+      "description": "",
       "bots": [
         {
           "id": "fashion_news_bot",
@@ -422,8 +442,8 @@
     },
     {
       "id": "maker",
-      "title": "Maker & Hardware",
-      "description": "Additive Fertigung und Hardware-Praxis – Prozesse, Maschinen, Material.",
+      "title": "Maker",
+      "description": "",
       "bots": [
         {
           "id": "additive_manufacturing_bot",
