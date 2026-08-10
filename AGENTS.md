@@ -25,6 +25,8 @@ Analytics (Phase 4): optional Plausible Analytics, off by default. Toggle via `j
 
 Booking is email-first (`mailto:` with templates) with stated 1–2 business day response — no Cal.com required. Split landing: `erstgespraech.html` (Privat vs. KMU). Merchant packages live on `haendler.html`; mentoring modules on `bitcoin-beratung-und-coaching.html`. Articles end with related links + coaching CTA. **Ansprache:** Bildung & Mentoring = **du**; Händler/KMU = **Sie** (siehe Impressum).
 
+**Typografie:** Kein Gedankenstrich (`—`) in Überschriften und Marketing-Fliesstext (wirkt KI-typisch). Stattdessen Punkt, Komma, Doppelpunkt oder neuer Satz. En-Dash in Zahlenbereichen (`1–2 Werktagen`) bleibt ok. Komposita mit Bindestrich (`Lightning-Kasse`) bleiben.
+
 **Fallstudien** (`fallstudien.html`, `case-*.html`) are **illustrative scenarios**, not anonymized real client cases — keep that wording; do not reintroduce “echte Mentoring-Fälle” / fake testimonials.
 
 Learning paths: `lernpfade.html` (Beginner → Deep Dive). Wissen supports category + level filters. Glossar is the term hub; Empfehlungen lists tools/podcasts/meetups with affiliate disclosure.
