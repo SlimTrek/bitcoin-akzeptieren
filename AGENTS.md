@@ -25,6 +25,8 @@ Analytics (Phase 4): optional Plausible Analytics, off by default. Toggle via `j
 
 Booking is email-first (`mailto:` with templates) with stated 1–2 business day response — no Cal.com required. Split landing: `erstgespraech.html` (Privat vs. KMU). Merchant packages live on `haendler.html`; mentoring modules on `bitcoin-beratung-und-coaching.html`. Articles end with related links + coaching CTA. **Ansprache:** Bildung & Mentoring = **du**; Händler/KMU = **Sie** (siehe Impressum).
 
+**Markt / Positionierung (Händler):** Nische wie spezialisierte Bitcoin-Agentur (BTCPay-POS, Setup, Support), aber **klar Schweiz**: CHF, IBAN, Schweizer KMU, Region Zürich/Obersee, lokaler Support. Auf `haendler.html` / Startseite spürbar machen (nicht generisch DACH/EU).
+
 **Typografie:** Kein Gedankenstrich (`—`) in Überschriften und Marketing-Fliesstext (wirkt KI-typisch). Stattdessen Punkt, Komma, Doppelpunkt oder neuer Satz. En-Dash in Zahlenbereichen (`1–2 Werktagen`) bleibt ok. Komposita mit Bindestrich (`Lightning-Kasse`) bleiben.
 
 **Fallstudien** (`fallstudien.html`, `case-*.html`) are **illustrative scenarios**, not anonymized real client cases — keep that wording; do not reintroduce “echte Mentoring-Fälle” / fake testimonials.
