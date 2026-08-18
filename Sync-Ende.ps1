@@ -67,6 +67,23 @@ Write-Host "Ordner: $repoRoot"
 Write-Host "Geraet: $env:COMPUTERNAME"
 Write-Host ""
 
+# Automatische Vorab-Prüfungen & Build-Schritte
+if (Get-Command python -ErrorAction SilentlyContinue) {
+    Write-Host "Aktualisiere Suchindex..." -ForegroundColor DarkCyan
+    & python tools/build_search_index.py
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "Warnung: Suchindex konnte nicht aktualisiert werden." -ForegroundColor Yellow
+    }
+
+    Write-Host "Validiere SVG-Assets..." -ForegroundColor DarkCyan
+    & python tools/validate_assets.py
+    if ($LASTEXITCODE -ne 0) {
+        Write-Host "FEHLER bei SVG-Asset-Validierung. Commit abgebrochen." -ForegroundColor Red
+        exit $LASTEXITCODE
+    }
+    Write-Host ""
+}
+
 git add -A
 $pending = @(git status --porcelain)
 if ($pending.Count -eq 0) {

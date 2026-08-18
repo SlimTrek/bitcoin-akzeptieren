@@ -2,6 +2,7 @@
 """Build js/search-index.json from HTML pages (run from website root)."""
 from __future__ import annotations
 
+import datetime
 import html
 import json
 import re
@@ -162,7 +163,7 @@ def main() -> None:
     ]
     out = {
         "version": 1,
-        "generated": "2026-08-03",
+        "generated": datetime.date.today().isoformat(),
         "placeholders": placeholders,
         "entries": entries,
     }

@@ -17,6 +17,7 @@
     <meta name="twitter:title" content="Sats Rechner – CHF zu Bitcoin Converter">
     <meta name="twitter:description" content="Rechne Schweizer Franken (CHF) in Satoshis (Sats) um. Der einfache Bitcoin Rechner.">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.webmanifest">
 
 <link rel="stylesheet" href="/css/site.css">
     <style>
@@ -206,25 +207,83 @@
 
     <script>
         let btcPrice = 0;
-        async function init() {
+        const CACHE_KEY_PRICE = 'btc_chf_price';
+        const CACHE_KEY_TIME = 'btc_chf_timestamp';
+
+        function formatTimestamp(ts) {
             try {
-                const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=chf');
-                const data = await res.json();
-                btcPrice = data.bitcoin.chf;
-                document.getElementById('btcPrice').innerText = new Intl.NumberFormat('de-CH').format(btcPrice);
-                convertFromCHF();
+                const d = new Date(ts);
+                return d.toLocaleDateString('de-CH', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
             } catch (e) {
-                console.log(e); btcPrice = 85000; document.getElementById('btcPrice').innerText = "~ 85'000 (Offline)"; convertFromCHF();
+                return '';
             }
         }
+
+        async function init() {
+            const cachedPrice = parseFloat(localStorage.getItem(CACHE_KEY_PRICE));
+            const cachedTime = parseInt(localStorage.getItem(CACHE_KEY_TIME), 10);
+            const rateInfoEl = document.querySelector('.rate-info');
+            const btcPriceEl = document.getElementById('btcPrice');
+
+            if (Number.isFinite(cachedPrice) && cachedPrice > 0) {
+                btcPrice = cachedPrice;
+                const timeStr = cachedTime ? ' (Stand ' + formatTimestamp(cachedTime) + ')' : '';
+                if (btcPriceEl) btcPriceEl.innerText = new Intl.NumberFormat('de-CH').format(btcPrice);
+                if (rateInfoEl) rateInfoEl.innerHTML = 'Kurs: 1 Bitcoin = <span id="btcPrice">' + new Intl.NumberFormat('de-CH').format(btcPrice) + '</span> CHF' + timeStr;
+                convertFromCHF();
+            }
+
+            try {
+                const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=chf');
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                const data = await res.json();
+                if (data && data.bitcoin && data.bitcoin.chf) {
+                    btcPrice = data.bitcoin.chf;
+                    const now = Date.now();
+                    try {
+                        localStorage.setItem(CACHE_KEY_PRICE, String(btcPrice));
+                        localStorage.setItem(CACHE_KEY_TIME, String(now));
+                    } catch (e) {}
+                    if (rateInfoEl) {
+                        rateInfoEl.innerHTML = 'Aktueller Live-Kurs: 1 Bitcoin = <span id="btcPrice">' + new Intl.NumberFormat('de-CH').format(btcPrice) + '</span> CHF';
+                    }
+                    convertFromCHF();
+                    return;
+                }
+                throw new Error('Ungültige API-Antwort');
+            } catch (e) {
+                console.warn('Live-Kurs konnte nicht geladen werden, nutze Fallback/Cache:', e);
+                if (Number.isFinite(cachedPrice) && cachedPrice > 0) {
+                    btcPrice = cachedPrice;
+                    const timeStr = cachedTime ? ' (gespeichert vom ' + formatTimestamp(cachedTime) + ')' : ' (gespeichert)';
+                    if (rateInfoEl) {
+                        rateInfoEl.innerHTML = 'Kurs: 1 Bitcoin = <span id="btcPrice">' + new Intl.NumberFormat('de-CH').format(btcPrice) + '</span> CHF <small style="display:block;margin-top:4px;color:var(--text-muted);">' + timeStr + ' · Live-Update offline</small>';
+                    }
+                } else {
+                    btcPrice = 85000;
+                    if (rateInfoEl) {
+                        rateInfoEl.innerHTML = 'Kurs: 1 Bitcoin = <span id="btcPrice">~ 85\'000</span> CHF <small style="display:block;margin-top:4px;color:var(--text-muted);">(Offline-Schätzung)</small>';
+                    }
+                }
+                convertFromCHF();
+            }
+        }
+
         function convertFromCHF() {
-            if(btcPrice === 0) return;
-            const chf = parseFloat(document.getElementById('chfInput').value) || 0;
+            if (!btcPrice || btcPrice <= 0) return;
+            const inputVal = document.getElementById('chfInput').value;
+            const chf = parseFloat(inputVal);
+            if (!Number.isFinite(chf) || chf < 0) {
+                document.getElementById('satsInput').value = '0';
+                document.getElementById('btcAmount').innerText = '0.00000000';
+                return;
+            }
             const rawBtc = chf / btcPrice;
             const sats = rawBtc * 100000000;
             document.getElementById('satsInput').value = new Intl.NumberFormat('de-CH').format(Math.round(sats));
             document.getElementById('btcAmount').innerText = rawBtc.toFixed(8);
         }
+
         init();
     </script>
 </body>

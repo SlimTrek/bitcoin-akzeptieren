@@ -1,0 +1,18 @@
+{
+  "name": "Bitcoin Akzeptieren Schweiz",
+  "short_name": "Bitcoin CH",
+  "description": "Bitcoin & Lightning in der Schweiz: Rechner, Fachwissen, Mentoring und KMU-Akzeptanzstellen.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#f7931a",
+  "lang": "de-CH",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
